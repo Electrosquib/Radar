@@ -1,0 +1,7 @@
+clang++ main.cpp -o main \
+-I/opt/homebrew/include \
+-L/opt/homebrew/lib \
+-std=c++17 \
+-stdlib=libc++ \
+-luhd \
+-lboost_program_options

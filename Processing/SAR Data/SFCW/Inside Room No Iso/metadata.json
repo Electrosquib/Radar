@@ -1,0 +1,373 @@
+{
+  "scene_title": "Inside Room No Iso",
+  "status": "completed",
+  "session": {
+    "started_at": "2026-07-29T18:11:49.845259-10:00",
+    "stopped_at": "2026-07-29T18:23:54.437334-10:00",
+    "elapsed_seconds": 724.592075,
+    "active_scan_seconds": 605.2496638337616
+  },
+  "scan_count": 40,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Inside Room No Iso - Position 01",
+      "position_inches": -1.5,
+      "position_meters": -0.038099999999999995,
+      "started_at": "2026-07-29T18:12:16.585653-10:00",
+      "stopped_at": "2026-07-29T18:12:26.544762-10:00",
+      "duration_seconds": 9.959529458079487
+    },
+    {
+      "scan_index": 1,
+      "name": "Inside Room No Iso - Position 02",
+      "position_inches": -3.0,
+      "position_meters": -0.07619999999999999,
+      "started_at": "2026-07-29T18:12:27.845290-10:00",
+      "stopped_at": "2026-07-29T18:12:37.955717-10:00",
+      "duration_seconds": 10.110916290897876
+    },
+    {
+      "scan_index": 2,
+      "name": "Inside Room No Iso - Position 03",
+      "position_inches": -4.5,
+      "position_meters": -0.1143,
+      "started_at": "2026-07-29T18:12:39.226831-10:00",
+      "stopped_at": "2026-07-29T18:12:49.764663-10:00",
+      "duration_seconds": 10.53958170907572
+    },
+    {
+      "scan_index": 3,
+      "name": "Inside Room No Iso - Position 04",
+      "position_inches": -6.0,
+      "position_meters": -0.15239999999999998,
+      "started_at": "2026-07-29T18:12:51.143673-10:00",
+      "stopped_at": "2026-07-29T18:13:07.731861-10:00",
+      "duration_seconds": 16.58872945792973
+    },
+    {
+      "scan_index": 4,
+      "name": "Inside Room No Iso - Position 05",
+      "position_inches": -7.5,
+      "position_meters": -0.1905,
+      "started_at": "2026-07-29T18:13:09.588041-10:00",
+      "stopped_at": "2026-07-29T18:13:26.174946-10:00",
+      "duration_seconds": 16.587841416010633
+    },
+    {
+      "scan_index": 5,
+      "name": "Inside Room No Iso - Position 06",
+      "position_inches": -9.0,
+      "position_meters": -0.2286,
+      "started_at": "2026-07-29T18:13:28.069509-10:00",
+      "stopped_at": "2026-07-29T18:13:44.638419-10:00",
+      "duration_seconds": 16.569542875047773
+    },
+    {
+      "scan_index": 6,
+      "name": "Inside Room No Iso - Position 07",
+      "position_inches": -10.5,
+      "position_meters": -0.2667,
+      "started_at": "2026-07-29T18:13:46.422486-10:00",
+      "stopped_at": "2026-07-29T18:14:02.479677-10:00",
+      "duration_seconds": 16.058054707944393
+    },
+    {
+      "scan_index": 7,
+      "name": "Inside Room No Iso - Position 08",
+      "position_inches": -12.0,
+      "position_meters": -0.30479999999999996,
+      "started_at": "2026-07-29T18:14:04.420631-10:00",
+      "stopped_at": "2026-07-29T18:14:22.091678-10:00",
+      "duration_seconds": 17.61494083283469
+    },
+    {
+      "scan_index": 8,
+      "name": "Inside Room No Iso - Position 09",
+      "position_inches": -13.5,
+      "position_meters": -0.3429,
+      "started_at": "2026-07-29T18:14:23.848234-10:00",
+      "stopped_at": "2026-07-29T18:14:40.113499-10:00",
+      "duration_seconds": 16.265885083004832
+    },
+    {
+      "scan_index": 9,
+      "name": "Inside Room No Iso - Position 10",
+      "position_inches": -15.0,
+      "position_meters": -0.381,
+      "started_at": "2026-07-29T18:14:41.869077-10:00",
+      "stopped_at": "2026-07-29T18:14:58.045638-10:00",
+      "duration_seconds": 16.176493166945875
+    },
+    {
+      "scan_index": 10,
+      "name": "Inside Room No Iso - Position 11",
+      "position_inches": -16.5,
+      "position_meters": -0.4191,
+      "started_at": "2026-07-29T18:14:59.791331-10:00",
+      "stopped_at": "2026-07-29T18:15:16.109194-10:00",
+      "duration_seconds": 16.318429875187576
+    },
+    {
+      "scan_index": 11,
+      "name": "Inside Room No Iso - Position 12",
+      "position_inches": -18.0,
+      "position_meters": -0.4572,
+      "started_at": "2026-07-29T18:15:17.893124-10:00",
+      "stopped_at": "2026-07-29T18:15:31.666983-10:00",
+      "duration_seconds": 13.77440533414483
+    },
+    {
+      "scan_index": 12,
+      "name": "Inside Room No Iso - Position 13",
+      "position_inches": -19.5,
+      "position_meters": -0.49529999999999996,
+      "started_at": "2026-07-29T18:15:33.028554-10:00",
+      "stopped_at": "2026-07-29T18:15:49.706679-10:00",
+      "duration_seconds": 16.678748124977574
+    },
+    {
+      "scan_index": 13,
+      "name": "Inside Room No Iso - Position 14",
+      "position_inches": -21.0,
+      "position_meters": -0.5334,
+      "started_at": "2026-07-29T18:15:51.544500-10:00",
+      "stopped_at": "2026-07-29T18:16:08.120478-10:00",
+      "duration_seconds": 16.576637499965727
+    },
+    {
+      "scan_index": 14,
+      "name": "Inside Room No Iso - Position 15",
+      "position_inches": -22.5,
+      "position_meters": -0.5715,
+      "started_at": "2026-07-29T18:16:09.991468-10:00",
+      "stopped_at": "2026-07-29T18:16:26.726835-10:00",
+      "duration_seconds": 16.735950165893883
+    },
+    {
+      "scan_index": 15,
+      "name": "Inside Room No Iso - Position 16",
+      "position_inches": -24.0,
+      "position_meters": -0.6095999999999999,
+      "started_at": "2026-07-29T18:16:28.532102-10:00",
+      "stopped_at": "2026-07-29T18:16:47.609170-10:00",
+      "duration_seconds": 19.079626500140876
+    },
+    {
+      "scan_index": 16,
+      "name": "Inside Room No Iso - Position 17",
+      "position_inches": -25.5,
+      "position_meters": -0.6476999999999999,
+      "started_at": "2026-07-29T18:16:51.030007-10:00",
+      "stopped_at": "2026-07-29T18:17:09.260726-10:00",
+      "duration_seconds": 18.24146716692485
+    },
+    {
+      "scan_index": 17,
+      "name": "Inside Room No Iso - Position 18",
+      "position_inches": -27.0,
+      "position_meters": -0.6858,
+      "started_at": "2026-07-29T18:17:11.781259-10:00",
+      "stopped_at": "2026-07-29T18:17:28.116180-10:00",
+      "duration_seconds": 16.33541666693054
+    },
+    {
+      "scan_index": 18,
+      "name": "Inside Room No Iso - Position 19",
+      "position_inches": -28.5,
+      "position_meters": -0.7239,
+      "started_at": "2026-07-29T18:17:29.899321-10:00",
+      "stopped_at": "2026-07-29T18:17:46.744428-10:00",
+      "duration_seconds": 16.84568962501362
+    },
+    {
+      "scan_index": 19,
+      "name": "Inside Room No Iso - Position 20",
+      "position_inches": -30.0,
+      "position_meters": -0.762,
+      "started_at": "2026-07-29T18:17:48.566405-10:00",
+      "stopped_at": "2026-07-29T18:18:04.910780-10:00",
+      "duration_seconds": 16.34496279200539
+    },
+    {
+      "scan_index": 20,
+      "name": "Inside Room No Iso - Position 21",
+      "position_inches": -31.5,
+      "position_meters": -0.8000999999999999,
+      "started_at": "2026-07-29T18:18:06.699407-10:00",
+      "stopped_at": "2026-07-29T18:18:23.482013-10:00",
+      "duration_seconds": 16.783409708878025
+    },
+    {
+      "scan_index": 21,
+      "name": "Inside Room No Iso - Position 22",
+      "position_inches": -33.0,
+      "position_meters": -0.8382,
+      "started_at": "2026-07-29T18:18:25.301909-10:00",
+      "stopped_at": "2026-07-29T18:18:42.179441-10:00",
+      "duration_seconds": 16.878395333187655
+    },
+    {
+      "scan_index": 22,
+      "name": "Inside Room No Iso - Position 23",
+      "position_inches": -34.5,
+      "position_meters": -0.8763,
+      "started_at": "2026-07-29T18:18:43.997179-10:00",
+      "stopped_at": "2026-07-29T18:19:01.775103-10:00",
+      "duration_seconds": 17.778720208909363
+    },
+    {
+      "scan_index": 23,
+      "name": "Inside Room No Iso - Position 24",
+      "position_inches": -36.0,
+      "position_meters": -0.9144,
+      "started_at": "2026-07-29T18:19:03.635546-10:00",
+      "stopped_at": "2026-07-29T18:19:21.389252-10:00",
+      "duration_seconds": 17.754446582868695
+    },
+    {
+      "scan_index": 24,
+      "name": "Inside Room No Iso - Position 25",
+      "position_inches": -37.5,
+      "position_meters": -0.9525,
+      "started_at": "2026-07-29T18:19:23.241859-10:00",
+      "stopped_at": "2026-07-29T18:19:38.186084-10:00",
+      "duration_seconds": 14.94479758408852
+    },
+    {
+      "scan_index": 25,
+      "name": "Inside Room No Iso - Position 26",
+      "position_inches": -39.0,
+      "position_meters": -0.9905999999999999,
+      "started_at": "2026-07-29T18:19:39.814543-10:00",
+      "stopped_at": "2026-07-29T18:19:50.717373-10:00",
+      "duration_seconds": 10.903288957895711
+    },
+    {
+      "scan_index": 26,
+      "name": "Inside Room No Iso - Position 27",
+      "position_inches": -40.5,
+      "position_meters": -1.0287,
+      "started_at": "2026-07-29T18:19:52.004506-10:00",
+      "stopped_at": "2026-07-29T18:20:03.205015-10:00",
+      "duration_seconds": 11.193259958876297
+    },
+    {
+      "scan_index": 27,
+      "name": "Inside Room No Iso - Position 28",
+      "position_inches": -42.0,
+      "position_meters": -1.0668,
+      "started_at": "2026-07-29T18:20:04.522350-10:00",
+      "stopped_at": "2026-07-29T18:20:15.469751-10:00",
+      "duration_seconds": 10.947844207985327
+    },
+    {
+      "scan_index": 28,
+      "name": "Inside Room No Iso - Position 29",
+      "position_inches": -43.5,
+      "position_meters": -1.1049,
+      "started_at": "2026-07-29T18:20:16.767478-10:00",
+      "stopped_at": "2026-07-29T18:20:27.616076-10:00",
+      "duration_seconds": 10.849057374987751
+    },
+    {
+      "scan_index": 29,
+      "name": "Inside Room No Iso - Position 30",
+      "position_inches": -45.0,
+      "position_meters": -1.143,
+      "started_at": "2026-07-29T18:20:28.956279-10:00",
+      "stopped_at": "2026-07-29T18:20:39.667867-10:00",
+      "duration_seconds": 10.71296791615896
+    },
+    {
+      "scan_index": 30,
+      "name": "Inside Room No Iso - Position 31",
+      "position_inches": -46.5,
+      "position_meters": -1.1811,
+      "started_at": "2026-07-29T18:20:40.987899-10:00",
+      "stopped_at": "2026-07-29T18:20:51.031908-10:00",
+      "duration_seconds": 10.045454999897629
+    },
+    {
+      "scan_index": 31,
+      "name": "Inside Room No Iso - Position 32",
+      "position_inches": -48.0,
+      "position_meters": -1.2191999999999998,
+      "started_at": "2026-07-29T18:20:52.367281-10:00",
+      "stopped_at": "2026-07-29T18:21:02.446225-10:00",
+      "duration_seconds": 10.080361708067358
+    },
+    {
+      "scan_index": 32,
+      "name": "Inside Room No Iso - Position 33",
+      "position_inches": -49.5,
+      "position_meters": -1.2572999999999999,
+      "started_at": "2026-07-29T18:21:03.797060-10:00",
+      "stopped_at": "2026-07-29T18:21:14.373688-10:00",
+      "duration_seconds": 10.577405541902408
+    },
+    {
+      "scan_index": 33,
+      "name": "Inside Room No Iso - Position 34",
+      "position_inches": -51.0,
+      "position_meters": -1.2953999999999999,
+      "started_at": "2026-07-29T18:21:15.668277-10:00",
+      "stopped_at": "2026-07-29T18:21:32.646025-10:00",
+      "duration_seconds": 16.978434917051345
+    },
+    {
+      "scan_index": 34,
+      "name": "Inside Room No Iso - Position 35",
+      "position_inches": -52.5,
+      "position_meters": -1.3335,
+      "started_at": "2026-07-29T18:21:34.274683-10:00",
+      "stopped_at": "2026-07-29T18:21:48.062827-10:00",
+      "duration_seconds": 13.788636874873191
+    },
+    {
+      "scan_index": 35,
+      "name": "Inside Room No Iso - Position 36",
+      "position_inches": -54.0,
+      "position_meters": -1.3716,
+      "started_at": "2026-07-29T18:21:49.563273-10:00",
+      "stopped_at": "2026-07-29T18:22:18.985375-10:00",
+      "duration_seconds": 29.423226250102744
+    },
+    {
+      "scan_index": 36,
+      "name": "Inside Room No Iso - Position 37",
+      "position_inches": -55.5,
+      "position_meters": -1.4097,
+      "started_at": "2026-07-29T18:22:20.754032-10:00",
+      "stopped_at": "2026-07-29T18:22:38.398581-10:00",
+      "duration_seconds": 17.64521162514575
+    },
+    {
+      "scan_index": 37,
+      "name": "Inside Room No Iso - Position 38",
+      "position_inches": -57.0,
+      "position_meters": -1.4478,
+      "started_at": "2026-07-29T18:22:40.134521-10:00",
+      "stopped_at": "2026-07-29T18:22:57.843234-10:00",
+      "duration_seconds": 17.709430292015895
+    },
+    {
+      "scan_index": 38,
+      "name": "Inside Room No Iso - Position 39",
+      "position_inches": -58.5,
+      "position_meters": -1.4859,
+      "started_at": "2026-07-29T18:22:59.578829-10:00",
+      "stopped_at": "2026-07-29T18:23:13.195924-10:00",
+      "duration_seconds": 13.617529874900356
+    },
+    {
+      "scan_index": 39,
+      "name": "Inside Room No Iso - Position 40",
+      "position_inches": -60.0,
+      "position_meters": -1.524,
+      "started_at": "2026-07-29T18:23:14.969064-10:00",
+      "stopped_at": "2026-07-29T18:23:28.203554-10:00",
+      "duration_seconds": 13.234935167012736
+    }
+  ]
+}

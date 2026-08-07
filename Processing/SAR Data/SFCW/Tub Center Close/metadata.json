@@ -1,0 +1,769 @@
+{
+  "scene_title": "Tub Center Close",
+  "status": "failed",
+  "session": {
+    "started_at": "2026-07-31T13:45:55.109146-10:00",
+    "stopped_at": "2026-07-31T14:01:25.166004-10:00",
+    "elapsed_seconds": 930.056858,
+    "active_scan_seconds": 780.111869833665
+  },
+  "scan_count": 84,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Tub Center Close - Position 01",
+      "position_inches": -0.5,
+      "position_meters": -0.0127,
+      "started_at": "2026-07-31T13:46:38.370141-10:00",
+      "stopped_at": "2026-07-31T13:46:46.942131-10:00",
+      "duration_seconds": 8.572209042031318
+    },
+    {
+      "scan_index": 1,
+      "name": "Tub Center Close - Position 02",
+      "position_inches": -1.0,
+      "position_meters": -0.0254,
+      "started_at": "2026-07-31T13:46:47.859348-10:00",
+      "stopped_at": "2026-07-31T13:46:56.200498-10:00",
+      "duration_seconds": 8.34135524998419
+    },
+    {
+      "scan_index": 2,
+      "name": "Tub Center Close - Position 03",
+      "position_inches": -1.5,
+      "position_meters": -0.038099999999999995,
+      "started_at": "2026-07-31T13:46:57.111112-10:00",
+      "stopped_at": "2026-07-31T13:47:05.307093-10:00",
+      "duration_seconds": 8.196112332865596
+    },
+    {
+      "scan_index": 3,
+      "name": "Tub Center Close - Position 04",
+      "position_inches": -2.0,
+      "position_meters": -0.0508,
+      "started_at": "2026-07-31T13:47:06.220795-10:00",
+      "stopped_at": "2026-07-31T13:47:14.350055-10:00",
+      "duration_seconds": 8.12953104195185
+    },
+    {
+      "scan_index": 4,
+      "name": "Tub Center Close - Position 05",
+      "position_inches": -2.5,
+      "position_meters": -0.0635,
+      "started_at": "2026-07-31T13:47:15.308301-10:00",
+      "stopped_at": "2026-07-31T13:47:29.575056-10:00",
+      "duration_seconds": 14.267141500022262
+    },
+    {
+      "scan_index": 5,
+      "name": "Tub Center Close - Position 06",
+      "position_inches": -3.0,
+      "position_meters": -0.07619999999999999,
+      "started_at": "2026-07-31T13:47:31.047999-10:00",
+      "stopped_at": "2026-07-31T13:47:43.568817-10:00",
+      "duration_seconds": 12.522133374819532
+    },
+    {
+      "scan_index": 6,
+      "name": "Tub Center Close - Position 07",
+      "position_inches": -3.5,
+      "position_meters": -0.08889999999999999,
+      "started_at": "2026-07-31T13:47:44.494082-10:00",
+      "stopped_at": "2026-07-31T13:47:58.510359-10:00",
+      "duration_seconds": 14.018944541923702
+    },
+    {
+      "scan_index": 7,
+      "name": "Tub Center Close - Position 08",
+      "position_inches": -4.0,
+      "position_meters": -0.1016,
+      "started_at": "2026-07-31T13:48:00.306732-10:00",
+      "stopped_at": "2026-07-31T13:48:14.339175-10:00",
+      "duration_seconds": 14.03289504093118
+    },
+    {
+      "scan_index": 8,
+      "name": "Tub Center Close - Position 09",
+      "position_inches": -4.5,
+      "position_meters": -0.1143,
+      "started_at": "2026-07-31T13:48:15.823584-10:00",
+      "stopped_at": "2026-07-31T13:48:29.943128-10:00",
+      "duration_seconds": 14.120085374917835
+    },
+    {
+      "scan_index": 9,
+      "name": "Tub Center Close - Position 10",
+      "position_inches": -5.0,
+      "position_meters": -0.127,
+      "started_at": "2026-07-31T13:48:31.393906-10:00",
+      "stopped_at": "2026-07-31T13:48:45.518169-10:00",
+      "duration_seconds": 14.1246031250339
+    },
+    {
+      "scan_index": 10,
+      "name": "Tub Center Close - Position 11",
+      "position_inches": -5.5,
+      "position_meters": -0.1397,
+      "started_at": "2026-07-31T13:48:46.969148-10:00",
+      "stopped_at": "2026-07-31T13:49:01.202160-10:00",
+      "duration_seconds": 14.233533666003495
+    },
+    {
+      "scan_index": 11,
+      "name": "Tub Center Close - Position 12",
+      "position_inches": -6.0,
+      "position_meters": -0.15239999999999998,
+      "started_at": "2026-07-31T13:49:02.645539-10:00",
+      "stopped_at": "2026-07-31T13:49:15.718137-10:00",
+      "duration_seconds": 13.072862500092015
+    },
+    {
+      "scan_index": 12,
+      "name": "Tub Center Close - Position 13",
+      "position_inches": -6.5,
+      "position_meters": -0.1651,
+      "started_at": "2026-07-31T13:49:16.674375-10:00",
+      "stopped_at": "2026-07-31T13:49:25.216160-10:00",
+      "duration_seconds": 8.542093582917005
+    },
+    {
+      "scan_index": 13,
+      "name": "Tub Center Close - Position 14",
+      "position_inches": -7.0,
+      "position_meters": -0.17779999999999999,
+      "started_at": "2026-07-31T13:49:26.178546-10:00",
+      "stopped_at": "2026-07-31T13:49:34.620984-10:00",
+      "duration_seconds": 8.442545167170465
+    },
+    {
+      "scan_index": 14,
+      "name": "Tub Center Close - Position 15",
+      "position_inches": -7.5,
+      "position_meters": -0.1905,
+      "started_at": "2026-07-31T13:49:35.537371-10:00",
+      "stopped_at": "2026-07-31T13:49:44.011316-10:00",
+      "duration_seconds": 8.474200000055134
+    },
+    {
+      "scan_index": 15,
+      "name": "Tub Center Close - Position 16",
+      "position_inches": -8.0,
+      "position_meters": -0.2032,
+      "started_at": "2026-07-31T13:49:44.909502-10:00",
+      "stopped_at": "2026-07-31T13:49:53.408606-10:00",
+      "duration_seconds": 8.499188666930422
+    },
+    {
+      "scan_index": 16,
+      "name": "Tub Center Close - Position 17",
+      "position_inches": -8.5,
+      "position_meters": -0.21589999999999998,
+      "started_at": "2026-07-31T13:49:54.294182-10:00",
+      "stopped_at": "2026-07-31T13:50:02.769111-10:00",
+      "duration_seconds": 8.475159584078938
+    },
+    {
+      "scan_index": 17,
+      "name": "Tub Center Close - Position 18",
+      "position_inches": -9.0,
+      "position_meters": -0.2286,
+      "started_at": "2026-07-31T13:50:03.683551-10:00",
+      "stopped_at": "2026-07-31T13:50:12.269682-10:00",
+      "duration_seconds": 8.586205458967015
+    },
+    {
+      "scan_index": 18,
+      "name": "Tub Center Close - Position 19",
+      "position_inches": -9.5,
+      "position_meters": -0.2413,
+      "started_at": "2026-07-31T13:50:13.157153-10:00",
+      "stopped_at": "2026-07-31T13:50:21.816448-10:00",
+      "duration_seconds": 8.659554166020826
+    },
+    {
+      "scan_index": 19,
+      "name": "Tub Center Close - Position 20",
+      "position_inches": -10.0,
+      "position_meters": -0.254,
+      "started_at": "2026-07-31T13:50:22.710399-10:00",
+      "stopped_at": "2026-07-31T13:50:31.162923-10:00",
+      "duration_seconds": 8.452635749941692
+    },
+    {
+      "scan_index": 20,
+      "name": "Tub Center Close - Position 21",
+      "position_inches": -10.5,
+      "position_meters": -0.2667,
+      "started_at": "2026-07-31T13:50:32.048914-10:00",
+      "stopped_at": "2026-07-31T13:50:40.652137-10:00",
+      "duration_seconds": 8.603339415974915
+    },
+    {
+      "scan_index": 21,
+      "name": "Tub Center Close - Position 22",
+      "position_inches": -11.0,
+      "position_meters": -0.2794,
+      "started_at": "2026-07-31T13:50:41.542500-10:00",
+      "stopped_at": "2026-07-31T13:50:49.970787-10:00",
+      "duration_seconds": 8.428373124916106
+    },
+    {
+      "scan_index": 22,
+      "name": "Tub Center Close - Position 23",
+      "position_inches": -11.5,
+      "position_meters": -0.29209999999999997,
+      "started_at": "2026-07-31T13:50:50.846852-10:00",
+      "stopped_at": "2026-07-31T13:50:59.400597-10:00",
+      "duration_seconds": 8.553902124986053
+    },
+    {
+      "scan_index": 23,
+      "name": "Tub Center Close - Position 24",
+      "position_inches": -12.0,
+      "position_meters": -0.30479999999999996,
+      "started_at": "2026-07-31T13:51:00.292601-10:00",
+      "stopped_at": "2026-07-31T13:51:08.784102-10:00",
+      "duration_seconds": 8.491597125073895
+    },
+    {
+      "scan_index": 24,
+      "name": "Tub Center Close - Position 25",
+      "position_inches": -12.5,
+      "position_meters": -0.3175,
+      "started_at": "2026-07-31T13:51:09.671421-10:00",
+      "stopped_at": "2026-07-31T13:51:18.150637-10:00",
+      "duration_seconds": 8.479361915960908
+    },
+    {
+      "scan_index": 25,
+      "name": "Tub Center Close - Position 26",
+      "position_inches": -13.0,
+      "position_meters": -0.3302,
+      "started_at": "2026-07-31T13:51:19.048981-10:00",
+      "stopped_at": "2026-07-31T13:51:27.678754-10:00",
+      "duration_seconds": 8.629839709028602
+    },
+    {
+      "scan_index": 26,
+      "name": "Tub Center Close - Position 27",
+      "position_inches": -13.5,
+      "position_meters": -0.3429,
+      "started_at": "2026-07-31T13:51:28.612302-10:00",
+      "stopped_at": "2026-07-31T13:51:36.910724-10:00",
+      "duration_seconds": 8.29863716615364
+    },
+    {
+      "scan_index": 27,
+      "name": "Tub Center Close - Position 28",
+      "position_inches": -14.0,
+      "position_meters": -0.35559999999999997,
+      "started_at": "2026-07-31T13:51:37.827804-10:00",
+      "stopped_at": "2026-07-31T13:51:46.152617-10:00",
+      "duration_seconds": 8.325655999826267
+    },
+    {
+      "scan_index": 28,
+      "name": "Tub Center Close - Position 29",
+      "position_inches": -14.5,
+      "position_meters": -0.36829999999999996,
+      "started_at": "2026-07-31T13:51:47.120325-10:00",
+      "stopped_at": "2026-07-31T13:51:55.117412-10:00",
+      "duration_seconds": 7.997227417072281
+    },
+    {
+      "scan_index": 29,
+      "name": "Tub Center Close - Position 30",
+      "position_inches": -15.0,
+      "position_meters": -0.381,
+      "started_at": "2026-07-31T13:51:56.005526-10:00",
+      "stopped_at": "2026-07-31T13:52:04.479270-10:00",
+      "duration_seconds": 8.473891000030562
+    },
+    {
+      "scan_index": 30,
+      "name": "Tub Center Close - Position 31",
+      "position_inches": -15.5,
+      "position_meters": -0.3937,
+      "started_at": "2026-07-31T13:52:05.374853-10:00",
+      "stopped_at": "2026-07-31T13:52:13.911656-10:00",
+      "duration_seconds": 8.536890958203003
+    },
+    {
+      "scan_index": 31,
+      "name": "Tub Center Close - Position 32",
+      "position_inches": -16.0,
+      "position_meters": -0.4064,
+      "started_at": "2026-07-31T13:52:14.815330-10:00",
+      "stopped_at": "2026-07-31T13:52:23.339552-10:00",
+      "duration_seconds": 8.524461791152135
+    },
+    {
+      "scan_index": 32,
+      "name": "Tub Center Close - Position 33",
+      "position_inches": -16.5,
+      "position_meters": -0.4191,
+      "started_at": "2026-07-31T13:52:24.237860-10:00",
+      "stopped_at": "2026-07-31T13:52:32.687905-10:00",
+      "duration_seconds": 8.450195500161499
+    },
+    {
+      "scan_index": 33,
+      "name": "Tub Center Close - Position 34",
+      "position_inches": -17.0,
+      "position_meters": -0.43179999999999996,
+      "started_at": "2026-07-31T13:52:33.669160-10:00",
+      "stopped_at": "2026-07-31T13:52:41.739735-10:00",
+      "duration_seconds": 8.070741292089224
+    },
+    {
+      "scan_index": 34,
+      "name": "Tub Center Close - Position 35",
+      "position_inches": -17.5,
+      "position_meters": -0.4445,
+      "started_at": "2026-07-31T13:52:42.635692-10:00",
+      "stopped_at": "2026-07-31T13:52:50.538544-10:00",
+      "duration_seconds": 7.902916082879528
+    },
+    {
+      "scan_index": 35,
+      "name": "Tub Center Close - Position 36",
+      "position_inches": -18.0,
+      "position_meters": -0.4572,
+      "started_at": "2026-07-31T13:52:51.507680-10:00",
+      "stopped_at": "2026-07-31T13:52:59.591524-10:00",
+      "duration_seconds": 8.084002250107005
+    },
+    {
+      "scan_index": 36,
+      "name": "Tub Center Close - Position 37",
+      "position_inches": -18.5,
+      "position_meters": -0.4699,
+      "started_at": "2026-07-31T13:53:00.513958-10:00",
+      "stopped_at": "2026-07-31T13:53:08.509455-10:00",
+      "duration_seconds": 7.99565445818007
+    },
+    {
+      "scan_index": 37,
+      "name": "Tub Center Close - Position 38",
+      "position_inches": -19.0,
+      "position_meters": -0.4826,
+      "started_at": "2026-07-31T13:53:09.414406-10:00",
+      "stopped_at": "2026-07-31T13:53:17.320856-10:00",
+      "duration_seconds": 7.906632040860131
+    },
+    {
+      "scan_index": 38,
+      "name": "Tub Center Close - Position 39",
+      "position_inches": -19.5,
+      "position_meters": -0.49529999999999996,
+      "started_at": "2026-07-31T13:53:18.221053-10:00",
+      "stopped_at": "2026-07-31T13:53:26.205783-10:00",
+      "duration_seconds": 7.986439834116027
+    },
+    {
+      "scan_index": 39,
+      "name": "Tub Center Close - Position 40",
+      "position_inches": -20.0,
+      "position_meters": -0.508,
+      "started_at": "2026-07-31T13:53:27.107507-10:00",
+      "stopped_at": "2026-07-31T13:53:35.355478-10:00",
+      "duration_seconds": 8.248281207866967
+    },
+    {
+      "scan_index": 40,
+      "name": "Tub Center Close - Position 41",
+      "position_inches": -20.5,
+      "position_meters": -0.5206999999999999,
+      "started_at": "2026-07-31T13:53:36.272860-10:00",
+      "stopped_at": "2026-07-31T13:53:44.759159-10:00",
+      "duration_seconds": 8.4864555420354
+    },
+    {
+      "scan_index": 41,
+      "name": "Tub Center Close - Position 42",
+      "position_inches": -21.0,
+      "position_meters": -0.5334,
+      "started_at": "2026-07-31T13:53:45.651497-10:00",
+      "stopped_at": "2026-07-31T13:53:54.066128-10:00",
+      "duration_seconds": 8.414705957984552
+    },
+    {
+      "scan_index": 42,
+      "name": "Tub Center Close - Position 43",
+      "position_inches": -21.5,
+      "position_meters": -0.5461,
+      "started_at": "2026-07-31T13:53:54.944213-10:00",
+      "stopped_at": "2026-07-31T13:54:03.470212-10:00",
+      "duration_seconds": 8.526263207895681
+    },
+    {
+      "scan_index": 43,
+      "name": "Tub Center Close - Position 44",
+      "position_inches": -22.0,
+      "position_meters": -0.5588,
+      "started_at": "2026-07-31T13:54:04.375685-10:00",
+      "stopped_at": "2026-07-31T13:54:12.971002-10:00",
+      "duration_seconds": 8.595360249979421
+    },
+    {
+      "scan_index": 44,
+      "name": "Tub Center Close - Position 45",
+      "position_inches": -22.5,
+      "position_meters": -0.5715,
+      "started_at": "2026-07-31T13:54:13.864846-10:00",
+      "stopped_at": "2026-07-31T13:54:22.413188-10:00",
+      "duration_seconds": 8.548509125132114
+    },
+    {
+      "scan_index": 45,
+      "name": "Tub Center Close - Position 46",
+      "position_inches": -23.0,
+      "position_meters": -0.5841999999999999,
+      "started_at": "2026-07-31T13:54:23.313922-10:00",
+      "stopped_at": "2026-07-31T13:54:31.823337-10:00",
+      "duration_seconds": 8.509536541067064
+    },
+    {
+      "scan_index": 46,
+      "name": "Tub Center Close - Position 47",
+      "position_inches": -23.5,
+      "position_meters": -0.5969,
+      "started_at": "2026-07-31T13:54:32.713383-10:00",
+      "stopped_at": "2026-07-31T13:54:41.171263-10:00",
+      "duration_seconds": 8.45799354207702
+    },
+    {
+      "scan_index": 47,
+      "name": "Tub Center Close - Position 48",
+      "position_inches": -24.0,
+      "position_meters": -0.6095999999999999,
+      "started_at": "2026-07-31T13:54:42.058659-10:00",
+      "stopped_at": "2026-07-31T13:54:50.482305-10:00",
+      "duration_seconds": 8.423727750079706
+    },
+    {
+      "scan_index": 48,
+      "name": "Tub Center Close - Position 49",
+      "position_inches": -24.5,
+      "position_meters": -0.6223,
+      "started_at": "2026-07-31T13:54:51.369452-10:00",
+      "stopped_at": "2026-07-31T13:54:59.830888-10:00",
+      "duration_seconds": 8.461632583057508
+    },
+    {
+      "scan_index": 49,
+      "name": "Tub Center Close - Position 50",
+      "position_inches": -25.0,
+      "position_meters": -0.635,
+      "started_at": "2026-07-31T13:55:00.723324-10:00",
+      "stopped_at": "2026-07-31T13:55:09.000211-10:00",
+      "duration_seconds": 8.278244500048459
+    },
+    {
+      "scan_index": 50,
+      "name": "Tub Center Close - Position 51",
+      "position_inches": -25.5,
+      "position_meters": -0.6476999999999999,
+      "started_at": "2026-07-31T13:55:10.013463-10:00",
+      "stopped_at": "2026-07-31T13:55:18.516525-10:00",
+      "duration_seconds": 8.50324312504381
+    },
+    {
+      "scan_index": 51,
+      "name": "Tub Center Close - Position 52",
+      "position_inches": -26.0,
+      "position_meters": -0.6604,
+      "started_at": "2026-07-31T13:55:19.476900-10:00",
+      "stopped_at": "2026-07-31T13:55:27.821146-10:00",
+      "duration_seconds": 8.345306833041832
+    },
+    {
+      "scan_index": 52,
+      "name": "Tub Center Close - Position 53",
+      "position_inches": -26.5,
+      "position_meters": -0.6730999999999999,
+      "started_at": "2026-07-31T13:55:28.777158-10:00",
+      "stopped_at": "2026-07-31T13:55:37.224421-10:00",
+      "duration_seconds": 8.447395500028506
+    },
+    {
+      "scan_index": 53,
+      "name": "Tub Center Close - Position 54",
+      "position_inches": -27.0,
+      "position_meters": -0.6858,
+      "started_at": "2026-07-31T13:55:38.162262-10:00",
+      "stopped_at": "2026-07-31T13:55:46.463025-10:00",
+      "duration_seconds": 8.30106820911169
+    },
+    {
+      "scan_index": 54,
+      "name": "Tub Center Close - Position 55",
+      "position_inches": -27.5,
+      "position_meters": -0.6985,
+      "started_at": "2026-07-31T13:55:47.474532-10:00",
+      "stopped_at": "2026-07-31T13:55:55.796230-10:00",
+      "duration_seconds": 8.321887458208948
+    },
+    {
+      "scan_index": 55,
+      "name": "Tub Center Close - Position 56",
+      "position_inches": -28.0,
+      "position_meters": -0.7111999999999999,
+      "started_at": "2026-07-31T13:55:56.759267-10:00",
+      "stopped_at": "2026-07-31T13:56:05.011533-10:00",
+      "duration_seconds": 8.252711541950703
+    },
+    {
+      "scan_index": 56,
+      "name": "Tub Center Close - Position 57",
+      "position_inches": -28.5,
+      "position_meters": -0.7239,
+      "started_at": "2026-07-31T13:56:05.970554-10:00",
+      "stopped_at": "2026-07-31T13:56:14.373756-10:00",
+      "duration_seconds": 8.403413459192961
+    },
+    {
+      "scan_index": 57,
+      "name": "Tub Center Close - Position 58",
+      "position_inches": -29.0,
+      "position_meters": -0.7365999999999999,
+      "started_at": "2026-07-31T13:56:15.375524-10:00",
+      "stopped_at": "2026-07-31T13:56:25.788578-10:00",
+      "duration_seconds": 10.414548041066155
+    },
+    {
+      "scan_index": 58,
+      "name": "Tub Center Close - Position 59",
+      "position_inches": -29.5,
+      "position_meters": -0.7493,
+      "started_at": "2026-07-31T13:56:27.165135-10:00",
+      "stopped_at": "2026-07-31T13:56:35.694499-10:00",
+      "duration_seconds": 8.52983666700311
+    },
+    {
+      "scan_index": 59,
+      "name": "Tub Center Close - Position 60",
+      "position_inches": -30.0,
+      "position_meters": -0.762,
+      "started_at": "2026-07-31T13:56:36.696328-10:00",
+      "stopped_at": "2026-07-31T13:56:46.026914-10:00",
+      "duration_seconds": 9.331038082949817
+    },
+    {
+      "scan_index": 60,
+      "name": "Tub Center Close - Position 61",
+      "position_inches": -30.5,
+      "position_meters": -0.7746999999999999,
+      "started_at": "2026-07-31T13:56:47.006305-10:00",
+      "stopped_at": "2026-07-31T13:56:55.675452-10:00",
+      "duration_seconds": 8.669538542162627
+    },
+    {
+      "scan_index": 61,
+      "name": "Tub Center Close - Position 62",
+      "position_inches": -31.0,
+      "position_meters": -0.7874,
+      "started_at": "2026-07-31T13:56:56.684171-10:00",
+      "stopped_at": "2026-07-31T13:57:05.212473-10:00",
+      "duration_seconds": 8.528502417029813
+    },
+    {
+      "scan_index": 62,
+      "name": "Tub Center Close - Position 63",
+      "position_inches": -31.5,
+      "position_meters": -0.8000999999999999,
+      "started_at": "2026-07-31T13:57:06.158035-10:00",
+      "stopped_at": "2026-07-31T13:57:14.876563-10:00",
+      "duration_seconds": 8.719872916815802
+    },
+    {
+      "scan_index": 63,
+      "name": "Tub Center Close - Position 64",
+      "position_inches": -32.0,
+      "position_meters": -0.8128,
+      "started_at": "2026-07-31T13:57:15.885647-10:00",
+      "stopped_at": "2026-07-31T13:57:29.396149-10:00",
+      "duration_seconds": 13.510701375082135
+    },
+    {
+      "scan_index": 64,
+      "name": "Tub Center Close - Position 65",
+      "position_inches": -32.5,
+      "position_meters": -0.8255,
+      "started_at": "2026-07-31T13:57:30.886120-10:00",
+      "stopped_at": "2026-07-31T13:57:41.074125-10:00",
+      "duration_seconds": 10.158294708933681
+    },
+    {
+      "scan_index": 65,
+      "name": "Tub Center Close - Position 66",
+      "position_inches": -33.0,
+      "position_meters": -0.8382,
+      "started_at": "2026-07-31T13:57:42.092826-10:00",
+      "stopped_at": "2026-07-31T13:57:50.194489-10:00",
+      "duration_seconds": 8.101899083005264
+    },
+    {
+      "scan_index": 66,
+      "name": "Tub Center Close - Position 67",
+      "position_inches": -33.5,
+      "position_meters": -0.8509,
+      "started_at": "2026-07-31T13:57:51.152994-10:00",
+      "stopped_at": "2026-07-31T13:57:59.894036-10:00",
+      "duration_seconds": 8.741269499994814
+    },
+    {
+      "scan_index": 67,
+      "name": "Tub Center Close - Position 68",
+      "position_inches": -34.0,
+      "position_meters": -0.8635999999999999,
+      "started_at": "2026-07-31T13:58:00.848423-10:00",
+      "stopped_at": "2026-07-31T13:58:09.011059-10:00",
+      "duration_seconds": 8.162945250049233
+    },
+    {
+      "scan_index": 68,
+      "name": "Tub Center Close - Position 69",
+      "position_inches": -34.5,
+      "position_meters": -0.8763,
+      "started_at": "2026-07-31T13:58:09.982252-10:00",
+      "stopped_at": "2026-07-31T13:58:18.264232-10:00",
+      "duration_seconds": 8.282206416828558
+    },
+    {
+      "scan_index": 69,
+      "name": "Tub Center Close - Position 70",
+      "position_inches": -35.0,
+      "position_meters": -0.889,
+      "started_at": "2026-07-31T13:58:19.237576-10:00",
+      "stopped_at": "2026-07-31T13:58:31.763824-10:00",
+      "duration_seconds": 12.526039208984002
+    },
+    {
+      "scan_index": 70,
+      "name": "Tub Center Close - Position 71",
+      "position_inches": -35.5,
+      "position_meters": -0.9017,
+      "started_at": "2026-07-31T13:58:32.767437-10:00",
+      "stopped_at": "2026-07-31T13:58:41.183938-10:00",
+      "duration_seconds": 8.416668666992337
+    },
+    {
+      "scan_index": 71,
+      "name": "Tub Center Close - Position 72",
+      "position_inches": -36.0,
+      "position_meters": -0.9144,
+      "started_at": "2026-07-31T13:58:42.127223-10:00",
+      "stopped_at": "2026-07-31T13:58:50.537622-10:00",
+      "duration_seconds": 8.41259679198265
+    },
+    {
+      "scan_index": 72,
+      "name": "Tub Center Close - Position 73",
+      "position_inches": -36.5,
+      "position_meters": -0.9270999999999999,
+      "started_at": "2026-07-31T13:58:51.566062-10:00",
+      "stopped_at": "2026-07-31T13:58:59.882926-10:00",
+      "duration_seconds": 8.317359207896516
+    },
+    {
+      "scan_index": 73,
+      "name": "Tub Center Close - Position 74",
+      "position_inches": -37.0,
+      "position_meters": -0.9398,
+      "started_at": "2026-07-31T13:59:00.838534-10:00",
+      "stopped_at": "2026-07-31T13:59:09.152660-10:00",
+      "duration_seconds": 8.314243750181049
+    },
+    {
+      "scan_index": 74,
+      "name": "Tub Center Close - Position 75",
+      "position_inches": -37.5,
+      "position_meters": -0.9525,
+      "started_at": "2026-07-31T13:59:10.159720-10:00",
+      "stopped_at": "2026-07-31T13:59:18.708874-10:00",
+      "duration_seconds": 8.549338041106239
+    },
+    {
+      "scan_index": 75,
+      "name": "Tub Center Close - Position 76",
+      "position_inches": -38.0,
+      "position_meters": -0.9652,
+      "started_at": "2026-07-31T13:59:19.658406-10:00",
+      "stopped_at": "2026-07-31T13:59:28.099376-10:00",
+      "duration_seconds": 8.441167667042464
+    },
+    {
+      "scan_index": 76,
+      "name": "Tub Center Close - Position 77",
+      "position_inches": -38.5,
+      "position_meters": -0.9779,
+      "started_at": "2026-07-31T13:59:29.067848-10:00",
+      "stopped_at": "2026-07-31T13:59:37.645540-10:00",
+      "duration_seconds": 8.57783608394675
+    },
+    {
+      "scan_index": 77,
+      "name": "Tub Center Close - Position 78",
+      "position_inches": -39.0,
+      "position_meters": -0.9905999999999999,
+      "started_at": "2026-07-31T13:59:38.611209-10:00",
+      "stopped_at": "2026-07-31T13:59:46.902831-10:00",
+      "duration_seconds": 8.291909916093573
+    },
+    {
+      "scan_index": 78,
+      "name": "Tub Center Close - Position 79",
+      "position_inches": -39.5,
+      "position_meters": -1.0032999999999999,
+      "started_at": "2026-07-31T13:59:47.858821-10:00",
+      "stopped_at": "2026-07-31T13:59:56.336975-10:00",
+      "duration_seconds": 8.478441749932244
+    },
+    {
+      "scan_index": 79,
+      "name": "Tub Center Close - Position 80",
+      "position_inches": -40.0,
+      "position_meters": -1.016,
+      "started_at": "2026-07-31T13:59:57.299105-10:00",
+      "stopped_at": "2026-07-31T14:00:05.709019-10:00",
+      "duration_seconds": 8.410744874970987
+    },
+    {
+      "scan_index": 80,
+      "name": "Tub Center Close - Position 81",
+      "position_inches": -40.5,
+      "position_meters": -1.0287,
+      "started_at": "2026-07-31T14:00:06.674554-10:00",
+      "stopped_at": "2026-07-31T14:00:15.334140-10:00",
+      "duration_seconds": 8.659792541060597
+    },
+    {
+      "scan_index": 81,
+      "name": "Tub Center Close - Position 82",
+      "position_inches": -41.0,
+      "position_meters": -1.0413999999999999,
+      "started_at": "2026-07-31T14:00:16.305762-10:00",
+      "stopped_at": "2026-07-31T14:00:30.365323-10:00",
+      "duration_seconds": 14.059947750065476
+    },
+    {
+      "scan_index": 82,
+      "name": "Tub Center Close - Position 83",
+      "position_inches": -41.5,
+      "position_meters": -1.0541,
+      "started_at": "2026-07-31T14:00:31.772140-10:00",
+      "stopped_at": "2026-07-31T14:00:45.944189-10:00",
+      "duration_seconds": 14.172648542094976
+    },
+    {
+      "scan_index": 83,
+      "name": "Tub Center Close - Position 84",
+      "position_inches": -42.0,
+      "position_meters": -1.0668,
+      "started_at": "2026-07-31T14:00:47.352536-10:00",
+      "stopped_at": "2026-07-31T14:01:01.656063-10:00",
+      "duration_seconds": 14.303997333161533
+    }
+  ]
+}

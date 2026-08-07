@@ -1,0 +1,778 @@
+{
+  "scene_title": "Tub Center Mid",
+  "status": "interrupted",
+  "session": {
+    "started_at": "2026-07-31T14:27:39.870862-10:00",
+    "stopped_at": "2026-07-31T14:45:53.231866-10:00",
+    "elapsed_seconds": 1093.361004,
+    "active_scan_seconds": 878.26679137256
+  },
+  "scan_count": 85,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Tub Center Mid - Position 01",
+      "position_inches": -0.5,
+      "position_meters": -0.0127,
+      "started_at": "2026-07-31T14:28:06.569282-10:00",
+      "stopped_at": "2026-07-31T14:28:15.833194-10:00",
+      "duration_seconds": 9.26409591594711
+    },
+    {
+      "scan_index": 1,
+      "name": "Tub Center Mid - Position 02",
+      "position_inches": -1.0,
+      "position_meters": -0.0254,
+      "started_at": "2026-07-31T14:28:16.912051-10:00",
+      "stopped_at": "2026-07-31T14:28:25.772924-10:00",
+      "duration_seconds": 8.861014249967411
+    },
+    {
+      "scan_index": 2,
+      "name": "Tub Center Mid - Position 03",
+      "position_inches": -1.5,
+      "position_meters": -0.038099999999999995,
+      "started_at": "2026-07-31T14:28:26.736243-10:00",
+      "stopped_at": "2026-07-31T14:28:35.204183-10:00",
+      "duration_seconds": 8.46818183385767
+    },
+    {
+      "scan_index": 3,
+      "name": "Tub Center Mid - Position 04",
+      "position_inches": -2.0,
+      "position_meters": -0.0508,
+      "started_at": "2026-07-31T14:28:36.357307-10:00",
+      "stopped_at": "2026-07-31T14:28:44.734002-10:00",
+      "duration_seconds": 8.376909999875352
+    },
+    {
+      "scan_index": 4,
+      "name": "Tub Center Mid - Position 05",
+      "position_inches": -2.5,
+      "position_meters": -0.0635,
+      "started_at": "2026-07-31T14:28:46.418389-10:00",
+      "stopped_at": "2026-07-31T14:28:54.857246-10:00",
+      "duration_seconds": 8.438808417180553
+    },
+    {
+      "scan_index": 5,
+      "name": "Tub Center Mid - Position 06",
+      "position_inches": -3.0,
+      "position_meters": -0.07619999999999999,
+      "started_at": "2026-07-31T14:28:55.919246-10:00",
+      "stopped_at": "2026-07-31T14:29:04.424363-10:00",
+      "duration_seconds": 8.505363499978557
+    },
+    {
+      "scan_index": 6,
+      "name": "Tub Center Mid - Position 07",
+      "position_inches": -3.5,
+      "position_meters": -0.08889999999999999,
+      "started_at": "2026-07-31T14:29:05.431514-10:00",
+      "stopped_at": "2026-07-31T14:29:14.062837-10:00",
+      "duration_seconds": 8.631528457859531
+    },
+    {
+      "scan_index": 7,
+      "name": "Tub Center Mid - Position 08",
+      "position_inches": -4.0,
+      "position_meters": -0.1016,
+      "started_at": "2026-07-31T14:29:15.085714-10:00",
+      "stopped_at": "2026-07-31T14:29:23.635692-10:00",
+      "duration_seconds": 8.550190333044156
+    },
+    {
+      "scan_index": 8,
+      "name": "Tub Center Mid - Position 09",
+      "position_inches": -4.5,
+      "position_meters": -0.1143,
+      "started_at": "2026-07-31T14:29:24.638049-10:00",
+      "stopped_at": "2026-07-31T14:29:33.115472-10:00",
+      "duration_seconds": 8.477689541876316
+    },
+    {
+      "scan_index": 9,
+      "name": "Tub Center Mid - Position 10",
+      "position_inches": -5.0,
+      "position_meters": -0.127,
+      "started_at": "2026-07-31T14:29:34.161712-10:00",
+      "stopped_at": "2026-07-31T14:29:42.678893-10:00",
+      "duration_seconds": 8.517343083862215
+    },
+    {
+      "scan_index": 10,
+      "name": "Tub Center Mid - Position 11",
+      "position_inches": -5.5,
+      "position_meters": -0.1397,
+      "started_at": "2026-07-31T14:29:43.696112-10:00",
+      "stopped_at": "2026-07-31T14:29:53.165317-10:00",
+      "duration_seconds": 9.469605666818097
+    },
+    {
+      "scan_index": 11,
+      "name": "Tub Center Mid - Position 12",
+      "position_inches": -6.0,
+      "position_meters": -0.15239999999999998,
+      "started_at": "2026-07-31T14:29:54.235679-10:00",
+      "stopped_at": "2026-07-31T14:30:03.117969-10:00",
+      "duration_seconds": 8.882460332941264
+    },
+    {
+      "scan_index": 12,
+      "name": "Tub Center Mid - Position 13",
+      "position_inches": -6.5,
+      "position_meters": -0.1651,
+      "started_at": "2026-07-31T14:30:04.287049-10:00",
+      "stopped_at": "2026-07-31T14:30:12.743485-10:00",
+      "duration_seconds": 8.457177166827023
+    },
+    {
+      "scan_index": 13,
+      "name": "Tub Center Mid - Position 14",
+      "position_inches": -7.0,
+      "position_meters": -0.17779999999999999,
+      "started_at": "2026-07-31T14:30:13.790891-10:00",
+      "stopped_at": "2026-07-31T14:30:22.186348-10:00",
+      "duration_seconds": 8.395832917187363
+    },
+    {
+      "scan_index": 14,
+      "name": "Tub Center Mid - Position 15",
+      "position_inches": -7.5,
+      "position_meters": -0.1905,
+      "started_at": "2026-07-31T14:30:23.602996-10:00",
+      "stopped_at": "2026-07-31T14:30:32.162953-10:00",
+      "duration_seconds": 8.56012887507677
+    },
+    {
+      "scan_index": 15,
+      "name": "Tub Center Mid - Position 16",
+      "position_inches": -8.0,
+      "position_meters": -0.2032,
+      "started_at": "2026-07-31T14:30:33.224056-10:00",
+      "stopped_at": "2026-07-31T14:30:41.713371-10:00",
+      "duration_seconds": 8.489497542148456
+    },
+    {
+      "scan_index": 16,
+      "name": "Tub Center Mid - Position 17",
+      "position_inches": -8.5,
+      "position_meters": -0.21589999999999998,
+      "started_at": "2026-07-31T14:30:42.710053-10:00",
+      "stopped_at": "2026-07-31T14:30:51.011686-10:00",
+      "duration_seconds": 8.301758124958724
+    },
+    {
+      "scan_index": 17,
+      "name": "Tub Center Mid - Position 18",
+      "position_inches": -9.0,
+      "position_meters": -0.2286,
+      "started_at": "2026-07-31T14:30:51.994258-10:00",
+      "stopped_at": "2026-07-31T14:31:00.603898-10:00",
+      "duration_seconds": 8.60980691597797
+    },
+    {
+      "scan_index": 18,
+      "name": "Tub Center Mid - Position 19",
+      "position_inches": -9.5,
+      "position_meters": -0.2413,
+      "started_at": "2026-07-31T14:31:01.614724-10:00",
+      "stopped_at": "2026-07-31T14:31:15.509861-10:00",
+      "duration_seconds": 13.89539087517187
+    },
+    {
+      "scan_index": 19,
+      "name": "Tub Center Mid - Position 20",
+      "position_inches": -10.0,
+      "position_meters": -0.254,
+      "started_at": "2026-07-31T14:31:16.998078-10:00",
+      "stopped_at": "2026-07-31T14:31:31.225358-10:00",
+      "duration_seconds": 14.22775604086928
+    },
+    {
+      "scan_index": 20,
+      "name": "Tub Center Mid - Position 21",
+      "position_inches": -10.5,
+      "position_meters": -0.2667,
+      "started_at": "2026-07-31T14:31:32.687197-10:00",
+      "stopped_at": "2026-07-31T14:31:46.896434-10:00",
+      "duration_seconds": 14.209717917023227
+    },
+    {
+      "scan_index": 21,
+      "name": "Tub Center Mid - Position 22",
+      "position_inches": -11.0,
+      "position_meters": -0.2794,
+      "started_at": "2026-07-31T14:31:48.302298-10:00",
+      "stopped_at": "2026-07-31T14:32:01.351458-10:00",
+      "duration_seconds": 13.049502792069688
+    },
+    {
+      "scan_index": 22,
+      "name": "Tub Center Mid - Position 23",
+      "position_inches": -11.5,
+      "position_meters": -0.29209999999999997,
+      "started_at": "2026-07-31T14:32:02.344089-10:00",
+      "stopped_at": "2026-07-31T14:32:10.663819-10:00",
+      "duration_seconds": 8.319891333114356
+    },
+    {
+      "scan_index": 23,
+      "name": "Tub Center Mid - Position 24",
+      "position_inches": -12.0,
+      "position_meters": -0.30479999999999996,
+      "started_at": "2026-07-31T14:32:11.735574-10:00",
+      "stopped_at": "2026-07-31T14:32:20.292008-10:00",
+      "duration_seconds": 8.556768583133817
+    },
+    {
+      "scan_index": 24,
+      "name": "Tub Center Mid - Position 25",
+      "position_inches": -12.5,
+      "position_meters": -0.3175,
+      "started_at": "2026-07-31T14:32:21.705028-10:00",
+      "stopped_at": "2026-07-31T14:32:30.168129-10:00",
+      "duration_seconds": 8.463619665941224
+    },
+    {
+      "scan_index": 25,
+      "name": "Tub Center Mid - Position 26",
+      "position_inches": -13.0,
+      "position_meters": -0.3302,
+      "started_at": "2026-07-31T14:32:31.202503-10:00",
+      "stopped_at": "2026-07-31T14:32:40.137989-10:00",
+      "duration_seconds": 8.936439167009667
+    },
+    {
+      "scan_index": 26,
+      "name": "Tub Center Mid - Position 27",
+      "position_inches": -13.5,
+      "position_meters": -0.3429,
+      "started_at": "2026-07-31T14:32:41.157851-10:00",
+      "stopped_at": "2026-07-31T14:32:49.693975-10:00",
+      "duration_seconds": 8.536330207949504
+    },
+    {
+      "scan_index": 27,
+      "name": "Tub Center Mid - Position 28",
+      "position_inches": -14.0,
+      "position_meters": -0.35559999999999997,
+      "started_at": "2026-07-31T14:32:50.709297-10:00",
+      "stopped_at": "2026-07-31T14:32:59.667962-10:00",
+      "duration_seconds": 8.959381292108446
+    },
+    {
+      "scan_index": 28,
+      "name": "Tub Center Mid - Position 29",
+      "position_inches": -14.5,
+      "position_meters": -0.36829999999999996,
+      "started_at": "2026-07-31T14:33:00.924954-10:00",
+      "stopped_at": "2026-07-31T14:33:14.285103-10:00",
+      "duration_seconds": 13.360252334037796
+    },
+    {
+      "scan_index": 29,
+      "name": "Tub Center Mid - Position 30",
+      "position_inches": -15.0,
+      "position_meters": -0.381,
+      "started_at": "2026-07-31T14:33:15.900875-10:00",
+      "stopped_at": "2026-07-31T14:33:29.369831-10:00",
+      "duration_seconds": 13.469225750071928
+    },
+    {
+      "scan_index": 30,
+      "name": "Tub Center Mid - Position 31",
+      "position_inches": -15.5,
+      "position_meters": -0.3937,
+      "started_at": "2026-07-31T14:33:30.870446-10:00",
+      "stopped_at": "2026-07-31T14:33:44.281262-10:00",
+      "duration_seconds": 13.411134999943897
+    },
+    {
+      "scan_index": 31,
+      "name": "Tub Center Mid - Position 32",
+      "position_inches": -16.0,
+      "position_meters": -0.4064,
+      "started_at": "2026-07-31T14:33:45.769811-10:00",
+      "stopped_at": "2026-07-31T14:33:58.353171-10:00",
+      "duration_seconds": 12.583692166954279
+    },
+    {
+      "scan_index": 32,
+      "name": "Tub Center Mid - Position 33",
+      "position_inches": -16.5,
+      "position_meters": -0.4191,
+      "started_at": "2026-07-31T14:33:59.388370-10:00",
+      "stopped_at": "2026-07-31T14:34:08.172817-10:00",
+      "duration_seconds": 8.784589124843478
+    },
+    {
+      "scan_index": 33,
+      "name": "Tub Center Mid - Position 34",
+      "position_inches": -17.0,
+      "position_meters": -0.43179999999999996,
+      "started_at": "2026-07-31T14:34:09.270630-10:00",
+      "stopped_at": "2026-07-31T14:34:17.782992-10:00",
+      "duration_seconds": 8.512584540992975
+    },
+    {
+      "scan_index": 34,
+      "name": "Tub Center Mid - Position 35",
+      "position_inches": -17.5,
+      "position_meters": -0.4445,
+      "started_at": "2026-07-31T14:34:18.794884-10:00",
+      "stopped_at": "2026-07-31T14:34:27.258831-10:00",
+      "duration_seconds": 8.464142290875316
+    },
+    {
+      "scan_index": 35,
+      "name": "Tub Center Mid - Position 36",
+      "position_inches": -18.0,
+      "position_meters": -0.4572,
+      "started_at": "2026-07-31T14:34:28.301396-10:00",
+      "stopped_at": "2026-07-31T14:34:36.656517-10:00",
+      "duration_seconds": 8.355302290990949
+    },
+    {
+      "scan_index": 36,
+      "name": "Tub Center Mid - Position 37",
+      "position_inches": -18.5,
+      "position_meters": -0.4699,
+      "started_at": "2026-07-31T14:34:37.647250-10:00",
+      "stopped_at": "2026-07-31T14:34:46.473308-10:00",
+      "duration_seconds": 8.82616850011982
+    },
+    {
+      "scan_index": 37,
+      "name": "Tub Center Mid - Position 38",
+      "position_inches": -19.0,
+      "position_meters": -0.4826,
+      "started_at": "2026-07-31T14:34:47.474572-10:00",
+      "stopped_at": "2026-07-31T14:34:56.147578-10:00",
+      "duration_seconds": 8.672724540811032
+    },
+    {
+      "scan_index": 38,
+      "name": "Tub Center Mid - Position 39",
+      "position_inches": -19.5,
+      "position_meters": -0.49529999999999996,
+      "started_at": "2026-07-31T14:34:57.180906-10:00",
+      "stopped_at": "2026-07-31T14:35:10.336794-10:00",
+      "duration_seconds": 13.156172499991953
+    },
+    {
+      "scan_index": 39,
+      "name": "Tub Center Mid - Position 40",
+      "position_inches": -20.0,
+      "position_meters": -0.508,
+      "started_at": "2026-07-31T14:35:11.852117-10:00",
+      "stopped_at": "2026-07-31T14:35:25.977004-10:00",
+      "duration_seconds": 14.125986750004813
+    },
+    {
+      "scan_index": 40,
+      "name": "Tub Center Mid - Position 41",
+      "position_inches": -20.5,
+      "position_meters": -0.5206999999999999,
+      "started_at": "2026-07-31T14:35:27.934194-10:00",
+      "stopped_at": "2026-07-31T14:35:38.207127-10:00",
+      "duration_seconds": 10.273002125089988
+    },
+    {
+      "scan_index": 41,
+      "name": "Tub Center Mid - Position 42",
+      "position_inches": -21.0,
+      "position_meters": -0.5334,
+      "started_at": "2026-07-31T14:35:39.256797-10:00",
+      "stopped_at": "2026-07-31T14:35:47.885843-10:00",
+      "duration_seconds": 8.6290876660496
+    },
+    {
+      "scan_index": 42,
+      "name": "Tub Center Mid - Position 43",
+      "position_inches": -21.5,
+      "position_meters": -0.5461,
+      "started_at": "2026-07-31T14:35:48.884196-10:00",
+      "stopped_at": "2026-07-31T14:35:57.728144-10:00",
+      "duration_seconds": 8.844004958868027
+    },
+    {
+      "scan_index": 43,
+      "name": "Tub Center Mid - Position 44",
+      "position_inches": -22.0,
+      "position_meters": -0.5588,
+      "started_at": "2026-07-31T14:35:58.745070-10:00",
+      "stopped_at": "2026-07-31T14:36:07.288181-10:00",
+      "duration_seconds": 8.543380624847487
+    },
+    {
+      "scan_index": 44,
+      "name": "Tub Center Mid - Position 45",
+      "position_inches": -22.5,
+      "position_meters": -0.5715,
+      "started_at": "2026-07-31T14:36:08.300926-10:00",
+      "stopped_at": "2026-07-31T14:36:16.881815-10:00",
+      "duration_seconds": 8.581040082965046
+    },
+    {
+      "scan_index": 45,
+      "name": "Tub Center Mid - Position 46",
+      "position_inches": -23.0,
+      "position_meters": -0.5841999999999999,
+      "started_at": "2026-07-31T14:36:17.892544-10:00",
+      "stopped_at": "2026-07-31T14:36:26.498422-10:00",
+      "duration_seconds": 8.605988750001416
+    },
+    {
+      "scan_index": 46,
+      "name": "Tub Center Mid - Position 47",
+      "position_inches": -23.5,
+      "position_meters": -0.5969,
+      "started_at": "2026-07-31T14:36:27.534600-10:00",
+      "stopped_at": "2026-07-31T14:36:36.102695-10:00",
+      "duration_seconds": 8.568348875036463
+    },
+    {
+      "scan_index": 47,
+      "name": "Tub Center Mid - Position 48",
+      "position_inches": -24.0,
+      "position_meters": -0.6095999999999999,
+      "started_at": "2026-07-31T14:36:37.655941-10:00",
+      "stopped_at": "2026-07-31T14:36:46.646798-10:00",
+      "duration_seconds": 8.991566583048552
+    },
+    {
+      "scan_index": 48,
+      "name": "Tub Center Mid - Position 49",
+      "position_inches": -24.5,
+      "position_meters": -0.6223,
+      "started_at": "2026-07-31T14:36:47.933633-10:00",
+      "stopped_at": "2026-07-31T14:36:57.092338-10:00",
+      "duration_seconds": 9.16001862497069
+    },
+    {
+      "scan_index": 49,
+      "name": "Tub Center Mid - Position 50",
+      "position_inches": -25.0,
+      "position_meters": -0.635,
+      "started_at": "2026-07-31T14:36:58.161627-10:00",
+      "stopped_at": "2026-07-31T14:37:06.875469-10:00",
+      "duration_seconds": 8.714240374974906
+    },
+    {
+      "scan_index": 50,
+      "name": "Tub Center Mid - Position 51",
+      "position_inches": -25.5,
+      "position_meters": -0.6476999999999999,
+      "started_at": "2026-07-31T14:37:07.862400-10:00",
+      "stopped_at": "2026-07-31T14:37:16.670157-10:00",
+      "duration_seconds": 8.808081125142053
+    },
+    {
+      "scan_index": 51,
+      "name": "Tub Center Mid - Position 52",
+      "position_inches": -26.0,
+      "position_meters": -0.6604,
+      "started_at": "2026-07-31T14:37:17.682339-10:00",
+      "stopped_at": "2026-07-31T14:37:26.126730-10:00",
+      "duration_seconds": 8.444572291104123
+    },
+    {
+      "scan_index": 52,
+      "name": "Tub Center Mid - Position 53",
+      "position_inches": -26.5,
+      "position_meters": -0.6730999999999999,
+      "started_at": "2026-07-31T14:37:27.135930-10:00",
+      "stopped_at": "2026-07-31T14:37:37.981497-10:00",
+      "duration_seconds": 10.84680874994956
+    },
+    {
+      "scan_index": 53,
+      "name": "Tub Center Mid - Position 54",
+      "position_inches": -27.0,
+      "position_meters": -0.6858,
+      "started_at": "2026-07-31T14:37:39.015860-10:00",
+      "stopped_at": "2026-07-31T14:37:49.115959-10:00",
+      "duration_seconds": 10.100382916163653
+    },
+    {
+      "scan_index": 54,
+      "name": "Tub Center Mid - Position 55",
+      "position_inches": -27.5,
+      "position_meters": -0.6985,
+      "started_at": "2026-07-31T14:37:50.174431-10:00",
+      "stopped_at": "2026-07-31T14:37:58.662497-10:00",
+      "duration_seconds": 8.48965962487273
+    },
+    {
+      "scan_index": 55,
+      "name": "Tub Center Mid - Position 56",
+      "position_inches": -28.0,
+      "position_meters": -0.7111999999999999,
+      "started_at": "2026-07-31T14:37:59.686925-10:00",
+      "stopped_at": "2026-07-31T14:38:08.823731-10:00",
+      "duration_seconds": 9.13706300011836
+    },
+    {
+      "scan_index": 56,
+      "name": "Tub Center Mid - Position 57",
+      "position_inches": -28.5,
+      "position_meters": -0.7239,
+      "started_at": "2026-07-31T14:38:09.879708-10:00",
+      "stopped_at": "2026-07-31T14:38:18.036792-10:00",
+      "duration_seconds": 8.157351208850741
+    },
+    {
+      "scan_index": 57,
+      "name": "Tub Center Mid - Position 58",
+      "position_inches": -29.0,
+      "position_meters": -0.7365999999999999,
+      "started_at": "2026-07-31T14:38:19.043607-10:00",
+      "stopped_at": "2026-07-31T14:38:27.708344-10:00",
+      "duration_seconds": 8.66503854189068
+    },
+    {
+      "scan_index": 58,
+      "name": "Tub Center Mid - Position 59",
+      "position_inches": -29.5,
+      "position_meters": -0.7493,
+      "started_at": "2026-07-31T14:38:28.716858-10:00",
+      "stopped_at": "2026-07-31T14:38:37.035579-10:00",
+      "duration_seconds": 8.31891620811075
+    },
+    {
+      "scan_index": 59,
+      "name": "Tub Center Mid - Position 60",
+      "position_inches": -30.0,
+      "position_meters": -0.762,
+      "started_at": "2026-07-31T14:38:38.047568-10:00",
+      "stopped_at": "2026-07-31T14:38:47.783993-10:00",
+      "duration_seconds": 9.736547500127926
+    },
+    {
+      "scan_index": 60,
+      "name": "Tub Center Mid - Position 61",
+      "position_inches": -30.5,
+      "position_meters": -0.7746999999999999,
+      "started_at": "2026-07-31T14:38:49.197529-10:00",
+      "stopped_at": "2026-07-31T14:38:57.948472-10:00",
+      "duration_seconds": 8.751130917109549
+    },
+    {
+      "scan_index": 61,
+      "name": "Tub Center Mid - Position 62",
+      "position_inches": -31.0,
+      "position_meters": -0.7874,
+      "started_at": "2026-07-31T14:38:58.953511-10:00",
+      "stopped_at": "2026-07-31T14:39:13.965653-10:00",
+      "duration_seconds": 15.014036583947018
+    },
+    {
+      "scan_index": 62,
+      "name": "Tub Center Mid - Position 63",
+      "position_inches": -31.5,
+      "position_meters": -0.8000999999999999,
+      "started_at": "2026-07-31T14:39:15.789139-10:00",
+      "stopped_at": "2026-07-31T14:39:28.691672-10:00",
+      "duration_seconds": 12.891489166999236
+    },
+    {
+      "scan_index": 63,
+      "name": "Tub Center Mid - Position 64",
+      "position_inches": -32.0,
+      "position_meters": -0.8128,
+      "started_at": "2026-07-31T14:39:30.735278-10:00",
+      "stopped_at": "2026-07-31T14:39:43.406421-10:00",
+      "duration_seconds": 12.67136975005269
+    },
+    {
+      "scan_index": 64,
+      "name": "Tub Center Mid - Position 65",
+      "position_inches": -32.5,
+      "position_meters": -0.8255,
+      "started_at": "2026-07-31T14:39:44.844882-10:00",
+      "stopped_at": "2026-07-31T14:39:57.909550-10:00",
+      "duration_seconds": 13.064957750029862
+    },
+    {
+      "scan_index": 65,
+      "name": "Tub Center Mid - Position 66",
+      "position_inches": -33.0,
+      "position_meters": -0.8382,
+      "started_at": "2026-07-31T14:39:59.390232-10:00",
+      "stopped_at": "2026-07-31T14:40:08.525409-10:00",
+      "duration_seconds": 9.135410834103823
+    },
+    {
+      "scan_index": 66,
+      "name": "Tub Center Mid - Position 67",
+      "position_inches": -33.5,
+      "position_meters": -0.8509,
+      "started_at": "2026-07-31T14:40:09.613910-10:00",
+      "stopped_at": "2026-07-31T14:40:20.117222-10:00",
+      "duration_seconds": 10.505070707993582
+    },
+    {
+      "scan_index": 67,
+      "name": "Tub Center Mid - Position 68",
+      "position_inches": -34.0,
+      "position_meters": -0.8635999999999999,
+      "started_at": "2026-07-31T14:40:21.634537-10:00",
+      "stopped_at": "2026-07-31T14:40:30.263318-10:00",
+      "duration_seconds": 8.629054666962475
+    },
+    {
+      "scan_index": 68,
+      "name": "Tub Center Mid - Position 69",
+      "position_inches": -34.5,
+      "position_meters": -0.8763,
+      "started_at": "2026-07-31T14:40:31.321911-10:00",
+      "stopped_at": "2026-07-31T14:40:39.799734-10:00",
+      "duration_seconds": 8.477962374920025
+    },
+    {
+      "scan_index": 69,
+      "name": "Tub Center Mid - Position 70",
+      "position_inches": -35.0,
+      "position_meters": -0.889,
+      "started_at": "2026-07-31T14:40:40.808096-10:00",
+      "stopped_at": "2026-07-31T14:40:49.182521-10:00",
+      "duration_seconds": 8.374559166142717
+    },
+    {
+      "scan_index": 70,
+      "name": "Tub Center Mid - Position 71",
+      "position_inches": -35.5,
+      "position_meters": -0.9017,
+      "started_at": "2026-07-31T14:40:50.191627-10:00",
+      "stopped_at": "2026-07-31T14:40:58.621691-10:00",
+      "duration_seconds": 8.430290417047217
+    },
+    {
+      "scan_index": 71,
+      "name": "Tub Center Mid - Position 72",
+      "position_inches": -36.0,
+      "position_meters": -0.9144,
+      "started_at": "2026-07-31T14:40:59.682673-10:00",
+      "stopped_at": "2026-07-31T14:41:12.841362-10:00",
+      "duration_seconds": 13.160332249943167
+    },
+    {
+      "scan_index": 72,
+      "name": "Tub Center Mid - Position 73",
+      "position_inches": -36.5,
+      "position_meters": -0.9270999999999999,
+      "started_at": "2026-07-31T14:41:14.511880-10:00",
+      "stopped_at": "2026-07-31T14:41:27.601673-10:00",
+      "duration_seconds": 13.090175334131345
+    },
+    {
+      "scan_index": 73,
+      "name": "Tub Center Mid - Position 74",
+      "position_inches": -37.0,
+      "position_meters": -0.9398,
+      "started_at": "2026-07-31T14:41:29.077792-10:00",
+      "stopped_at": "2026-07-31T14:41:43.118897-10:00",
+      "duration_seconds": 14.041508082998917
+    },
+    {
+      "scan_index": 74,
+      "name": "Tub Center Mid - Position 75",
+      "position_inches": -37.5,
+      "position_meters": -0.9525,
+      "started_at": "2026-07-31T14:41:44.608576-10:00",
+      "stopped_at": "2026-07-31T14:41:57.777566-10:00",
+      "duration_seconds": 13.169315832899883
+    },
+    {
+      "scan_index": 75,
+      "name": "Tub Center Mid - Position 76",
+      "position_inches": -38.0,
+      "position_meters": -0.9652,
+      "started_at": "2026-07-31T14:41:59.257169-10:00",
+      "stopped_at": "2026-07-31T14:42:11.631226-10:00",
+      "duration_seconds": 12.374014582950622
+    },
+    {
+      "scan_index": 76,
+      "name": "Tub Center Mid - Position 77",
+      "position_inches": -38.5,
+      "position_meters": -0.9779,
+      "started_at": "2026-07-31T14:42:12.989898-10:00",
+      "stopped_at": "2026-07-31T14:42:26.184920-10:00",
+      "duration_seconds": 13.19521400006488
+    },
+    {
+      "scan_index": 77,
+      "name": "Tub Center Mid - Position 78",
+      "position_inches": -39.0,
+      "position_meters": -0.9905999999999999,
+      "started_at": "2026-07-31T14:42:27.536315-10:00",
+      "stopped_at": "2026-07-31T14:42:41.200019-10:00",
+      "duration_seconds": 13.664036541013047
+    },
+    {
+      "scan_index": 78,
+      "name": "Tub Center Mid - Position 79",
+      "position_inches": -39.5,
+      "position_meters": -1.0032999999999999,
+      "started_at": "2026-07-31T14:42:42.670004-10:00",
+      "stopped_at": "2026-07-31T14:42:56.043159-10:00",
+      "duration_seconds": 13.373584166867658
+    },
+    {
+      "scan_index": 79,
+      "name": "Tub Center Mid - Position 80",
+      "position_inches": -40.0,
+      "position_meters": -1.016,
+      "started_at": "2026-07-31T14:42:57.486359-10:00",
+      "stopped_at": "2026-07-31T14:43:12.596303-10:00",
+      "duration_seconds": 15.112374000018463
+    },
+    {
+      "scan_index": 80,
+      "name": "Tub Center Mid - Position 81",
+      "position_inches": -40.5,
+      "position_meters": -1.0287,
+      "started_at": "2026-07-31T14:43:13.998197-10:00",
+      "stopped_at": "2026-07-31T14:43:27.148855-10:00",
+      "duration_seconds": 13.151460582856089
+    },
+    {
+      "scan_index": 81,
+      "name": "Tub Center Mid - Position 82",
+      "position_inches": -41.0,
+      "position_meters": -1.0413999999999999,
+      "started_at": "2026-07-31T14:43:28.142713-10:00",
+      "stopped_at": "2026-07-31T14:43:41.631880-10:00",
+      "duration_seconds": 13.489603375084698
+    },
+    {
+      "scan_index": 82,
+      "name": "Tub Center Mid - Position 83",
+      "position_inches": -41.5,
+      "position_meters": -1.0541,
+      "started_at": "2026-07-31T14:43:43.040130-10:00",
+      "stopped_at": "2026-07-31T14:43:56.607072-10:00",
+      "duration_seconds": 13.567389791831374
+    },
+    {
+      "scan_index": 83,
+      "name": "Tub Center Mid - Position 84",
+      "position_inches": -42.0,
+      "position_meters": -1.0668,
+      "started_at": "2026-07-31T14:43:58.056843-10:00",
+      "stopped_at": "2026-07-31T14:44:11.409286-10:00",
+      "duration_seconds": 13.352845708141103
+    },
+    {
+      "scan_index": 84,
+      "name": "Tub Center Mid - Position 85",
+      "position_inches": -42.5,
+      "position_meters": -1.0795,
+      "started_at": "2026-07-31T14:44:12.818882-10:00",
+      "stopped_at": "2026-07-31T14:44:26.647141-10:00",
+      "duration_seconds": 13.83033841685392
+    }
+  ]
+}

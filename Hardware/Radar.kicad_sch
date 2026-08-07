@@ -1,0 +1,255 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "b3828884-5f93-47bd-90be-4247fa15b62b")
+	(paper "A4")
+	(lib_symbols)
+	(text "To Do:\nCM4\nAD9363 + Zynq 7020 SDR\nUM980 RTK GNSS\nNVMe SSD\nHDMI?\nUSB-C\nLoRa?"
+		(exclude_from_sim no)
+		(at 14.224 22.098 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "030ebc4c-44a2-4a20-89e3-e6648309fc87")
+	)
+	(sheet
+		(at 169.418 75.946)
+		(size 24.892 26.67)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0171191a-24ea-4c92-a056-3127309075bb")
+		(property "Sheetname" "GNSS"
+			(at 169.418 75.2344 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "GNSS.kicad_sch"
+			(at 169.418 103.2006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Radar"
+				(path "/b3828884-5f93-47bd-90be-4247fa15b62b"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 67.31 76.962)
+		(size 24.384 25.654)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3c3ecea3-3f18-48b6-bd57-ccb5db10a23c")
+		(property "Sheetname" "Compute"
+			(at 67.31 76.2504 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Compute.kicad_sch"
+			(at 67.31 103.2006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Radar"
+				(path "/b3828884-5f93-47bd-90be-4247fa15b62b"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 135.382 76.454)
+		(size 24.384 26.162)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7a63d3b8-27ad-450f-b6ce-b70f8c2f2ca1")
+		(property "Sheetname" "NVMe"
+			(at 135.382 75.7424 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "NVMe.kicad_sch"
+			(at 135.382 103.2006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Radar"
+				(path "/b3828884-5f93-47bd-90be-4247fa15b62b"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 203.2 76.2)
+		(size 24.638 25.908)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7d5ddd8d-9e27-489a-84bd-862c841b9a64")
+		(property "Sheetname" "RF"
+			(at 203.2 75.4884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RF.kicad_sch"
+			(at 203.2 102.6926 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Radar"
+				(path "/b3828884-5f93-47bd-90be-4247fa15b62b"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.346 76.708)
+		(size 23.114 26.162)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "96cdc474-ae73-45bc-88d6-c21d63f3f4fc")
+		(property "Sheetname" "Power"
+			(at 101.346 75.9964 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Power.kicad_sch"
+			(at 101.346 103.4546 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Radar"
+				(path "/b3828884-5f93-47bd-90be-4247fa15b62b"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

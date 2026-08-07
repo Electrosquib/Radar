@@ -1,0 +1,3 @@
+/Users/levifarinas/Documents/SAR Research/GetSamples/build/CMakeFiles/main.dir
+/Users/levifarinas/Documents/SAR Research/GetSamples/build/CMakeFiles/edit_cache.dir
+/Users/levifarinas/Documents/SAR Research/GetSamples/build/CMakeFiles/rebuild_cache.dir

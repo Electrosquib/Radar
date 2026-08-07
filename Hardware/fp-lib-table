@@ -1,0 +1,5 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "7020-AD9363-SDR") (type "KiCad") (uri "/Users/levifarinas/Library/Mobile Documents/com~apple~CloudDocs/KiCad Footprints/7020-AD9363-SDR/7020-AD9363-SDR.pretty") (options "") (descr ""))
+	(lib (name "Library") (type "KiCad") (uri "/Users/levifarinas/Library/Mobile Documents/com~apple~CloudDocs/KiCad Footprints/MAX4146X/Library.pretty") (options "") (descr ""))
+)

@@ -1,0 +1,12 @@
+{
+  "scene_title": "Calibrate",
+  "status": "interrupted",
+  "session": {
+    "started_at": "2026-07-31T14:49:15.642122-10:00",
+    "stopped_at": "2026-07-31T14:50:36.748514-10:00",
+    "elapsed_seconds": 81.106392,
+    "active_scan_seconds": 0.0
+  },
+  "scan_count": 0,
+  "scans": []
+}

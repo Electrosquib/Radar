@@ -2,6 +2,8 @@
 
 Experimental synthetic-aperture radar (SAR) acquisition and processing code. The repository contains an interactive stepped-frequency continuous-wave (SFCW) workflow, reusable backprojection and autofocus algorithms, an FMCW/GNSS processing pipeline, example data, and KiCad hardware files.
 
+Note: On windows you'll need to install the PlutoSDR drivers.
+
 ## Main files
 
 - `Processing/Acquisition/SFCW/SAR.py` — interactive SFCW acquisition, rail control, scan persistence, and image generation

@@ -4,8 +4,6 @@ CALIBRATE = False
 SWEEP_AVERAGES = 4
 HISTORY_LENGTH = 10
 
-
-
 # AI-generated animation code:
 from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
@@ -39,7 +37,6 @@ def update(_):
     radar.sweep_average(SWEEP_AVERAGES)
     # radar.sweep()
     range_axis, rp = radar.get_range_profile(cal=False, plot=False)
-    # range_axis, rp = radar.get_range_profile(cal="/Users/levifarinas/Library/Mobile Documents/com~apple~CloudDocs/Projects/SAR Backprojection/calibration.npy")
     rp_db = 20 * np.log10(np.abs(rp) + 1e-12)
     for history_line, history_profile in zip(history_lines, reversed(profile_history)):
         history_line.set_data(range_axis, history_profile)

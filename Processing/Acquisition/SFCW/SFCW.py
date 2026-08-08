@@ -8,7 +8,7 @@ class SFCWRadar:
     def __init__(self, device_string="usb:", Fmin=600e6, Fmax=1000e6, verbose=True, Fs=20e6):
         self.sdr = adi.ad9361(uri=device_string)
         self.sdr.rx_enabled_channels = [0, 1]
-        self.sdr.tx_enabled_channels = [0]
+        self.sdr.tx_enabled_channels = [0, 1]
 
         self.RX_GAIN = 71
         self.LOOPBACK_GAIN = 71
@@ -22,7 +22,7 @@ class SFCWRadar:
         self.CAPTURE_AVERAGES = 3
         self.Fs = int(Fs)
         self.max_range = self.C / (2 * self.BB_SPACING)
-        self.retune_delay = 0.01
+        self.retune_delay = 100e-6
 
     
         self.verbose = True if verbose else False
@@ -41,7 +41,10 @@ class SFCWRadar:
         self.sdr.gain_control_mode_chan1 = "manual"
         self.sdr.rx_hardwaregain_chan0 = self.LOOPBACK_GAIN
         self.sdr.rx_hardwaregain_chan1 = self.RX_GAIN
+
+        # -89.75–0 dB in 0.25 dB steps
         self.sdr.tx_hardwaregain_chan0 = self.TX_GAIN
+        self.sdr.tx_hardwaregain_chan1 = -37.5
 
         self.FREQS = [int(i) for i in np.arange(self.Fmin, self.Fmax, self.Fs)]
         self.fastlock_profiles = np.array([])
@@ -88,7 +91,8 @@ class SFCWRadar:
                 1j * (2 * np.pi * bb_freq * self.buffer_vector / self.Fs + phase)
             )
         self.tx_buff *= self.BB_GAIN * mag * self.TX_BB_SCALE / self.num_freqs
-        self.sdr.tx(self.tx_buff.astype(np.complex64))
+        self.tx_buff = self.tx_buff.astype(np.complex64)
+        self.sdr.tx([self.tx_buff, self.tx_buff])
         if self.verbose and verbose:
             N = len(self.tx_buff)
             t = np.arange(N) / self.Fs

@@ -20,7 +20,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 import Autofocus
 import Imaging
-import adjust_scan_positions as position_editor
+import Processing.Acquisition.SFCW.AdjustScanPositions as position_editor
 from SFCW import SFCWRadar
 
 RAIL_PORT = "/dev/cu.usbmodem1201"

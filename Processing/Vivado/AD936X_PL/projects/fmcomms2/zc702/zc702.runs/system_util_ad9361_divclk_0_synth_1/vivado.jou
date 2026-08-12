@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Mon May  6 17:14:23 2024
+# Process ID: 8844
+# Current directory: F:/FPGA_Code/MyCore_7020_V3/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/system_util_ad9361_divclk_0_synth_1
+# Command line: vivado.exe -log system_util_ad9361_divclk_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_util_ad9361_divclk_0.tcl
+# Log file: F:/FPGA_Code/MyCore_7020_V3/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/system_util_ad9361_divclk_0_synth_1/system_util_ad9361_divclk_0.vds
+# Journal file: F:/FPGA_Code/MyCore_7020_V3/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/system_util_ad9361_divclk_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source system_util_ad9361_divclk_0.tcl -notrace

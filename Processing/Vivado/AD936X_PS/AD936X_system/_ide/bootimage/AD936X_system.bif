@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]F:/FPGA_Code/MyCore_7020_V3/AD936X_PS/platform/export/platform/sw/platform/boot/fsbl.elf
+	F:/FPGA_Code/MyCore_7020_V3/AD936X_PS/AD936X/_ide/bitstream/system_top.bit
+	F:/FPGA_Code/MyCore_7020_V3/AD936X_PS/AD936X/Release/AD936X.elf
+}

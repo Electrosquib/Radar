@@ -4,3 +4,6 @@ SFCW Improvements:
 - Measure leakage between TX and RX
 - Implement active interference cancellation
 - Cyclic buffer discontinuities (baseband tones should contain integer number of cycles per buffer). 
+
+
+Done:

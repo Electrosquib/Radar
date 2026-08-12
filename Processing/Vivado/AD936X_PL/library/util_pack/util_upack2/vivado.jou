@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Dec 12 22:45:25 2023
+# Process ID: 1464
+# Current directory: F:/FPGA_Code/MyCore_7020_V2/AD936X_PL/library/util_pack/util_upack2
+# Command line: vivado.exe -mode batch -source F:/FPGA_Code/MyCore_7020_V2/AD936X_PL/library/util_pack/util_upack2/util_upack2_ip.tcl
+# Log file: F:/FPGA_Code/MyCore_7020_V2/AD936X_PL/library/util_pack/util_upack2/vivado.log
+# Journal file: F:/FPGA_Code/MyCore_7020_V2/AD936X_PL/library/util_pack/util_upack2\vivado.jou
+#-----------------------------------------------------------
+source F:/FPGA_Code/MyCore_7020_V2/AD936X_PL/library/util_pack/util_upack2/util_upack2_ip.tcl

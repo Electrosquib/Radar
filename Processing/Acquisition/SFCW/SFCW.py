@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 
 class SFCWRadar:
-    def __init__(self, device_string="usb:", Fmin=600e6, Fmax=1000e6, verbose=True, Fs=20e6):
+    def __init__(self, device_string="usb:", Fmin=600e6, Fmax=300e6, verbose=True, Fs=20e6):
         self.sdr = adi.ad9361(uri=device_string)
         self.sdr.rx_enabled_channels = [0, 1]
         self.sdr.tx_enabled_channels = [0, 1]

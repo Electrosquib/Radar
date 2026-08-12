@@ -1,0 +1,447 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_tdd_sync_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_tdd_sync_0 (analog.com:user:util_tdd_sync:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_divclk_sel_concat_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_divclk_sel_concat_0 (xilinx.com:ip:xlconcat:2.1 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_divclk_sel_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_divclk_sel_0 (xilinx.com:ip:util_reduced_logic:2.0 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_divclk_reset_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_divclk_reset_0 (xilinx.com:ip:proc_sys_reset:5.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_divclk_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_divclk_0 (analog.com:user:util_clkdiv:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_dac_upack_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_dac_upack_0 (analog.com:user:util_upack2:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_adc_pack_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_adc_pack_0 (analog.com:user:util_cpack2:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_util_ad9361_adc_fifo_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_util_ad9361_adc_fifo_0 (analog.com:user:util_wfifo:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_sys_rstgen_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_sys_rstgen_0 (xilinx.com:ip:proc_sys_reset:5.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_sys_ps7_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_sys_ps7_0 (xilinx.com:ip:processing_system7:5.5 (Rev. 6)) to Vivado generation flows.
+
+2. Upgrade messages
+-------------------
+
+WARNING: upgrade cannot add parameter PCW_TRACE_INTERNAL_WIDTH with default value 32 : a parameter called PCW_TRACE_INTERNAL_WIDTH already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_USE_AXI_NONSECURE with default value 0 : a parameter called PCW_USE_AXI_NONSECURE already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP0_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP0_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP1_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP1_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP0_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP1_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_sys_concat_intc_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_sys_concat_intc_0 (xilinx.com:ip:xlconcat:2.1 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_sys_200m_rstgen_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_sys_200m_rstgen_0 (xilinx.com:ip:proc_sys_reset:5.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_hp2_interconnect_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_hp2_interconnect_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 16)) to Vivado generation flows.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection and Interface Information
+---------------------------------------
+
+Connection and Interface information can not be compared for deferred elaboration IPs.
+system_axi_hp2_interconnect_0 may have connection or interface changes.
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_hp1_interconnect_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_hp1_interconnect_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 16)) to Vivado generation flows.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection and Interface Information
+---------------------------------------
+
+Connection and Interface information can not be compared for deferred elaboration IPs.
+system_axi_hp1_interconnect_0 may have connection or interface changes.
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_cpu_interconnect_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_cpu_interconnect_0 (xilinx.com:ip:axi_interconnect:2.1 (Rev. 25)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_ad9361_dac_fifo_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_ad9361_dac_fifo_0 (analog.com:user:util_rfifo:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_ad9361_dac_dma_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_ad9361_dac_dma_0 (analog.com:user:axi_dmac:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_ad9361_adc_dma_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_ad9361_adc_dma_0 (analog.com:user:axi_dmac:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_axi_ad9361_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_axi_ad9361_0 (analog.com:user:axi_ad9361:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon May  6 17:13:46 2024
+| Host         : DESKTOP-EIGR673 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_GND_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of system_GND_1_0 (xilinx.com:ip:xlconstant:1.1 (Rev. 7)) to Vivado generation flows.
+

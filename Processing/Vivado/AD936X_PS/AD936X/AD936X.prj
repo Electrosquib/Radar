@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="AD936X" location="F:/FPGA_Code/MyCore_7020_V2/AD936X_PS/AD936X" platform="F:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/platform.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="AD936X_system" sysConfig="platform" runtime="cpp" cpu="standalone_domain" cpuInstance="ps7_cortexa9_0" os="standalone" dimmRepoPath="" mssSignature="4dca12ed6e33a440a4295e4f45b5156c">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.64688920" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.834276912">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

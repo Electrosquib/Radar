@@ -1,5 +1,9 @@
 # Radar
 
+Vivado project path: Processing\Vivado\AD936X_PL\projects\fmcomms2\zc702\zc702.xpr
+Hardware Github: https://github.com/OpenSourceSDRLab/PlutoSky_7020_AD936X_SDR
+
+
 Experimental synthetic-aperture radar (SAR) acquisition and processing code. The repository contains an interactive stepped-frequency continuous-wave (SFCW) workflow, reusable backprojection and autofocus algorithms, an FMCW/GNSS processing pipeline, example data, and KiCad hardware files.
 
 Note: On windows you'll need to install the PlutoSDR drivers.

@@ -1,0 +1,4 @@
+{
+    "C_Cpp.default.compilerPath": "c:\\Program Files\\Arm\\GNU Toolchain mingw-w64-x86_64-arm-none-linux-gnueabihf\\bin\\arm-none-linux-gnueabihf-gcc.exe",
+    "git.ignoreLimitWarning": true
+}

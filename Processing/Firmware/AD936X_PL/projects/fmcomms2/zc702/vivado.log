@@ -1,0 +1,451 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 12-aug-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Wed Aug 12 15:12:44 2026
+# Process ID         : 26888
+# Current directory  : C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent27424 C:\Users\Levi Farinas\Documents\GitHub\Radar\Processing\Vivado\AD936X_PL\projects\fmcomms2\zc702\zc702.xpr
+# Log file           : C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/vivado.log
+# Journal file       : C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702\vivado.jou
+# Running On         : LevisPC
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 7 5700X 8-Core Processor             
+# CPU Frequency      : 3394 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 34278 MB
+# Swap memory        : 5368 MB
+# Total Virtual      : 39647 MB
+# Available Virtual  : 24027 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.xpr}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702'
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/MyCore_7010_V3/AD936X_PL/library'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/MyCore_7010_V3/ghdl/library'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/MyCore_7010_V3/AD936X_PL/library'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/MyCore_7010_V3/ghdl/library'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'system.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+system_axi_ad9361_adc_dma_0
+system_axi_ad9361_dac_fifo_0
+system_sys_rstgen_0
+system_GND_1_0
+system_axi_ad9361_0
+system_axi_ad9361_dac_dma_0
+system_auto_pc_0
+system_util_ad9361_divclk_0
+system_xbar_0
+system_auto_pc_3
+system_auto_pc_1
+system_auto_pc_2
+system_axi_cpu_interconnect_0
+system_axi_hp1_interconnect_0
+system_util_ad9361_tdd_sync_0
+system_axi_hp2_interconnect_0
+system_sys_200m_rstgen_0
+system_sys_concat_intc_0
+system_sys_ps7_0
+system_util_ad9361_adc_fifo_0
+system_util_ad9361_adc_pack_0
+system_util_ad9361_dac_upack_0
+system_util_ad9361_divclk_reset_0
+system_util_ad9361_divclk_sel_0
+system_util_ad9361_divclk_sel_concat_0
+
+INFO: [Project 1-5698] Found the below utility IPs instantiated in block design C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/sources_1/bd/system/system.bd which have equivalent inline hdl with improved performance and reduced diskspace.
+It is recommended to migrate these utility IPs to inline hdl  using the command upgrade_project -migrate_to_inline_hdl.  The utility IPs may be deprecated in future releases.
+More information on inline hdl is available in UG994.
+Utility IP Component Instances:
+ system_GND_1_0
+system_sys_concat_intc_0
+system_util_ad9361_divclk_sel_0
+system_util_ad9361_divclk_sel_concat_0
+open_project: Time (s): cpu = 00:00:32 ; elapsed = 00:00:15 . Memory (MB): peak = 1844.066 ; gain = 414.402
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Aug 12 15:25:37 2026] Launched synth_1...
+Run output will be captured here: C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-2
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-5699] Read binary netlist with skipMacroContent - 1
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_0/system_axi_ad9361_0.dcp' for cell 'i_system_wrapper/system_i/axi_ad9361'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0.dcp' for cell 'i_system_wrapper/system_i/axi_ad9361_adc_dma'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_dac_dma_0/system_axi_ad9361_dac_dma_0.dcp' for cell 'i_system_wrapper/system_i/axi_ad9361_dac_dma'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_dac_fifo_0/system_axi_ad9361_dac_fifo_0.dcp' for cell 'i_system_wrapper/system_i/axi_ad9361_dac_fifo'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp1_interconnect_0/system_axi_hp1_interconnect_0.dcp' for cell 'i_system_wrapper/system_i/axi_hp1_interconnect'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/system_axi_hp2_interconnect_0.dcp' for cell 'i_system_wrapper/system_i/axi_hp2_interconnect'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0.dcp' for cell 'i_system_wrapper/system_i/sys_200m_rstgen'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_ps7_0/system_sys_ps7_0.dcp' for cell 'i_system_wrapper/system_i/sys_ps7'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_rstgen_0/system_sys_rstgen_0.dcp' for cell 'i_system_wrapper/system_i/sys_rstgen'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_adc_fifo_0/system_util_ad9361_adc_fifo_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_adc_fifo'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_adc_pack_0/system_util_ad9361_adc_pack_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_adc_pack'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_dac_upack_0/system_util_ad9361_dac_upack_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_dac_upack'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_0/system_util_ad9361_divclk_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_divclk'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_reset_0/system_util_ad9361_divclk_reset_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_divclk_reset'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_sel_0/system_util_ad9361_divclk_sel_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_divclk_sel'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_tdd_sync_0/system_util_ad9361_tdd_sync_0.dcp' for cell 'i_system_wrapper/system_i/util_ad9361_tdd_sync'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0.dcp' for cell 'i_system_wrapper/system_i/axi_cpu_interconnect/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0.dcp' for cell 'i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1.dcp' for cell 'i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_auto_pc_2/system_auto_pc_2.dcp' for cell 'i_system_wrapper/system_i/axi_cpu_interconnect/m08_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_auto_pc_3/system_auto_pc_3.dcp' for cell 'i_system_wrapper/system_i/axi_cpu_interconnect/s00_couplers/auto_pc'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.268 . Memory (MB): peak = 2122.262 ; gain = 3.578
+INFO: [Netlist 29-17] Analyzing 2028 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/up_xfer_cntrl_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/up_xfer_cntrl_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/ad_rst_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/ad_rst_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/up_xfer_status_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/up_xfer_status_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/up_clock_mon_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/xilinx/common/up_clock_mon_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_0/axi_ad9361_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_0/axi_ad9361_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_dac_fifo_0/util_rfifo_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361_dac_fifo/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_dac_fifo_0/util_rfifo_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361_dac_fifo/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp1_interconnect_0/bd_0/ip/ip_1/bd_31bd_psr_aclk_0_board.xdc] for cell 'i_system_wrapper/system_i/axi_hp1_interconnect/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp1_interconnect_0/bd_0/ip/ip_1/bd_31bd_psr_aclk_0_board.xdc] for cell 'i_system_wrapper/system_i/axi_hp1_interconnect/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp1_interconnect_0/bd_0/ip/ip_1/bd_31bd_psr_aclk_0.xdc] for cell 'i_system_wrapper/system_i/axi_hp1_interconnect/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp1_interconnect_0/bd_0/ip/ip_1/bd_31bd_psr_aclk_0.xdc] for cell 'i_system_wrapper/system_i/axi_hp1_interconnect/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_1/bd_c0fd_psr_aclk_0_board.xdc] for cell 'i_system_wrapper/system_i/axi_hp2_interconnect/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_1/bd_c0fd_psr_aclk_0_board.xdc] for cell 'i_system_wrapper/system_i/axi_hp2_interconnect/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_1/bd_c0fd_psr_aclk_0.xdc] for cell 'i_system_wrapper/system_i/axi_hp2_interconnect/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_1/bd_c0fd_psr_aclk_0.xdc] for cell 'i_system_wrapper/system_i/axi_hp2_interconnect/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0_board.xdc] for cell 'i_system_wrapper/system_i/sys_200m_rstgen/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0_board.xdc] for cell 'i_system_wrapper/system_i/sys_200m_rstgen/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0.xdc] for cell 'i_system_wrapper/system_i/sys_200m_rstgen/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0.xdc] for cell 'i_system_wrapper/system_i/sys_200m_rstgen/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_ps7_0/system_sys_ps7_0.xdc] for cell 'i_system_wrapper/system_i/sys_ps7/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_ps7_0/system_sys_ps7_0.xdc] for cell 'i_system_wrapper/system_i/sys_ps7/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_rstgen_0/system_sys_rstgen_0_board.xdc] for cell 'i_system_wrapper/system_i/sys_rstgen/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_rstgen_0/system_sys_rstgen_0_board.xdc] for cell 'i_system_wrapper/system_i/sys_rstgen/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_rstgen_0/system_sys_rstgen_0.xdc] for cell 'i_system_wrapper/system_i/sys_rstgen/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_sys_rstgen_0/system_sys_rstgen_0.xdc] for cell 'i_system_wrapper/system_i/sys_rstgen/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_adc_fifo_0/util_wfifo_constr.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_adc_fifo/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_adc_fifo_0/util_wfifo_constr.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_adc_fifo/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_reset_0/system_util_ad9361_divclk_reset_0_board.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_divclk_reset/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_reset_0/system_util_ad9361_divclk_reset_0_board.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_divclk_reset/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_reset_0/system_util_ad9361_divclk_reset_0.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_divclk_reset/U0'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_reset_0/system_util_ad9361_divclk_reset_0.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_divclk_reset/U0'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_tdd_sync_0/util_tdd_sync_constr.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_tdd_sync/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_tdd_sync_0/util_tdd_sync_constr.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_tdd_sync/inst'
+Parsing XDC File [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/fmcomms2/zc702/system_constr.xdc]
+Finished Parsing XDC File [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/fmcomms2/zc702/system_constr.xdc]
+Parsing XDC File [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc]
+WARNING: [Vivado 12-584] No ports matched 'hdmi_out_clk'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:5]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:5]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_vsync'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_hsync'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:7]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data_e'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[0]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[1]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[2]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[3]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[4]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[5]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[6]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[7]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[8]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[9]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[10]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[11]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[12]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[13]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[14]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'hdmi_data[15]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'spdif'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iic_scl'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iic_scl'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iic_scl'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iic_sda'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iic_sda'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iic_sda'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[0]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:41]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:41]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[1]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:42]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:42]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[2]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:43]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[3]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[4]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[5]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[6]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:47]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio_bd[7]'. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/constrs_1/imports/projects/common/zc702/zc702_system_constr.xdc]
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_0/system_axi_ad9361_0_pps_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_0/system_axi_ad9361_0_pps_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361_adc_dma/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0_constr.xdc:2]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0_constr.xdc:2]
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361_adc_dma/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_dac_dma_0/system_axi_ad9361_dac_dma_0_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361_dac_dma/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_axi_ad9361_dac_dma_0/system_axi_ad9361_dac_dma_0_constr.xdc] for cell 'i_system_wrapper/system_i/axi_ad9361_dac_dma/inst'
+Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_0/util_clkdiv_constr.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_divclk/inst'
+Finished Parsing XDC File [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_0/util_clkdiv_constr.xdc] for cell 'i_system_wrapper/system_i/util_ad9361_divclk/inst'
+INFO: [Project 1-1714] 23 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 2898.254 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 96 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 15 instances
+  OBUFDS => OBUFDS: 8 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 61 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 6 instances
+
+open_run: Time (s): cpu = 00:00:42 ; elapsed = 00:00:36 . Memory (MB): peak = 3454.379 ; gain = 1532.496
+launch_runs impl_1 -jobs 8
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.074 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Wrote PlaceStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.104 . Memory (MB): peak = 3718.164 ; gain = 0.000
+WARNING: [Common 17-210] 'write_hwdef' is deprecated.
+ERROR: [Common 17-158] 'file' can only be specified once.
+[Wed Aug 12 15:27:54 2026] Launched impl_1...
+Run output will be captured here: C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 3718.164 ; gain = 0.000
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.227 . Memory (MB): peak = 3718.164 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1954 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 3718.164 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.669 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.326 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3718.164 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 3718.164 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 88 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 15 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 57 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  SRLC32E => SRL16E: 4 instances
+
+open_run: Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 4252.516 ; gain = 534.352
+open_report: Time (s): cpu = 00:00:26 ; elapsed = 00:00:23 . Memory (MB): peak = 4355.316 ; gain = 79.578
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+open_bd_design {C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/sources_1/bd/system/system.bd}
+Reading block design file <C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/sources_1/bd/system/system.bd>...
+Adding component instance block -- xilinx.com:ip:xlconstant:1.1 - GND_1
+Adding component instance block -- analog.com:user:axi_ad9361:1.0 - axi_ad9361
+Adding component instance block -- analog.com:user:axi_dmac:1.0 - axi_ad9361_adc_dma
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: fifo_wr 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: fifo_wr 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: fifo_wr 
+Adding component instance block -- analog.com:user:axi_dmac:1.0 - axi_ad9361_dac_dma
+Adding component instance block -- analog.com:user:util_rfifo:1.0 - axi_ad9361_dac_fifo
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - axi_cpu_interconnect
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_hp1_interconnect
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_hp2_interconnect
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - sys_200m_rstgen
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - sys_concat_intc
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - sys_ps7
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - sys_rstgen
+Adding component instance block -- analog.com:user:util_wfifo:1.0 - util_ad9361_adc_fifo
+Adding component instance block -- analog.com:user:util_cpack2:1.0 - util_ad9361_adc_pack
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: packed_fifo_wr 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: packed_fifo_wr 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: packed_fifo_wr 
+Adding component instance block -- analog.com:user:util_upack2:1.0 - util_ad9361_dac_upack
+Adding component instance block -- analog.com:user:util_clkdiv:1.0 - util_ad9361_divclk
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - util_ad9361_divclk_reset
+Adding component instance block -- xilinx.com:ip:util_reduced_logic:2.0 - util_ad9361_divclk_sel
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - util_ad9361_divclk_sel_concat
+Adding component instance block -- analog.com:user:util_tdd_sync:1.0 - util_ad9361_tdd_sync
+Successfully read diagram <system> from block design file <C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/sources_1/bd/system/system.bd>
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Aug 12 15:57:37 2026] Launched synth_1...
+Run output will be captured here: C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 8
+[Wed Aug 12 16:00:13 2026] Launched impl_1...
+Run output will be captured here: C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Wed Aug 12 16:05:25 2026] Launched impl_1...
+Run output will be captured here: C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/impl_1/runme.log
+WARNING: [Vivado 12-4173] The following IPs are not generated and locked, no out-of-context (OOC) run will be created. Please select 'Report IP Status' from 'Tools/Report' or run Tcl command 'report_ip_status' for more information.
+C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.srcs/sources_1/bd/system/system.bd
+
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.243 . Memory (MB): peak = 4567.516 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1954 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 4567.516 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.650 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.260 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.974 . Memory (MB): peak = 4567.516 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.977 . Memory (MB): peak = 4567.516 ; gain = 0.000
+refresh_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 4567.516 ; gain = 0.000
+open_report: Time (s): cpu = 00:00:30 ; elapsed = 00:00:24 . Memory (MB): peak = 4567.516 ; gain = 0.000
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2026.1
+  **** Build date : May 29 2026 at 14:55:19
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 5119.688 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/000000000069A
+set_property PROGRAM.FILE {C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/impl_1/system_top.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported soft debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Vivado/AD936X_PL/projects/fmcomms2/zc702/zc702.runs/impl_1/system_top.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported soft debug core(s) in it.
+INFO: [Vivado 12-8231] Launching Vitis
+INFO: [Vivado 12-417] Running vitis
+INFO: [Vivado 12-8232] Vitis launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 12 16:19:18 2026...

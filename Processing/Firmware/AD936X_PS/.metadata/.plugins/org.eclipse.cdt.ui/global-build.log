@@ -1,0 +1,55 @@
+Nothing to build in platform 'platform'
+
+00:59:13 **** Incremental Build of configuration Release for project AD936X ****
+make all 
+make --no-print-directory pre-build
+a9-linaro-pre-build-step
+' '
+make --no-print-directory main-build
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:812:38: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'unsigned int' [-Wformat=]
+  812 |  printf("DAC_DMA_EXAMPLE: address=%#lx samples=%lu channels=%u bits=%lu\n",
+      |                                   ~~~^
+      |                                      |
+      |                                      long unsigned int
+      |                                   %#x
+  813 |         (uintptr_t)adc_buffer, NO_OS_ARRAY_SIZE(adc_buffer), rx_adc_init.num_channels,
+      |         ~~~~~~~~~~~~~~~~~~~~~         
+      |         |
+      |         unsigned int
+../src/main.c:812:50: warning: format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'unsigned int' [-Wformat=]
+  812 |  printf("DAC_DMA_EXAMPLE: address=%#lx samples=%lu channels=%u bits=%lu\n",
+      |                                                ~~^
+      |                                                  |
+      |                                                  long unsigned int
+      |                                                %u
+../src/main.c:812:71: warning: format '%lu' expects argument of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wformat=]
+  812 |  printf("DAC_DMA_EXAMPLE: address=%#lx samples=%lu channels=%u bits=%lu\n",
+      |                                                                     ~~^
+      |                                                                       |
+      |                                                                       long unsigned int
+      |                                                                     %u
+  813 |         (uintptr_t)adc_buffer, NO_OS_ARRAY_SIZE(adc_buffer), rx_adc_init.num_channels,
+  814 |         8 * sizeof(adc_buffer[0]));
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~                                      
+      |         |
+      |         unsigned int
+../src/main.c:637:11: warning: unused variable 'samples' [-Wunused-variable]
+  637 |  uint32_t samples = 16384;
+      |           ^~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: AD936X.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bsplib/lib -o "AD936X.elf"  ./xilinx/axi_io.o ./xilinx/delay.o ./xilinx/no_os_timer.o ./xilinx/no_os_uart.o ./xilinx/xilinx_gpio.o ./xilinx/xilinx_gpio_irq.o ./xilinx/xilinx_i2c.o ./xilinx/xilinx_irq.o ./xilinx/xilinx_spi.o ./xilinx/xilinx_spi_pl.o  ./util/no_os_circular_buffer.o ./util/no_os_crc16.o ./util/no_os_crc24.o ./util/no_os_crc8.o ./util/no_os_fifo.o ./util/no_os_font_8x8.o ./util/no_os_lf256fifo.o ./util/no_os_list.o ./util/no_os_sin_lut.o ./util/no_os_util.o  ./src/main.o  ./iio/iio.o ./iio/iio_app.o ./iio/iio_axi_adc.o ./iio/iio_axi_dac.o ./iio/iiod.o  ./api/no_os_gpio.o ./api/no_os_i2c.o ./api/no_os_irq.o ./api/no_os_spi.o  ./ad9361/ad9361.o ./ad9361/ad9361_api.o ./ad9361/ad9361_conv.o ./ad9361/ad9361_util.o ./ad9361/iio_ad9361.o  ./AXI_Core/axi_adc_core.o ./AXI_Core/axi_dac_core.o ./AXI_Core/axi_dmac.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: AD936X.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size AD936X.elf  |tee "AD936X.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 228815	   8080	 161936	 398831	  615ef	AD936X.elf
+'Finished building: AD936X.elf.size'
+' '

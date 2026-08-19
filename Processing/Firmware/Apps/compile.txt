@@ -1,0 +1,1 @@
+& "C:\Program Files\Arm\GNU Toolchain mingw-w64-x86_64-arm-none-linux-gnueabihf\bin\arm-none-linux-gnueabihf-gcc.exe" --sysroot=".\pluto-0.38.sysroot" -mfloat-abi=hard -std=gnu99 -g -Wall -Wextra test.c -o test -lpthread -liio -lm

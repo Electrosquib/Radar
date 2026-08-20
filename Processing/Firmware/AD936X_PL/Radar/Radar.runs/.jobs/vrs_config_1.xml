@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="system_auto_pc_3_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_auto_pc_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_auto_pc_1_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_auto_pc_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_auto_pc_2_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_auto_pc_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="system_auto_pc_1_synth_1"/>
+	</Run>
+	<Run Id="system_auto_pc_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_ad9361_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_axi_ad9361_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_ad9361_dac_dma_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_axi_ad9361_dac_dma_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_xbar_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_xbar_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_ad9361_adc_dma_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_axi_ad9361_adc_dma_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_ad9361_dac_fifo_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_axi_ad9361_dac_fifo_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_hp1_interconnect_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_axi_hp1_interconnect_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_hp2_interconnect_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_axi_hp2_interconnect_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_sys_200m_rstgen_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_sys_200m_rstgen_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_sys_rstgen_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_sys_rstgen_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_adc_fifo_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_adc_fifo_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_sys_ps7_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_sys_ps7_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_tdd_sync_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_tdd_sync_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_ila_0_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_ila_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_divclk_sel_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_divclk_sel_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_divclk_reset_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_divclk_reset_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_dac_upack_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_dac_upack_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_divclk_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_divclk_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_util_ad9361_adc_pack_0_synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/system_util_ad9361_adc_pack_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="system_auto_pc_3_synth_1"/>
+		<Parent Id="system_auto_pc_1_synth_1"/>
+		<Parent Id="system_auto_pc_2_synth_1"/>
+		<Parent Id="system_auto_pc_0_synth_1"/>
+		<Parent Id="system_axi_ad9361_0_synth_1"/>
+		<Parent Id="system_axi_ad9361_dac_dma_0_synth_1"/>
+		<Parent Id="system_xbar_0_synth_1"/>
+		<Parent Id="system_axi_ad9361_adc_dma_0_synth_1"/>
+		<Parent Id="system_axi_ad9361_dac_fifo_0_synth_1"/>
+		<Parent Id="system_axi_hp1_interconnect_0_synth_1"/>
+		<Parent Id="system_axi_hp2_interconnect_0_synth_1"/>
+		<Parent Id="system_sys_200m_rstgen_0_synth_1"/>
+		<Parent Id="system_sys_rstgen_0_synth_1"/>
+		<Parent Id="system_util_ad9361_adc_fifo_0_synth_1"/>
+		<Parent Id="system_sys_ps7_0_synth_1"/>
+		<Parent Id="system_util_ad9361_tdd_sync_0_synth_1"/>
+		<Parent Id="system_ila_0_0_synth_1"/>
+		<Parent Id="system_util_ad9361_divclk_sel_0_synth_1"/>
+		<Parent Id="system_util_ad9361_divclk_reset_0_synth_1"/>
+		<Parent Id="system_util_ad9361_dac_upack_0_synth_1"/>
+		<Parent Id="system_util_ad9361_divclk_0_synth_1"/>
+		<Parent Id="system_util_ad9361_adc_pack_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

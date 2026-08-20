@@ -60,9 +60,6 @@ int main(void) {
     struct iio_channel *tx_lo = iio_device_find_channel(sdr, "altvoltage1", true);
     struct iio_channel *rx_lo = iio_device_find_channel(sdr, "altvoltage0", true);
 
-    // Load one profile in software before PFGA pin control
-    iio_channel_attr_write(tx_lo, "fastlock_recall", "0");
-
     // RX Channel 1
     struct iio_channel *rx1_phy = iio_device_find_channel(sdr, "voltage0", false);
     struct iio_channel *rx1_i = iio_device_find_channel(rx, "voltage0", false);
@@ -127,7 +124,7 @@ int main(void) {
     };
 
     char profiles[11][128];
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 8; i++) {
         iio_channel_attr_write_longlong(tx_lo, "frequency", freqs[i]);
         iio_channel_attr_write(tx_lo, "fastlock_store", "0");
         ssize_t len = iio_channel_attr_read(tx_lo, "fastlock_save", profiles[i], sizeof(profiles[i]) - 1);
@@ -178,43 +175,31 @@ int main(void) {
         return 1;
     }
 
-    struct timespec start, end;
+    // int num = 0;
+    // int num_freqs = sizeof(freqs) / sizeof(freqs[0]);
 
-    int num = 0;
-    int num_freqs = sizeof(freqs) / sizeof(freqs[0]);
-    while (num < 1) {
-        for (int block = 0; block < (num_freqs + 7) / 8; block++) {
-            char load[128], slot[2];
-            int count = num_freqs - block * 8;
-            if (count > 8) count = 8;
+    for (int i = 0; i < 8; i++) {
+        char load[128];
+        snprintf(load, sizeof(load), "%d%s", i, strchr(profiles[i], ' '));
 
-            for (int i = 0; i < count; i++) {
-                int idx = block * 8 + i;
-                snprintf(load, sizeof(load), "%d%s", i, strchr(profiles[idx], ' '));
-                iio_channel_attr_write(tx_lo, "fastlock_load", load);
-            }
-
-            // Enable TX Fastlock Pin Control
-            int ret = iio_device_debug_attr_write_bool(
-                sdr,
-                "adi,tx-fastlock-pincontrol-enable",
-                true
-            );
-
-            if (ret < 0)
-                printf("TX pin control enable failed: %d\n", ret);
-
-
-            // for (int i = 0; i < count; i++) {
-            //     snprintf(slot, sizeof(slot), "%d", i);
-            //     iio_channel_attr_write(tx_lo, "fastlock_recall", slot);
-            //     usleep(STEP_PAUSE_US);
-            //     // printf("[+] %.4f MHz\n", (freqs[block * 8 + i] + BB_FREQ) / 1e6);
-            // }
-        }
-        num++;
+        if (iio_channel_attr_write(tx_lo, "fastlock_load", load) < 0)
+            printf("Failed loading slot %d\n", i);
     }
 
+    if (iio_device_debug_attr_write_bool(
+        sdr,
+        "adi,tx-fastlock-pincontrol-enable",
+        true
+    ) < 0)
+        printf("Failed enabling TX pin control\n");
+
+    if (iio_channel_attr_write(tx_lo, "fastlock_recall", "0") < 0)
+        printf("Failed initial recall\n");
+
+    printf("[+] FPGA fastlock pin control active\n");
+
+    // while (1)
+    //     sleep(1);
     iio_context_destroy(ctx);
     return 0;
 }

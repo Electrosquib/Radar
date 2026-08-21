@@ -1,2 +1,2 @@
 
-2018.1’Bus skew results˜¥$4A
+2018.1’Bus skew results˜¥nA

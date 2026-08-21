@@ -26,6 +26,18 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_
 # IP: bd/system/ip/system_xbar_0/system_xbar_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar_0 || ORIG_REF_NAME==system_xbar_0} -quiet] -quiet
 
+# IP: bd/system/ip/system_auto_pc_3/system_auto_pc_3.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_3 || ORIG_REF_NAME==system_auto_pc_3} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_1 || ORIG_REF_NAME==system_auto_pc_1} -quiet] -quiet
+
+# IP: bd/system/ip/system_auto_pc_2/system_auto_pc_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_2 || ORIG_REF_NAME==system_auto_pc_2} -quiet] -quiet
+
 # IP: bd/system/ip/system_axi_cpu_interconnect_0/system_axi_cpu_interconnect_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_cpu_interconnect_0 || ORIG_REF_NAME==system_axi_cpu_interconnect_0} -quiet] -quiet
 
@@ -74,22 +86,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_util
 # IP: bd/system/ip/system_ila_0_0/system_ila_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_ila_0_0 || ORIG_REF_NAME==system_ila_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_fastlock_hopper_0_0/system_fastlock_hopper_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fastlock_hopper_0_0 || ORIG_REF_NAME==system_fastlock_hopper_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_xlconstant_0_0/system_xlconstant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlconstant_0_0 || ORIG_REF_NAME==system_xlconstant_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_auto_pc_3/system_auto_pc_3.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_3 || ORIG_REF_NAME==system_auto_pc_3} -quiet] -quiet
-
-# IP: bd/system/ip/system_auto_pc_0/system_auto_pc_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_0 || ORIG_REF_NAME==system_auto_pc_0} -quiet] -quiet
-
-# IP: bd/system/ip/system_auto_pc_1/system_auto_pc_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_1 || ORIG_REF_NAME==system_auto_pc_1} -quiet] -quiet
-
-# IP: bd/system/ip/system_auto_pc_2/system_auto_pc_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_2 || ORIG_REF_NAME==system_auto_pc_2} -quiet] -quiet
+# IP: bd/system/ip/system_fastlock_hopper_0_0/system_fastlock_hopper_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fastlock_hopper_0_0 || ORIG_REF_NAME==system_fastlock_hopper_0_0} -quiet] -quiet
 
 # XDC: c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/system_ooc.xdc

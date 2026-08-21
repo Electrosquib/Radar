@@ -179,28 +179,28 @@ endmodule
 
 
 module fastlock_hopper (
-  input  wire       clk,
-  input  wire       enable,
+  input wire clk,
+  input wire enable,
   output wire [3:0] gpio_ctl
 );
 
   reg [31:0] count = 0;
-  reg state = 0;
+  reg [2:0] profile = 0;
 
   always @(posedge clk) begin
     if (!enable) begin
       count <= 0;
-      state <= 0;
+      profile <= 0;
     end else begin
-      if (count == 32'd99999999) begin
+      if (count == 32'd1999) begin
         count <= 0;
-        state <= ~state;
+        profile <= profile + 1;
       end else begin
         count <= count + 1;
       end
     end
   end
 
-  assign gpio_ctl = state ? 4'b1110 : 4'b0000;
+  assign gpio_ctl = {profile, 1'b0};
 
 endmodule

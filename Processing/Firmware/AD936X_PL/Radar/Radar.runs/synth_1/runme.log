@@ -19,7 +19,7 @@ INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:s
 WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/library'.
-add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1129.848 ; gain = 0.000
+add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.859 ; gain = 0.000
 Command: synth_design -top system_top -part xc7z020clg400-2
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
@@ -27,9 +27,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 35440
+INFO: [Synth 8-7075] Helper process launched with PID 35608
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1129.848 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1130.859 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_top' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/system_top.v:9]
 INFO: [Synth 8-6157] synthesizing module 'ad_iobuf' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/library/common/ad_iobuf.v:38]
@@ -41,19 +41,19 @@ INFO: [Synth 8-6157] synthesizing module 'system_GND_1_0' [c:/Users/Levi Farinas
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (2#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'system_GND_1_0' (3#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_GND_1_0/synth/system_GND_1_0.v:57]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_0' (4#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_0' (4#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'dac_sync_out' of module 'system_axi_ad9361_0' is unconnected for instance 'axi_ad9361' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3523]
 WARNING: [Synth 8-7071] port 'gps_pps_irq' of module 'system_axi_ad9361_0' is unconnected for instance 'axi_ad9361' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3523]
 WARNING: [Synth 8-7071] port 'up_dac_gpio_out' of module 'system_axi_ad9361_0' is unconnected for instance 'axi_ad9361' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3523]
 WARNING: [Synth 8-7071] port 'up_adc_gpio_out' of module 'system_axi_ad9361_0' is unconnected for instance 'axi_ad9361' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3523]
 WARNING: [Synth 8-7023] instance 'axi_ad9361' of module 'system_axi_ad9361_0' has 79 connections declared, but only 75 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3523]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_adc_dma_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_adc_dma_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_adc_dma_0' (5#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_adc_dma_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_adc_dma_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_adc_dma_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_adc_dma_0' (5#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_adc_dma_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'fifo_wr_xfer_req' of module 'system_axi_ad9361_adc_dma_0' is unconnected for instance 'axi_ad9361_adc_dma' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3599]
 WARNING: [Synth 8-7023] instance 'axi_ad9361_adc_dma' of module 'system_axi_ad9361_adc_dma_0' has 46 connections declared, but only 45 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3599]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_dac_dma_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_dac_dma_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_dac_dma_0' (6#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_dac_dma_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_dac_dma_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_dac_dma_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_dac_dma_0' (6#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_dac_dma_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axis_strb' of module 'system_axi_ad9361_dac_dma_0' is unconnected for instance 'axi_ad9361_dac_dma' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3645]
 WARNING: [Synth 8-7071] port 'm_axis_keep' of module 'system_axi_ad9361_dac_dma_0' is unconnected for instance 'axi_ad9361_dac_dma' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3645]
 WARNING: [Synth 8-7071] port 'm_axis_user' of module 'system_axi_ad9361_dac_dma_0' is unconnected for instance 'axi_ad9361_dac_dma' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3645]
@@ -62,8 +62,8 @@ WARNING: [Synth 8-7071] port 'm_axis_dest' of module 'system_axi_ad9361_dac_dma_
 WARNING: [Synth 8-7071] port 'm_axis_last' of module 'system_axi_ad9361_dac_dma_0' is unconnected for instance 'axi_ad9361_dac_dma' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3645]
 WARNING: [Synth 8-7071] port 'm_axis_xfer_req' of module 'system_axi_ad9361_dac_dma_0' is unconnected for instance 'axi_ad9361_dac_dma' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3645]
 WARNING: [Synth 8-7023] instance 'axi_ad9361_dac_dma' of module 'system_axi_ad9361_dac_dma_0' has 48 connections declared, but only 41 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3645]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_dac_fifo_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_dac_fifo_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_dac_fifo_0' (7#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_ad9361_dac_fifo_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_ad9361_dac_fifo_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_dac_fifo_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_ad9361_dac_fifo_0' (7#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_ad9361_dac_fifo_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'din_valid_1' of module 'system_axi_ad9361_dac_fifo_0' is unconnected for instance 'axi_ad9361_dac_fifo' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3687]
 WARNING: [Synth 8-7071] port 'din_valid_2' of module 'system_axi_ad9361_dac_fifo_0' is unconnected for instance 'axi_ad9361_dac_fifo' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3687]
 WARNING: [Synth 8-7071] port 'din_valid_3' of module 'system_axi_ad9361_dac_fifo_0' is unconnected for instance 'axi_ad9361_dac_fifo' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3687]
@@ -86,26 +86,26 @@ INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_15FU5SC' (12#1) 
 INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_GFBASD' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:1442]
 INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_GFBASD' (13#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:1442]
 INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_59JXRJ' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:1728]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (14#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (14#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_59JXRJ' (15#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:1728]
 INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_1GBLMBI' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2038]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_1' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_1' (16#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_1' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_1' (16#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_1_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_1GBLMBI' (17#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2038]
 INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_E05M9W' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2348]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_2' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_2' (18#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_2' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_2' (18#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_2_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_E05M9W' (19#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2348]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_WZLZH6' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2658]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_3' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_3' (20#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_auto_pc_3_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_3' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_3' (20#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_auto_pc_3_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'system_auto_pc_3' is unconnected for instance 'auto_pc' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2973]
 WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'system_auto_pc_3' is unconnected for instance 'auto_pc' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2973]
 WARNING: [Synth 8-7023] instance 'auto_pc' of module 'system_auto_pc_3' has 79 connections declared, but only 77 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2973]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_WZLZH6' (21#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:2658]
-INFO: [Synth 8-6157] synthesizing module 'system_xbar_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_xbar_0' (22#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_xbar_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_xbar_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_xbar_0' (22#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_xbar_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'system_axi_cpu_interconnect_0' (23#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:4269]
 WARNING: [Synth 8-7071] port 'M00_AXI_araddr' of module 'system_axi_cpu_interconnect_0' is unconnected for instance 'axi_cpu_interconnect' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3719]
 WARNING: [Synth 8-7071] port 'M00_AXI_arburst' of module 'system_axi_cpu_interconnect_0' is unconnected for instance 'axi_cpu_interconnect' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3719]
@@ -188,48 +188,48 @@ WARNING: [Synth 8-7071] port 'M02_AXI_awvalid' of module 'system_axi_cpu_interco
 WARNING: [Synth 8-7071] port 'M02_AXI_bready' of module 'system_axi_cpu_interconnect_0' is unconnected for instance 'axi_cpu_interconnect' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3719]
 INFO: [Common 17-14] Message 'Synth 8-7071' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-7023] instance 'axi_cpu_interconnect' of module 'system_axi_cpu_interconnect_0' has 351 connections declared, but only 183 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3719]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_hp1_interconnect_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_hp1_interconnect_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_hp1_interconnect_0' (24#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_hp1_interconnect_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_hp2_interconnect_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_hp2_interconnect_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_hp2_interconnect_0' (25#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_axi_hp2_interconnect_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_fastlock_hopper_0_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_fastlock_hopper_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_fastlock_hopper_0_0' (26#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_fastlock_hopper_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_hp1_interconnect_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_hp1_interconnect_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_hp1_interconnect_0' (24#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_hp1_interconnect_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_hp2_interconnect_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_hp2_interconnect_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_hp2_interconnect_0' (25#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_axi_hp2_interconnect_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_fastlock_hopper_0_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_fastlock_hopper_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_fastlock_hopper_0_0' (26#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_fastlock_hopper_0_0_stub.v:6]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3979]
-INFO: [Synth 8-6157] synthesizing module 'system_ila_0_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_ila_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_ila_0_0' (27#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_ila_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_sys_200m_rstgen_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_sys_200m_rstgen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_sys_200m_rstgen_0' (28#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_sys_200m_rstgen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_ila_0_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_ila_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_ila_0_0' (27#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_ila_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_sys_200m_rstgen_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_sys_200m_rstgen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_sys_200m_rstgen_0' (28#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_sys_200m_rstgen_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'sys_200m_rstgen' of module 'system_sys_200m_rstgen_0' has 10 connections declared, but only 7 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:3982]
 INFO: [Synth 8-6157] synthesizing module 'system_sys_concat_intc_0' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_sys_concat_intc_0/synth/system_sys_concat_intc_0.v:60]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (29#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'system_sys_concat_intc_0' (30#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_sys_concat_intc_0/synth/system_sys_concat_intc_0.v:60]
-INFO: [Synth 8-6157] synthesizing module 'system_sys_ps7_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_sys_ps7_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_sys_ps7_0' (31#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_sys_ps7_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_sys_ps7_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_sys_ps7_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_sys_ps7_0' (31#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_sys_ps7_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'sys_ps7' of module 'system_sys_ps7_0' has 197 connections declared, but only 161 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:4008]
-INFO: [Synth 8-6157] synthesizing module 'system_sys_rstgen_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_sys_rstgen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_sys_rstgen_0' (32#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_sys_rstgen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_sys_rstgen_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_sys_rstgen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_sys_rstgen_0' (32#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_sys_rstgen_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'sys_rstgen' of module 'system_sys_rstgen_0' has 10 connections declared, but only 7 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:4170]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_adc_fifo_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_adc_fifo_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_adc_fifo_0' (33#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_adc_fifo_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_adc_fifo_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_adc_fifo_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_adc_fifo_0' (33#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_adc_fifo_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'util_ad9361_adc_fifo' of module 'system_util_ad9361_adc_fifo_0' has 30 connections declared, but only 27 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:4178]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_adc_pack_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_adc_pack_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_adc_pack_0' (34#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_adc_pack_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_dac_upack_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_dac_upack_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_dac_upack_0' (35#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_dac_upack_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_divclk_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_0' (36#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_divclk_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_reset_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_divclk_reset_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_reset_0' (37#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_divclk_reset_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_adc_pack_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_adc_pack_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_adc_pack_0' (34#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_adc_pack_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_dac_upack_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_dac_upack_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_dac_upack_0' (35#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_dac_upack_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_divclk_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_0' (36#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_divclk_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_reset_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_divclk_reset_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_reset_0' (37#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_divclk_reset_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'util_ad9361_divclk_reset' of module 'system_util_ad9361_divclk_reset_0' has 10 connections declared, but only 7 given [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/synth/system.v:4244]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_sel_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_divclk_sel_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_sel_0' (38#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_divclk_sel_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_sel_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_divclk_sel_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_sel_0' (38#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_divclk_sel_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_divclk_sel_concat_0' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_sel_concat_0/synth/system_util_ad9361_divclk_sel_concat_0.v:60]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat__parameterized0' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat__parameterized0' (38#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_divclk_sel_concat_0' (39#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_util_ad9361_divclk_sel_concat_0/synth/system_util_ad9361_divclk_sel_concat_0.v:60]
-INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_tdd_sync_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_tdd_sync_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_tdd_sync_0' (40#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-26884-LevisPC/realtime/system_util_ad9361_tdd_sync_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_tdd_sync_0' [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_tdd_sync_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_tdd_sync_0' (40#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/.Xil/Vivado-36504-LevisPC/realtime/system_util_ad9361_tdd_sync_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'system_xlconstant_0_0' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_xlconstant_0_0/synth/system_xlconstant_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (40#1) [c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
@@ -240,18 +240,18 @@ INFO: [Synth 8-6155] done synthesizing module 'system' (42#1) [c:/Users/Levi Far
 INFO: [Synth 8-6155] done synthesizing module 'system_wrapper' (43#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/hdl/system_wrapper.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'system_top' (44#1) [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/system_top.v:9]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1129.848 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1130.859 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1129.848 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1130.859 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1129.848 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1130.859 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.059 . Memory (MB): peak = 1129.848 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1130.859 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -420,20 +420,20 @@ Parsing XDC File [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmwa
 Finished Parsing XDC File [C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1203.867 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1203.559 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1203.867 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1203.559 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -793,13 +793,13 @@ Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/util_ad
 Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/util_ad9361_divclk_sel_concat. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/util_ad9361_tdd_sync. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/ila_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/fastlock_hopper_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/xlconstant_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for i_system_wrapper/system_i/fastlock_hopper_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -821,25 +821,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.559 ; gain = 72.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -857,37 +857,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -954,18 +954,18 @@ Report Cell Usage:
 |29    |OBUFT                           |     1|
 +------+--------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.867 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.867 ; gain = 74.020
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1203.961 ; gain = 0.402
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1203.961 ; gain = 73.102
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1211.039 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1216.027 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1228.215 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1235.012 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
@@ -974,10 +974,10 @@ Synth Design complete, checksum: 4ff0e19b
 INFO: [Common 17-83] Releasing license: Synthesis
 118 Infos, 120 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1228.215 ; gain = 98.367
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1235.012 ; gain = 104.152
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.runs/synth_1/system_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 19 14:59:47 2026...
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 20 13:55:09 2026...

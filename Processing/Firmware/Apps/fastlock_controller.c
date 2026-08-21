@@ -104,11 +104,11 @@ int main(void) {
     
 
     // TX Channel 1 Initialization
-    // iio_channel_attr_write(tx1_phy, "rf_port_select", "A");
-    // iio_channel_attr_write_longlong(tx1_phy, "rf_bandwidth", CHAN_BW);
-    // iio_channel_attr_write_longlong(tx1_phy, "sampling_frequency", (long long)FS);
-    // iio_channel_enable(tx1_i);
-    // iio_channel_enable(tx1_q);
+    iio_channel_attr_write(tx1_phy, "rf_port_select", "A");
+    iio_channel_attr_write_longlong(tx1_phy, "rf_bandwidth", CHAN_BW);
+    iio_channel_attr_write_longlong(tx1_phy, "sampling_frequency", (long long)FS);
+    iio_channel_enable(tx1_i);
+    iio_channel_enable(tx1_q);
 
     // TX Channel 2 Initialization
     iio_channel_attr_write(tx2_phy, "rf_port_select", "B");
@@ -118,12 +118,18 @@ int main(void) {
     iio_channel_enable(tx2_q);
 
     // Generate the Fastlock Profiles
-    long long freqs[] = {
-        2400000000LL, 2400100000LL, 2400200000LL, 2400300000LL,
-        2400400000LL, 2400500000LL, 2400600000LL, 2400700000LL
-    };
+long long freqs[] = {
+    2400000000LL,
+    2400200000LL,
+    2400400000LL,
+    2400600000LL,
+    2400800000LL,
+    2401000000LL,
+    2401200000LL,
+    2401400000LL
+};
 
-    char profiles[11][128];
+    char profiles[8][128];
     for (int i = 0; i < 8; i++) {
         iio_channel_attr_write_longlong(tx_lo, "frequency", freqs[i]);
         iio_channel_attr_write(tx_lo, "fastlock_store", "0");
@@ -181,7 +187,7 @@ int main(void) {
     for (int i = 0; i < 8; i++) {
         char load[128];
         snprintf(load, sizeof(load), "%d%s", i, strchr(profiles[i], ' '));
-
+        usleep(1000);
         if (iio_channel_attr_write(tx_lo, "fastlock_load", load) < 0)
             printf("Failed loading slot %d\n", i);
     }
@@ -198,8 +204,8 @@ int main(void) {
 
     printf("[+] FPGA fastlock pin control active\n");
 
-    // while (1)
-    //     sleep(1);
+    // sleep(5);
+
     iio_context_destroy(ctx);
     return 0;
 }

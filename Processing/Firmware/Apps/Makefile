@@ -3,8 +3,10 @@ PSCP = "C:/Program Files/PuTTY/pscp.exe"
 PLINK = "C:/Program Files/PuTTY/plink.exe"
 
 SYSROOT = ./pluto-0.38.sysroot
+
 TARGET = fastlock_controller
 SRC = fastlock_controller.c
+
 PLUTO_IP = 192.168.2.1
 USER = root
 PASSWORD = analog
@@ -17,7 +19,7 @@ deploy: build
 
 run: deploy
 	@echo -------------------------------------------------------------------------------------------
-	$(PLINK) -batch -pw $(PASSWORD) $(USER)@$(PLUTO_IP) "chmod +x /root/$(TARGET) && /root/$(TARGET)"
+	$(PLINK) -batch -pw $(PASSWORD) $(USER)@$(PLUTO_IP) "killall /root/$(TARGET) || true; chmod +x /root/$(TARGET); /root/$(TARGET)"
 
 clean:
 	del $(TARGET)

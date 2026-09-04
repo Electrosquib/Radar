@@ -90,7 +90,7 @@ set_property ip_output_repo {c:/Users/Levi Farinas/Documents/GitHub/Radar/Proces
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet {{c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.srcs/sources_1/bd/system/ip/system_xbar_0/system_xbar_0.xci}}
+read_ip -quiet {{C:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.srcs/sources_1/bd/system/ip/system_xbar_0/system_xbar_0.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Levi Farinas/Documents/GitHub/Radar/Processing/Firmware/AD936X_PL/Radar/Radar.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc}}]
 
 OPTRACE "Adding files" END { }

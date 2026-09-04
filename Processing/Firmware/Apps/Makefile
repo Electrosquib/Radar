@@ -4,8 +4,8 @@ PLINK = "C:/Program Files/PuTTY/plink.exe"
 
 SYSROOT = ./pluto-0.38.sysroot
 
-TARGET = fastlock_controller
-SRC = fastlock_controller.c
+TARGET = bram_save
+SRC = bram_save.c
 
 PLUTO_IP = 192.168.2.1
 USER = root
@@ -19,7 +19,7 @@ deploy: build
 
 run: deploy
 	@echo -------------------------------------------------------------------------------------------
-	$(PLINK) -batch -pw $(PASSWORD) $(USER)@$(PLUTO_IP) "killall /root/$(TARGET) || true; chmod +x /root/$(TARGET); /root/$(TARGET)"
+	$(PLINK) -batch -pw $(PASSWORD) $(USER)@$(PLUTO_IP) "killall $(TARGET) 2>/dev/null || true; chmod +x /root/$(TARGET); /root/$(TARGET); echo EXIT_CODE=\$$?"
 
 clean:
 	del $(TARGET)

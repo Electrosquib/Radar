@@ -1,0 +1,20 @@
+vhdl xpm  \
+"C:/Xilinx_2021/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vhdl fifo_generator_v13_2_5  \
+"../../../../Radar.gen/sources_1/bd/system/ipshared/276e/hdl/fifo_generator_v13_2_rfs.vhd" \
+
+vhdl lib_cdc_v1_0_2  \
+"../../../../Radar.gen/sources_1/bd/system/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
+
+vhdl proc_sys_reset_v5_0_13  \
+"../../../../Radar.gen/sources_1/bd/system/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/system/ip/system_axi_hp1_interconnect_0/bd_0/ip/ip_1/sim/bd_31bd_psr_aclk_0.vhd" \
+"../../../bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_1/sim/bd_c0fd_psr_aclk_0.vhd" \
+"../../../bd/system/ip/system_sys_200m_rstgen_0/sim/system_sys_200m_rstgen_0.vhd" \
+"../../../bd/system/ip/system_sys_rstgen_0/sim/system_sys_rstgen_0.vhd" \
+"../../../bd/system/ip/system_util_ad9361_divclk_reset_0/sim/system_util_ad9361_divclk_reset_0.vhd" \
+
+nosort

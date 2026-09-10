@@ -5,10 +5,10 @@ from datetime import datetime
 import time
 
 class SFCWRadar:
-    def __init__(self, device_string="usb:", Fmin=600e6, Fmax=300e6, verbose=True, Fs=20e6):
+    def __init__(self, device_string="usb:", Fmin=600e6, Fmax=300e6, verbose=True, Fs=20e6, rx_port=1, rx_loopback_port=0, tx_port=0, tx_loopback_port=1):
         self.sdr = adi.ad9361(uri=device_string)
-        self.sdr.rx_enabled_channels = [0, 1]
-        self.sdr.tx_enabled_channels = [0, 1]
+        self.sdr.rx_enabled_channels = [rx_loopback_port, rx_port]
+        self.sdr.tx_enabled_channels = [tx_port, tx_loopback_port]
 
         self.RX_GAIN = 71
         self.LOOPBACK_GAIN = 71

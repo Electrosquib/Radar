@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Fri Aug 28 09:28:41 2026
+| Date         : Wed Sep  9 18:51:37 2026
 | Host         : LevisPC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_top_utilization_placed.rpt -pb system_top_utilization_placed.pb
 | Design       : system_top
@@ -253,6 +253,7 @@ Table of Contents
 | system_sys_ps7_0                  |    1 |
 | system_ila_0_0                    |    1 |
 | system_fastlock_hopper_0_0        |    1 |
+| system_bram_read_0_2              |    1 |
 | system_blk_mem_gen_0_0            |    1 |
 | system_axi_hp2_interconnect_0     |    1 |
 | system_axi_hp1_interconnect_0     |    1 |

@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Fri Aug 28 09:27:36 2026
+| Date         : Wed Sep  9 18:51:17 2026
 | Host         : LevisPC running 64-bit major release  (build 9200)
 | Command      : report_incremental_reuse -file system_top_incremental_reuse_pre_placed.rpt
 | Design       : system_top
@@ -46,11 +46,12 @@ Table of Contents
 +-------+----------------------+----------------------------+--------------------+--------+
 |  Type | Matched % (of Total) | Current Reuse % (of Total) | Fixed % (of Total) |  Total |
 +-------+----------------------+----------------------------+--------------------+--------+
-| Cells |                98.60 |                      98.53 |               0.44 |  41836 |
-| Nets  |                98.75 |                      95.66 |               0.00 |  30311 |
-| Pins  |                    - |                      96.13 |                  - | 138684 |
+| Cells |               100.00 |                     100.00 |               0.44 |  41836 |
+| Nets  |                99.95 |                      99.98 |               0.00 |  30277 |
+| Pins  |                    - |                     100.00 |                  - | 138613 |
 | Ports |               100.00 |                     100.00 |             100.00 |    183 |
 +-------+----------------------+----------------------------+--------------------+--------+
+* Reused % can exceed matched % when unmatched nets take their routing from nets with similar placement and connectivity
 
 
 3. Reference Checkpoint Information
@@ -85,7 +86,7 @@ Table of Contents
 | synth_design    |             |             |     < 1 min |     < 1 min |     < 1 min |     < 1 min |
 | opt_design      |             |             |       00:01 |       00:01 |     < 1 min |     < 1 min |
 | read_checkpoint |             |             |     < 1 min |     < 1 min |     < 1 min |     < 1 min |
-| place_design    |       0.410 |             |       00:01 |             |       00:02 |             |
+| place_design    |       0.410 |             |     < 1 min |             |       00:01 |             |
 | phys_opt_design |       0.410 |             |     < 1 min |             |     < 1 min |             |
 | route_design    |       0.410 |             |       00:01 |             |       00:01 |             |
 +-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
@@ -131,16 +132,13 @@ read_checkpoint -directive RuntimeOptimized  -incremental -auto_incremental C:/U
 7. Non Reuse Information
 ------------------------
 
-+------------------------------------------------------+------+
-|                         Type                         |   %  |
-+------------------------------------------------------+------+
-| Non-Reused Cells                                     | 1.46 |
-|   New                                                | 1.18 |
-|   Discarded illegal placement due to netlist changes | 0.21 |
-|   Discarded to improve timing                        | 0.06 |
-| Partially reused nets                                | 1.04 |
-| Non-Reused nets                                      | 3.28 |
-| Non-Reused Ports                                     | 0.00 |
-+------------------------------------------------------+------+
++-----------------------+------+
+|          Type         |   %  |
++-----------------------+------+
+| Non-Reused Cells      | 0.00 |
+| Partially reused nets | 0.00 |
+| Non-Reused nets       | 0.01 |
+| Non-Reused Ports      | 0.00 |
++-----------------------+------+
 
 

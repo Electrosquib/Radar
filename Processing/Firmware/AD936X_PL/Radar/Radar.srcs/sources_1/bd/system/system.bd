@@ -54,9 +54,10 @@
       "xlconstant_0": "",
       "blk_mem_gen_0": "",
       "axi_bram_ctrl_0": "",
-      "fastlock_hopper_0": "",
       "xlconstant_1": "",
-      "bram_read_0": ""
+      "bram_read_0": "",
+      "fastlock_hopper_0": "",
+      "fastlock_load_0": ""
     },
     "interface_ports": {
       "ddr": {
@@ -3785,31 +3786,6 @@
           }
         }
       },
-      "fastlock_hopper_0": {
-        "vlnv": "xilinx.com:module_ref:fastlock_hopper:1.0",
-        "xci_name": "system_fastlock_hopper_0_0",
-        "xci_path": "ip\\system_fastlock_hopper_0_0\\system_fastlock_hopper_0_0.xci",
-        "inst_hier_path": "fastlock_hopper_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "fastlock_hopper",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "enable": {
-            "direction": "I"
-          },
-          "gpio_ctl": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          }
-        }
-      },
       "xlconstant_1": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "system_xlconstant_1_0",
@@ -3842,7 +3818,17 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_sys_ps7_0_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
           },
           "enable": {
             "direction": "I"
@@ -3878,6 +3864,618 @@
           "bram_rst": {
             "type": "rst",
             "direction": "O"
+          }
+        }
+      },
+      "fastlock_hopper_0": {
+        "vlnv": "xilinx.com:module_ref:fastlock_hopper:1.0",
+        "xci_name": "system_fastlock_hopper_0_0",
+        "xci_path": "ip\\system_fastlock_hopper_0_0\\system_fastlock_hopper_0_0.xci",
+        "inst_hier_path": "fastlock_hopper_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "fastlock_hopper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "system_sys_ps7_0_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "gpio_ctl": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "fastlock_load_0": {
+        "vlnv": "xilinx.com:module_ref:fastlock_load:1.0",
+        "xci_name": "system_fastlock_load_0_0",
+        "xci_path": "ip\\system_fastlock_load_0_0\\system_fastlock_load_0_0.xci",
+        "inst_hier_path": "fastlock_load_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "fastlock_load",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "bram_0": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_1": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_10": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_11": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_12": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_13": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_14": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_15": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_16": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_17": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_18": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_19": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_2": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_20": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_21": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_22": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_23": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_24": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_25": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_26": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_27": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_28": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_29": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_3": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_30": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_31": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_4": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_5": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_6": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_7": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_8": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "bram_9": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "bram_data",
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "spi": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_rd:1.0",
+            "vlnv": "analog.com:interface:fifo_rd_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "VALID": {
+                "physical_name": "spi_valid",
+                "direction": "I"
+              }
+            }
+          },
+          "spi_0": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_1": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_2": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_3": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_4": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_5": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_6": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "spi_7": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "analog.com:interface:fifo_wr:1.0",
+            "vlnv": "analog.com:interface:fifo_wr_rtl:1.0",
+            "port_maps": {
+              "DATA": {
+                "physical_name": "spi_data",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "ports": {
+          "spi_start": {
+            "direction": "O"
+          },
+          "spi_reg": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "num_profiles": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "bram_addr": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         }
       }
@@ -4428,9 +5026,9 @@
           "util_ad9361_tdd_sync/clk",
           "ila_0/clk",
           "axi_bram_ctrl_0/s_axi_aclk",
-          "fastlock_hopper_0/clk",
           "blk_mem_gen_0/clkb",
-          "bram_read_0/clk"
+          "bram_read_0/clk",
+          "fastlock_hopper_0/clk"
         ]
       },
       "sys_cpu_reset": {

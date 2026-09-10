@@ -26,7 +26,10 @@ module fastlock_load(
     output reg [7:0] spi_data,
     input wire enable,
     input wire spi_valid,
-    input wire clk
+    input wire clk,
+    input wire [8:0] num_profiles, // Must be a multiple of 8, and less than 512
+    input wire [31:0] bram_data,
+    output wire [31:0] bram_addr
 );
 
 
@@ -35,10 +38,8 @@ reg bram_enable = 0;
 reg [2:0] profile_index = 0;
 reg [8:0] profile_page = 0;
 reg [3:0] word_index = 0;
-reg [31:0] bram_data;
-reg [31:0] bram_addr;
 
-wire [31:0] profile_word;
+wire [15:0] profile_word;
 wire bram_busy;
 wire bram_valid;
 bram_read bram_reader(
@@ -74,16 +75,15 @@ localparam BRAM_WAIT      = 4'b1101;
 // localparam NEXT_PAGE      = 4'b1110;
 
 
-reg [15:0] word_data;
 reg [6:0] TR_OFF =7'h00; // RX
 reg RX_PROFS_DONE = 0;
 
 // AD9361 Fastlock Registers
 // TX is 0x29x RX is 0x25x
-reg [23:0] CTRL = 24'h25F + TR_OFF;
-reg [23:0] DATA = 24'h25D + TR_OFF;
-reg [23:0] ADDR = 24'h25C + TR_OFF;
-reg [23:0] READ = 24'h25E + TR_OFF;
+reg [11:0] CTRL = 12'h25F;
+reg [11:0] DATA = 12'h25D;
+reg [11:0] ADDR = 12'h25C;
+reg [11:0] READ = 12'h25E;
 
 
 always @(posedge clk) begin
@@ -117,7 +117,7 @@ always @(posedge clk) begin
 
         WORD0_DATA: begin
             spi_reg <= DATA;
-            spi_data <= profile_word;
+            spi_data <= profile_word[7:0];
             next_state <= WORD0_ADDR;
             state <= SPI_WAIT;
             spi_start <= 1;
@@ -125,7 +125,7 @@ always @(posedge clk) begin
 
         WORD0_ADDR: begin
             spi_reg <= ADDR;
-            spi_data <= ((profile_index) << 4) | word_index;
+            spi_data <= {1'b0, profile_index, word_index};
             word_index <= word_index + 1'b1;
             next_state <= BRAM_READ;
             state <= SPI_WAIT;
@@ -150,7 +150,7 @@ always @(posedge clk) begin
 
         WORD_DATA: begin
            spi_reg <= DATA;
-           spi_data <= profile_word;
+           spi_data <= profile_word[7:0];
            next_state <= WORD_ADDR;
            state <= SPI_WAIT;
            spi_start <= 1;
@@ -158,7 +158,7 @@ always @(posedge clk) begin
 
         WORD_ADDR: begin
             spi_reg <= ADDR;
-            spi_data <= ((profile_index) << 4) | word_index;
+            spi_data <= {1'b0, profile_index, word_index};
             next_state <= CHECK_WORD;
             state <= SPI_WAIT;
             spi_start <= 1;
@@ -194,21 +194,27 @@ always @(posedge clk) begin
                 profile_index <= 0;
                 RX_PROFS_DONE <= !RX_PROFS_DONE;
                 if (RX_PROFS_DONE == 1) begin
-                    profile_page <= profile_page + 4'd8;                
+                    profile_page <= profile_page + 9'd8;
+                        CTRL <= 12'h25F;
+                        DATA <= 12'h25D;
+                        ADDR <= 12'h25C;
+                        READ <= 12'h25E;
                 end else begin
-                    TR_OFF <= 7'h40; // TX
-                    // AD9361 Fastlock Registers
-                    // TX is 0x29x RX is 0x25x
-                    CTRL = 24'h25F + TR_OFF;
-                    DATA = 24'h25D + TR_OFF;
-                    ADDR = 24'h25C + TR_OFF;
-                    READ = 24'h25E + TR_OFF;
+                   // TX is 0x29x RX is 0x25x
+                    CTRL <= 12'h29F;
+                    DATA <= 12'h29D;
+                    ADDR <= 12'h29C;
+                    READ <= 12'h29E;
                 end
             end else begin
                 profile_index <= profile_index + 1;
             end
             word_index <= 0;
-            state <= BRAM_READ;
+            if (RX_PROFS_DONE && ((profile_page + profile_index + 1'b1) >= num_profiles)) begin
+                state <= IDLE;
+            end else begin
+                state <= BRAM_READ;
+            end
         end
 
         SPI_WAIT: begin
@@ -217,6 +223,10 @@ always @(posedge clk) begin
                 state <= next_state;
                 spi_start <= 0;
             end
+        end
+    
+        default: begin
+            state <= IDLE;
         end
 
     endcase

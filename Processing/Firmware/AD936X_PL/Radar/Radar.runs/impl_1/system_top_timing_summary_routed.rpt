@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Fri Aug 28 09:30:07 2026
+| Date         : Wed Sep  9 18:53:12 2026
 | Host         : LevisPC running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file system_top_timing_summary_routed.rpt -pb system_top_timing_summary_routed.pb -rpx system_top_timing_summary_routed.rpx -warn_on_violation
 | Design       : system_top
@@ -146,7 +146,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.409        0.000                      0                49652        0.046        0.000                      0                49566        0.264        0.000                       0                 24084  
+      0.409        0.000                      0                49652        0.046        0.000                      0                49566        0.264        0.000                       0                 24092  
 
 
 All user specified timing constraints are met.
@@ -176,7 +176,7 @@ spi1_clk                                                                        
 
 Clock                                                                                           WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----                                                                                           -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_fpga_0                                                                                        0.601        0.000                      0                29856        0.046        0.000                      0                29856        3.870        0.000                       0                 12661  
+clk_fpga_0                                                                                        0.601        0.000                      0                29856        0.046        0.000                      0                29856        3.870        0.000                       0                 12669  
 clk_fpga_1                                                                                        3.921        0.000                      0                    4        0.159        0.000                      0                    4        0.264        0.000                       0                     7  
 dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK       27.695        0.000                      0                  928        0.093        0.000                      0                  928       15.370        0.000                       0                   483  
 rx_clk                                                                                            0.409        0.000                      0                13352        0.053        0.000                      0                13352        1.146        0.000                       0                 10315  
@@ -259,7 +259,7 @@ Slack (MET) :             0.601ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y80         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[10]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y80         FDRE (Prop_fdre_C_Q)         0.379     2.824 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[10]/Q
@@ -273,7 +273,7 @@ Slack (MET) :             0.601ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.253    12.235    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.253    12.235    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X33Y8          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_2_reg[10]/C
                                        clock pessimism              0.097    12.332    
                                        clock uncertainty           -0.154    12.178    
@@ -312,7 +312,7 @@ Slack (MET) :             0.712ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y80         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[13]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y80         FDRE (Prop_fdre_C_Q)         0.379     2.824 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[13]/Q
@@ -326,7 +326,7 @@ Slack (MET) :             0.712ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.240    12.222    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.240    12.222    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X51Y11         FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_dds_incr_2_reg[13]/C
                                        clock pessimism              0.097    12.319    
                                        clock uncertainty           -0.154    12.165    
@@ -365,7 +365,7 @@ Slack (MET) :             0.743ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.368     2.447    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.368     2.447    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y82         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y82         FDRE (Prop_fdre_C_Q)         0.379     2.826 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[2]/Q
@@ -379,7 +379,7 @@ Slack (MET) :             0.743ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.233    12.215    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_1/i_up_adc_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.233    12.215    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_1/i_up_adc_channel/s_axi_aclk
                   SLICE_X51Y29         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_1/i_up_adc_channel/up_adc_iqcor_coeff_2_reg[2]/C
                                        clock pessimism              0.097    12.312    
                                        clock uncertainty           -0.154    12.158    
@@ -418,7 +418,7 @@ Slack (MET) :             0.761ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.433     2.512    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.433     2.512    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X56Y84         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[20]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X56Y84         FDRE (Prop_fdre_C_Q)         0.379     2.891 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[20]/Q
@@ -432,7 +432,7 @@ Slack (MET) :             0.761ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.317    12.299    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.317    12.299    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y9          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_1_reg[4]/C
                                        clock pessimism              0.097    12.396    
                                        clock uncertainty           -0.154    12.242    
@@ -471,7 +471,7 @@ Slack (MET) :             0.782ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.368     2.447    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.368     2.447    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y82         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y82         FDRE (Prop_fdre_C_Q)         0.379     2.826 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[2]/Q
@@ -485,7 +485,7 @@ Slack (MET) :             0.782ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.239    12.221    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.239    12.221    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X36Y24         FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_data_sel_reg[2]/C
                                        clock pessimism              0.097    12.318    
                                        clock uncertainty           -0.154    12.164    
@@ -524,7 +524,7 @@ Slack (MET) :             0.790ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y80         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[13]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y80         FDRE (Prop_fdre_C_Q)         0.379     2.824 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[13]/Q
@@ -538,7 +538,7 @@ Slack (MET) :             0.790ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.303    12.285    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.303    12.285    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X57Y8          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_dds_scale_2_reg[13]/C
                                        clock pessimism              0.097    12.382    
                                        clock uncertainty           -0.154    12.228    
@@ -577,7 +577,7 @@ Slack (MET) :             0.826ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.368     2.447    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.368     2.447    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y82         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y82         FDRE (Prop_fdre_C_Q)         0.379     2.826 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[2]/Q
@@ -594,7 +594,7 @@ Slack (MET) :             0.826ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.240    12.222    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.240    12.222    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X39Y23         FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_iqcor_enb_reg/C
                                        clock pessimism              0.097    12.319    
                                        clock uncertainty           -0.154    12.165    
@@ -633,7 +633,7 @@ Slack (MET) :             0.887ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y80         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[13]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y80         FDRE (Prop_fdre_C_Q)         0.379     2.824 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[13]/Q
@@ -647,7 +647,7 @@ Slack (MET) :             0.887ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.301    12.283    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.301    12.283    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X56Y11         FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_dds_scale_1_reg[13]/C
                                        clock pessimism              0.097    12.380    
                                        clock uncertainty           -0.154    12.226    
@@ -686,7 +686,7 @@ Slack (MET) :             0.893ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y80         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[5]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y80         FDRE (Prop_fdre_C_Q)         0.348     2.793 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[5]/Q
@@ -700,7 +700,7 @@ Slack (MET) :             0.893ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.254    12.236    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.254    12.236    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X35Y4          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_2_reg[5]/C
                                        clock pessimism              0.097    12.333    
                                        clock uncertainty           -0.154    12.179    
@@ -739,7 +739,7 @@ Slack (MET) :             0.946ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       1.366     2.445    i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/s_axi_aclk
                   SLICE_X52Y80         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[5]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y80         FDRE (Prop_fdre_C_Q)         0.348     2.793 r  i_system_wrapper/system_i/axi_ad9361/inst/i_up_axi/up_wdata_int_reg[5]/Q
@@ -753,7 +753,7 @@ Slack (MET) :             0.946ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y3          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_1_reg[5]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -793,7 +793,7 @@ Slack (MET) :             0.046ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.540     0.876    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       0.540     0.876    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_up_axi/s_axi_aclk
                   SLICE_X52Y73         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_up_axi/up_axi_rdata_int_reg[15]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X52Y73         FDRE (Prop_fdre_C_Q)         0.141     1.017 r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_up_axi/up_axi_rdata_int_reg[15]/Q
@@ -807,7 +807,7 @@ Slack (MET) :             0.046ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.805     1.171    i_system_wrapper/system_i/axi_cpu_interconnect/m08_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+                                       net (fo=12672, routed)       0.805     1.171    i_system_wrapper/system_i/axi_cpu_interconnect/m08_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
                   SLICE_X50Y73         SRLC32E                                      r  i_system_wrapper/system_i/axi_cpu_interconnect/m08_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][15]_srl32/CLK
                                        clock pessimism             -0.282     0.889    
                   SLICE_X50Y73         SRLC32E (Hold_srlc32e_CLK_D)
@@ -841,7 +841,7 @@ Slack (MET) :             0.047ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.572     0.908    i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+                                       net (fo=12672, routed)       0.572     0.908    i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
                   SLICE_X28Y84         FDRE                                         r  i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X28Y84         FDRE (Prop_fdre_C_Q)         0.141     1.049 r  i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[3]/Q
@@ -855,7 +855,7 @@ Slack (MET) :             0.047ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.838     1.204    i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
+                                       net (fo=12672, routed)       0.838     1.204    i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
                   SLICE_X30Y84         SRLC32E                                      r  i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][4]_srl32/CLK
                                        clock pessimism             -0.282     0.922    
                   SLICE_X30Y84         SRLC32E (Hold_srlc32e_CLK_D)
@@ -889,7 +889,7 @@ Slack (MET) :             0.057ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.592     0.928    i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/aclk
+                                       net (fo=12672, routed)       0.592     0.928    i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/aclk
                   SLICE_X24Y47         FDRE                                         r  i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/w_accum_reg[data][12]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X24Y47         FDRE (Prop_fdre_C_Q)         0.141     1.069 r  i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/w_accum_reg[data][12]/Q
@@ -903,7 +903,7 @@ Slack (MET) :             0.057ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.859     1.225    i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/w_payld_fifo/gen_srls[92].srl_nx1/aclk
+                                       net (fo=12672, routed)       0.859     1.225    i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/w_payld_fifo/gen_srls[92].srl_nx1/aclk
                   SLICE_X26Y46         SRLC32E                                      r  i_system_wrapper/system_i/axi_hp1_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/w_payld_fifo/gen_srls[92].srl_nx1/shift_reg_reg[0]_srl32/CLK
                                        clock pessimism             -0.282     0.943    
                   SLICE_X26Y46         SRLC32E (Hold_srlc32e_CLK_D)
@@ -937,7 +937,7 @@ Slack (MET) :             0.060ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.567     0.903    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/s_axi_aclk
+                                       net (fo=12672, routed)       0.567     0.903    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/s_axi_aclk
                   SLICE_X63Y73         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/up_measured_transfer_length_reg[12]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X63Y73         FDRE (Prop_fdre_C_Q)         0.141     1.044 r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/up_measured_transfer_length_reg[12]/Q
@@ -951,7 +951,7 @@ Slack (MET) :             0.060ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.833     1.199    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/i_transfer_lenghts_fifo/fifo.sync_clocks.ram_reg_0_3_12_17/WCLK
+                                       net (fo=12672, routed)       0.833     1.199    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/i_transfer_lenghts_fifo/fifo.sync_clocks.ram_reg_0_3_12_17/WCLK
                   SLICE_X62Y73         RAMD32                                       r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_regmap/i_regmap_request/i_transfer_lenghts_fifo/fifo.sync_clocks.ram_reg_0_3_12_17/RAMA/CLK
                                        clock pessimism             -0.283     0.916    
                   SLICE_X62Y73         RAMD32 (Hold_ramd32_CLK_I)
@@ -985,7 +985,7 @@ Slack (MET) :             0.061ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.584     0.920    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/i_clock_mon/s_axi_aclk
+                                       net (fo=12672, routed)       0.584     0.920    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/i_clock_mon/s_axi_aclk
                   SLICE_X59Y49         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/i_clock_mon/up_d_count_reg[27]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X59Y49         FDRE (Prop_fdre_C_Q)         0.128     1.048 r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/i_clock_mon/up_d_count_reg[27]/Q
@@ -1005,7 +1005,7 @@ Slack (MET) :             0.061ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.848     1.214    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/s_axi_aclk
+                                       net (fo=12672, routed)       0.848     1.214    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/s_axi_aclk
                   SLICE_X56Y50         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/up_rdata_int_reg[27]/C
                                        clock pessimism             -0.030     1.184    
                   SLICE_X56Y50         FDRE (Hold_fdre_C_D)         0.105     1.289    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_up_adc_common/up_rdata_int_reg[27]
@@ -1038,7 +1038,7 @@ Slack (MET) :             0.064ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.552     0.888    i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/gen_thread_loop[0].r_payld_fifo/aclk
+                                       net (fo=12672, routed)       0.552     0.888    i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/gen_thread_loop[0].r_payld_fifo/aclk
                   SLICE_X42Y65         FDRE                                         r  i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/gen_thread_loop[0].r_payld_fifo/mesg_reg_reg[34]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X42Y65         FDRE (Prop_fdre_C_Q)         0.164     1.052 r  i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/gen_thread_loop[0].r_payld_fifo/mesg_reg_reg[34]/Q
@@ -1052,7 +1052,7 @@ Slack (MET) :             0.064ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.815     1.181    i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/aclk
+                                       net (fo=12672, routed)       0.815     1.181    i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/aclk
                   SLICE_X52Y64         FDRE                                         r  i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/gen_thread_loop[0].r_shelf_reg[0][34]/C
                                        clock pessimism             -0.035     1.146    
                   SLICE_X52Y64         FDRE (Hold_fdre_C_D)         0.066     1.212    i_system_wrapper/system_i/axi_hp2_interconnect/inst/s00_entry_pipeline/s00_si_converter/inst/converter.wrap_narrow_inst/gen_thread_loop[0].r_shelf_reg[0][34]
@@ -1085,7 +1085,7 @@ Slack (MET) :             0.066ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.548     0.884    i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+                                       net (fo=12672, routed)       0.548     0.884    i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
                   SLICE_X51Y86         FDRE                                         r  i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_rlast_r_reg/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X51Y86         FDRE (Prop_fdre_C_Q)         0.141     1.025 r  i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_rlast_r_reg/Q
@@ -1099,7 +1099,7 @@ Slack (MET) :             0.066ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.815     1.181    i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
+                                       net (fo=12672, routed)       0.815     1.181    i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
                   SLICE_X50Y86         SRLC32E                                      r  i_system_wrapper/system_i/axi_cpu_interconnect/m06_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][0]_srl32/CLK
                                        clock pessimism             -0.284     0.897    
                   SLICE_X50Y86         SRLC32E (Hold_srlc32e_CLK_D)
@@ -1133,7 +1133,7 @@ Slack (MET) :             0.066ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.552     0.888    i_system_wrapper/system_i/axi_ad9361_adc_dma/inst/i_regmap/i_up_axi/s_axi_aclk
+                                       net (fo=12672, routed)       0.552     0.888    i_system_wrapper/system_i/axi_ad9361_adc_dma/inst/i_regmap/i_up_axi/s_axi_aclk
                   SLICE_X35Y82         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361_adc_dma/inst/i_regmap/i_up_axi/up_axi_rdata_int_reg[15]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X35Y82         FDRE (Prop_fdre_C_Q)         0.141     1.029 r  i_system_wrapper/system_i/axi_ad9361_adc_dma/inst/i_regmap/i_up_axi/up_axi_rdata_int_reg[15]/Q
@@ -1147,7 +1147,7 @@ Slack (MET) :             0.066ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.817     1.183    i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+                                       net (fo=12672, routed)       0.817     1.183    i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
                   SLICE_X34Y82         SRLC32E                                      r  i_system_wrapper/system_i/axi_cpu_interconnect/m07_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][15]_srl32/CLK
                                        clock pessimism             -0.282     0.901    
                   SLICE_X34Y82         SRLC32E (Hold_srlc32e_CLK_D)
@@ -1181,7 +1181,7 @@ Slack (MET) :             0.068ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.559     0.895    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/s_axi_aclk
+                                       net (fo=12672, routed)       0.559     0.895    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/s_axi_aclk
                   SLICE_X46Y37         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/up_adc_iqcor_coeff_1_reg[7]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X46Y37         FDRE (Prop_fdre_C_Q)         0.164     1.059 r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/up_adc_iqcor_coeff_1_reg[7]/Q
@@ -1198,7 +1198,7 @@ Slack (MET) :             0.068ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.823     1.189    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/s_axi_aclk
+                                       net (fo=12672, routed)       0.823     1.189    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/s_axi_aclk
                   SLICE_X51Y38         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/up_rdata_int_reg[23]/C
                                        clock pessimism             -0.035     1.154    
                   SLICE_X51Y38         FDRE (Hold_fdre_C_D)         0.092     1.246    i_system_wrapper/system_i/axi_ad9361/inst/i_rx/i_rx_channel_2/i_up_adc_channel/up_rdata_int_reg[23]
@@ -1231,7 +1231,7 @@ Slack (MET) :             0.069ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.573     0.909    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/m_src_axi_aclk
+                                       net (fo=12672, routed)       0.573     0.909    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/m_src_axi_aclk
                   SLICE_X55Y62         FDRE                                         r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/src_beat_counter_reg[0]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X55Y62         FDRE (Prop_fdre_C_Q)         0.141     1.050 r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/src_beat_counter_reg[0]/Q
@@ -1245,7 +1245,7 @@ Slack (MET) :             0.069ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.841     1.207    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/burst_len_mem_reg_0_7_0_4/WCLK
+                                       net (fo=12672, routed)       0.841     1.207    i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/burst_len_mem_reg_0_7_0_4/WCLK
                   SLICE_X54Y62         RAMD32                                       r  i_system_wrapper/system_i/axi_ad9361_dac_dma/inst/i_transfer/i_request_arb/i_store_and_forward/burst_len_mem_reg_0_7_0_4/RAMA/CLK
                                        clock pessimism             -0.285     0.922    
                   SLICE_X54Y62         RAMD32 (Hold_ramd32_CLK_I)
@@ -3168,9 +3168,9 @@ Slack (MET) :             0.468ns  (required time - arrival time)
     Routing       SLICE_X74Y42         LUT4 (Prop_lut4_I0_O)        0.105     5.507 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5/O
                                        net (fo=2, routed)           0.805     6.312    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5_n_0
     Routing       SLICE_X74Y42                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/I1
-    Placement     SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
+    Routing       SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
                                        net (fo=31, routed)          0.411     6.828    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg_15_sn_1
-    Placement     SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
+    Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
     Routing       SLICE_X75Y40         LUT3 (Prop_lut3_I2_O)        0.105     6.933 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/O
                                        net (fo=1, routed)           0.000     6.933    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5_n_0
     Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg[0]_i_1/S[1]
@@ -3250,9 +3250,9 @@ Slack (MET) :             0.473ns  (required time - arrival time)
     Routing       SLICE_X74Y42         LUT4 (Prop_lut4_I0_O)        0.105     5.507 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5/O
                                        net (fo=2, routed)           0.805     6.312    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5_n_0
     Routing       SLICE_X74Y42                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/I1
-    Placement     SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
+    Routing       SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
                                        net (fo=31, routed)          0.411     6.828    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg_15_sn_1
-    Placement     SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
+    Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
     Routing       SLICE_X75Y40         LUT3 (Prop_lut3_I2_O)        0.105     6.933 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/O
                                        net (fo=1, routed)           0.000     6.933    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5_n_0
     Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg[0]_i_1/S[1]
@@ -3419,10 +3419,10 @@ Slack (MET) :             0.531ns  (required time - arrival time)
                                                                     0.098     6.024 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__2/CO[3]
                                        net (fo=1, routed)           0.000     6.024    i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__2_n_0
     Routing       SLICE_X95Y74                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__3/CI
-    Placement     SLICE_X95Y74         CARRY4 (Prop_carry4_CI_CO[3])
+    Routing       SLICE_X95Y74         CARRY4 (Prop_carry4_CI_CO[3])
                                                                     0.098     6.122 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__3/CO[3]
                                        net (fo=1, routed)           0.008     6.130    i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__3_n_0
-    Placement     SLICE_X95Y75                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__4/CI
+    Routing       SLICE_X95Y75                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__4/CI
     Routing       SLICE_X95Y75         CARRY4 (Prop_carry4_CI_O[1])
                                                                     0.265     6.395 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1_carry__4/O[1]
                                        net (fo=1, routed)           0.693     7.087    i_system_wrapper/system_i/axi_ad9361/inst/i_tdd/i_tdd_control/tdd_endof_frame1[22]
@@ -3494,9 +3494,9 @@ Slack (MET) :             0.533ns  (required time - arrival time)
     Routing       SLICE_X74Y42         LUT4 (Prop_lut4_I0_O)        0.105     5.507 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5/O
                                        net (fo=2, routed)           0.805     6.312    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5_n_0
     Routing       SLICE_X74Y42                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/I1
-    Placement     SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
+    Routing       SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
                                        net (fo=31, routed)          0.411     6.828    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg_15_sn_1
-    Placement     SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
+    Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
     Routing       SLICE_X75Y40         LUT3 (Prop_lut3_I2_O)        0.105     6.933 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/O
                                        net (fo=1, routed)           0.000     6.933    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5_n_0
     Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg[0]_i_1/S[1]
@@ -3647,9 +3647,9 @@ Slack (MET) :             0.552ns  (required time - arrival time)
     Routing       SLICE_X74Y42         LUT4 (Prop_lut4_I0_O)        0.105     5.507 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5/O
                                        net (fo=2, routed)           0.805     6.312    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_valid_int_i_5_n_0
     Routing       SLICE_X74Y42                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/I1
-    Placement     SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
+    Routing       SLICE_X74Y42         LUT5 (Prop_lut5_I1_O)        0.105     6.417 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/dac_rate_cnt[0]_i_2/O
                                        net (fo=31, routed)          0.411     6.828    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg_15_sn_1
-    Placement     SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
+    Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/I2
     Routing       SLICE_X75Y40         LUT3 (Prop_lut3_I2_O)        0.105     6.933 r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5/O
                                        net (fo=1, routed)           0.000     6.933    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt[0]_i_5_n_0
     Routing       SLICE_X75Y40                                                      r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_up_dac_common/i_xfer_cntrl/dac_rate_cnt_reg[0]_i_1/S[1]
@@ -12219,12 +12219,12 @@ Slack (MET) :             1.633ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.409    10.321    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_xfer_state_reg[0]
     Routing       SLICE_X26Y4          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_tc_2_reg[3]/CLR
@@ -12236,7 +12236,7 @@ Slack (MET) :             1.633ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.321    12.303    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.321    12.303    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X26Y4          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_tc_2_reg[3]/C
                                        clock pessimism              0.097    12.400    
                                        clock uncertainty           -0.154    12.246    
@@ -12275,12 +12275,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[1]/CLR
@@ -12292,7 +12292,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[1]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12331,12 +12331,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[2]/CLR
@@ -12348,7 +12348,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[2]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12387,12 +12387,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[3]/CLR
@@ -12404,7 +12404,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[3]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12443,12 +12443,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[4]/CLR
@@ -12460,7 +12460,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[4]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12499,12 +12499,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[5]/CLR
@@ -12516,7 +12516,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[5]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12555,12 +12555,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[6]/CLR
@@ -12572,7 +12572,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[6]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12611,12 +12611,12 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.360    10.272    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/SR[0]
     Routing       SLICE_X31Y2          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[7]/CLR
@@ -12628,7 +12628,7 @@ Slack (MET) :             1.639ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.318    12.300    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/s_axi_aclk
                   SLICE_X31Y2          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/up_dac_dds_scale_tc_1_reg[7]/C
                                        clock pessimism              0.097    12.397    
                                        clock uncertainty           -0.154    12.243    
@@ -12667,12 +12667,12 @@ Slack (MET) :             1.667ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.409    10.321    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_xfer_state_reg[0]
     Routing       SLICE_X26Y4          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_tc_2_reg[1]/CLR
@@ -12684,7 +12684,7 @@ Slack (MET) :             1.667ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.321    12.303    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.321    12.303    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X26Y4          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_tc_2_reg[1]/C
                                        clock pessimism              0.097    12.400    
                                        clock uncertainty           -0.154    12.246    
@@ -12723,12 +12723,12 @@ Slack (MET) :             1.667ns  (required time - arrival time)
                                        net (fo=1, routed)           0.994     0.994    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.085     1.079 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
+                                       net (fo=12672, routed)       1.608     2.687    i_system_wrapper/system_i/sys_rstgen/U0/slowest_sync_clk
                   SLICE_X56Y110        FDRE                                         r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   ---------------------------------------------------------------------------------    -------------------
-    Placement     SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+    Routing       SLICE_X56Y110        FDRE (Prop_fdre_C_Q)         0.348     3.035 r  i_system_wrapper/system_i/sys_rstgen/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
                                        net (fo=121, routed)         1.635     4.670    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/s_axi_aresetn
-    Placement     SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
+    Routing       SLICE_X106Y96                                                     r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/I0
     Routing       SLICE_X106Y96        LUT1 (Prop_lut1_I0_O)        0.242     4.912 f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_0/i_up_dac_channel/i_xfer_cntrl/up_axi_awready_int_i_1/O
                                        net (fo=4623, routed)        5.409    10.321    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_xfer_state_reg[0]
     Routing       SLICE_X26Y4          FDCE                                         f  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_tc_2_reg[2]/CLR
@@ -12740,7 +12740,7 @@ Slack (MET) :             1.667ns  (required time - arrival time)
                                        net (fo=1, routed)           0.905    10.906    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.077    10.983 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       1.321    12.303    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
+                                       net (fo=12672, routed)       1.321    12.303    i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/s_axi_aclk
                   SLICE_X26Y4          FDCE                                         r  i_system_wrapper/system_i/axi_ad9361/inst/i_tx/i_tx_channel_1/i_up_dac_channel/up_dac_iqcor_coeff_tc_2_reg[2]/C
                                        clock pessimism              0.097    12.400    
                                        clock uncertainty           -0.154    12.246    
@@ -12780,7 +12780,7 @@ Slack (MET) :             0.345ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/Q
@@ -12794,7 +12794,7 @@ Slack (MET) :             0.345ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_clk
+                                       net (fo=12672, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_clk
                   SLICE_X94Y129        FDCE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/gnxpm_cdc.rd_pntr_gc_reg[2]/C
                                        clock pessimism             -0.288     1.030    
                   SLICE_X94Y129        FDCE (Remov_fdce_C_CLR)     -0.067     0.963    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/gnxpm_cdc.rd_pntr_gc_reg[2]
@@ -12827,7 +12827,7 @@ Slack (MET) :             0.345ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/Q
@@ -12841,7 +12841,7 @@ Slack (MET) :             0.345ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_clk
+                                       net (fo=12672, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_clk
                   SLICE_X94Y129        FDCE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/gnxpm_cdc.rd_pntr_gc_reg[3]/C
                                        clock pessimism             -0.288     1.030    
                   SLICE_X94Y129        FDCE (Remov_fdce_C_CLR)     -0.067     0.963    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/gnxpm_cdc.rd_pntr_gc_reg[3]
@@ -12874,7 +12874,7 @@ Slack (MET) :             0.378ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.679     1.015    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.679     1.015    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X93Y129        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_rd_reg2_reg/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X93Y129        FDPE (Prop_fdpe_C_Q)         0.128     1.143 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_rd_reg2_reg/Q
@@ -12888,7 +12888,7 @@ Slack (MET) :             0.378ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X93Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_asreg_reg/C
                                        clock pessimism             -0.288     1.030    
                   SLICE_X93Y130        FDPE (Remov_fdpe_C_PRE)     -0.149     0.881    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_asreg_reg
@@ -12921,7 +12921,7 @@ Slack (MET) :             0.414ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.653     0.989    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/clk
+                                       net (fo=12672, routed)       0.653     0.989    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/clk
                   SLICE_X85Y123        FDRE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/rddata_rst_reg/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X85Y123        FDRE (Prop_fdre_C_Q)         0.141     1.130 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/rddata_rst_reg/Q
@@ -12935,7 +12935,7 @@ Slack (MET) :             0.414ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.919     1.285    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/wr_clk
+                                       net (fo=12672, routed)       0.919     1.285    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/wr_clk
                   SLICE_X64Y123        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_wr_reg1_reg/C
                                        clock pessimism             -0.268     1.017    
                   SLICE_X64Y123        FDPE (Remov_fdpe_C_PRE)     -0.095     0.922    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_wr_reg1_reg
@@ -12968,7 +12968,7 @@ Slack (MET) :             0.414ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.653     0.989    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/clk
+                                       net (fo=12672, routed)       0.653     0.989    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/clk
                   SLICE_X85Y123        FDRE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/rddata_rst_reg/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X85Y123        FDRE (Prop_fdre_C_Q)         0.141     1.130 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/rddata_rst_reg/Q
@@ -12982,7 +12982,7 @@ Slack (MET) :             0.414ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.919     1.285    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/wr_clk
+                                       net (fo=12672, routed)       0.919     1.285    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/wr_clk
                   SLICE_X64Y123        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_wr_reg2_reg/C
                                        clock pessimism             -0.268     1.017    
                   SLICE_X64Y123        FDPE (Remov_fdpe_C_PRE)     -0.095     0.922    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_wr_reg2_reg
@@ -13015,7 +13015,7 @@ Slack (MET) :             0.416ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/Q
@@ -13029,7 +13029,7 @@ Slack (MET) :             0.416ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.951     1.317    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/rd_clk
+                                       net (fo=12672, routed)       0.951     1.317    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/rd_clk
                   SLICE_X94Y128        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_reg/C
                                        clock pessimism             -0.288     1.029    
                   SLICE_X94Y128        FDPE (Remov_fdpe_C_PRE)     -0.071     0.958    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_reg
@@ -13062,7 +13062,7 @@ Slack (MET) :             0.416ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/Q
@@ -13076,7 +13076,7 @@ Slack (MET) :             0.416ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.951     1.317    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/rd_clk
+                                       net (fo=12672, routed)       0.951     1.317    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/rd_clk
                   SLICE_X94Y128        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i_reg/C
                                        clock pessimism             -0.288     1.029    
                   SLICE_X94Y128        FDPE (Remov_fdpe_C_PRE)     -0.071     0.958    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i_reg
@@ -13109,7 +13109,7 @@ Slack (MET) :             0.423ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/Q
@@ -13123,7 +13123,7 @@ Slack (MET) :             0.423ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/rd_clk
+                                       net (fo=12672, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/rd_clk
                   SLICE_X95Y129        FDCE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/C
                                        clock pessimism             -0.288     1.030    
                   SLICE_X95Y129        FDCE (Remov_fdce_C_CLR)     -0.092     0.938    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]
@@ -13156,7 +13156,7 @@ Slack (MET) :             0.423ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/Q
@@ -13170,7 +13170,7 @@ Slack (MET) :             0.423ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/rd_clk
+                                       net (fo=12672, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/rd_clk
                   SLICE_X95Y129        FDCE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/C
                                        clock pessimism             -0.288     1.030    
                   SLICE_X95Y129        FDCE (Remov_fdce_C_CLR)     -0.092     0.938    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]
@@ -13203,7 +13203,7 @@ Slack (MET) :             0.423ns  (arrival time - required time)
                                        net (fo=1, routed)           0.310     0.310    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
+                                       net (fo=12672, routed)       0.681     1.017    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_clk
                   SLICE_X94Y130        FDPE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/C
   ---------------------------------------------------------------------------------    -------------------
     Routing       SLICE_X94Y130        FDPE (Prop_fdpe_C_Q)         0.164     1.181 f  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/Q
@@ -13217,7 +13217,7 @@ Slack (MET) :             0.423ns  (arrival time - required time)
                                        net (fo=1, routed)           0.337     0.337    i_system_wrapper/system_i/sys_ps7/inst/FCLK_CLK_unbuffered[0]
                   BUFGCTRL_X0Y16                                                    r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
                   BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  i_system_wrapper/system_i/sys_ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                                       net (fo=12664, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/rd_clk
+                                       net (fo=12672, routed)       0.952     1.318    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/rd_clk
                   SLICE_X95Y129        FDCE                                         r  dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[2]/C
                                        clock pessimism             -0.288     1.030    
                   SLICE_X95Y129        FDCE (Remov_fdce_C_CLR)     -0.092     0.938    dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_reg[2]

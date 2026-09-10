@@ -61,7 +61,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="14"/>
+    <Option Name="WTXSimLaunchSim" Val="20"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -105,65 +105,78 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/fastlock_load.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/system/system.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_fastlock_hopper_0_0/system_fastlock_hopper_0_0.xci">
+          <Proxy FileSetName="system_fastlock_hopper_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_bram_read_0_2/system_bram_read_0_2.xci">
+          <Proxy FileSetName="system_bram_read_0_2"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_0/system_axi_ad9361_0.xci">
+          <Proxy FileSetName="system_axi_ad9361_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_dac_dma_0/system_axi_ad9361_dac_dma_0.xci">
+          <Proxy FileSetName="system_axi_ad9361_dac_dma_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_dac_fifo_0/system_axi_ad9361_dac_fifo_0.xci">
+          <Proxy FileSetName="system_axi_ad9361_dac_fifo_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0.xci">
+          <Proxy FileSetName="system_axi_ad9361_adc_dma_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0.xci">
+          <Proxy FileSetName="system_axi_bram_ctrl_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_tdd_sync_0/system_util_ad9361_tdd_sync_0.xci">
+          <Proxy FileSetName="system_util_ad9361_tdd_sync_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_divclk_reset_0/system_util_ad9361_divclk_reset_0.xci">
           <Proxy FileSetName="system_util_ad9361_divclk_reset_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_divclk_sel_0/system_util_ad9361_divclk_sel_0.xci">
           <Proxy FileSetName="system_util_ad9361_divclk_sel_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_tdd_sync_0/system_util_ad9361_tdd_sync_0.xci">
-          <Proxy FileSetName="system_util_ad9361_tdd_sync_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_ila_0_0/system_ila_0_0.xci">
           <Proxy FileSetName="system_ila_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0.xci">
-          <Proxy FileSetName="system_axi_bram_ctrl_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_blk_mem_gen_0_0/system_blk_mem_gen_0_0.xci">
           <Proxy FileSetName="system_blk_mem_gen_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0.xci">
-          <Proxy FileSetName="system_sys_200m_rstgen_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_dac_upack_0/system_util_ad9361_dac_upack_0.xci">
-          <Proxy FileSetName="system_util_ad9361_dac_upack_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_sys_ps7_0/system_sys_ps7_0.xci">
-          <Proxy FileSetName="system_sys_ps7_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_0/system_xbar_0.xci">
+          <Proxy FileSetName="system_xbar_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_divclk_0/system_util_ad9361_divclk_0.xci">
           <Proxy FileSetName="system_util_ad9361_divclk_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_sys_ps7_0/system_sys_ps7_0.xci">
+          <Proxy FileSetName="system_sys_ps7_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_dac_upack_0/system_util_ad9361_dac_upack_0.xci">
+          <Proxy FileSetName="system_util_ad9361_dac_upack_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_sys_rstgen_0/system_sys_rstgen_0.xci">
           <Proxy FileSetName="system_sys_rstgen_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_adc_fifo_0/system_util_ad9361_adc_fifo_0.xci">
-          <Proxy FileSetName="system_util_ad9361_adc_fifo_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_adc_pack_0/system_util_ad9361_adc_pack_0.xci">
           <Proxy FileSetName="system_util_ad9361_adc_pack_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_dac_fifo_0/system_axi_ad9361_dac_fifo_0.xci">
-          <Proxy FileSetName="system_axi_ad9361_dac_fifo_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_sys_200m_rstgen_0/system_sys_200m_rstgen_0.xci">
+          <Proxy FileSetName="system_sys_200m_rstgen_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_xbar_0/system_xbar_0.xci">
-          <Proxy FileSetName="system_xbar_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_adc_dma_0/system_axi_ad9361_adc_dma_0.xci">
-          <Proxy FileSetName="system_axi_ad9361_adc_dma_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_dac_dma_0/system_axi_ad9361_dac_dma_0.xci">
-          <Proxy FileSetName="system_axi_ad9361_dac_dma_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_axi_ad9361_0/system_axi_ad9361_0.xci">
-          <Proxy FileSetName="system_axi_ad9361_0"/>
+        <CompFileExtendedInfo CompFileName="system.bd" FileRelPathName="ip/system_util_ad9361_adc_fifo_0/system_util_ad9361_adc_fifo_0.xci">
+          <Proxy FileSetName="system_util_ad9361_adc_fifo_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/../library/common/ad_iobuf.v">
@@ -181,14 +194,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/spi_master.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/fastlock_load.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -222,8 +227,16 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/new/fastlock_load_tb.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sim_1/new/bram_read_tb.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -239,7 +252,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="bram_read_tb"/>
+        <Option Name="TopModule" Val="fastlock_load_tb"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
@@ -370,6 +383,18 @@
     <FileSet Name="system_blk_mem_gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_blk_mem_gen_0_0" RelGenDir="$PGENDIR/system_blk_mem_gen_0_0">
       <Config>
         <Option Name="TopModule" Val="system_blk_mem_gen_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="system_fastlock_hopper_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_fastlock_hopper_0_0" RelGenDir="$PGENDIR/system_fastlock_hopper_0_0">
+      <Config>
+        <Option Name="TopModule" Val="system_fastlock_hopper_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="system_bram_read_0_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_bram_read_0_2" RelGenDir="$PGENDIR/system_bram_read_0_2">
+      <Config>
+        <Option Name="TopModule" Val="system_bram_read_0_2"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -576,6 +601,30 @@
     <Run Id="system_blk_mem_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_blk_mem_gen_0_0" Part="xc7z020clg400-2" ConstrsSet="system_blk_mem_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_blk_mem_gen_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_blk_mem_gen_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="system_fastlock_hopper_0_0_synth_1" Type="Ft3:Synth" SrcSet="system_fastlock_hopper_0_0" Part="xc7z020clg400-2" ConstrsSet="system_fastlock_hopper_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_fastlock_hopper_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_fastlock_hopper_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="system_bram_read_0_2_synth_1" Type="Ft3:Synth" SrcSet="system_bram_read_0_2" Part="xc7z020clg400-2" ConstrsSet="system_bram_read_0_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/system_bram_read_0_2_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_bram_read_0_2_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -893,6 +942,44 @@
     <Run Id="system_blk_mem_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="system_blk_mem_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_blk_mem_gen_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_blk_mem_gen_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="system_fastlock_hopper_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="system_fastlock_hopper_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_fastlock_hopper_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_fastlock_hopper_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="system_bram_read_0_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="system_bram_read_0_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="system_bram_read_0_2_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/system_bram_read_0_2_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

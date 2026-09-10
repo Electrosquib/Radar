@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date             : Fri Aug 28 09:30:05 2026
+| Date             : Wed Sep  9 18:53:10 2026
 | Host             : LevisPC running 64-bit major release  (build 9200)
 | Command          : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 | Design           : system_top
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.155 |       10 |       --- |             --- |
-| Slice Logic              |     0.178 |    43079 |       --- |             --- |
+| Slice Logic              |     0.178 |    43081 |       --- |             --- |
 |   LUT as Logic           |     0.138 |    13364 |     53200 |           25.12 |
 |   CARRY4                 |     0.021 |     1656 |     13300 |           12.45 |
 |   Register               |     0.015 |    22363 |    106400 |           21.02 |
 |   LUT as Shift Register  |     0.002 |      765 |     17400 |            4.40 |
 |   LUT as Distributed RAM |    <0.001 |      270 |     17400 |            1.55 |
 |   F7/F8 Muxes            |    <0.001 |      174 |     53200 |            0.33 |
-|   Others                 |     0.000 |     1479 |       --- |             --- |
+|   Others                 |     0.000 |     1481 |       --- |             --- |
 | Signals                  |     0.178 |    30852 |       --- |             --- |
 | Block RAM                |     0.015 |     12.5 |       140 |            8.93 |
 | DSPs                     |     0.065 |       28 |       220 |           12.73 |

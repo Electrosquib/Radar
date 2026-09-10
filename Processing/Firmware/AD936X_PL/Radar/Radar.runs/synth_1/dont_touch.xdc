@@ -77,14 +77,20 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_ila_
 # IP: bd/system/ip/system_xlconstant_0_0/system_xlconstant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlconstant_0_0 || ORIG_REF_NAME==system_xlconstant_0_0} -quiet] -quiet
 
-# IP: bd/system/ip/system_fastlock_hopper_0_0/system_fastlock_hopper_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fastlock_hopper_0_0 || ORIG_REF_NAME==system_fastlock_hopper_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_blk_mem_gen_0_0/system_blk_mem_gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_blk_mem_gen_0_0 || ORIG_REF_NAME==system_blk_mem_gen_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_bram_ctrl_0_0 || ORIG_REF_NAME==system_axi_bram_ctrl_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_fastlock_hopper_0_0/system_fastlock_hopper_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_fastlock_hopper_0_0 || ORIG_REF_NAME==system_fastlock_hopper_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_xlconstant_1_0/system_xlconstant_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xlconstant_1_0 || ORIG_REF_NAME==system_xlconstant_1_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_bram_read_0_2/system_bram_read_0_2.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_bram_read_0_2 || ORIG_REF_NAME==system_bram_read_0_2} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_3/system_auto_pc_3.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_3 || ORIG_REF_NAME==system_auto_pc_3} -quiet] -quiet

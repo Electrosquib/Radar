@@ -3,23 +3,24 @@ import adi
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
+from collections import deque
 
 class SFCWRadar:
-    def __init__(self, device_string="usb:", Fmin=600e6, Fmax=300e6, verbose=True, Fs=20e6, rx_port=1, rx_loopback_port=0, tx_port=0, tx_loopback_port=1):
+    def __init__(self, device_string="usb:", Fmin=1000e6, Fmax=1300e6, verbose=True, Fs=20e6, rx_port=1, rx_loopback_port=0, tx_port=0, tx_loopback_port=1):
         self.sdr = adi.ad9361(uri=device_string)
         self.sdr.rx_enabled_channels = [rx_loopback_port, rx_port]
         self.sdr.tx_enabled_channels = [tx_port, tx_loopback_port]
 
         self.RX_GAIN = 71
-        self.LOOPBACK_GAIN = 71
+        self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
-        self.BUFF_SIZE = 8192
+        self.BUFF_SIZE = 400 # 20e6 / 1e6 = 20 samps. 8192 / 20 = 409.6. Must be an integer multiple to prevent spectral leakage
         self.BB_GAIN = 1
         self.SDR_BITS = 12
         self.C = 3e8
         self.TX_BB_SCALE = 2**14
         self.BB_SPACING = 2e6
-        self.CAPTURE_AVERAGES = 3
+        self.CAPTURE_AVERAGES = 4
         self.Fs = int(Fs)
         self.max_range = self.C / (2 * self.BB_SPACING)
         self.retune_delay = 100e-6
@@ -48,6 +49,7 @@ class SFCWRadar:
 
         self.FREQS = [int(i) for i in np.arange(self.Fmin, self.Fmax, self.Fs)]
         self.fastlock_profiles = np.array([])
+        self.tx_fastlock_profiles = np.array([])
         self.num_freqs = int(self.Fs // self.BB_SPACING)
         self.bb_freqs = np.arange(
             -self.Fs / 2,
@@ -57,12 +59,16 @@ class SFCWRadar:
         self.num_steps = self.num_freqs*len(self.FREQS)
 
         self.buffer_vector = np.arange(0, self.BUFF_SIZE, 1)
+        self.bb_mixers = np.exp(-1j * 2 * np.pi * self.bb_freqs[:, None] * self.buffer_vector / self.Fs)
         self.loopback_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
         self.rx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
         self.S = np.zeros(self.num_freqs * len(self.FREQS), dtype=np.complex64)
 
         self.sdr.tx_cyclic_buffer = True
         self.lo = self.sdr._ctrl.find_channel("altvoltage0", True)
+        self.tx_lo = self.sdr._ctrl.find_channel("altvoltage1", True)
+
+        self.range_profile_ring_buf = deque(maxlen=self.CAPTURE_AVERAGES)
 
         # STARTUP Process:
         self.store_fastlock_profiles()
@@ -75,8 +81,11 @@ class SFCWRadar:
         """
         for count, f in enumerate(self.FREQS):
             self.sdr.rx_lo = f
+            self.sdr.tx_lo = f
             self.lo.attrs["fastlock_store"].value = "0"
+            self.tx_lo.attrs["fastlock_store"].value = "0"
             self.fastlock_profiles = np.append(self.fastlock_profiles, self.lo.attrs["fastlock_save"].value.split(" ", 1)[1])
+            self.tx_fastlock_profiles = np.append(self.tx_fastlock_profiles, self.tx_lo.attrs["fastlock_save"].value.split(" ", 1)[1])
             if self.verbose:
                 print(f"[-] Storing Fastlock profiles: {count + 1}/{len(self.FREQS)} ({(count+1)/len(self.FREQS)*100:.1f}%)", end="\r")
         if self.verbose:
@@ -189,17 +198,15 @@ class SFCWRadar:
         return calibration_profiles
 
     def extract_bb_phasors(self):
-        corrected = np.zeros(self.num_freqs, dtype=complex)
+        numerator = np.zeros(self.num_freqs, dtype=complex)
+        denominator = np.zeros(self.num_freqs)
         for _ in range(self.CAPTURE_AVERAGES):
             loop_raw, rx_raw = self.sdr.rx()
-            loop_phasors = np.zeros(self.num_freqs, dtype=complex)
-            rx_phasors = np.zeros(self.num_freqs, dtype=complex)
-            for i, f in enumerate(self.bb_freqs):
-                mixer = np.exp(-1j * 2 * np.pi * f * self.buffer_vector / self.Fs)
-                loop_phasors[i] = np.mean(loop_raw * mixer)
-                rx_phasors[i] = np.mean(rx_raw * mixer)
-            corrected += rx_phasors / (loop_phasors + 1e-12)
-        return corrected / self.CAPTURE_AVERAGES
+            loop_phasors = self.bb_mixers @ loop_raw / self.BUFF_SIZE
+            rx_phasors = self.bb_mixers @ rx_raw / self.BUFF_SIZE
+            numerator += rx_phasors * np.conj(loop_phasors)
+            denominator += np.abs(loop_phasors) ** 2
+        return numerator / (denominator + 1e-12)
 
     # def extract_bb_phasors(self):
     #     loop_phasors = np.zeros(self.num_freqs, dtype=complex)
@@ -219,9 +226,11 @@ class SFCWRadar:
 
     def load_fastlock(self, start_idx):
         self.sdr.rx_destroy_buffer()
-        profiles = self.fastlock_profiles[start_idx:start_idx + 8]
-        for i, profile in enumerate(profiles):
-            self.lo.attrs["fastlock_load"].value = f"{i} {profile}"
+        rx_profiles = self.fastlock_profiles[start_idx:start_idx + 8]
+        tx_profiles = self.tx_fastlock_profiles[start_idx:start_idx + 8]
+        for i, (rx_profile, tx_profile) in enumerate(zip(rx_profiles, tx_profiles)):
+            self.lo.attrs["fastlock_load"].value = f"{i} {rx_profile}"
+            self.tx_lo.attrs["fastlock_load"].value = f"{i} {tx_profile}"
 
     # def retune(self, register_num):
     #     register_num = int(register_num)
@@ -230,7 +239,7 @@ class SFCWRadar:
     #     self.lo.attrs["fastlock_recall"].value = str(register_num)
     def retune(self, freq, register_num):
         self.lo.attrs["fastlock_recall"].value = str(register_num)
-        self.sdr.tx_lo = int(freq)
+        self.tx_lo.attrs["fastlock_recall"].value = str(register_num)
 
 
     def sweep(self):

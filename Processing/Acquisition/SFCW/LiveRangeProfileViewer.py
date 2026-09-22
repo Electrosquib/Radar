@@ -9,7 +9,7 @@ from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
 import numpy as np
 
-radar = SFCWRadar(verbose=False, Fmin=3000e6, Fmax=4000e6, Fs=20e6)
+radar = SFCWRadar(verbose=True, Fmin=3000e6, Fmax=4000e6, Fs=20e6)
 
 input("Press Enter to start the live range profile viewer...")
 

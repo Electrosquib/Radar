@@ -69,6 +69,11 @@ class SFCWRadar:
         self.tx_lo = self.sdr._ctrl.find_channel("altvoltage1", True)
 
         self.range_profile_ring_buf = deque(maxlen=self.CAPTURE_AVERAGES)
+        self.fastlock_load_times = []
+        self.rx_destroy_buffer_times = []
+        self.fastlock_recall_times = []
+        self.rx_times = []
+        self.range_profile_times = []
 
         # STARTUP Process:
         self.store_fastlock_profiles()
@@ -201,7 +206,10 @@ class SFCWRadar:
         numerator = np.zeros(self.num_freqs, dtype=complex)
         denominator = np.zeros(self.num_freqs)
         for _ in range(self.CAPTURE_AVERAGES):
+            t0 = time.perf_counter()
             loop_raw, rx_raw = self.sdr.rx()
+            dt = time.perf_counter() - t0
+            self.rx_times.append(dt)
             loop_phasors = self.bb_mixers @ loop_raw / self.BUFF_SIZE
             rx_phasors = self.bb_mixers @ rx_raw / self.BUFF_SIZE
             numerator += rx_phasors * np.conj(loop_phasors)
@@ -225,12 +233,19 @@ class SFCWRadar:
     #     return rx_phasors / (loop_phasors + 1e-12)
 
     def load_fastlock(self, start_idx):
+        t0 = time.perf_counter()
         self.sdr.rx_destroy_buffer()
+        dt = time.perf_counter() - t0
+        self.rx_destroy_buffer_times.append(dt)
+
+        t0 = time.perf_counter()
         rx_profiles = self.fastlock_profiles[start_idx:start_idx + 8]
         tx_profiles = self.tx_fastlock_profiles[start_idx:start_idx + 8]
         for i, (rx_profile, tx_profile) in enumerate(zip(rx_profiles, tx_profiles)):
             self.lo.attrs["fastlock_load"].value = f"{i} {rx_profile}"
             self.tx_lo.attrs["fastlock_load"].value = f"{i} {tx_profile}"
+        dt = time.perf_counter() - t0
+        self.fastlock_load_times.append(dt)
 
     # def retune(self, register_num):
     #     register_num = int(register_num)
@@ -238,11 +253,20 @@ class SFCWRadar:
     #         raise ValueError(f"Invalid fastlock slot: {register_num}")
     #     self.lo.attrs["fastlock_recall"].value = str(register_num)
     def retune(self, freq, register_num):
+        t0 = time.perf_counter()
         self.lo.attrs["fastlock_recall"].value = str(register_num)
         self.tx_lo.attrs["fastlock_recall"].value = str(register_num)
+        dt = time.perf_counter() - t0
+        self.fastlock_recall_times.append(dt)
 
 
     def sweep(self):
+        self.fastlock_load_times.clear()
+        self.rx_destroy_buffer_times.clear()
+        self.fastlock_recall_times.clear()
+        self.rx_times.clear()
+        self.range_profile_times.clear()
+        range_profile_t0 = time.perf_counter()
         for count, freq in enumerate(self.FREQS):
             if count % 8 == 0:
                 if self.verbose:
@@ -252,6 +276,21 @@ class SFCWRadar:
             time.sleep(self.retune_delay)
             phasors = self.extract_bb_phasors()
             self.S[count*self.num_freqs:(count+1)*self.num_freqs] = phasors
+        self.range_profile_times.append(time.perf_counter() - range_profile_t0)
+        if self.verbose:
+            print(f"{'Operation':<24} {'Average (ms)':>12} {'Max (ms)':>12} {'Measures':>10}")
+            print("-" * 61)
+            for label, measurements in (
+                ("Fastlock load", self.fastlock_load_times),
+                ("RX buffer destroy", self.rx_destroy_buffer_times),
+                ("Fastlock recall", self.fastlock_recall_times),
+                ("SDR RX", self.rx_times),
+                ("Range profile capture", self.range_profile_times),
+            ):
+                print(
+                    f"{label:<24} {np.mean(measurements) * 1e3:>12.3f} "
+                    f"{max(measurements) * 1e3:>12.3f} {len(measurements):>10}"
+                )
         # try:
         #     self.sdr.tx_destroy_buffer()
         # except Exception:

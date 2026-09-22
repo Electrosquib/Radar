@@ -1,0 +1,40 @@
+{
+  "scene_title": "Holmes_Lanai_Iso",
+  "status": "interrupted",
+  "session": {
+    "started_at": "2026-09-14T15:18:05.844341-10:00",
+    "stopped_at": "2026-09-14T15:18:37.830197-10:00",
+    "elapsed_seconds": 31.985856,
+    "active_scan_seconds": 10.71043949876912
+  },
+  "scan_count": 3,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Holmes_Lanai_Iso - Position 01",
+      "position_inches": -0.5,
+      "position_meters": -0.0127,
+      "started_at": "2026-09-14T15:18:21.085677-10:00",
+      "stopped_at": "2026-09-14T15:18:24.680251-10:00",
+      "duration_seconds": 3.594671833096072
+    },
+    {
+      "scan_index": 1,
+      "name": "Holmes_Lanai_Iso - Position 02",
+      "position_inches": -1.0,
+      "position_meters": -0.0254,
+      "started_at": "2026-09-14T15:18:25.714659-10:00",
+      "stopped_at": "2026-09-14T15:18:29.259813-10:00",
+      "duration_seconds": 3.545241749845445
+    },
+    {
+      "scan_index": 2,
+      "name": "Holmes_Lanai_Iso - Position 03",
+      "position_inches": -1.5,
+      "position_meters": -0.038099999999999995,
+      "started_at": "2026-09-14T15:18:30.300212-10:00",
+      "stopped_at": "2026-09-14T15:18:33.870650-10:00",
+      "duration_seconds": 3.570525915827602
+    }
+  ]
+}

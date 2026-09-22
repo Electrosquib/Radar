@@ -114,7 +114,7 @@ def _backproject_core(
 
     img = np.abs(img)
     img = np.nan_to_num(img, nan=0.0, posinf=0.0, neginf=0.0)
-
+    img /= len(range_profiles)
     if output_db:
         peak = np.max(img)
         if normalize_db:

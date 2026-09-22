@@ -3,13 +3,16 @@ This is a helper tool to control a rail, compute range profiles using SFCW.py, a
 Important: this code was made with the assistance of ChatGPT.
 """
 
+import argparse
 import serial
 import json
 import re
 import shutil
 import subprocess
 import sys
+import termios
 import time
+import tty
 from datetime import datetime
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,24 +23,24 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 import Autofocus
 import Imaging
-import Processing.Acquisition.SFCW.AdjustScanPositions as position_editor
+from Acquisition.SFCW import AdjustScanPositions as position_editor
 from SFCW import SFCWRadar
 
-RAIL_PORT = "/dev/cu.usbmodem1201"
+RAIL_PORT = "/dev/cu.usbmodem11201"
 RAIL_BAUD = 115200
 SERIAL_TIMEOUT = 1.0
 RAIL_STARTUP_DELAY = 2.0
 step_dist = .5
 RAIL_STEP_MOVE_TIME = (2.5 * 70 / 255 + 0.08) * step_dist
 RAIL_SETTLE_TIME = 0.3
-RAIL_STEP_INCHES = .5
+RAIL_STEP_INCHES = 1
 RAIL_DIRECTION = "l"
 RAIL_STOP = "x"
-RAIL_STEPS_TO_CAPTURE = 85
+RAIL_STEPS_TO_CAPTURE = 60
 
 DEVICE_STRING = "usb:"
-FMIN = int(3000e6)
-FMAX = int(4000e6)
+FMIN = int(1000e6)
+FMAX = int(1300e6)
 FS = int(20e6)
 SWEEP_AVERAGES = 4
 SWEEP_RETRIES = 5
@@ -49,13 +52,13 @@ CALIBRATION_PATH = DATA_ROOT / "Calibrate" / "calibration.npy"
 CAMERA_DEVICE = "0:none"
 
 FT = 0.3048
-H_RADAR_FT = 6
-CROSSRANGE_FT = (-10, 10)
-DOWNRANGE_FT = (0, 20)
+H_RADAR_FT = 2.3
+CROSSRANGE_FT = (-5, 5)
+DOWNRANGE_FT = (0, 10)
 IMAGING_RESOLUTION = (200, 200)
 IMAGE_DYNAMIC_RANGE_DB = 20.0
-MEA_ITERATIONS = 20
-PGA_ITERATIONS = 3
+MEA_ITERATIONS = 20000
+PGA_ITERATIONS = 30
 
 cal_path = None
 
@@ -76,6 +79,63 @@ def show_banner():
     print(f"{cyan}{SAR_CLI_BANNER}{reset}")
     print("  Stepped-Frequency SAR Acquisition & Imaging")
     print("  " + "─" * 49)
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+        description="Acquire stepped-frequency SAR scans and generate imagery."
+    )
+    parser.add_argument(
+        "--mode",
+        choices=("rail", "manual"),
+        help=(
+            "acquisition mode: control the motorized rail, or wait for Space "
+            "between manually positioned scans"
+        ),
+    )
+    parser.add_argument(
+        "--photo",
+        action="store_true",
+        help="capture a scene photo before scanning (disabled by default)",
+    )
+    return parser
+
+
+def prompt_acquisition_mode():
+    while True:
+        answer = input(
+            "Acquisition mode: [r] Rail  [m] Manual: "
+        ).strip().lower()
+        if answer in {"r", "rail"}:
+            return "rail"
+        if answer in {"m", "manual"}:
+            return "manual"
+        print("Please choose r or m.")
+
+
+def beep():
+    """Ring the terminal bell after a manual scan finishes."""
+    print("\a", end="", flush=True)
+
+
+def wait_for_space(message):
+    """Wait for one Space keypress without requiring Enter on a terminal."""
+    print(message, end="", flush=True)
+    if not sys.stdin.isatty():
+        while True:
+            if input() == " ":
+                return
+            print("Enter a single space, then press Enter: ", end="", flush=True)
+
+    descriptor = sys.stdin.fileno()
+    original_settings = termios.tcgetattr(descriptor)
+    try:
+        tty.setcbreak(descriptor)
+        while sys.stdin.read(1) != " ":
+            pass
+    finally:
+        termios.tcsetattr(descriptor, termios.TCSADRAIN, original_settings)
+    print()
 
 def timestamp_now():
     return datetime.now().astimezone()
@@ -169,17 +229,58 @@ def prompt_range_gate():
     return minimum_ft, maximum_ft
 
 
+def recent_scan_folders(limit=5):
+    folders = (path.parent for path in DATA_ROOT.glob("*/range_profiles.npz"))
+    return sorted(
+        folders,
+        key=lambda folder: (folder / "range_profiles.npz").stat().st_mtime,
+        reverse=True,
+    )[:limit]
+
+
+def prompt_comparison(recent):
+    if len(recent) < 2:
+        print("At least two saved scans are required for comparison.")
+        return
+    choices = input("Two scan numbers to compare (for example, 1 2): ").replace(",", " ").split()
+    if len(choices) != 2 or not all(choice.isdigit() for choice in choices):
+        print("Enter exactly two scan numbers.")
+        return
+    indexes = [int(choice) - 1 for choice in choices]
+    if any(index not in range(len(recent)) for index in indexes) or indexes[0] == indexes[1]:
+        print(f"Choose two different numbers from 1-{len(recent)}.")
+        return
+    generate_scene_comparison(recent[indexes[0]], recent[indexes[1]])
+
+
 def prompt_for_scene():
     DATA_ROOT.mkdir(parents=True, exist_ok=True)
     calibration_enabled = False
     while True:
-        raw_name = input("Scene name: ").strip()
-        safe_name = re.sub(r'[\\\\/:*?"<>|]+', "-", raw_name)
-        title = " ".join(safe_name.split()).title()
+        recent = recent_scan_folders()
+        if recent:
+            print("\nRecent scans:")
+            for number, folder in enumerate(recent, 1):
+                print(f"  [{number}] {folder.name}")
+            print("  [c] Compare two scans")
+        raw_name = input("Scene name, recent number, or option: ").strip()
+        if raw_name.lower() in {"c", "compare"}:
+            prompt_comparison(recent)
+            continue
+        if raw_name.isdigit():
+            selection = int(raw_name)
+            if not 1 <= selection <= len(recent):
+                print(f"Please choose 1-{len(recent)} or enter a scene name.")
+                continue
+            folder = recent[selection - 1]
+            title = folder.name
+        else:
+            safe_name = re.sub(r'[\\\\/:*?"<>|]+', "-", raw_name)
+            title = " ".join(safe_name.split()).title()
+            folder = DATA_ROOT / title
         if not title:
             print("Please enter a scene name.")
             continue
-        folder = DATA_ROOT / title
         if folder.exists():
             print(f"Found existing scene: {folder}")
             while True:
@@ -591,7 +692,7 @@ def save_sar_image(image, title, path, extent):
         vmin=peak - IMAGE_DYNAMIC_RANGE_DB,
         vmax=peak
     )
-    ax.set_title(title)
+    ax.set_title(f"{title} — peak {peak:.1f} dB")
     ax.set_xlabel("Cross range (ft)")
     ax.set_ylabel("Down range (ft)")
     fig.colorbar(rendered, ax=ax, label="Magnitude (dB)")
@@ -599,6 +700,62 @@ def save_sar_image(image, title, path, extent):
     fig.savefig(path, dpi=180)
     plt.close(fig)
     return image
+
+def absolute_db(image):
+    return 20.0 * np.log10(np.maximum(np.abs(image), 1e-12))
+
+
+def comparison_bp(scene_folder):
+    profiles_path = scene_folder / "range_profiles.npz"
+    scans = load_range_profiles(profiles_path)
+    with np.load(profiles_path) as data:
+        carrier_freqs = np.asarray(data["CENTER_FREQS"])
+        dr = float(data["dr"])
+    range_profiles = stack_scans(scans, "rp")
+    range_profiles -= np.median(range_profiles, axis=0)
+    frequency_spacing = float(carrier_freqs[1] - carrier_freqs[0])
+    image, _, _, _ = Imaging.backproject(
+        positions=make_radar_positions(scans),
+        range_profiles=range_profiles,
+        dr=dr,
+        crossrange=(CROSSRANGE_FT[0] * FT, CROSSRANGE_FT[1] * FT),
+        downrange=(DOWNRANGE_FT[0] * FT, DOWNRANGE_FT[1] * FT),
+        resolution=IMAGING_RESOLUTION,
+        fstart=float(carrier_freqs[0]),
+        fstop=float(carrier_freqs[-1] + frequency_spacing),
+        phase_sign=1.0,
+        output_db=False,
+        flip_lr=False,
+        transpose_output=False,
+        os_factor=1,
+    )
+    return absolute_db(image), len(scans)
+
+
+def generate_scene_comparison(first_folder, second_folder):
+    folders = (first_folder, second_folder)
+    images_and_counts = [comparison_bp(folder) for folder in folders]
+    shared_peak = max(float(np.max(image)) for image, _ in images_and_counts)
+    extent = (*CROSSRANGE_FT, *DOWNRANGE_FT)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6), layout="constrained")
+    for ax, folder, (image, count) in zip(axes, folders, images_and_counts):
+        peak = float(np.max(image))
+        rendered = ax.imshow(
+            image, cmap="jet", origin="lower", extent=extent, aspect="auto",
+            vmin=shared_peak - IMAGE_DYNAMIC_RANGE_DB, vmax=shared_peak,
+        )
+        ax.set_title(f"{folder.name} ({count} scans) — peak {peak:.1f} dB")
+        ax.set_xlabel("Cross range (ft)")
+        ax.set_ylabel("Down range (ft)")
+    fig.colorbar(rendered, ax=axes, label="Magnitude (dB, shared absolute scale)")
+    first_slug = re.sub(r"[^a-z0-9]+", "_", first_folder.name.lower()).strip("_")
+    second_slug = re.sub(r"[^a-z0-9]+", "_", second_folder.name.lower()).strip("_")
+    output_path = DATA_ROOT / f"comparison_{first_slug}_vs_{second_slug}.png"
+    fig.savefig(output_path, dpi=180)
+    print(f"Saved comparison: {output_path}")
+    plt.show()
+    plt.close(fig)
+
 
 def apply_range_gate(range_profiles, dr, range_gate_ft=None):
     """Return a copy with bins outside an inclusive slant-range gate zeroed."""
@@ -628,7 +785,7 @@ def generate_sar_images(
 ):
     range_profiles = stack_scans(scans, "rp")
     range_profiles = apply_range_gate(range_profiles, dr, range_gate_ft)
-    # range_profiles = range_profiles - np.median(range_profiles, axis=0)
+    range_profiles = range_profiles - np.median(range_profiles, axis=0)
     if range_gate_ft is not None:
         print(
             f"Applied slant-range gate: {range_gate_ft[0]:g} to "
@@ -651,7 +808,7 @@ def generate_sar_images(
         "fstart": float(carrier_freqs[0]),
         "fstop": float(carrier_freqs[-1] + frequency_spacing),
         "phase_sign": 1.0,
-        "normalize_db": True,
+        "normalize_db": False,
         "flip_lr": False,
         "flip_ud": False,
         "transpose_output": False,
@@ -672,9 +829,10 @@ def generate_sar_images(
         bp_image, _, _, _ = Imaging.backproject(
             positions=positions,
             range_profiles=range_profiles,
-            output_db=True,
+            output_db=False,
             **common_parameters
         )
+        bp_image = absolute_db(bp_image)
         results["bp"] = save_sar_image(
             bp_image, "Backprojection (BP)", output_paths["bp"], extent
         )
@@ -697,6 +855,7 @@ def generate_sar_images(
             learning_rates=[50, 20, 1, 0.5],
             poly_coeffs=[0] * 4
         )
+        mea_image = absolute_db(mea_image)
         results["mea"] = save_sar_image(
             mea_image, "Minimum Entropy Autofocus (MEA)",
             output_paths["mea"], extent
@@ -710,13 +869,14 @@ def generate_sar_images(
 
     try:
         print("Generating PGA autofocus image...")
-        pga_parameters = dict(common_parameters, output_db=True)
+        pga_parameters = dict(common_parameters, output_db=False)
         pga_image, _, _ = Autofocus.phase_gradient_autofocus(
             positions=positions,
             range_profiles=range_profiles,
             base_parameters=pga_parameters,
             num_iterations=PGA_ITERATIONS
         )
+        pga_image = absolute_db(pga_image)
         results["pga"] = save_sar_image(
             pga_image, "Phase Gradient Autofocus (PGA)",
             output_paths["pga"], extent
@@ -744,7 +904,7 @@ def generate_sar_images(
             image, cmap="jet", origin="lower", extent=extent,
             aspect="auto", vmin=peak - IMAGE_DYNAMIC_RANGE_DB, vmax=peak
         )
-        ax.set_title(title)
+        ax.set_title(f"{title} — peak {peak:.1f} dB")
         ax.set_xlabel("Cross range (ft)")
         ax.set_ylabel("Down range (ft)")
     fig.tight_layout()
@@ -800,7 +960,8 @@ def generate_existing_reports(
     plt.show()
     plt.close(triptych)
 
-def main():
+def main(argv=None):
+    args = build_parser().parse_args(argv)
     rail = None
     radar = None
     show_banner()
@@ -824,6 +985,9 @@ def main():
         )
         return
 
+    acquisition_mode = args.mode or prompt_acquisition_mode()
+    print(f"Using {acquisition_mode} acquisition mode.")
+
     resume = action == "continue"
     existing_metadata = load_metadata(metadata_path) if resume else {}
     try:
@@ -839,11 +1003,12 @@ def main():
         write_metadata(
             metadata_path, scene_title, session_start, scans, run_status
         )
-    if not resume or not scene_path.exists():
+    if args.photo and (not resume or not scene_path.exists()):
         capture_scene_image(scene_path, scene_title)
 
     try:
-        rail = open_rail()
+        if acquisition_mode == "rail":
+            rail = open_rail()
         radar = SFCWRadar(
             device_string=DEVICE_STRING,
             Fmin=FMIN,
@@ -887,7 +1052,10 @@ def main():
         capture_current_position = False
         if start_step:
             print(f"Loaded {start_step} completed positions from {profiles_path}")
-            if start_step < RAIL_STEPS_TO_CAPTURE:
+            if (
+                acquisition_mode == "rail"
+                and start_step < RAIL_STEPS_TO_CAPTURE
+            ):
                 expected_position = -(start_step + 1) * RAIL_STEP_INCHES
                 answer = input(
                     f"Is the rail already at the next unsaved position "
@@ -924,7 +1092,14 @@ def main():
         for rail_step in range(start_step, RAIL_STEPS_TO_CAPTURE):
             rail_pos_in = -(rail_step + 1) * RAIL_STEP_INCHES
 
-            if capture_current_position:
+            if acquisition_mode == "manual":
+                print()
+                wait_for_space(
+                    f"Move the radar to position {rail_step + 1}/"
+                    f"{RAIL_STEPS_TO_CAPTURE} ({rail_pos_in:.1f} in), "
+                    "then press Space to scan..."
+                )
+            elif capture_current_position:
                 print(
                     f"Capturing current rail position "
                     f"{rail_step + 1}/{RAIL_STEPS_TO_CAPTURE}"
@@ -942,6 +1117,12 @@ def main():
             scan["started_at"] = scan_started.isoformat()
             scan["stopped_at"] = scan_stopped.isoformat()
             scan["duration_seconds"] = time.perf_counter() - scan_timer
+            if acquisition_mode == "manual":
+                beep()
+                if rail_step + 1 < RAIL_STEPS_TO_CAPTURE:
+                    print("Scan complete. Ready to move to the next position.")
+                else:
+                    print("Final scan complete.")
             scans.append(scan)
             save_range_profiles(
                 scans, radar, range_axis, scene_title, profiles_path

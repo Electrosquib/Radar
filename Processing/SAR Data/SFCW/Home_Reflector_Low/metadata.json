@@ -1,0 +1,12 @@
+{
+  "scene_title": "Home_Reflector_Low",
+  "status": "failed",
+  "session": {
+    "started_at": "2026-09-17T21:16:04.723957-10:00",
+    "stopped_at": "2026-09-17T21:16:04.733370-10:00",
+    "elapsed_seconds": 0.009413,
+    "active_scan_seconds": 0.0
+  },
+  "scan_count": 0,
+  "scans": []
+}

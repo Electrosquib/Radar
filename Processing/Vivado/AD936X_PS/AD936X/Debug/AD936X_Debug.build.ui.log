@@ -1,0 +1,415 @@
+2024-08-31T20:41:57.049074800255-20:41:58 **** Build of configuration Debug for project AD936X ****
+000-make all 
+000-make --no-print-directory pre-build
+000-a9-linaro-pre-build-step
+000-' '
+000-make --no-print-directory main-build
+000-'Building file: ../xilinx/axi_io.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/axi_io.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/axi_io.d" -MT"xilinx/axi_io.o" -o "xilinx/axi_io.o" "../xilinx/axi_io.c"
+000-'Finished building: ../xilinx/axi_io.c'
+000-' '
+000-'Building file: ../xilinx/delay.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/delay.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/delay.d" -MT"xilinx/delay.o" -o "xilinx/delay.o" "../xilinx/delay.c"
+000-'Finished building: ../xilinx/delay.c'
+000-' '
+000-'Building file: ../xilinx/no_os_timer.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/no_os_timer.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/no_os_timer.d" -MT"xilinx/no_os_timer.o" -o "xilinx/no_os_timer.o" "../xilinx/no_os_timer.c"
+000-'Finished building: ../xilinx/no_os_timer.c'
+000-' '
+000-'Building file: ../xilinx/no_os_uart.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/no_os_uart.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/no_os_uart.d" -MT"xilinx/no_os_uart.o" -o "xilinx/no_os_uart.o" "../xilinx/no_os_uart.c"
+000-'Finished building: ../xilinx/no_os_uart.c'
+000-' '
+000-'Building file: ../xilinx/xilinx_gpio.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/xilinx_gpio.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/xilinx_gpio.d" -MT"xilinx/xilinx_gpio.o" -o "xilinx/xilinx_gpio.o" "../xilinx/xilinx_gpio.c"
+000-'Finished building: ../xilinx/xilinx_gpio.c'
+000-' '
+000-'Building file: ../xilinx/xilinx_gpio_irq.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/xilinx_gpio_irq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/xilinx_gpio_irq.d" -MT"xilinx/xilinx_gpio_irq.o" -o "xilinx/xilinx_gpio_irq.o" "../xilinx/xilinx_gpio_irq.c"
+000-../xilinx/xilinx_gpio_irq.c: In function 'xil_gpio_irq_handler':
+000/AD936X/xilinx/xilinx_gpio_irq.c81-1-1passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:81:34: warning: passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]
+000-   81 |   no_os_iterator_read(param->it, &callback_desc);
+000-      |                                  ^~~~~~~~~~~~~~
+000-      |                                  |
+000-      |                                  struct xil_callback_desc **
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h276-1-1expected 'void **' but argument is of type 'struct xil_callback_desc **'0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:276:65: note: expected 'void **' but argument is of type 'struct xil_callback_desc **'
+000-  276 | int32_t no_os_iterator_read(struct no_os_iterator *iter, void **data);
+000-      |                                                          ~~~~~~~^~~~
+000/AD936X/xilinx/xilinx_gpio_irq.c89-1-1passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:89:34: warning: passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]
+000-   89 |   no_os_iterator_read(param->it, &callback_desc);
+000-      |                                  ^~~~~~~~~~~~~~
+000-      |                                  |
+000-      |                                  struct xil_callback_desc **
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h276-1-1expected 'void **' but argument is of type 'struct xil_callback_desc **'0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:276:65: note: expected 'void **' but argument is of type 'struct xil_callback_desc **'
+000-  276 | int32_t no_os_iterator_read(struct no_os_iterator *iter, void **data);
+000-      |                                                          ~~~~~~~^~~~
+000/AD936X/xilinx/xilinx_gpio_irq.c76-1-1unused variable 'pin_nb' [-Wunused-variable]1-../xilinx/xilinx_gpio_irq.c:76:10: warning: unused variable 'pin_nb' [-Wunused-variable]
+000-   76 |  int32_t pin_nb;
+000-      |          ^~~~~~
+000-../xilinx/xilinx_gpio_irq.c: In function 'xil_gpio_irq_disable':
+000/AD936X/xilinx/xilinx_gpio_irq.c118-1-1passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:118:34: warning: passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]
+000-  118 |   no_os_iterator_read(extra->it, &callback_desc);
+000-      |                                  ^~~~~~~~~~~~~~
+000-      |                                  |
+000-      |                                  struct xil_callback_desc **
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h276-1-1expected 'void **' but argument is of type 'struct xil_callback_desc **'0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:276:65: note: expected 'void **' but argument is of type 'struct xil_callback_desc **'
+000-  276 | int32_t no_os_iterator_read(struct no_os_iterator *iter, void **data);
+000-      |                                                          ~~~~~~~^~~~
+000-../xilinx/xilinx_gpio_irq.c: In function 'xil_gpio_irq_ctrl_init':
+000/AD936X/xilinx/xilinx_gpio_irq.c170-1-1passing argument 3 of 'no_os_list_init' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:170:6: warning: passing argument 3 of 'no_os_list_init' from incompatible pointer type [-Wincompatible-pointer-types]
+000-  170 |      call_cmp);
+000-      |      ^~~~~~~~
+000-      |      |
+000-      |      int32_t (*)(struct xil_callback_desc *, struct xil_callback_desc *) {aka long int (*)(struct xil_callback_desc *, struct xil_callback_desc *)}
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h255-1-1expected 'f_cmp' {aka 'long int (*)(void *, void *)'} but argument is of type 'int32_t (*)(struct xil_callback_desc *, struct xil_callback_desc *)' {aka 'long int (*)(struct xil_callback_desc *, struct xil_callback_desc *)'}0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:255:10: note: expected 'f_cmp' {aka 'long int (*)(void *, void *)'} but argument is of type 'int32_t (*)(struct xil_callback_desc *, struct xil_callback_desc *)' {aka 'long int (*)(struct xil_callback_desc *, struct xil_callback_desc *)'}
+000-  255 |    f_cmp comparator);
+000-      |    ~~~~~~^~~~~~~~~~
+000/AD936X/xilinx/xilinx_gpio_irq.c190-1-1assignment to 'void (*)(void *, uint32_t,  void *)' {aka 'void (*)(void *, long unsigned int,  void *)'} from incompatible pointer type 'void (*)(struct xil_gpio_irq_desc *)' [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:190:27: warning: assignment to 'void (*)(void *, uint32_t,  void *)' {aka 'void (*)(void *, long unsigned int,  void *)'} from incompatible pointer type 'void (*)(struct xil_gpio_irq_desc *)' [-Wincompatible-pointer-types]
+000-  190 |  callback.legacy_callback = &xil_gpio_irq_handler;
+000-      |                           ^
+000/AD936X/xilinx/xilinx_gpio_irq.c141-1-1unused variable 'i' [-Wunused-variable]1-../xilinx/xilinx_gpio_irq.c:141:10: warning: unused variable 'i' [-Wunused-variable]
+000-  141 |  int32_t i;
+000-      |          ^
+000-../xilinx/xilinx_gpio_irq.c: At top level:
+000/AD936X/xilinx/xilinx_gpio_irq.c274-1-1'struct callback_desc' declared inside parameter list will not be visible outside of this definition or declaration1-../xilinx/xilinx_gpio_irq.c:274:27: warning: 'struct callback_desc' declared inside parameter list will not be visible outside of this definition or declaration
+000-  274 |   uint32_t irq_id, struct callback_desc *cb)
+000-      |                           ^~~~~~~~~~~~~
+000-../xilinx/xilinx_gpio_irq.c: In function 'xil_gpio_irq_unregister_callback':
+000/AD936X/xilinx/xilinx_gpio_irq.c283-1-1passing argument 2 of 'no_os_list_get_find' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:283:53: warning: passing argument 2 of 'no_os_list_get_find' from incompatible pointer type [-Wincompatible-pointer-types]
+000-  283 |  status = no_os_list_get_find(extra->callback_list, &dev_callback,
+000-      |                                                     ^~~~~~~~~~~~~
+000-      |                                                     |
+000-      |                                                     struct xil_callback_desc **
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h323-1-1expected 'void **' but argument is of type 'struct xil_callback_desc **'0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:323:71: note: expected 'void **' but argument is of type 'struct xil_callback_desc **'
+000-  323 | int32_t no_os_list_get_find(struct no_os_list_desc *list_desc, void **data,
+000-      |                                                                ~~~~~~~^~~~
+000-../xilinx/xilinx_gpio_irq.c: In function 'xil_gpio_irq_enable':
+000/AD936X/xilinx/xilinx_gpio_irq.c309-1-1passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:309:34: warning: passing argument 2 of 'no_os_iterator_read' from incompatible pointer type [-Wincompatible-pointer-types]
+000-  309 |   no_os_iterator_read(extra->it, &callback_desc);
+000-      |                                  ^~~~~~~~~~~~~~
+000-      |                                  |
+000-      |                                  struct xil_callback_desc **
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h276-1-1expected 'void **' but argument is of type 'struct xil_callback_desc **'0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:276:65: note: expected 'void **' but argument is of type 'struct xil_callback_desc **'
+000-  276 | int32_t no_os_iterator_read(struct no_os_iterator *iter, void **data);
+000-      |                                                          ~~~~~~~^~~~
+000-../xilinx/xilinx_gpio_irq.c: In function 'xil_gpio_irq_ctrl_remove':
+000/AD936X/xilinx/xilinx_gpio_irq.c337-1-1passing argument 2 of 'no_os_list_get_first' from incompatible pointer type [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:337:57: warning: passing argument 2 of 'no_os_list_get_first' from incompatible pointer type [-Wincompatible-pointer-types]
+000-  337 |  while (0 == no_os_list_get_first(extra->callback_list, &callback_desc))
+000-      |                                                         ^~~~~~~~~~~~~~
+000-      |                                                         |
+000-      |                                                         struct xil_callback_desc **
+000-In file included from ../xilinx/gpio_irq_extra.h:48,
+000-                 from ../xilinx/xilinx_gpio_irq.c:47:
+000/AD936X/include/no_os_list.h289-1-1expected 'void **' but argument is of type 'struct xil_callback_desc **'0-F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include/no_os_list.h:289:72: note: expected 'void **' but argument is of type 'struct xil_callback_desc **'
+000-  289 | int32_t no_os_list_get_first(struct no_os_list_desc *list_desc, void **data);
+000-      |                                                                 ~~~~~~~^~~~
+000-../xilinx/xilinx_gpio_irq.c: At top level:
+000/AD936X/xilinx/xilinx_gpio_irq.c357-1-1initialization of 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct no_os_callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct no_os_callback_desc *)'} from incompatible pointer type 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct callback_desc *)'} [-Wincompatible-pointer-types]1-../xilinx/xilinx_gpio_irq.c:357:25: warning: initialization of 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct no_os_callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct no_os_callback_desc *)'} from incompatible pointer type 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct callback_desc *)'} [-Wincompatible-pointer-types]
+000-  357 |  .unregister_callback = xil_gpio_irq_unregister_callback,
+000-      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+000/AD936X/xilinx/xilinx_gpio_irq.c357-1-1(near initialization for 'xil_gpio_irq_ops.unregister_callback')0-../xilinx/xilinx_gpio_irq.c:357:25: note: (near initialization for 'xil_gpio_irq_ops.unregister_callback')
+000-'Finished building: ../xilinx/xilinx_gpio_irq.c'
+000-' '
+000-'Building file: ../xilinx/xilinx_i2c.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/xilinx_i2c.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/xilinx_i2c.d" -MT"xilinx/xilinx_i2c.o" -o "xilinx/xilinx_i2c.o" "../xilinx/xilinx_i2c.c"
+000-../xilinx/xilinx_i2c.c: In function 'xil_i2c_init':
+000/AD936X/xilinx/xilinx_i2c.c163-1-1unused variable 'ret' [-Wunused-variable]1-../xilinx/xilinx_i2c.c:163:11: warning: unused variable 'ret' [-Wunused-variable]
+000-  163 |  int32_t  ret;
+000-      |           ^~~
+000-../xilinx/xilinx_i2c.c: In function 'xil_i2c_remove':
+000/AD936X/xilinx/xilinx_i2c.c320-1-1unused variable 'ret' [-Wunused-variable]1-../xilinx/xilinx_i2c.c:320:11: warning: unused variable 'ret' [-Wunused-variable]
+000-  320 |  int32_t  ret;
+000-      |           ^~~
+000-../xilinx/xilinx_i2c.c: In function 'xil_i2c_write':
+000/AD936X/xilinx/xilinx_i2c.c398-1-1unused variable 'ret' [-Wunused-variable]1-../xilinx/xilinx_i2c.c:398:11: warning: unused variable 'ret' [-Wunused-variable]
+000-  398 |  int32_t  ret;
+000-      |           ^~~
+000-../xilinx/xilinx_i2c.c: In function 'xil_i2c_read':
+000/AD936X/xilinx/xilinx_i2c.c463-1-1unused variable 'ret' [-Wunused-variable]1-../xilinx/xilinx_i2c.c:463:11: warning: unused variable 'ret' [-Wunused-variable]
+000-  463 |  int32_t  ret;
+000-      |           ^~~
+000-At top level:
+000/AD936X/xilinx/xilinx_i2c.c122-1-1'xil_i2c_set_transmission_config' defined but not used [-Wunused-function]1xil_i2c_set_transmission_config../xilinx/xilinx_i2c.c:122:16: warning: 'xil_i2c_set_transmission_config' defined but not used [-Wunused-function]
+000-  122 | static int32_t xil_i2c_set_transmission_config(struct no_os_i2c_desc *desc)
+000-      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+000/AD936X/xilinx/xilinx_i2c.c110-1-1'xil_i2c_cmp' defined but not used [-Wunused-function]1xil_i2c_cmp../xilinx/xilinx_i2c.c:110:16: warning: 'xil_i2c_cmp' defined but not used [-Wunused-function]
+000-  110 | static int32_t xil_i2c_cmp(void *el1, void *el2)
+000-      |                ^~~~~~~~~~~
+000/AD936X/xilinx/xilinx_i2c.c64-1-1'pl_it' defined but not used [-Wunused-variable]1pl_it../xilinx/xilinx_i2c.c:64:32: warning: 'pl_it' defined but not used [-Wunused-variable]
+000-   64 | static struct no_os_iterator  *pl_it = NULL;
+000-      |                                ^~~~~
+000/AD936X/xilinx/xilinx_i2c.c63-1-1'pl_list' defined but not used [-Wunused-variable]1pl_list../xilinx/xilinx_i2c.c:63:32: warning: 'pl_list' defined but not used [-Wunused-variable]
+000-   63 | static struct no_os_list_desc *pl_list = NULL;
+000-      |                                ^~~~~~~
+000-'Finished building: ../xilinx/xilinx_i2c.c'
+000-' '
+000-'Building file: ../xilinx/xilinx_irq.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/xilinx_irq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/xilinx_irq.d" -MT"xilinx/xilinx_irq.o" -o "xilinx/xilinx_irq.o" "../xilinx/xilinx_irq.c"
+000/AD936X/xilinx/xilinx_irq.c337-1-1'struct callback_desc' declared inside parameter list will not be visible outside of this definition or declaration1-../xilinx/xilinx_irq.c:337:33: warning: 'struct callback_desc' declared inside parameter list will not be visible outside of this definition or declaration
+000-  337 |         uint32_t irq_id, struct callback_desc *cb)
+000-      |                                 ^~~~~~~~~~~~~
+000/AD936X/xilinx/xilinx_irq.c381-1-1initialization of 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct no_os_callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct no_os_callback_desc *)'} from incompatible pointer type 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct callback_desc *)'} [-Wincompatible-pointer-types]1-../xilinx/xilinx_irq.c:381:25: warning: initialization of 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct no_os_callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct no_os_callback_desc *)'} from incompatible pointer type 'int32_t (*)(struct no_os_irq_ctrl_desc *, uint32_t,  struct callback_desc *)' {aka 'long int (*)(struct no_os_irq_ctrl_desc *, long unsigned int,  struct callback_desc *)'} [-Wincompatible-pointer-types]
+000-  381 |  .unregister_callback = &xil_irq_unregister_callback,
+000-      |                         ^
+000/AD936X/xilinx/xilinx_irq.c381-1-1(near initialization for 'xil_irq_ops.unregister_callback')0-../xilinx/xilinx_irq.c:381:25: note: (near initialization for 'xil_irq_ops.unregister_callback')
+000-'Finished building: ../xilinx/xilinx_irq.c'
+000-' '
+000-'Building file: ../xilinx/xilinx_spi.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/xilinx_spi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/xilinx_spi.d" -MT"xilinx/xilinx_spi.o" -o "xilinx/xilinx_spi.o" "../xilinx/xilinx_spi.c"
+000-'Finished building: ../xilinx/xilinx_spi.c'
+000-' '
+000-'Building file: ../xilinx/xilinx_spi_pl.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"xilinx/xilinx_spi_pl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"xilinx/xilinx_spi_pl.d" -MT"xilinx/xilinx_spi_pl.o" -o "xilinx/xilinx_spi_pl.o" "../xilinx/xilinx_spi_pl.c"
+000-'Finished building: ../xilinx/xilinx_spi_pl.c'
+000-' '
+000-'Building file: ../util/no_os_circular_buffer.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_circular_buffer.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_circular_buffer.d" -MT"util/no_os_circular_buffer.o" -o "util/no_os_circular_buffer.o" "../util/no_os_circular_buffer.c"
+000-'Finished building: ../util/no_os_circular_buffer.c'
+000-' '
+000-'Building file: ../util/no_os_crc16.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_crc16.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_crc16.d" -MT"util/no_os_crc16.o" -o "util/no_os_crc16.o" "../util/no_os_crc16.c"
+000-'Finished building: ../util/no_os_crc16.c'
+000-' '
+000-'Building file: ../util/no_os_crc24.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_crc24.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_crc24.d" -MT"util/no_os_crc24.o" -o "util/no_os_crc24.o" "../util/no_os_crc24.c"
+000-'Finished building: ../util/no_os_crc24.c'
+000-' '
+000-'Building file: ../util/no_os_crc8.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_crc8.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_crc8.d" -MT"util/no_os_crc8.o" -o "util/no_os_crc8.o" "../util/no_os_crc8.c"
+000-'Finished building: ../util/no_os_crc8.c'
+000-' '
+000-'Building file: ../util/no_os_fifo.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_fifo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_fifo.d" -MT"util/no_os_fifo.o" -o "util/no_os_fifo.o" "../util/no_os_fifo.c"
+000-'Finished building: ../util/no_os_fifo.c'
+000-' '
+000-'Building file: ../util/no_os_font_8x8.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_font_8x8.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_font_8x8.d" -MT"util/no_os_font_8x8.o" -o "util/no_os_font_8x8.o" "../util/no_os_font_8x8.c"
+000-'Finished building: ../util/no_os_font_8x8.c'
+000-' '
+000-'Building file: ../util/no_os_lf256fifo.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_lf256fifo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_lf256fifo.d" -MT"util/no_os_lf256fifo.o" -o "util/no_os_lf256fifo.o" "../util/no_os_lf256fifo.c"
+000-'Finished building: ../util/no_os_lf256fifo.c'
+000-' '
+000-'Building file: ../util/no_os_list.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_list.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_list.d" -MT"util/no_os_list.o" -o "util/no_os_list.o" "../util/no_os_list.c"
+000-'Finished building: ../util/no_os_list.c'
+000-' '
+000-'Building file: ../util/no_os_sin_lut.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_sin_lut.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_sin_lut.d" -MT"util/no_os_sin_lut.o" -o "util/no_os_sin_lut.o" "../util/no_os_sin_lut.c"
+000-'Finished building: ../util/no_os_sin_lut.c'
+000-' '
+000-'Building file: ../util/no_os_util.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"util/no_os_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"util/no_os_util.d" -MT"util/no_os_util.o" -o "util/no_os_util.o" "../util/no_os_util.c"
+000-'Finished building: ../util/no_os_util.c'
+000-' '
+000-'Building file: ../src/main.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+000-../src/main.c: In function 'main':
+000/AD936X/src/main.c812-1-1format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'unsigned int' [-Wformat=]1-../src/main.c:812:38: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'unsigned int' [-Wformat=]
+000-  812 |  printf("DAC_DMA_EXAMPLE: address=%#lx samples=%lu channels=%u bits=%lu\n",
+000-      |                                   ~~~^
+000-      |                                      |
+000-      |                                      long unsigned int
+000-      |                                   %#x
+000-  813 |         (uintptr_t)adc_buffer, NO_OS_ARRAY_SIZE(adc_buffer), rx_adc_init.num_channels,
+000-      |         ~~~~~~~~~~~~~~~~~~~~~         
+000-      |         |
+000-      |         unsigned int
+000/AD936X/src/main.c812-1-1format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'unsigned int' [-Wformat=]1-../src/main.c:812:50: warning: format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'unsigned int' [-Wformat=]
+000-  812 |  printf("DAC_DMA_EXAMPLE: address=%#lx samples=%lu channels=%u bits=%lu\n",
+000-      |                                                ~~^
+000-      |                                                  |
+000-      |                                                  long unsigned int
+000-      |                                                %u
+000/AD936X/src/main.c812-1-1format '%lu' expects argument of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wformat=]1-../src/main.c:812:71: warning: format '%lu' expects argument of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wformat=]
+000-  812 |  printf("DAC_DMA_EXAMPLE: address=%#lx samples=%lu channels=%u bits=%lu\n",
+000-      |                                                                     ~~^
+000-      |                                                                       |
+000-      |                                                                       long unsigned int
+000-      |                                                                     %u
+000-  813 |         (uintptr_t)adc_buffer, NO_OS_ARRAY_SIZE(adc_buffer), rx_adc_init.num_channels,
+000-  814 |         8 * sizeof(adc_buffer[0]));
+000-      |         ~~~~~~~~~~~~~~~~~~~~~~~~~                                      
+000-      |         |
+000-      |         unsigned int
+000/AD936X/src/main.c637-1-1unused variable 'samples' [-Wunused-variable]1-../src/main.c:637:11: warning: unused variable 'samples' [-Wunused-variable]
+000-  637 |  uint32_t samples = 16384;
+000-      |           ^~~~~~~
+000-'Finished building: ../src/main.c'
+000-' '
+000-'Building file: ../iio/iio.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"iio/iio.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"iio/iio.d" -MT"iio/iio.o" -o "iio/iio.o" "../iio/iio.c"
+000-../iio/iio.c: In function 'iio_step':
+000/AD936X/iio/iio.c1379-1-1unused variable 'data' [-Wunused-variable]1-../iio/iio.c:1379:24: warning: unused variable 'data' [-Wunused-variable]
+000- 1379 |  struct iiod_conn_data data;
+000-      |                        ^~~~
+000-../iio/iio.c: In function 'iio_init':
+000/AD936X/iio/iio.c1824-1-1label 'free_pylink' defined but not used [-Wunused-label]1-../iio/iio.c:1824:1: warning: label 'free_pylink' defined but not used [-Wunused-label]
+000- 1824 | free_pylink:
+000-      | ^~~~~~~~~~~
+000-'Finished building: ../iio/iio.c'
+000-' '
+000-'Building file: ../iio/iio_app.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"iio/iio_app.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"iio/iio_app.d" -MT"iio/iio_app.o" -o "iio/iio_app.o" "../iio/iio_app.c"
+000-'Finished building: ../iio/iio_app.c'
+000-' '
+000-'Building file: ../iio/iio_axi_adc.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"iio/iio_axi_adc.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"iio/iio_axi_adc.d" -MT"iio/iio_axi_adc.o" -o "iio/iio_axi_adc.o" "../iio/iio_axi_adc.c"
+000-../iio/iio_axi_adc.c: In function 'get_calibphase':
+000/AD936X/iio/iio_axi_adc.c83-1-1format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]1-../iio/iio_axi_adc.c:83:36: warning: format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]
+000-   83 |  return i + snprintf(&buf[i], len, "%"PRIi32".%.6"PRIi32"", val, abs(val2));
+000-      |                                    ^~~                           ~~~~~~~~~
+000-      |                                                                  |
+000-      |                                                                  int
+000-../iio/iio_axi_adc.c: In function 'get_calibscale':
+000/AD936X/iio/iio_axi_adc.c136-1-1format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]1-../iio/iio_axi_adc.c:136:35: warning: format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]
+000-  136 |  ret = i + snprintf(&buf[i], len, "%"PRIi32".%.6"PRIi32"", val,
+000-      |                                   ^~~
+000-  137 |       abs(val2));
+000-      |       ~~~~~~~~~                    
+000-      |       |
+000-      |       int
+000-'Finished building: ../iio/iio_axi_adc.c'
+000-' '
+000-'Building file: ../iio/iio_axi_dac.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"iio/iio_axi_dac.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"iio/iio_axi_dac.d" -MT"iio/iio_axi_dac.o" -o "iio/iio_axi_dac.o" "../iio/iio_axi_dac.c"
+000-../iio/iio_axi_dac.c: In function 'get_voltage_calibscale':
+000/AD936X/iio/iio_axi_dac.c84-1-1format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]1-../iio/iio_axi_dac.c:84:41: warning: format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]
+000-   84 |  ret = i + (int) snprintf(&buf[i], len, "%"PRIi32".%.6"PRIi32"", val,
+000-      |                                         ^~~
+000-   85 |      abs(val2));
+000-      |      ~~~~~~~~~                           
+000-      |      |
+000-      |      int
+000-../iio/iio_axi_dac.c: In function 'get_voltage_calibphase':
+000/AD936X/iio/iio_axi_dac.c113-1-1format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]1-../iio/iio_axi_dac.c:113:36: warning: format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]
+000-  113 |  return i + snprintf(&buf[i], len, "%"PRIi32".%.6"PRIi32"", val, abs(val2));
+000-      |                                    ^~~                           ~~~~~~~~~
+000-      |                                                                  |
+000-      |                                                                  int
+000-'Finished building: ../iio/iio_axi_dac.c'
+000-' '
+000-'Building file: ../iio/iiod.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"iio/iiod.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"iio/iiod.d" -MT"iio/iiod.o" -o "iio/iiod.o" "../iio/iiod.c"
+000-'Finished building: ../iio/iiod.c'
+000-' '
+000-'Building file: ../api/no_os_gpio.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"api/no_os_gpio.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"api/no_os_gpio.d" -MT"api/no_os_gpio.o" -o "api/no_os_gpio.o" "../api/no_os_gpio.c"
+000-'Finished building: ../api/no_os_gpio.c'
+000-' '
+000-'Building file: ../api/no_os_i2c.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"api/no_os_i2c.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"api/no_os_i2c.d" -MT"api/no_os_i2c.o" -o "api/no_os_i2c.o" "../api/no_os_i2c.c"
+000-'Finished building: ../api/no_os_i2c.c'
+000-' '
+000-'Building file: ../api/no_os_irq.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"api/no_os_irq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"api/no_os_irq.d" -MT"api/no_os_irq.o" -o "api/no_os_irq.o" "../api/no_os_irq.c"
+000-'Finished building: ../api/no_os_irq.c'
+000-' '
+000-'Building file: ../api/no_os_spi.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"api/no_os_spi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"api/no_os_spi.d" -MT"api/no_os_spi.o" -o "api/no_os_spi.o" "../api/no_os_spi.c"
+000-'Finished building: ../api/no_os_spi.c'
+000-' '
+000-'Building file: ../ad9361/ad9361.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"ad9361/ad9361.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"ad9361/ad9361.d" -MT"ad9361/ad9361.o" -o "ad9361/ad9361.o" "../ad9361/ad9361.c"
+000-'Finished building: ../ad9361/ad9361.c'
+000-' '
+000-'Building file: ../ad9361/ad9361_api.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"ad9361/ad9361_api.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"ad9361/ad9361_api.d" -MT"ad9361/ad9361_api.o" -o "ad9361/ad9361_api.o" "../ad9361/ad9361_api.c"
+000-'Finished building: ../ad9361/ad9361_api.c'
+000-' '
+000-'Building file: ../ad9361/ad9361_conv.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"ad9361/ad9361_conv.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"ad9361/ad9361_conv.d" -MT"ad9361/ad9361_conv.o" -o "ad9361/ad9361_conv.o" "../ad9361/ad9361_conv.c"
+000-'Finished building: ../ad9361/ad9361_conv.c'
+000-' '
+000-'Building file: ../ad9361/ad9361_util.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"ad9361/ad9361_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"ad9361/ad9361_util.d" -MT"ad9361/ad9361_util.o" -o "ad9361/ad9361_util.o" "../ad9361/ad9361_util.c"
+000-'Finished building: ../ad9361/ad9361_util.c'
+000-' '
+000-'Building file: ../ad9361/iio_ad9361.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"ad9361/iio_ad9361.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"ad9361/iio_ad9361.d" -MT"ad9361/iio_ad9361.o" -o "ad9361/iio_ad9361.o" "../ad9361/iio_ad9361.c"
+000-../ad9361/iio_ad9361.c: In function 'get_hardwaregain':
+000/AD936X/ad9361/iio_ad9361.c148-1-1format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]1-../ad9361/iio_ad9361.c:148:7: warning: format '%li' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]
+000-  148 |       "%"PRIi32".%.6"PRIi32" dB", val1,
+000-      |       ^~~
+000-  149 |       abs(val2));
+000-      |       ~~~~~~~~~
+000-      |       |
+000-      |       int
+000-'Finished building: ../ad9361/iio_ad9361.c'
+000-' '
+000-'Building file: ../AXI_Core/axi_adc_core.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"AXI_Core/axi_adc_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"AXI_Core/axi_adc_core.d" -MT"AXI_Core/axi_adc_core.o" -o "AXI_Core/axi_adc_core.o" "../AXI_Core/axi_adc_core.c"
+000-'Finished building: ../AXI_Core/axi_adc_core.c'
+000-' '
+000-'Building file: ../AXI_Core/axi_dac_core.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"AXI_Core/axi_dac_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"AXI_Core/axi_dac_core.d" -MT"AXI_Core/axi_dac_core.o" -o "AXI_Core/axi_dac_core.o" "../AXI_Core/axi_dac_core.c"
+000-'Finished building: ../AXI_Core/axi_dac_core.c'
+000-' '
+000-'Building file: ../AXI_Core/axi_dmac.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\ad9361" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\api" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\AXI_Core" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\iio" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\include" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\src" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\util" -I"F:\FPGA_Code\7020_AD936X_SDR\AD936X_PS\AD936X\xilinx" -c -fmessage-length=0 -MT"AXI_Core/axi_dmac.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bspinclude/include -MMD -MP -MF"AXI_Core/axi_dmac.d" -MT"AXI_Core/axi_dmac.o" -o "AXI_Core/axi_dmac.o" "../AXI_Core/axi_dmac.c"
+000-'Finished building: ../AXI_Core/axi_dmac.c'
+000-' '
+000-'Building target: AD936X.elf'
+000-'Invoking: ARM v7 gcc linker'
+000-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LF:/FPGA_Code/7020_AD936X_SDR/AD936X_PS/platform/export/platform/sw/platform/standalone_domain/bsplib/lib -o "AD936X.elf"  ./xilinx/axi_io.o ./xilinx/delay.o ./xilinx/no_os_timer.o ./xilinx/no_os_uart.o ./xilinx/xilinx_gpio.o ./xilinx/xilinx_gpio_irq.o ./xilinx/xilinx_i2c.o ./xilinx/xilinx_irq.o ./xilinx/xilinx_spi.o ./xilinx/xilinx_spi_pl.o  ./util/no_os_circular_buffer.o ./util/no_os_crc16.o ./util/no_os_crc24.o ./util/no_os_crc8.o ./util/no_os_fifo.o ./util/no_os_font_8x8.o ./util/no_os_lf256fifo.o ./util/no_os_list.o ./util/no_os_sin_lut.o ./util/no_os_util.o  ./src/main.o  ./iio/iio.o ./iio/iio_app.o ./iio/iio_axi_adc.o ./iio/iio_axi_dac.o ./iio/iiod.o  ./api/no_os_gpio.o ./api/no_os_i2c.o ./api/no_os_irq.o ./api/no_os_spi.o  ./ad9361/ad9361.o ./ad9361/ad9361_api.o ./ad9361/ad9361_conv.o ./ad9361/ad9361_util.o ./ad9361/iio_ad9361.o  ./AXI_Core/axi_adc_core.o ./AXI_Core/axi_dac_core.o ./AXI_Core/axi_dmac.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+000-'Finished building target: AD936X.elf'
+000-' '
+000-'Invoking: ARM v7 Print Size'
+000-arm-none-eabi-size AD936X.elf  |tee "AD936X.elf.size"
+000-   text	   data	    bss	    dec	    hex	filename
+000- 307675	   8208	 161952	 477835	  74a8b	AD936X.elf
+000-'Finished building: AD936X.elf.size'
+000-' '
+00255-
+20:42:03 Build Finished (took 5s.338ms)
+

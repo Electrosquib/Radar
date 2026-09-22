@@ -169,12 +169,7 @@ def parameterized_mea(
         new_entropy = entropy_score(img)
         diff = abs(new_entropy - base_entropy)
         entropies.append(new_entropy)
-        peak = np.max(img)
-        if peak > 0:
-            img = 20.0 * np.log10(img / peak + 1e-12)
-        else:
-            img = np.full_like(img, -120.0)
-        img = np.nan_to_num(img, nan=-120.0, posinf=0.0, neginf=-120.0)
+        img = np.nan_to_num(img, nan=0.0, posinf=0.0, neginf=0.0)
         count += 1
         if count % print_iterations_mod == 0:
             print(f"Iteration {count}: Entropy={new_entropy:.6f}, Diff={diff:.6f}, Coeffs={new_coeffs}")

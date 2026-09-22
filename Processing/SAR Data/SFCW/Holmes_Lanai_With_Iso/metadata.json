@@ -1,0 +1,139 @@
+{
+  "scene_title": "Holmes_Lanai_With_Iso",
+  "status": "interrupted",
+  "session": {
+    "started_at": "2026-09-14T15:15:18.161569-10:00",
+    "stopped_at": "2026-09-14T15:17:31.269671-10:00",
+    "elapsed_seconds": 133.108102,
+    "active_scan_seconds": 54.79188599996269
+  },
+  "scan_count": 14,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Holmes_Lanai_With_Iso - Position 01",
+      "position_inches": -0.5,
+      "position_meters": -0.0127,
+      "started_at": "2026-09-14T15:16:18.895701-10:00",
+      "stopped_at": "2026-09-14T15:16:22.508740-10:00",
+      "duration_seconds": 3.613079708069563
+    },
+    {
+      "scan_index": 1,
+      "name": "Holmes_Lanai_With_Iso - Position 02",
+      "position_inches": -1.0,
+      "position_meters": -0.0254,
+      "started_at": "2026-09-14T15:16:23.546146-10:00",
+      "stopped_at": "2026-09-14T15:16:27.038348-10:00",
+      "duration_seconds": 3.4923181671183556
+    },
+    {
+      "scan_index": 2,
+      "name": "Holmes_Lanai_With_Iso - Position 03",
+      "position_inches": -1.5,
+      "position_meters": -0.038099999999999995,
+      "started_at": "2026-09-14T15:16:28.075698-10:00",
+      "stopped_at": "2026-09-14T15:16:31.647598-10:00",
+      "duration_seconds": 3.5720277919899672
+    },
+    {
+      "scan_index": 3,
+      "name": "Holmes_Lanai_With_Iso - Position 04",
+      "position_inches": -2.0,
+      "position_meters": -0.0508,
+      "started_at": "2026-09-14T15:16:32.682873-10:00",
+      "stopped_at": "2026-09-14T15:16:36.377334-10:00",
+      "duration_seconds": 3.6945218748878688
+    },
+    {
+      "scan_index": 4,
+      "name": "Holmes_Lanai_With_Iso - Position 05",
+      "position_inches": -2.5,
+      "position_meters": -0.0635,
+      "started_at": "2026-09-14T15:16:37.416182-10:00",
+      "stopped_at": "2026-09-14T15:16:40.909120-10:00",
+      "duration_seconds": 3.4930428329389542
+    },
+    {
+      "scan_index": 5,
+      "name": "Holmes_Lanai_With_Iso - Position 06",
+      "position_inches": -3.0,
+      "position_meters": -0.07619999999999999,
+      "started_at": "2026-09-14T15:16:41.962529-10:00",
+      "stopped_at": "2026-09-14T15:16:45.538890-10:00",
+      "duration_seconds": 3.5764327498618513
+    },
+    {
+      "scan_index": 6,
+      "name": "Holmes_Lanai_With_Iso - Position 07",
+      "position_inches": -3.5,
+      "position_meters": -0.08889999999999999,
+      "started_at": "2026-09-14T15:16:46.575338-10:00",
+      "stopped_at": "2026-09-14T15:16:50.178030-10:00",
+      "duration_seconds": 3.6027797921560705
+    },
+    {
+      "scan_index": 7,
+      "name": "Holmes_Lanai_With_Iso - Position 08",
+      "position_inches": -4.0,
+      "position_meters": -0.1016,
+      "started_at": "2026-09-14T15:16:51.249438-10:00",
+      "stopped_at": "2026-09-14T15:16:55.339433-10:00",
+      "duration_seconds": 4.090095540974289
+    },
+    {
+      "scan_index": 8,
+      "name": "Holmes_Lanai_With_Iso - Position 09",
+      "position_inches": -4.5,
+      "position_meters": -0.1143,
+      "started_at": "2026-09-14T15:16:56.883029-10:00",
+      "stopped_at": "2026-09-14T15:17:01.068015-10:00",
+      "duration_seconds": 4.185110291931778
+    },
+    {
+      "scan_index": 9,
+      "name": "Holmes_Lanai_With_Iso - Position 10",
+      "position_inches": -5.0,
+      "position_meters": -0.127,
+      "started_at": "2026-09-14T15:17:02.509210-10:00",
+      "stopped_at": "2026-09-14T15:17:06.763356-10:00",
+      "duration_seconds": 4.25426329113543
+    },
+    {
+      "scan_index": 10,
+      "name": "Holmes_Lanai_With_Iso - Position 11",
+      "position_inches": -5.5,
+      "position_meters": -0.1397,
+      "started_at": "2026-09-14T15:17:08.218269-10:00",
+      "stopped_at": "2026-09-14T15:17:12.570736-10:00",
+      "duration_seconds": 4.352544374996796
+    },
+    {
+      "scan_index": 11,
+      "name": "Holmes_Lanai_With_Iso - Position 12",
+      "position_inches": -6.0,
+      "position_meters": -0.15239999999999998,
+      "started_at": "2026-09-14T15:17:14.032786-10:00",
+      "stopped_at": "2026-09-14T15:17:18.138433-10:00",
+      "duration_seconds": 4.105738499900326
+    },
+    {
+      "scan_index": 12,
+      "name": "Holmes_Lanai_With_Iso - Position 13",
+      "position_inches": -6.5,
+      "position_meters": -0.1651,
+      "started_at": "2026-09-14T15:17:19.730828-10:00",
+      "stopped_at": "2026-09-14T15:17:23.997050-10:00",
+      "duration_seconds": 4.261664000106975
+    },
+    {
+      "scan_index": 13,
+      "name": "Holmes_Lanai_With_Iso - Position 14",
+      "position_inches": -7.0,
+      "position_meters": -0.17779999999999999,
+      "started_at": "2026-09-14T15:17:25.072660-10:00",
+      "stopped_at": "2026-09-14T15:17:29.570810-10:00",
+      "duration_seconds": 4.498267083894461
+    }
+  ]
+}

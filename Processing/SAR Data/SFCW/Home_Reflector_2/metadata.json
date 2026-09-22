@@ -1,0 +1,364 @@
+{
+  "scene_title": "Home_Reflector_2",
+  "status": "interrupted",
+  "session": {
+    "started_at": "2026-09-17T21:16:43.665422-10:00",
+    "stopped_at": "2026-09-17T21:21:27.097176-10:00",
+    "elapsed_seconds": 283.431754,
+    "active_scan_seconds": 43.5074695837684
+  },
+  "scan_count": 39,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Home_Reflector_2 - Position 01",
+      "position_inches": -1.0,
+      "position_meters": -0.0254,
+      "started_at": "2026-09-17T21:16:59.692315-10:00",
+      "stopped_at": "2026-09-17T21:17:00.635472-10:00",
+      "duration_seconds": 0.943043207982555
+    },
+    {
+      "scan_index": 1,
+      "name": "Home_Reflector_2 - Position 02",
+      "position_inches": -2.0,
+      "position_meters": -0.0508,
+      "started_at": "2026-09-17T21:17:09.745641-10:00",
+      "stopped_at": "2026-09-17T21:17:10.768437-10:00",
+      "duration_seconds": 1.0228244580794126
+    },
+    {
+      "scan_index": 2,
+      "name": "Home_Reflector_2 - Position 03",
+      "position_inches": -3.0,
+      "position_meters": -0.07619999999999999,
+      "started_at": "2026-09-17T21:17:16.537334-10:00",
+      "stopped_at": "2026-09-17T21:17:17.565761-10:00",
+      "duration_seconds": 1.028370917076245
+    },
+    {
+      "scan_index": 3,
+      "name": "Home_Reflector_2 - Position 04",
+      "position_inches": -4.0,
+      "position_meters": -0.1016,
+      "started_at": "2026-09-17T21:17:26.674177-10:00",
+      "stopped_at": "2026-09-17T21:17:27.816444-10:00",
+      "duration_seconds": 1.1422869579400867
+    },
+    {
+      "scan_index": 4,
+      "name": "Home_Reflector_2 - Position 05",
+      "position_inches": -5.0,
+      "position_meters": -0.127,
+      "started_at": "2026-09-17T21:17:35.485487-10:00",
+      "stopped_at": "2026-09-17T21:17:36.587356-10:00",
+      "duration_seconds": 1.1019111659843475
+    },
+    {
+      "scan_index": 5,
+      "name": "Home_Reflector_2 - Position 06",
+      "position_inches": -6.0,
+      "position_meters": -0.15239999999999998,
+      "started_at": "2026-09-17T21:17:44.512367-10:00",
+      "stopped_at": "2026-09-17T21:17:45.574900-10:00",
+      "duration_seconds": 1.0624220001045614
+    },
+    {
+      "scan_index": 6,
+      "name": "Home_Reflector_2 - Position 07",
+      "position_inches": -7.0,
+      "position_meters": -0.17779999999999999,
+      "started_at": "2026-09-17T21:17:56.010229-10:00",
+      "stopped_at": "2026-09-17T21:17:57.155139-10:00",
+      "duration_seconds": 1.1450163749977946
+    },
+    {
+      "scan_index": 7,
+      "name": "Home_Reflector_2 - Position 08",
+      "position_inches": -8.0,
+      "position_meters": -0.2032,
+      "started_at": "2026-09-17T21:18:06.573140-10:00",
+      "stopped_at": "2026-09-17T21:18:07.726001-10:00",
+      "duration_seconds": 1.152604040922597
+    },
+    {
+      "scan_index": 8,
+      "name": "Home_Reflector_2 - Position 09",
+      "position_inches": -9.0,
+      "position_meters": -0.2286,
+      "started_at": "2026-09-17T21:18:16.768579-10:00",
+      "stopped_at": "2026-09-17T21:18:17.883306-10:00",
+      "duration_seconds": 1.1148277088068426
+    },
+    {
+      "scan_index": 9,
+      "name": "Home_Reflector_2 - Position 10",
+      "position_inches": -10.0,
+      "position_meters": -0.254,
+      "started_at": "2026-09-17T21:18:22.617815-10:00",
+      "stopped_at": "2026-09-17T21:18:23.732667-10:00",
+      "duration_seconds": 1.114896500017494
+    },
+    {
+      "scan_index": 10,
+      "name": "Home_Reflector_2 - Position 11",
+      "position_inches": -11.0,
+      "position_meters": -0.2794,
+      "started_at": "2026-09-17T21:18:31.318389-10:00",
+      "stopped_at": "2026-09-17T21:18:32.424826-10:00",
+      "duration_seconds": 1.1064584590494633
+    },
+    {
+      "scan_index": 11,
+      "name": "Home_Reflector_2 - Position 12",
+      "position_inches": -12.0,
+      "position_meters": -0.30479999999999996,
+      "started_at": "2026-09-17T21:18:37.825096-10:00",
+      "stopped_at": "2026-09-17T21:18:38.933810-10:00",
+      "duration_seconds": 1.108814625069499
+    },
+    {
+      "scan_index": 12,
+      "name": "Home_Reflector_2 - Position 13",
+      "position_inches": -13.0,
+      "position_meters": -0.3302,
+      "started_at": "2026-09-17T21:18:44.335241-10:00",
+      "stopped_at": "2026-09-17T21:18:45.422761-10:00",
+      "duration_seconds": 1.0876417921390384
+    },
+    {
+      "scan_index": 13,
+      "name": "Home_Reflector_2 - Position 14",
+      "position_inches": -14.0,
+      "position_meters": -0.35559999999999997,
+      "started_at": "2026-09-17T21:18:51.307848-10:00",
+      "stopped_at": "2026-09-17T21:18:52.487754-10:00",
+      "duration_seconds": 1.179878249997273
+    },
+    {
+      "scan_index": 14,
+      "name": "Home_Reflector_2 - Position 15",
+      "position_inches": -15.0,
+      "position_meters": -0.381,
+      "started_at": "2026-09-17T21:18:57.506740-10:00",
+      "stopped_at": "2026-09-17T21:18:58.670122-10:00",
+      "duration_seconds": 1.1632259578909725
+    },
+    {
+      "scan_index": 15,
+      "name": "Home_Reflector_2 - Position 16",
+      "position_inches": -16.0,
+      "position_meters": -0.4064,
+      "started_at": "2026-09-17T21:19:02.237887-10:00",
+      "stopped_at": "2026-09-17T21:19:03.311336-10:00",
+      "duration_seconds": 1.0734809159766883
+    },
+    {
+      "scan_index": 16,
+      "name": "Home_Reflector_2 - Position 17",
+      "position_inches": -17.0,
+      "position_meters": -0.43179999999999996,
+      "started_at": "2026-09-17T21:19:05.839725-10:00",
+      "stopped_at": "2026-09-17T21:19:07.029604-10:00",
+      "duration_seconds": 1.1898324170615524
+    },
+    {
+      "scan_index": 17,
+      "name": "Home_Reflector_2 - Position 18",
+      "position_inches": -18.0,
+      "position_meters": -0.4572,
+      "started_at": "2026-09-17T21:19:10.963289-10:00",
+      "stopped_at": "2026-09-17T21:19:12.069091-10:00",
+      "duration_seconds": 1.1057405408937484
+    },
+    {
+      "scan_index": 18,
+      "name": "Home_Reflector_2 - Position 19",
+      "position_inches": -19.0,
+      "position_meters": -0.4826,
+      "started_at": "2026-09-17T21:19:15.736986-10:00",
+      "stopped_at": "2026-09-17T21:19:16.902054-10:00",
+      "duration_seconds": 1.1651210410054773
+    },
+    {
+      "scan_index": 19,
+      "name": "Home_Reflector_2 - Position 20",
+      "position_inches": -20.0,
+      "position_meters": -0.508,
+      "started_at": "2026-09-17T21:19:19.447425-10:00",
+      "stopped_at": "2026-09-17T21:19:20.519724-10:00",
+      "duration_seconds": 1.0722339579369873
+    },
+    {
+      "scan_index": 20,
+      "name": "Home_Reflector_2 - Position 21",
+      "position_inches": -21.0,
+      "position_meters": -0.5334,
+      "started_at": "2026-09-17T21:19:23.781718-10:00",
+      "stopped_at": "2026-09-17T21:19:24.896889-10:00",
+      "duration_seconds": 1.1152765420265496
+    },
+    {
+      "scan_index": 21,
+      "name": "Home_Reflector_2 - Position 22",
+      "position_inches": -22.0,
+      "position_meters": -0.5588,
+      "started_at": "2026-09-17T21:19:30.162841-10:00",
+      "stopped_at": "2026-09-17T21:19:31.286610-10:00",
+      "duration_seconds": 1.1238826669286937
+    },
+    {
+      "scan_index": 22,
+      "name": "Home_Reflector_2 - Position 23",
+      "position_inches": -23.0,
+      "position_meters": -0.5841999999999999,
+      "started_at": "2026-09-17T21:19:33.539196-10:00",
+      "stopped_at": "2026-09-17T21:19:34.647089-10:00",
+      "duration_seconds": 1.1077707500662655
+    },
+    {
+      "scan_index": 23,
+      "name": "Home_Reflector_2 - Position 24",
+      "position_inches": -24.0,
+      "position_meters": -0.6095999999999999,
+      "started_at": "2026-09-17T21:19:38.219368-10:00",
+      "stopped_at": "2026-09-17T21:19:39.370343-10:00",
+      "duration_seconds": 1.1509507088921964
+    },
+    {
+      "scan_index": 24,
+      "name": "Home_Reflector_2 - Position 25",
+      "position_inches": -25.0,
+      "position_meters": -0.635,
+      "started_at": "2026-09-17T21:19:43.165713-10:00",
+      "stopped_at": "2026-09-17T21:19:44.310762-10:00",
+      "duration_seconds": 1.1457707500085235
+    },
+    {
+      "scan_index": 25,
+      "name": "Home_Reflector_2 - Position 26",
+      "position_inches": -26.0,
+      "position_meters": -0.6604,
+      "started_at": "2026-09-17T21:19:50.033004-10:00",
+      "stopped_at": "2026-09-17T21:19:51.190904-10:00",
+      "duration_seconds": 1.1578420419245958
+    },
+    {
+      "scan_index": 26,
+      "name": "Home_Reflector_2 - Position 27",
+      "position_inches": -27.0,
+      "position_meters": -0.6858,
+      "started_at": "2026-09-17T21:19:58.742569-10:00",
+      "stopped_at": "2026-09-17T21:19:59.870923-10:00",
+      "duration_seconds": 1.1282814170699567
+    },
+    {
+      "scan_index": 27,
+      "name": "Home_Reflector_2 - Position 28",
+      "position_inches": -28.0,
+      "position_meters": -0.7111999999999999,
+      "started_at": "2026-09-17T21:20:03.759573-10:00",
+      "stopped_at": "2026-09-17T21:20:04.870556-10:00",
+      "duration_seconds": 1.111034750007093
+    },
+    {
+      "scan_index": 28,
+      "name": "Home_Reflector_2 - Position 29",
+      "position_inches": -29.0,
+      "position_meters": -0.7365999999999999,
+      "started_at": "2026-09-17T21:20:09.595059-10:00",
+      "stopped_at": "2026-09-17T21:20:10.707218-10:00",
+      "duration_seconds": 1.112332000164315
+    },
+    {
+      "scan_index": 29,
+      "name": "Home_Reflector_2 - Position 30",
+      "position_inches": -30.0,
+      "position_meters": -0.762,
+      "started_at": "2026-09-17T21:20:15.188161-10:00",
+      "stopped_at": "2026-09-17T21:20:16.261694-10:00",
+      "duration_seconds": 1.0734558750409633
+    },
+    {
+      "scan_index": 30,
+      "name": "Home_Reflector_2 - Position 31",
+      "position_inches": -31.0,
+      "position_meters": -0.7874,
+      "started_at": "2026-09-17T21:20:22.637499-10:00",
+      "stopped_at": "2026-09-17T21:20:23.797832-10:00",
+      "duration_seconds": 1.1603840000461787
+    },
+    {
+      "scan_index": 31,
+      "name": "Home_Reflector_2 - Position 32",
+      "position_inches": -32.0,
+      "position_meters": -0.8128,
+      "started_at": "2026-09-17T21:20:28.685009-10:00",
+      "stopped_at": "2026-09-17T21:20:29.826342-10:00",
+      "duration_seconds": 1.14140479080379
+    },
+    {
+      "scan_index": 32,
+      "name": "Home_Reflector_2 - Position 33",
+      "position_inches": -33.0,
+      "position_meters": -0.8382,
+      "started_at": "2026-09-17T21:20:36.262509-10:00",
+      "stopped_at": "2026-09-17T21:20:37.385779-10:00",
+      "duration_seconds": 1.1233771669212729
+    },
+    {
+      "scan_index": 33,
+      "name": "Home_Reflector_2 - Position 34",
+      "position_inches": -34.0,
+      "position_meters": -0.8635999999999999,
+      "started_at": "2026-09-17T21:20:44.203148-10:00",
+      "stopped_at": "2026-09-17T21:20:45.351463-10:00",
+      "duration_seconds": 1.1481734169647098
+    },
+    {
+      "scan_index": 34,
+      "name": "Home_Reflector_2 - Position 35",
+      "position_inches": -35.0,
+      "position_meters": -0.889,
+      "started_at": "2026-09-17T21:20:51.135810-10:00",
+      "stopped_at": "2026-09-17T21:20:52.254929-10:00",
+      "duration_seconds": 1.1191812921315432
+    },
+    {
+      "scan_index": 35,
+      "name": "Home_Reflector_2 - Position 36",
+      "position_inches": -36.0,
+      "position_meters": -0.9144,
+      "started_at": "2026-09-17T21:20:55.270732-10:00",
+      "stopped_at": "2026-09-17T21:20:56.401587-10:00",
+      "duration_seconds": 1.1308456659317017
+    },
+    {
+      "scan_index": 36,
+      "name": "Home_Reflector_2 - Position 37",
+      "position_inches": -37.0,
+      "position_meters": -0.9398,
+      "started_at": "2026-09-17T21:21:00.420379-10:00",
+      "stopped_at": "2026-09-17T21:21:01.496030-10:00",
+      "duration_seconds": 1.0756195420399308
+    },
+    {
+      "scan_index": 37,
+      "name": "Home_Reflector_2 - Position 38",
+      "position_inches": -38.0,
+      "position_meters": -0.9652,
+      "started_at": "2026-09-17T21:21:07.276079-10:00",
+      "stopped_at": "2026-09-17T21:21:08.387410-10:00",
+      "duration_seconds": 1.1114638338331133
+    },
+    {
+      "scan_index": 38,
+      "name": "Home_Reflector_2 - Position 39",
+      "position_inches": -39.0,
+      "position_meters": -0.9905999999999999,
+      "started_at": "2026-09-17T21:21:18.118335-10:00",
+      "stopped_at": "2026-09-17T21:21:19.308062-10:00",
+      "duration_seconds": 1.1897910840343684
+    }
+  ]
+}

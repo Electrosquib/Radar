@@ -1,0 +1,553 @@
+{
+  "scene_title": "Home_Bg_2",
+  "status": "completed",
+  "session": {
+    "started_at": "2026-09-18T07:45:41.425741-10:00",
+    "stopped_at": "2026-09-18T07:53:30.169215-10:00",
+    "elapsed_seconds": 468.743474,
+    "active_scan_seconds": 65.90940670249984
+  },
+  "scan_count": 60,
+  "scans": [
+    {
+      "scan_index": 0,
+      "name": "Home_Bg_2 - Position 01",
+      "position_inches": -1.0,
+      "position_meters": -0.0254,
+      "started_at": "2026-09-18T07:47:01.292742-10:00",
+      "stopped_at": "2026-09-18T07:47:02.272915-10:00",
+      "duration_seconds": 0.9801221669185907
+    },
+    {
+      "scan_index": 1,
+      "name": "Home_Bg_2 - Position 02",
+      "position_inches": -2.0,
+      "position_meters": -0.0508,
+      "started_at": "2026-09-18T07:47:13.699478-10:00",
+      "stopped_at": "2026-09-18T07:47:14.735055-10:00",
+      "duration_seconds": 1.0354141250718385
+    },
+    {
+      "scan_index": 2,
+      "name": "Home_Bg_2 - Position 03",
+      "position_inches": -3.0,
+      "position_meters": -0.07619999999999999,
+      "started_at": "2026-09-18T07:47:18.588703-10:00",
+      "stopped_at": "2026-09-18T07:47:19.539718-10:00",
+      "duration_seconds": 0.9509799999650568
+    },
+    {
+      "scan_index": 3,
+      "name": "Home_Bg_2 - Position 04",
+      "position_inches": -4.0,
+      "position_meters": -0.1016,
+      "started_at": "2026-09-18T07:47:21.858917-10:00",
+      "stopped_at": "2026-09-18T07:47:22.890325-10:00",
+      "duration_seconds": 1.0314277911093086
+    },
+    {
+      "scan_index": 4,
+      "name": "Home_Bg_2 - Position 05",
+      "position_inches": -5.0,
+      "position_meters": -0.127,
+      "started_at": "2026-09-18T07:47:25.068575-10:00",
+      "stopped_at": "2026-09-18T07:47:26.077117-10:00",
+      "duration_seconds": 1.0085966670885682
+    },
+    {
+      "scan_index": 5,
+      "name": "Home_Bg_2 - Position 06",
+      "position_inches": -6.0,
+      "position_meters": -0.15239999999999998,
+      "started_at": "2026-09-18T07:47:28.127740-10:00",
+      "stopped_at": "2026-09-18T07:47:29.133672-10:00",
+      "duration_seconds": 1.005958833033219
+    },
+    {
+      "scan_index": 6,
+      "name": "Home_Bg_2 - Position 07",
+      "position_inches": -7.0,
+      "position_meters": -0.17779999999999999,
+      "started_at": "2026-09-18T07:47:30.739946-10:00",
+      "stopped_at": "2026-09-18T07:47:31.805954-10:00",
+      "duration_seconds": 1.0660199581179768
+    },
+    {
+      "scan_index": 7,
+      "name": "Home_Bg_2 - Position 08",
+      "position_inches": -8.0,
+      "position_meters": -0.2032,
+      "started_at": "2026-09-18T07:47:34.084134-10:00",
+      "stopped_at": "2026-09-18T07:47:35.105633-10:00",
+      "duration_seconds": 1.021549291908741
+    },
+    {
+      "scan_index": 8,
+      "name": "Home_Bg_2 - Position 09",
+      "position_inches": -9.0,
+      "position_meters": -0.2286,
+      "started_at": "2026-09-18T07:47:37.099982-10:00",
+      "stopped_at": "2026-09-18T07:47:38.124851-10:00",
+      "duration_seconds": 1.0248284998815507
+    },
+    {
+      "scan_index": 9,
+      "name": "Home_Bg_2 - Position 10",
+      "position_inches": -10.0,
+      "position_meters": -0.254,
+      "started_at": "2026-09-18T07:47:40.085547-10:00",
+      "stopped_at": "2026-09-18T07:47:41.165149-10:00",
+      "duration_seconds": 1.0793848331086338
+    },
+    {
+      "scan_index": 10,
+      "name": "Home_Bg_2 - Position 11",
+      "position_inches": -11.0,
+      "position_meters": -0.2794,
+      "started_at": "2026-09-18T07:47:48.663497-10:00",
+      "stopped_at": "2026-09-18T07:47:49.684392-10:00",
+      "duration_seconds": 1.0209424172062427
+    },
+    {
+      "scan_index": 11,
+      "name": "Home_Bg_2 - Position 12",
+      "position_inches": -12.0,
+      "position_meters": -0.30479999999999996,
+      "started_at": "2026-09-18T07:47:53.336257-10:00",
+      "stopped_at": "2026-09-18T07:47:54.332995-10:00",
+      "duration_seconds": 0.9966500829905272
+    },
+    {
+      "scan_index": 12,
+      "name": "Home_Bg_2 - Position 13",
+      "position_inches": -13.0,
+      "position_meters": -0.3302,
+      "started_at": "2026-09-18T07:48:07.658908-10:00",
+      "stopped_at": "2026-09-18T07:48:09.844807-10:00",
+      "duration_seconds": 2.1858042080421
+    },
+    {
+      "scan_index": 13,
+      "name": "Home_Bg_2 - Position 14",
+      "position_inches": -14.0,
+      "position_meters": -0.35559999999999997,
+      "started_at": "2026-09-18T07:48:15.703373-10:00",
+      "stopped_at": "2026-09-18T07:48:16.826375-10:00",
+      "duration_seconds": 1.1229514998849481
+    },
+    {
+      "scan_index": 14,
+      "name": "Home_Bg_2 - Position 15",
+      "position_inches": -15.0,
+      "position_meters": -0.381,
+      "started_at": "2026-09-18T07:48:21.478552-10:00",
+      "stopped_at": "2026-09-18T07:48:22.544882-10:00",
+      "duration_seconds": 1.066207375144586
+    },
+    {
+      "scan_index": 15,
+      "name": "Home_Bg_2 - Position 16",
+      "position_inches": -16.0,
+      "position_meters": -0.4064,
+      "started_at": "2026-09-18T07:48:25.569728-10:00",
+      "stopped_at": "2026-09-18T07:48:26.653248-10:00",
+      "duration_seconds": 1.0835054579656571
+    },
+    {
+      "scan_index": 16,
+      "name": "Home_Bg_2 - Position 17",
+      "position_inches": -17.0,
+      "position_meters": -0.43179999999999996,
+      "started_at": "2026-09-18T07:48:29.601493-10:00",
+      "stopped_at": "2026-09-18T07:48:30.758093-10:00",
+      "duration_seconds": 1.1565967921633273
+    },
+    {
+      "scan_index": 17,
+      "name": "Home_Bg_2 - Position 18",
+      "position_inches": -18.0,
+      "position_meters": -0.4572,
+      "started_at": "2026-09-18T07:48:33.536941-10:00",
+      "stopped_at": "2026-09-18T07:48:34.693791-10:00",
+      "duration_seconds": 1.1568312500603497
+    },
+    {
+      "scan_index": 18,
+      "name": "Home_Bg_2 - Position 19",
+      "position_inches": -19.0,
+      "position_meters": -0.4826,
+      "started_at": "2026-09-18T07:48:37.420775-10:00",
+      "stopped_at": "2026-09-18T07:48:38.602500-10:00",
+      "duration_seconds": 1.1816157919820398
+    },
+    {
+      "scan_index": 19,
+      "name": "Home_Bg_2 - Position 20",
+      "position_inches": -20.0,
+      "position_meters": -0.508,
+      "started_at": "2026-09-18T07:48:41.862880-10:00",
+      "stopped_at": "2026-09-18T07:48:42.980329-10:00",
+      "duration_seconds": 1.117420749971643
+    },
+    {
+      "scan_index": 20,
+      "name": "Home_Bg_2 - Position 21",
+      "position_inches": -21.0,
+      "position_meters": -0.5334,
+      "started_at": "2026-09-18T07:48:45.714291-10:00",
+      "stopped_at": "2026-09-18T07:48:46.814577-10:00",
+      "duration_seconds": 1.1002787079196423
+    },
+    {
+      "scan_index": 21,
+      "name": "Home_Bg_2 - Position 22",
+      "position_inches": -22.0,
+      "position_meters": -0.5588,
+      "started_at": "2026-09-18T07:48:49.561587-10:00",
+      "stopped_at": "2026-09-18T07:48:50.703066-10:00",
+      "duration_seconds": 1.1413579580839723
+    },
+    {
+      "scan_index": 22,
+      "name": "Home_Bg_2 - Position 23",
+      "position_inches": -23.0,
+      "position_meters": -0.5841999999999999,
+      "started_at": "2026-09-18T07:48:53.835150-10:00",
+      "stopped_at": "2026-09-18T07:48:55.007894-10:00",
+      "duration_seconds": 1.1727642081677914
+    },
+    {
+      "scan_index": 23,
+      "name": "Home_Bg_2 - Position 24",
+      "position_inches": -24.0,
+      "position_meters": -0.6095999999999999,
+      "started_at": "2026-09-18T07:48:57.918722-10:00",
+      "stopped_at": "2026-09-18T07:48:59.050650-10:00",
+      "duration_seconds": 1.1318442090414464
+    },
+    {
+      "scan_index": 24,
+      "name": "Home_Bg_2 - Position 25",
+      "position_inches": -25.0,
+      "position_meters": -0.635,
+      "started_at": "2026-09-18T07:49:05.472417-10:00",
+      "stopped_at": "2026-09-18T07:49:06.479996-10:00",
+      "duration_seconds": 1.007418875116855
+    },
+    {
+      "scan_index": 25,
+      "name": "Home_Bg_2 - Position 26",
+      "position_inches": -26.0,
+      "position_meters": -0.6604,
+      "started_at": "2026-09-18T07:49:10.389986-10:00",
+      "stopped_at": "2026-09-18T07:49:11.438894-10:00",
+      "duration_seconds": 1.0488316658884287
+    },
+    {
+      "scan_index": 26,
+      "name": "Home_Bg_2 - Position 27",
+      "position_inches": -27.0,
+      "position_meters": -0.6858,
+      "started_at": "2026-09-18T07:49:13.993756-10:00",
+      "stopped_at": "2026-09-18T07:49:15.007030-10:00",
+      "duration_seconds": 1.0132781248539686
+    },
+    {
+      "scan_index": 27,
+      "name": "Home_Bg_2 - Position 28",
+      "position_inches": -28.0,
+      "position_meters": -0.7111999999999999,
+      "started_at": "2026-09-18T07:49:19.236461-10:00",
+      "stopped_at": "2026-09-18T07:49:20.225051-10:00",
+      "duration_seconds": 0.9883052499499172
+    },
+    {
+      "scan_index": 28,
+      "name": "Home_Bg_2 - Position 29",
+      "position_inches": -29.0,
+      "position_meters": -0.7365999999999999,
+      "started_at": "2026-09-18T07:49:23.012938-10:00",
+      "stopped_at": "2026-09-18T07:49:24.115645-10:00",
+      "duration_seconds": 1.1026221660431474
+    },
+    {
+      "scan_index": 29,
+      "name": "Home_Bg_2 - Position 30",
+      "position_inches": -30.0,
+      "position_meters": -0.762,
+      "started_at": "2026-09-18T07:49:26.415986-10:00",
+      "stopped_at": "2026-09-18T07:49:27.431547-10:00",
+      "duration_seconds": 1.0154185409191996
+    },
+    {
+      "scan_index": 30,
+      "name": "Home_Bg_2 - Position 31",
+      "position_inches": -31.0,
+      "position_meters": -0.7874,
+      "started_at": "2026-09-18T07:49:29.852915-10:00",
+      "stopped_at": "2026-09-18T07:49:30.905112-10:00",
+      "duration_seconds": 1.052214208059013
+    },
+    {
+      "scan_index": 31,
+      "name": "Home_Bg_2 - Position 32",
+      "position_inches": -32.0,
+      "position_meters": -0.8128,
+      "started_at": "2026-09-18T07:49:32.950326-10:00",
+      "stopped_at": "2026-09-18T07:49:34.021682-10:00",
+      "duration_seconds": 1.071359041146934
+    },
+    {
+      "scan_index": 32,
+      "name": "Home_Bg_2 - Position 33",
+      "position_inches": -33.0,
+      "position_meters": -0.8382,
+      "started_at": "2026-09-18T07:49:45.816924-10:00",
+      "stopped_at": "2026-09-18T07:49:46.999370-10:00",
+      "duration_seconds": 1.1815227910410613
+    },
+    {
+      "scan_index": 33,
+      "name": "Home_Bg_2 - Position 34",
+      "position_inches": -34.0,
+      "position_meters": -0.8635999999999999,
+      "started_at": "2026-09-18T07:49:49.913496-10:00",
+      "stopped_at": "2026-09-18T07:49:50.997732-10:00",
+      "duration_seconds": 1.0842846659943461
+    },
+    {
+      "scan_index": 34,
+      "name": "Home_Bg_2 - Position 35",
+      "position_inches": -35.0,
+      "position_meters": -0.889,
+      "started_at": "2026-09-18T07:49:52.972931-10:00",
+      "stopped_at": "2026-09-18T07:49:54.071086-10:00",
+      "duration_seconds": 1.0979470000602305
+    },
+    {
+      "scan_index": 35,
+      "name": "Home_Bg_2 - Position 36",
+      "position_inches": -36.0,
+      "position_meters": -0.9144,
+      "started_at": "2026-09-18T07:49:56.366753-10:00",
+      "stopped_at": "2026-09-18T07:49:57.492035-10:00",
+      "duration_seconds": 1.1253255410119891
+    },
+    {
+      "scan_index": 36,
+      "name": "Home_Bg_2 - Position 37",
+      "position_inches": -37.0,
+      "position_meters": -0.9398,
+      "started_at": "2026-09-18T07:49:59.590319-10:00",
+      "stopped_at": "2026-09-18T07:50:00.734080-10:00",
+      "duration_seconds": 1.1436961251311004
+    },
+    {
+      "scan_index": 37,
+      "name": "Home_Bg_2 - Position 38",
+      "position_inches": -38.0,
+      "position_meters": -0.9652,
+      "started_at": "2026-09-18T07:50:02.941769-10:00",
+      "stopped_at": "2026-09-18T07:50:04.061659-10:00",
+      "duration_seconds": 1.1199132918845862
+    },
+    {
+      "scan_index": 38,
+      "name": "Home_Bg_2 - Position 39",
+      "position_inches": -39.0,
+      "position_meters": -0.9905999999999999,
+      "started_at": "2026-09-18T07:50:06.447657-10:00",
+      "stopped_at": "2026-09-18T07:50:07.539615-10:00",
+      "duration_seconds": 1.0919781250413507
+    },
+    {
+      "scan_index": 39,
+      "name": "Home_Bg_2 - Position 40",
+      "position_inches": -40.0,
+      "position_meters": -1.016,
+      "started_at": "2026-09-18T07:50:09.997568-10:00",
+      "stopped_at": "2026-09-18T07:50:11.156918-10:00",
+      "duration_seconds": 1.1593293747864664
+    },
+    {
+      "scan_index": 40,
+      "name": "Home_Bg_2 - Position 41",
+      "position_inches": -41.0,
+      "position_meters": -1.0413999999999999,
+      "started_at": "2026-09-18T07:50:13.136722-10:00",
+      "stopped_at": "2026-09-18T07:50:14.297157-10:00",
+      "duration_seconds": 1.1604467500001192
+    },
+    {
+      "scan_index": 41,
+      "name": "Home_Bg_2 - Position 42",
+      "position_inches": -42.0,
+      "position_meters": -1.0668,
+      "started_at": "2026-09-18T07:50:17.025294-10:00",
+      "stopped_at": "2026-09-18T07:50:18.185215-10:00",
+      "duration_seconds": 1.1598786250688136
+    },
+    {
+      "scan_index": 42,
+      "name": "Home_Bg_2 - Position 43",
+      "position_inches": -43.0,
+      "position_meters": -1.0922,
+      "started_at": "2026-09-18T07:50:20.389001-10:00",
+      "stopped_at": "2026-09-18T07:50:21.521498-10:00",
+      "duration_seconds": 1.132497957907617
+    },
+    {
+      "scan_index": 43,
+      "name": "Home_Bg_2 - Position 44",
+      "position_inches": -44.0,
+      "position_meters": -1.1176,
+      "started_at": "2026-09-18T07:50:23.886674-10:00",
+      "stopped_at": "2026-09-18T07:50:25.086258-10:00",
+      "duration_seconds": 1.1996372079011053
+    },
+    {
+      "scan_index": 44,
+      "name": "Home_Bg_2 - Position 45",
+      "position_inches": -45.0,
+      "position_meters": -1.143,
+      "started_at": "2026-09-18T07:50:27.018895-10:00",
+      "stopped_at": "2026-09-18T07:50:28.158422-10:00",
+      "duration_seconds": 1.1395186251029372
+    },
+    {
+      "scan_index": 45,
+      "name": "Home_Bg_2 - Position 46",
+      "position_inches": -46.0,
+      "position_meters": -1.1683999999999999,
+      "started_at": "2026-09-18T07:50:30.205439-10:00",
+      "stopped_at": "2026-09-18T07:50:31.326881-10:00",
+      "duration_seconds": 1.1214181669056416
+    },
+    {
+      "scan_index": 46,
+      "name": "Home_Bg_2 - Position 47",
+      "position_inches": -47.0,
+      "position_meters": -1.1938,
+      "started_at": "2026-09-18T07:50:33.441836-10:00",
+      "stopped_at": "2026-09-18T07:50:34.539902-10:00",
+      "duration_seconds": 1.098075499990955
+    },
+    {
+      "scan_index": 47,
+      "name": "Home_Bg_2 - Position 48",
+      "position_inches": -48.0,
+      "position_meters": -1.2191999999999998,
+      "started_at": "2026-09-18T07:50:36.998524-10:00",
+      "stopped_at": "2026-09-18T07:50:38.047926-10:00",
+      "duration_seconds": 1.0494641668628901
+    },
+    {
+      "scan_index": 48,
+      "name": "Home_Bg_2 - Position 49",
+      "position_inches": -49.0,
+      "position_meters": -1.2446,
+      "started_at": "2026-09-18T07:50:40.522533-10:00",
+      "stopped_at": "2026-09-18T07:50:41.672885-10:00",
+      "duration_seconds": 1.1503691249527037
+    },
+    {
+      "scan_index": 49,
+      "name": "Home_Bg_2 - Position 50",
+      "position_inches": -50.0,
+      "position_meters": -1.27,
+      "started_at": "2026-09-18T07:50:43.466575-10:00",
+      "stopped_at": "2026-09-18T07:50:44.506450-10:00",
+      "duration_seconds": 1.039938542060554
+    },
+    {
+      "scan_index": 50,
+      "name": "Home_Bg_2 - Position 51",
+      "position_inches": -51.0,
+      "position_meters": -1.2953999999999999,
+      "started_at": "2026-09-18T07:50:46.301560-10:00",
+      "stopped_at": "2026-09-18T07:50:47.407656-10:00",
+      "duration_seconds": 1.106120083015412
+    },
+    {
+      "scan_index": 51,
+      "name": "Home_Bg_2 - Position 52",
+      "position_inches": -52.0,
+      "position_meters": -1.3208,
+      "started_at": "2026-09-18T07:50:49.382409-10:00",
+      "stopped_at": "2026-09-18T07:50:50.398270-10:00",
+      "duration_seconds": 1.0159403749275953
+    },
+    {
+      "scan_index": 52,
+      "name": "Home_Bg_2 - Position 53",
+      "position_inches": -53.0,
+      "position_meters": -1.3461999999999998,
+      "started_at": "2026-09-18T07:50:51.966414-10:00",
+      "stopped_at": "2026-09-18T07:50:53.017685-10:00",
+      "duration_seconds": 1.0512459159363061
+    },
+    {
+      "scan_index": 53,
+      "name": "Home_Bg_2 - Position 54",
+      "position_inches": -54.0,
+      "position_meters": -1.3716,
+      "started_at": "2026-09-18T07:50:55.257239-10:00",
+      "stopped_at": "2026-09-18T07:50:56.288561-10:00",
+      "duration_seconds": 1.0313810831867158
+    },
+    {
+      "scan_index": 54,
+      "name": "Home_Bg_2 - Position 55",
+      "position_inches": -55.0,
+      "position_meters": -1.397,
+      "started_at": "2026-09-18T07:50:58.487231-10:00",
+      "stopped_at": "2026-09-18T07:50:59.507352-10:00",
+      "duration_seconds": 1.0201497089583427
+    },
+    {
+      "scan_index": 55,
+      "name": "Home_Bg_2 - Position 56",
+      "position_inches": -56.0,
+      "position_meters": -1.4223999999999999,
+      "started_at": "2026-09-18T07:51:01.067294-10:00",
+      "stopped_at": "2026-09-18T07:51:02.091304-10:00",
+      "duration_seconds": 1.0240294998511672
+    },
+    {
+      "scan_index": 56,
+      "name": "Home_Bg_2 - Position 57",
+      "position_inches": -57.0,
+      "position_meters": -1.4478,
+      "started_at": "2026-09-18T07:51:03.763293-10:00",
+      "stopped_at": "2026-09-18T07:51:04.790445-10:00",
+      "duration_seconds": 1.0271519580855966
+    },
+    {
+      "scan_index": 57,
+      "name": "Home_Bg_2 - Position 58",
+      "position_inches": -58.0,
+      "position_meters": -1.4731999999999998,
+      "started_at": "2026-09-18T07:51:06.954775-10:00",
+      "stopped_at": "2026-09-18T07:51:07.989811-10:00",
+      "duration_seconds": 1.0350422500632703
+    },
+    {
+      "scan_index": 58,
+      "name": "Home_Bg_2 - Position 59",
+      "position_inches": -59.0,
+      "position_meters": -1.4986,
+      "started_at": "2026-09-18T07:51:09.619935-10:00",
+      "stopped_at": "2026-09-18T07:51:10.740599-10:00",
+      "duration_seconds": 1.1206884998828173
+    },
+    {
+      "scan_index": 59,
+      "name": "Home_Bg_2 - Position 60",
+      "position_inches": -60.0,
+      "position_meters": -1.524,
+      "started_at": "2026-09-18T07:51:12.524452-10:00",
+      "stopped_at": "2026-09-18T07:51:13.608375-10:00",
+      "duration_seconds": 1.083915000082925
+    }
+  ]
+}

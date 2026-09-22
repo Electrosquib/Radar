@@ -4,8 +4,8 @@ PLINK = "C:/Program Files/PuTTY/plink.exe"
 
 SYSROOT = ./pluto-0.38.sysroot
 
-TARGET = bram_save
-SRC = bram_save.c
+TARGET = SFCW
+SRC = SFCW.c
 
 PLUTO_IP = 192.168.2.1
 USER = root

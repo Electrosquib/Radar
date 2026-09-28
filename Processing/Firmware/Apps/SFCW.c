@@ -126,7 +126,6 @@ int main(void) {
         freqs[i] = F_START + i * FS;
     };
 
-
     char profiles[NUM_STEPS][128];
     for (int i = 0; i < NUM_STEPS; i++) {
         iio_channel_attr_write_longlong(tx_lo, "frequency", freqs[i]);

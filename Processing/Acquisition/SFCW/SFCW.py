@@ -1,16 +1,25 @@
 import numpy as np
-import adi
-import matplotlib.pyplot as plt
+import adi # type: ignore
+import matplotlib.pyplot as plt # type: ignore
 from datetime import datetime
 import time
 from collections import deque
 
 class SFCWRadar:
-    def __init__(self, device_string="usb:", Fmin=1000e6, Fmax=1300e6, verbose=True, Fs=20e6, rx_port=1, rx_loopback_port=0, tx_port=0, tx_loopback_port=1):
-        self.sdr = adi.ad9361(uri=device_string)
-        self.sdr.rx_enabled_channels = [rx_loopback_port, rx_port]
-        self.sdr.tx_enabled_channels = [tx_port, tx_loopback_port]
+    def __init__(self, 
+            device_string="usb:", 
+            Fmin=1000e6, 
+            Fmax=1300e6, 
+            Fs=20e6, 
+            rx_port=1, 
+            rx_loopback_port=0, 
+            tx_port=0, 
+            tx_loopback_port=1,
 
+            verbose=True, 
+            costas_mode=True,
+            schroeder_phase=True
+        ):
         self.RX_GAIN = 71
         self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
@@ -27,12 +36,67 @@ class SFCWRadar:
 
     
         self.verbose = True if verbose else False
+        self.costas_mode = True if costas_mode else False
+        self.schroeder_phase = True if schroeder_phase else False
+
         self.Fmin = Fmin
         self.Fmax = Fmax
         self.BW = Fmax - Fmin
         if self.BW <= 0:
             raise ValueError("Fmax must be greater than Fmin")
-        
+
+        self.FREQS = [int(i + self.Fs / 2) for i in np.arange(self.Fmin, self.Fmax, self.Fs)]
+        self.fastlock_profiles = np.array([])
+        self.tx_fastlock_profiles = np.array([])
+        self.num_freqs = int(self.Fs // self.BB_SPACING)
+        self.bb_freqs = np.arange(
+            -self.Fs / 2,
+            self.Fs / 2,
+            self.BB_SPACING
+        )
+        self.num_steps = self.num_freqs * len(self.FREQS)
+        self.low_primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
+        self.num_retunes = len(self.FREQS)
+
+        self.buffer_vector = np.arange(0, self.BUFF_SIZE, 1)
+        self.bb_mixers = np.exp(-1j * 2 * np.pi * self.bb_freqs[:, None] * self.buffer_vector / self.Fs)
+        self.loopback_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
+        self.rx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
+
+        self.range_profile_ring_buf = deque(maxlen=self.CAPTURE_AVERAGES)
+        self.fastlock_load_times = []
+        self.rx_destroy_buffer_times = []
+        self.fastlock_recall_times = []
+        self.rx_times = []
+        self.range_profile_times = []
+
+        # STARTUP Process:
+        if self.verbose:
+            print(f"[+] Bandwidth: {round(self.BW/1e6, 0)} MHz ({round(self.Fmin/1e6, 0)} MHz - {round(self.Fmax/1e6, 0)} MHz)")
+        if costas_mode:
+            self.generate_costas_array()
+            self.BW = self.Fs * len(self.step_order)
+            self.FREQS.extend([max(self.FREQS)+(i+1)*self.Fs for i in range(len(self.step_order) - self.num_retunes)])
+            self.FREQS = np.asarray(self.FREQS, dtype=np.int64)
+            self.FREQS = self.FREQS[self.step_order]
+            print(self.FREQS)
+            self.num_retunes = len(self.step_order)
+            self.num_steps = self.num_freqs * self.num_retunes
+            print(len(self.FREQS), self.num_retunes)
+            if self.verbose:
+                print(f"[+] Optimized Bandwidth: {round(self.BW/1e6, 0)} MHz ({round(self.Fmin/1e6, 0)} MHz - {round(self.Fmax/1e6, 0)} MHz)")
+                print("[+] Step Order (w/ Costas Array):", self.step_order)
+        else:
+            self.step_order = np.arange(0, self.num_retunes)
+            if self.verbose:
+                print("[+] Step Order (Linear):", self.step_order)
+        self.S = np.zeros(self.num_steps, dtype=np.complex64)
+
+        # AD936X Initialization
+        self.sdr = adi.ad9361(uri=device_string)
+        self.sdr.rx_enabled_channels = [rx_loopback_port, rx_port]
+        self.sdr.tx_enabled_channels = [tx_port, tx_loopback_port]
+
         self.sdr.sample_rate = self.Fs
         self.sdr.rx_rf_bandwidth = self.Fs
         self.sdr.tx_rf_bandwidth = self.Fs
@@ -46,47 +110,21 @@ class SFCWRadar:
         # -89.75–0 dB in 0.25 dB steps
         self.sdr.tx_hardwaregain_chan0 = self.TX_GAIN
         self.sdr.tx_hardwaregain_chan1 = -37.5
-
-        self.FREQS = [int(i) for i in np.arange(self.Fmin, self.Fmax, self.Fs)]
-        self.fastlock_profiles = np.array([])
-        self.tx_fastlock_profiles = np.array([])
-        self.num_freqs = int(self.Fs // self.BB_SPACING)
-        self.bb_freqs = np.arange(
-            -self.Fs / 2,
-            self.Fs / 2,
-            self.BB_SPACING
-        )
-        self.num_steps = self.num_freqs*len(self.FREQS)
-
-        self.buffer_vector = np.arange(0, self.BUFF_SIZE, 1)
-        self.bb_mixers = np.exp(-1j * 2 * np.pi * self.bb_freqs[:, None] * self.buffer_vector / self.Fs)
-        self.loopback_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
-        self.rx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
-        self.S = np.zeros(self.num_freqs * len(self.FREQS), dtype=np.complex64)
-
         self.sdr.tx_cyclic_buffer = True
+
         self.lo = self.sdr._ctrl.find_channel("altvoltage0", True)
         self.tx_lo = self.sdr._ctrl.find_channel("altvoltage1", True)
 
-        self.range_profile_ring_buf = deque(maxlen=self.CAPTURE_AVERAGES)
-        self.fastlock_load_times = []
-        self.rx_destroy_buffer_times = []
-        self.fastlock_recall_times = []
-        self.rx_times = []
-        self.range_profile_times = []
-
-        # STARTUP Process:
         self.store_fastlock_profiles()
         self.generate_baseband_tx()
-
 
     def store_fastlock_profiles(self):
         """
         Stores fastlock profiles for each frequency in self.FREQS. This method iterates over the frequencies, sets the SDR's RX LO to each frequency, and stores the corresponding fastlock profile. The profiles are saved in a list for later use.
         """
         for count, f in enumerate(self.FREQS):
-            self.sdr.rx_lo = f
-            self.sdr.tx_lo = f
+            self.sdr.rx_lo = int(f)
+            self.sdr.tx_lo = int(f)
             self.lo.attrs["fastlock_store"].value = "0"
             self.tx_lo.attrs["fastlock_store"].value = "0"
             self.fastlock_profiles = np.append(self.fastlock_profiles, self.lo.attrs["fastlock_save"].value.split(" ", 1)[1])
@@ -97,12 +135,15 @@ class SFCWRadar:
             print(f"\n[-] Stored {len(self.fastlock_profiles)} Fastlock profiles.")
         return
 
-    def generate_baseband_tx(self, phase=0, mag=1, verbose=False):
+    def generate_baseband_tx(self, phase_offset=0, mag=1, verbose=False):
         self.tx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
-        for bb_freq in self.bb_freqs:
-            # print(self.buffer_vector)
+        for n, f in enumerate(self.bb_freqs):
+            if self.schroeder_phase:
+                phi = -np.pi*n*(n-1)/len(self.bb_freqs) + phase_offset
+            else:
+                phi = phase_offset
             self.tx_buff += np.exp(
-                1j * (2 * np.pi * bb_freq * self.buffer_vector / self.Fs + phase)
+                1j * (2 * np.pi * f * self.buffer_vector / self.Fs + phi)
             )
         self.tx_buff *= self.BB_GAIN * mag * self.TX_BB_SCALE / self.num_freqs
         self.tx_buff = self.tx_buff.astype(np.complex64)
@@ -120,6 +161,31 @@ class SFCWRadar:
             plt.tight_layout()
             plt.show()
         return self.tx_buff
+
+    def welch(self, p):
+        """
+        Welch construction of Costas array
+        """
+        for g in range(2, p):
+            seq = [pow(g, k, p) for k in range(p - 1)]
+            if len(set(seq)) == p - 1:
+                return g, [x - 1 for x in seq]
+
+    def euler_prime(self, n):
+        """
+        Euler's prime generating polynomial
+        """
+        return n**2 + n + 41
+
+    def generate_costas_array(self):
+        prime = min([i for i in self.low_primes if i > self.num_retunes], default=0)
+        if not prime:
+            for n in range(16):
+                prime = self.euler_prime(n+1)
+                if prime > self.num_retunes: break
+        self.step_order = self.welch(prime)[1]
+        self.descramble_order = np.argsort(self.step_order)
+        return self.step_order
 
     def auto_optimize_gains(self, target_fraction=0.4, max_iterations=4):
         """Set both manual RX gains for good ADC headroom; TX gain is unchanged."""
@@ -275,7 +341,11 @@ class SFCWRadar:
             self.retune(freq, count % 8)
             time.sleep(self.retune_delay)
             phasors = self.extract_bb_phasors()
-            self.S[count*self.num_freqs:(count+1)*self.num_freqs] = phasors
+            if self.costas_mode:
+                self.S[self.step_order[count]*self.num_freqs:(self.step_order[count]+1)*self.num_freqs] = phasors
+            else:
+                self.S[count*self.num_freqs:(count+1)*self.num_freqs] = phasors
+
         self.range_profile_times.append(time.perf_counter() - range_profile_t0)
         if self.verbose:
             print(f"{'Operation':<24} {'Average (ms)':>12} {'Max (ms)':>12} {'Measures':>10}")
@@ -291,10 +361,6 @@ class SFCWRadar:
                     f"{label:<24} {np.mean(measurements) * 1e3:>12.3f} "
                     f"{max(measurements) * 1e3:>12.3f} {len(measurements):>10}"
                 )
-        # try:
-        #     self.sdr.tx_destroy_buffer()
-        # except Exception:
-        #     pass
 
     def get_range_profile(self, plot=False, cal=False):
         if np.mean(self.S) == 0: self.sweep()
@@ -350,3 +416,7 @@ class SFCWRadar:
             self.sweep()
             S_sum += self.S
         self.S = (S_sum / averages).astype(np.complex64)
+
+
+if __name__ == "__main__":
+    sfcw = SFCWRadar()

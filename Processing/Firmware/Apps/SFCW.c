@@ -29,6 +29,7 @@
 #define NUM_STEPS ((int)ceil(PRE_BW / CHAN_BW))
 #define BW (NUM_STEPS * CHAN_BW)
 #define MAX_RANGE (C / (2 * BW))
+#define LUT_SIZE 20
 
 // Gains
 #define RX_GAIN 71
@@ -36,6 +37,21 @@
 #define TX_GAIN 0
 
 int main(void) {
+
+    static const float ilut[LUT_SIZE] = {
+        2.00000000f, -3.90211303f,  4.79360449f, -2.55753652f,
+        -2.45964955f,  2.13818101f,  5.00000000f, -0.091322475f,
+        -0.891491461f, -4.02967247f, -2.02967247f, -2.89149146f,
+        1.90867753f,  3.00000000f,  4.13818101f, -4.45964955f,
+        -0.557536516f, 2.79360449f, -1.90211303f,  0.00000000f
+    };
+    static const float qlut[20] = {
+        0.00000000f, -0.618033989f,  2.79360449f, -5.52014702f,
+        4.13818101f,  2.45964955f, -1.27345747f, -4.79360449f,
+        -3.82442950f, -3.36176258f, -3.36176258f, -3.82442950f,
+        -4.79360449f, -1.27345747f,  2.45964955f,  4.13818101f,
+        -5.52014702f,  2.79360449f, -0.618033989f,  0.00000000f
+    };
     struct iio_context *ctx = iio_create_local_context();
     if (!ctx) {
         printf("[-] local context could not be created\n");

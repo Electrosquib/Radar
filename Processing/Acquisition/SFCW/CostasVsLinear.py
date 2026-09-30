@@ -48,7 +48,13 @@ def main():
     args = parser.parse_args()
     if args.trials < 3:
         raise ValueError("Use at least 3 trials for a meaningful standard deviation")
-    radar = SFCWRadar(verbose=False, Fmin=3e9, Fmax=3.6e9, Fs=20e6)
+    radar = SFCWRadar(
+        verbose=False,
+        Fmin=3e9,
+        Fmax=3.6e9,
+        Fs=20e6,
+        use_ps_controller=False,
+    )
     radar.verbose = False
     costas = np.asarray(radar.step_order, int)
     undo = np.argsort(costas)
@@ -90,9 +96,7 @@ def main():
         ax[1, 1].boxplot([c[3], l[3]], tick_labels=["Costas", "Linear"]); ax[1, 1].set_ylabel("Sweep time (s)")
         fig.suptitle(f"Costas vs linear, {args.trials} paired trials"); fig.tight_layout(); plt.show()
     finally:
-        for destroy in (radar.sdr.tx_destroy_buffer, radar.sdr.rx_destroy_buffer):
-            try: destroy()
-            except Exception: pass
+        radar.close()
 
 
 if __name__ == "__main__": main()

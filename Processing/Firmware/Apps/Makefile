@@ -1,25 +1,21 @@
-CC = "C:/Program Files/Arm/GNU Toolchain mingw-w64-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc.exe"
-PSCP = "C:/Program Files/PuTTY/pscp.exe"
-PLINK = "C:/Program Files/PuTTY/plink.exe"
+TARGET := SFCW
+SRC := SFCW.c
+SYSROOT ?= ./pluto-0.38.sysroot
 
-SYSROOT = ./pluto-0.38.sysroot
+ifeq ($(origin CC), default)
+CC := armv7-unknown-linux-gnueabihf-gcc
+endif
 
-TARGET = SFCW
-SRC = SFCW.c
+CPPFLAGS ?=
+CFLAGS ?= -O2 -g -Wall -Wextra -Wpedantic -std=gnu99 -mfloat-abi=hard
+LDLIBS ?= -liio -lm
 
-PLUTO_IP = 192.168.2.1
-USER = root
-PASSWORD = analog
+.PHONY: build clean
 
-build:
-	$(CC) --sysroot="$(SYSROOT)" -mfloat-abi=hard -std=gnu99 -g -Wall -Wextra $(SRC) -o $(TARGET) -lpthread -liio -lm
+build: $(TARGET)
 
-deploy: build
-	$(PSCP) -scp -pw $(PASSWORD) $(TARGET) $(USER)@$(PLUTO_IP):/root/$(TARGET)
-
-run: deploy
-	@echo -------------------------------------------------------------------------------------------
-	$(PLINK) -batch -pw $(PASSWORD) $(USER)@$(PLUTO_IP) "killall $(TARGET) 2>/dev/null || true; chmod +x /root/$(TARGET); /root/$(TARGET); echo EXIT_CODE=\$$?"
+$(TARGET): $(SRC) Makefile
+	"$(CC)" --sysroot="$(SYSROOT)" $(CPPFLAGS) $(CFLAGS) $(SRC) -o $(TARGET) $(LDLIBS)
 
 clean:
-	del $(TARGET)
+	rm -f $(TARGET)

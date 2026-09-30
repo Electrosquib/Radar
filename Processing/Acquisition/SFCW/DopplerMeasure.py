@@ -123,6 +123,7 @@ def main():
         rx_loopback_port=args.rx_loopback_port,
         tx_port=args.tx_port,
         tx_loopback_port=args.tx_loopback_port,
+        use_ps_controller=False,
     )
     radar.CAPTURE_AVERAGES = args.captures
     radar.retune_delay = args.retune_delay
@@ -151,11 +152,7 @@ def main():
     except KeyboardInterrupt:
         print("\nStopped.")
     finally:
-        for destroy in (radar.sdr.tx_destroy_buffer, radar.sdr.rx_destroy_buffer):
-            try:
-                destroy()
-            except Exception:
-                pass
+        radar.close()
 
 
 if __name__ == "__main__":

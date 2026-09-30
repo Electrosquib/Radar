@@ -59,5 +59,4 @@ animation = FuncAnimation(
 try:
     plt.show()
 finally:
-    radar.sdr.tx_destroy_buffer()
-    radar.sdr.rx_destroy_buffer()
+    radar.close()

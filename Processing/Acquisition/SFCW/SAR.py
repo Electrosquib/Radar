@@ -1194,8 +1194,7 @@ def main(argv=None):
 
         if radar is not None:
             try:
-                radar.sdr.tx_destroy_buffer()
-                radar.sdr.rx_destroy_buffer()
+                radar.close()
             except Exception:
                 pass
 

@@ -1,9 +1,358 @@
 import numpy as np
-import adi # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 from datetime import datetime
 import time
 from collections import deque
+import hashlib
+import os
+from pathlib import Path
+import shutil
+import shlex
+import struct
+import subprocess
+import weakref
+
+
+class PSControllerError(RuntimeError):
+    """Raised when the Zynq PS acquisition controller cannot be used."""
+
+
+class _ControllerCleanupProxy:
+    """Compatibility surface for callers that only destroy pyadi buffers."""
+
+    def __init__(self, radar):
+        self._radar = weakref.ref(radar)
+        self._destroyed = set()
+
+    def _mark_destroyed(self, name):
+        self._destroyed.add(name)
+        radar = self._radar()
+        if radar is not None and self._destroyed == {"rx", "tx"}:
+            radar.close()
+
+    def rx_destroy_buffer(self):
+        self._mark_destroyed("rx")
+
+    def tx_destroy_buffer(self):
+        self._mark_destroyed("tx")
+
+    def close(self):
+        radar = self._radar()
+        if radar is not None:
+            radar.close()
+
+
+class _PSController:
+    MAGIC = b"SFCW"
+    VERSION = 1
+    CONFIGURE = 1
+    SWEEP = 2
+    PING = 3
+    SHUTDOWN = 4
+    HEADER = struct.Struct("<4sHHIQ")
+    CONFIG = struct.Struct("<11I3i5d")
+    TIMING = struct.Struct("<HBBIIiQ")
+    SWEEP_PREFIX = struct.Struct("<5IQ")
+    TIMING_NAMES = {
+        1: "Full retune",
+        2: "Fastlock store",
+        3: "Fastlock save",
+        4: "Fastlock load",
+        5: "Fastlock recall",
+        6: "Buffer refill",
+    }
+    SIDE_NAMES = {0: "", 1: "RX", 2: "TX"}
+
+    def __init__(
+        self,
+        host,
+        port,
+        user,
+        password,
+        key_filename,
+        cross_compiler,
+        remote_binary,
+        timeout=15,
+    ):
+        self.host = host
+        self.remote_binary = remote_binary
+        self._ssh = None
+        self._channel = None
+        self._stdin = None
+        self._stdout = None
+        try:
+            import paramiko  # type: ignore
+        except ImportError as exc:
+            raise PSControllerError(
+                "Paramiko is required for PS control; install project dependencies "
+                "or set use_ps_controller=False"
+            ) from exc
+
+        binary = self._ensure_local_binary(cross_compiler)
+        try:
+            client = paramiko.SSHClient()
+            client.load_system_host_keys()
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            client.connect(
+                hostname=host,
+                port=port,
+                username=user,
+                password=password,
+                key_filename=key_filename,
+                timeout=timeout,
+                auth_timeout=timeout,
+                banner_timeout=timeout,
+                allow_agent=True,
+                look_for_keys=True,
+            )
+            self._ssh = client
+            self._deploy_if_needed(binary)
+            transport = client.get_transport()
+            if transport is None:
+                raise PSControllerError("SSH transport was not established")
+            channel = transport.open_session(timeout=timeout)
+            channel.exec_command(f"{shlex.quote(remote_binary)} --stdio")
+            self._channel = channel
+            self._stdin = channel.makefile("wb", 0)
+            self._stdout = channel.makefile("rb", 0)
+            payload = self._request(self.PING)
+            if len(payload) != 4 or struct.unpack("<I", payload)[0] != self.VERSION:
+                raise PSControllerError("PS controller protocol negotiation failed")
+        except Exception as exc:
+            stderr_detail = self._stderr_text()
+            self.close(force=True)
+            if isinstance(exc, PSControllerError):
+                if stderr_detail:
+                    raise PSControllerError(f"{exc}; remote stderr: {stderr_detail}") from exc
+                raise
+            raise PSControllerError(
+                f"Could not start PS controller on {host}: {exc}. "
+                + (f"Remote stderr: {stderr_detail}. " if stderr_detail else "")
+                + "Fix build/SSH access or set use_ps_controller=False"
+            ) from exc
+
+    @staticmethod
+    def _apps_directory():
+        return Path(__file__).resolve().parents[2] / "Firmware" / "Apps"
+
+    @classmethod
+    def _ensure_local_binary(cls, cross_compiler):
+        apps = cls._apps_directory()
+        binary = apps / "SFCW"
+        inputs = [apps / "SFCW.c", apps / "Makefile"]
+        stale = not binary.exists() or any(
+            path.stat().st_mtime_ns > binary.stat().st_mtime_ns for path in inputs
+        )
+        if not stale:
+            return binary
+
+        compiler = cross_compiler or os.environ.get("SFCW_CC")
+        if compiler:
+            compiler = shutil.which(compiler) or compiler
+        else:
+            compiler = next(
+                (
+                    found
+                    for name in (
+                        "armv7-unknown-linux-gnueabihf-gcc",
+                        "armv7-linux-gnueabihf-gcc",
+                        "arm-linux-gnueabihf-gcc",
+                        "arm-none-linux-gnueabihf-gcc",
+                    )
+                    if (found := shutil.which(name))
+                ),
+                None,
+            )
+        if not compiler:
+            raise PSControllerError(
+                "The ARM SFCW controller is missing or stale and no cross-compiler "
+                "was found. Set ps_cross_compiler or SFCW_CC, or set "
+                "use_ps_controller=False"
+            )
+        try:
+            subprocess.run(
+                ["make", "build", f"CC={compiler}"],
+                cwd=apps,
+                check=True,
+            )
+        except (OSError, subprocess.CalledProcessError) as exc:
+            raise PSControllerError(
+                f"Failed to cross-build {apps / 'SFCW.c'}: {exc}. "
+                "Set use_ps_controller=False to use legacy pyadi control"
+            ) from exc
+        if not binary.exists():
+            raise PSControllerError("Cross-build completed without producing Firmware/Apps/SFCW")
+        return binary
+
+    @staticmethod
+    def _hash_file(file_object):
+        digest = hashlib.sha256()
+        while True:
+            chunk = file_object.read(1024 * 1024)
+            if not chunk:
+                return digest.digest()
+            digest.update(chunk)
+
+    def _deploy_if_needed(self, binary):
+        local_hash = hashlib.sha256(binary.read_bytes()).digest()
+        sftp = self._ssh.open_sftp()
+        try:
+            try:
+                with sftp.open(self.remote_binary, "rb") as remote:
+                    remote_hash = self._hash_file(remote)
+            except OSError:
+                remote_hash = None
+            if remote_hash == local_hash:
+                return
+            temporary = self.remote_binary + f".tmp.{os.getpid()}"
+            sftp.put(str(binary), temporary)
+            sftp.chmod(temporary, 0o755)
+            try:
+                sftp.posix_rename(temporary, self.remote_binary)
+            except (AttributeError, OSError):
+                try:
+                    sftp.remove(self.remote_binary)
+                except OSError:
+                    pass
+                sftp.rename(temporary, self.remote_binary)
+        finally:
+            sftp.close()
+
+    @staticmethod
+    def _read_exact(stream, length):
+        chunks = []
+        remaining = length
+        while remaining:
+            chunk = stream.read(remaining)
+            if not chunk:
+                raise PSControllerError("PS controller closed its output unexpectedly")
+            chunks.append(chunk)
+            remaining -= len(chunk)
+        return b"".join(chunks)
+
+    def _stderr_text(self):
+        if self._channel is None or not self._channel.recv_stderr_ready():
+            return ""
+        return self._channel.recv_stderr(65536).decode("utf-8", "replace").strip()
+
+    def _request(self, message_type, payload=b""):
+        if self._stdin is None or self._stdout is None:
+            raise PSControllerError("PS controller is closed")
+        self._stdin.write(
+            self.HEADER.pack(self.MAGIC, self.VERSION, message_type, 0, len(payload))
+        )
+        if payload:
+            self._stdin.write(payload)
+        self._stdin.flush()
+        header = self.HEADER.unpack(self._read_exact(self._stdout, self.HEADER.size))
+        magic, version, response_type, status, length = header
+        if magic != self.MAGIC or version != self.VERSION or response_type != message_type:
+            raise PSControllerError("Malformed or incompatible PS controller response")
+        response = self._read_exact(self._stdout, length)
+        if status:
+            detail = response.decode("utf-8", "replace") or self._stderr_text()
+            raise PSControllerError(f"PS controller command {message_type} failed: {detail}")
+        return response
+
+    @classmethod
+    def decode_timings(cls, payload, count, offset=0):
+        records = []
+        for _ in range(count):
+            end = offset + cls.TIMING.size
+            if end > len(payload):
+                raise PSControllerError("Truncated timing records from PS controller")
+            operation, side, slot, index, detail, status, duration_ns = (
+                cls.TIMING.unpack_from(payload, offset)
+            )
+            records.append(
+                {
+                    "operation_id": operation,
+                    "operation": cls.TIMING_NAMES.get(operation, f"Operation {operation}"),
+                    "side": cls.SIDE_NAMES.get(side, f"Side {side}"),
+                    "slot": None if slot == 255 else slot,
+                    "frequency_index": index,
+                    "detail": detail,
+                    "status": status,
+                    "duration_s": duration_ns / 1e9,
+                }
+            )
+            offset = end
+        return records, offset
+
+    def configure(self, radar, rx_port, rx_loopback_port, tx_port, tx_loopback_port):
+        flags = int(radar.schroeder_phase) | (int(radar.verbose) << 1)
+        payload = self.CONFIG.pack(
+            flags,
+            radar.Fs,
+            radar.Fs,
+            radar.BUFF_SIZE,
+            radar.CAPTURE_AVERAGES,
+            int(round(radar.retune_delay * 1e6)),
+            radar.num_retunes,
+            rx_port,
+            rx_loopback_port,
+            tx_port,
+            tx_loopback_port,
+            radar.RX_GAIN,
+            radar.LOOPBACK_GAIN,
+            radar.TX_GAIN,
+            -37.5,
+            radar.BB_SPACING,
+            radar.BB_GAIN * radar.tx_magnitude,
+            radar.TX_BB_SCALE,
+            radar.tx_phase_offset,
+        ) + np.asarray(radar.FREQS, dtype="<u8").tobytes()
+        response = self._request(self.CONFIGURE, payload)
+        if len(response) < 4:
+            raise PSControllerError("Truncated configure response")
+        count = struct.unpack_from("<I", response)[0]
+        records, offset = self.decode_timings(response, count, 4)
+        if offset != len(response):
+            raise PSControllerError("Unexpected trailing configure data")
+        return records
+
+    def sweep(self):
+        response = self._request(self.SWEEP)
+        if len(response) < self.SWEEP_PREFIX.size:
+            raise PSControllerError("Truncated sweep response")
+        retunes, averages, samples, channels, timing_count, acquisition_ns = (
+            self.SWEEP_PREFIX.unpack_from(response)
+        )
+        if channels != 2:
+            raise PSControllerError(f"Expected two RX channels, received {channels}")
+        timings, offset = self.decode_timings(
+            response, timing_count, self.SWEEP_PREFIX.size
+        )
+        expected_values = retunes * averages * samples * 4
+        raw = np.frombuffer(response, dtype="<i2", count=expected_values, offset=offset)
+        if raw.size != expected_values or offset + expected_values * 2 != len(response):
+            raise PSControllerError("Raw IQ payload has an unexpected size")
+        return (
+            raw.reshape(retunes, averages, samples, 4).copy(),
+            timings,
+            acquisition_ns / 1e9,
+        )
+
+    def close(self, force=False):
+        if not force and self._stdin is not None and self._stdout is not None:
+            try:
+                self._request(self.SHUTDOWN)
+            except Exception:
+                pass
+        for stream_name in ("_stdin", "_stdout"):
+            stream = getattr(self, stream_name, None)
+            if stream is not None:
+                try:
+                    stream.close()
+                except Exception:
+                    pass
+                setattr(self, stream_name, None)
+        if self._channel is not None:
+            self._channel.close()
+            self._channel = None
+        if self._ssh is not None:
+            self._ssh.close()
+            self._ssh = None
 
 class SFCWRadar:
     def __init__(self, 
@@ -18,7 +367,17 @@ class SFCWRadar:
 
             verbose=True, 
             costas_mode=True,
-            schroeder_phase=True
+            schroeder_phase=True,
+            tx_phase_offset=0.0,
+            tx_magnitude=1.0,
+            use_ps_controller=True,
+            ps_host="192.168.2.1",
+            ps_port=22,
+            ps_user="root",
+            ps_password="analog",
+            ps_key_filename=None,
+            ps_cross_compiler=None,
+            ps_remote_binary="/root/SFCW",
         ):
         self.RX_GAIN = 71
         self.LOOPBACK_GAIN = 0
@@ -38,6 +397,17 @@ class SFCWRadar:
         self.verbose = True if verbose else False
         self.costas_mode = True if costas_mode else False
         self.schroeder_phase = True if schroeder_phase else False
+        self.tx_phase_offset = float(tx_phase_offset)
+        self.tx_magnitude = float(tx_magnitude)
+        if not np.isfinite(self.tx_phase_offset):
+            raise ValueError("tx_phase_offset must be finite")
+        if not np.isfinite(self.tx_magnitude) or self.tx_magnitude < 0:
+            raise ValueError("tx_magnitude must be finite and nonnegative")
+        self.use_ps_controller = bool(use_ps_controller)
+        self._controller = None
+        self._closed = False
+        self._ps_ports = (rx_port, rx_loopback_port, tx_port, tx_loopback_port)
+        self._controller_signature = None
 
         self.Fmin = Fmin
         self.Fmax = Fmax
@@ -69,6 +439,11 @@ class SFCWRadar:
         self.fastlock_recall_times = []
         self.rx_times = []
         self.range_profile_times = []
+        self.controller_initialization_timings = []
+        self.controller_timings = []
+        self.controller_acquisition_times = []
+        self.controller_transfer_times = []
+        self.host_processing_times = []
 
         # STARTUP Process:
         if self.verbose:
@@ -79,11 +454,10 @@ class SFCWRadar:
             self.FREQS.extend([max(self.FREQS)+(i+1)*self.Fs for i in range(len(self.step_order) - self.num_retunes)])
             self.FREQS = np.asarray(self.FREQS, dtype=np.int64)
             self.FREQS = self.FREQS[self.step_order]
-            print(self.FREQS)
             self.num_retunes = len(self.step_order)
             self.num_steps = self.num_freqs * self.num_retunes
-            print(len(self.FREQS), self.num_retunes)
             if self.verbose:
+                print("[+] Frequency order:", self.FREQS)
                 print(f"[+] Optimized Bandwidth: {round(self.BW/1e6, 0)} MHz ({round(self.Fmin/1e6, 0)} MHz - {round(self.Fmax/1e6, 0)} MHz)")
                 print("[+] Step Order (w/ Costas Array):", self.step_order)
         else:
@@ -92,31 +466,66 @@ class SFCWRadar:
                 print("[+] Step Order (Linear):", self.step_order)
         self.S = np.zeros(self.num_steps, dtype=np.complex64)
 
-        # AD936X Initialization
-        self.sdr = adi.ad9361(uri=device_string)
-        self.sdr.rx_enabled_channels = [rx_loopback_port, rx_port]
-        self.sdr.tx_enabled_channels = [tx_port, tx_loopback_port]
-
-        self.sdr.sample_rate = self.Fs
-        self.sdr.rx_rf_bandwidth = self.Fs
-        self.sdr.tx_rf_bandwidth = self.Fs
-        self.sdr.rx_buffer_size = self.BUFF_SIZE
-
-        self.sdr.gain_control_mode_chan0 = "manual"
-        self.sdr.gain_control_mode_chan1 = "manual"
-        self.sdr.rx_hardwaregain_chan0 = self.LOOPBACK_GAIN
-        self.sdr.rx_hardwaregain_chan1 = self.RX_GAIN
-
-        # -89.75–0 dB in 0.25 dB steps
-        self.sdr.tx_hardwaregain_chan0 = self.TX_GAIN
-        self.sdr.tx_hardwaregain_chan1 = -37.5
-        self.sdr.tx_cyclic_buffer = True
-
-        self.lo = self.sdr._ctrl.find_channel("altvoltage0", True)
-        self.tx_lo = self.sdr._ctrl.find_channel("altvoltage1", True)
-
-        self.store_fastlock_profiles()
-        self.generate_baseband_tx()
+        if self.use_ps_controller:
+            self.sdr = _ControllerCleanupProxy(self)
+            self.lo = None
+            self.tx_lo = None
+            self.generate_baseband_tx(
+                phase_offset=self.tx_phase_offset,
+                mag=self.tx_magnitude,
+                transmit=False,
+            )
+            self._controller = _PSController(
+                host=ps_host,
+                port=ps_port,
+                user=ps_user,
+                password=ps_password,
+                key_filename=ps_key_filename,
+                cross_compiler=ps_cross_compiler,
+                remote_binary=ps_remote_binary,
+            )
+            try:
+                self.controller_initialization_timings = self._controller.configure(
+                    self,
+                    *self._ps_ports,
+                )
+                self._controller_signature = self._ps_config_signature()
+            except Exception:
+                self._controller.close(force=True)
+                self._controller = None
+                raise
+            if self.verbose:
+                print("[+] Zynq PS SFCW controller configured")
+                self._print_timing_summary(self.controller_initialization_timings)
+        else:
+            # Legacy host-driven pyadi path.
+            try:
+                import adi  # type: ignore
+            except ImportError as exc:
+                raise RuntimeError(
+                    "pyadi-iio is required when use_ps_controller=False"
+                ) from exc
+            self.sdr = adi.ad9361(uri=device_string)
+            self.sdr.rx_enabled_channels = [rx_loopback_port, rx_port]
+            self.sdr.tx_enabled_channels = [tx_port, tx_loopback_port]
+            self.sdr.sample_rate = self.Fs
+            self.sdr.rx_rf_bandwidth = self.Fs
+            self.sdr.tx_rf_bandwidth = self.Fs
+            self.sdr.rx_buffer_size = self.BUFF_SIZE
+            self.sdr.gain_control_mode_chan0 = "manual"
+            self.sdr.gain_control_mode_chan1 = "manual"
+            self.sdr.rx_hardwaregain_chan0 = self.LOOPBACK_GAIN
+            self.sdr.rx_hardwaregain_chan1 = self.RX_GAIN
+            self.sdr.tx_hardwaregain_chan0 = self.TX_GAIN
+            self.sdr.tx_hardwaregain_chan1 = -37.5
+            self.sdr.tx_cyclic_buffer = True
+            self.lo = self.sdr._ctrl.find_channel("altvoltage0", True)
+            self.tx_lo = self.sdr._ctrl.find_channel("altvoltage1", True)
+            self.store_fastlock_profiles()
+            self.generate_baseband_tx(
+                phase_offset=self.tx_phase_offset,
+                mag=self.tx_magnitude,
+            )
 
     def store_fastlock_profiles(self):
         """
@@ -135,7 +544,11 @@ class SFCWRadar:
             print(f"\n[-] Stored {len(self.fastlock_profiles)} Fastlock profiles.")
         return
 
-    def generate_baseband_tx(self, phase_offset=0, mag=1, verbose=False):
+    def generate_baseband_tx(self, phase_offset=0, mag=1, verbose=False, transmit=True):
+        if self.use_ps_controller and transmit:
+            self.tx_phase_offset = float(phase_offset)
+            self.tx_magnitude = float(mag)
+            transmit = False
         self.tx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
         for n, f in enumerate(self.bb_freqs):
             if self.schroeder_phase:
@@ -147,7 +560,8 @@ class SFCWRadar:
             )
         self.tx_buff *= self.BB_GAIN * mag * self.TX_BB_SCALE / self.num_freqs
         self.tx_buff = self.tx_buff.astype(np.complex64)
-        self.sdr.tx([self.tx_buff, self.tx_buff])
+        if transmit:
+            self.sdr.tx([self.tx_buff, self.tx_buff])
         if self.verbose and verbose:
             N = len(self.tx_buff)
             t = np.arange(N) / self.Fs
@@ -189,6 +603,11 @@ class SFCWRadar:
 
     def auto_optimize_gains(self, target_fraction=0.4, max_iterations=4):
         """Set both manual RX gains for good ADC headroom; TX gain is unchanged."""
+        if self.use_ps_controller:
+            raise RuntimeError(
+                "auto_optimize_gains() requires step-at-a-time pyadi access; "
+                "construct SFCWRadar(use_ps_controller=False) for this operation"
+            )
         if not 0 < target_fraction < 1:
             raise ValueError("target_fraction must be between 0 and 1")
         gain_ranges = [
@@ -269,6 +688,11 @@ class SFCWRadar:
         return calibration_profiles
 
     def extract_bb_phasors(self):
+        if self.use_ps_controller:
+            raise RuntimeError(
+                "extract_bb_phasors() is internal to a complete PS-controlled sweep; "
+                "use sweep() or construct with use_ps_controller=False"
+            )
         numerator = np.zeros(self.num_freqs, dtype=complex)
         denominator = np.zeros(self.num_freqs)
         for _ in range(self.CAPTURE_AVERAGES):
@@ -299,6 +723,11 @@ class SFCWRadar:
     #     return rx_phasors / (loop_phasors + 1e-12)
 
     def load_fastlock(self, start_idx):
+        if self.use_ps_controller:
+            raise RuntimeError(
+                "load_fastlock() is not a host round-trip operation in PS mode; "
+                "use sweep() or construct with use_ps_controller=False"
+            )
         t0 = time.perf_counter()
         self.sdr.rx_destroy_buffer()
         dt = time.perf_counter() - t0
@@ -319,6 +748,11 @@ class SFCWRadar:
     #         raise ValueError(f"Invalid fastlock slot: {register_num}")
     #     self.lo.attrs["fastlock_recall"].value = str(register_num)
     def retune(self, freq, register_num):
+        if self.use_ps_controller:
+            raise RuntimeError(
+                "retune() is managed inside the timing-critical PS sweep; "
+                "use sweep() or construct with use_ps_controller=False"
+            )
         t0 = time.perf_counter()
         self.lo.attrs["fastlock_recall"].value = str(register_num)
         self.tx_lo.attrs["fastlock_recall"].value = str(register_num)
@@ -327,6 +761,8 @@ class SFCWRadar:
 
 
     def sweep(self):
+        if self.use_ps_controller:
+            return self._sweep_with_ps_controller()
         self.fastlock_load_times.clear()
         self.rx_destroy_buffer_times.clear()
         self.fastlock_recall_times.clear()
@@ -361,6 +797,97 @@ class SFCWRadar:
                     f"{label:<24} {np.mean(measurements) * 1e3:>12.3f} "
                     f"{max(measurements) * 1e3:>12.3f} {len(measurements):>10}"
                 )
+
+    @staticmethod
+    def _print_timing_summary(records):
+        if not records:
+            return
+        grouped = {}
+        for record in records:
+            key = " ".join(
+                part for part in (record["side"], record["operation"]) if part
+            )
+            grouped.setdefault(key, []).append(record["duration_s"])
+        print(f"{'PS operation':<24} {'Average (ms)':>12} {'Max (ms)':>12} {'Measures':>10}")
+        print("-" * 61)
+        for label, measurements in grouped.items():
+            print(
+                f"{label:<24} {np.mean(measurements) * 1e3:>12.3f} "
+                f"{max(measurements) * 1e3:>12.3f} {len(measurements):>10}"
+            )
+
+    def _ps_config_signature(self):
+        return (
+            self.Fs,
+            self.BUFF_SIZE,
+            self.CAPTURE_AVERAGES,
+            self.retune_delay,
+            self.BB_SPACING,
+            self.BB_GAIN,
+            self.TX_BB_SCALE,
+            self.tx_phase_offset,
+            self.tx_magnitude,
+            self.RX_GAIN,
+            self.LOOPBACK_GAIN,
+            self.TX_GAIN,
+            self.schroeder_phase,
+            self.verbose,
+            tuple(map(int, self.FREQS)),
+            self._ps_ports,
+        )
+
+    def _sweep_with_ps_controller(self):
+        if self._controller is None:
+            raise PSControllerError("PS controller is not connected")
+        signature = self._ps_config_signature()
+        if signature != self._controller_signature:
+            self.generate_baseband_tx(
+                phase_offset=self.tx_phase_offset,
+                mag=self.tx_magnitude,
+                transmit=False,
+            )
+            self.controller_initialization_timings = self._controller.configure(
+                self, *self._ps_ports
+            )
+            self._controller_signature = signature
+        request_started = time.perf_counter()
+        raw, timings, acquisition_seconds = self._controller.sweep()
+        request_seconds = time.perf_counter() - request_started
+        processing_started = time.perf_counter()
+
+        loopback = raw[..., 0].astype(np.float32) + 1j * raw[..., 1].astype(np.float32)
+        received = raw[..., 2].astype(np.float32) + 1j * raw[..., 3].astype(np.float32)
+        loop_phasors = np.einsum(
+            "ks,ras->rak", self.bb_mixers, loopback, optimize=True
+        ) / self.BUFF_SIZE
+        rx_phasors = np.einsum(
+            "ks,ras->rak", self.bb_mixers, received, optimize=True
+        ) / self.BUFF_SIZE
+        numerator = np.sum(rx_phasors * np.conj(loop_phasors), axis=1)
+        denominator = np.sum(np.abs(loop_phasors) ** 2, axis=1)
+        phasors = numerator / (denominator + 1e-12)
+
+        blocks = np.empty((self.num_retunes, self.num_freqs), dtype=np.complex64)
+        if self.costas_mode:
+            blocks[np.asarray(self.step_order, dtype=int)] = phasors
+        else:
+            blocks[:] = phasors
+        self.S[:] = blocks.reshape(-1)
+
+        processing_seconds = time.perf_counter() - processing_started
+        transfer_seconds = max(0.0, request_seconds - acquisition_seconds)
+        self.controller_timings = timings
+        self.controller_acquisition_times.append(acquisition_seconds)
+        self.controller_transfer_times.append(transfer_seconds)
+        self.host_processing_times.append(processing_seconds)
+        self.range_profile_times[:] = [request_seconds + processing_seconds]
+
+        if self.verbose:
+            self._print_timing_summary(timings)
+            print(f"{'PS acquisition':<24} {acquisition_seconds * 1e3:>12.3f} ms")
+            print(f"{'SSH transfer/overhead':<24} {transfer_seconds * 1e3:>12.3f} ms")
+            print(f"{'Host phasor processing':<24} {processing_seconds * 1e3:>12.3f} ms")
+        return self.S
 
     def get_range_profile(self, plot=False, cal=False):
         if np.mean(self.S) == 0: self.sweep()
@@ -417,6 +944,36 @@ class SFCWRadar:
             S_sum += self.S
         self.S = (S_sum / averages).astype(np.complex64)
 
+    def close(self):
+        if self._closed:
+            return
+        self._closed = True
+        if self._controller is not None:
+            self._controller.close()
+            self._controller = None
+            return
+        for method_name in ("tx_destroy_buffer", "rx_destroy_buffer", "close"):
+            method = getattr(self.sdr, method_name, None)
+            if method is not None:
+                try:
+                    method()
+                except Exception:
+                    pass
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+        return False
+
+    def __del__(self):
+        try:
+            self.close()
+        except Exception:
+            pass
+
 
 if __name__ == "__main__":
-    sfcw = SFCWRadar()
+    with SFCWRadar() as sfcw:
+        pass

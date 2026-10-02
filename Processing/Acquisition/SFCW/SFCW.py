@@ -23,7 +23,7 @@ class SFCWRadar:
         self.RX_GAIN = 54
         self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
-        self.CAPTURE_AVERAGES = 4
+        self.CAPTURE_AVERAGES = 50
         self.BUFF_SIZE = int(400 * self.CAPTURE_AVERAGES) # 20e6 / 1e6 = 20 samps. 8192 / 20 = 409.6. Must be an integer multiple to prevent spectral leakage
         self.BB_GAIN = 1
         self.SDR_BITS = 12

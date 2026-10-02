@@ -4,18 +4,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 CALIBRATE = False
-SWEEP_AVERAGES = 4
+SWEEP_AVERAGES = 1
 HISTORY_LENGTH = 10
 SLOW_TIME_HISTORY = 100
+RANGE_GATE_BINS = 2
 
 radar = SFCWRadar(
-    verbose=True,
+    verbose=False,
     Fmin=2500e6,
-    Fmax=2800e6,
+    Fmax=3000e6,
     Fs=20e6
 )
-
-input("Press Enter to start the live range profile viewer...")
 
 # radar.auto_optimize_gains()
 # if CALIBRATE:
@@ -63,7 +62,7 @@ colorbar.set_label("Magnitude (dB)")
 
 plt.tight_layout()
 
-def update(_):
+def update(*_):
     global scan_count
 
     radar.sweep_average(SWEEP_AVERAGES)
@@ -90,6 +89,9 @@ def update(_):
 
     rp_db = 20 * np.log10(np.abs(rp) + 1e-12)
 
+    gate_bins = min(RANGE_GATE_BINS, len(rp_db))
+    rp_db[:gate_bins] = np.nan
+
     displayed_profiles = [rp_db, *profile_history]
 
     for history_line, history_profile in zip(
@@ -108,10 +110,16 @@ def update(_):
     if len(profile_history) > HISTORY_LENGTH:
         profile_history.pop(0)
 
-    display_min = min(np.min(p) for p in displayed_profiles)
-    display_max = max(np.max(p) for p in displayed_profiles)
+    valid_profiles = [
+        p[np.isfinite(p)]
+        for p in displayed_profiles
+        if np.any(np.isfinite(p))
+    ]
 
-    ax.set_ylim(display_min - 1, display_max + 1)
+    if valid_profiles:
+        display_min = min(np.min(p) for p in valid_profiles)
+        display_max = max(np.max(p) for p in valid_profiles)
+        ax.set_ylim(display_min - 1, display_max + 1)
 
     slow_time_history.append(rp_db.copy())
 
@@ -132,13 +140,16 @@ def update(_):
         last_scan + 0.5
     ])
 
-    low = np.percentile(slow_data, 5)
-    high = np.percentile(slow_data, 99)
+    valid_slow = slow_data[np.isfinite(slow_data)]
 
-    if high <= low:
-        high = low + 1
+    if valid_slow.size:
+        low = np.percentile(valid_slow, 5)
+        high = np.percentile(valid_slow, 99)
 
-    slow_image.set_clim(low, high)
+        if high <= low:
+            high = low + 1
+
+        slow_image.set_clim(low, high)
 
     ax_slow.set_ylim(
         first_scan - 0.5,

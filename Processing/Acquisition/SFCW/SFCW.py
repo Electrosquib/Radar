@@ -17,19 +17,19 @@ class SFCWRadar:
             tx_loopback_port=1,
 
             verbose=True, 
-            costas_mode=True,
+            costas_mode=False,
             schroeder_phase=True
         ):
-        self.RX_GAIN = 71
+        self.RX_GAIN = 54
         self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
-        self.BUFF_SIZE = 400 # 20e6 / 1e6 = 20 samps. 8192 / 20 = 409.6. Must be an integer multiple to prevent spectral leakage
+        self.CAPTURE_AVERAGES = 4
+        self.BUFF_SIZE = int(400 * self.CAPTURE_AVERAGES) # 20e6 / 1e6 = 20 samps. 8192 / 20 = 409.6. Must be an integer multiple to prevent spectral leakage
         self.BB_GAIN = 1
         self.SDR_BITS = 12
         self.C = 3e8
         self.TX_BB_SCALE = 2**14
         self.BB_SPACING = 2e6
-        self.CAPTURE_AVERAGES = 4
         self.Fs = int(Fs)
         self.max_range = self.C / (2 * self.BB_SPACING)
         self.retune_delay = 100e-6
@@ -38,7 +38,7 @@ class SFCWRadar:
         self.verbose = True if verbose else False
         self.costas_mode = True if costas_mode else False
         self.schroeder_phase = True if schroeder_phase else False
-
+        
         self.Fmin = Fmin
         self.Fmax = Fmax
         self.BW = Fmax - Fmin
@@ -54,16 +54,20 @@ class SFCWRadar:
             self.Fs / 2,
             self.BB_SPACING
         )
+        if self.schroeder_phase:
+            self.schroeder_phase_array = np.array([-np.pi*n*(n-1)/len(self.bb_freqs) for n in range(len(self.bb_freqs))])
+        else:
+            self.schroeder_phase_array = np.zeros_like(self.bb_freqs)
         self.num_steps = self.num_freqs * len(self.FREQS)
         self.low_primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
         self.num_retunes = len(self.FREQS)
 
         self.buffer_vector = np.arange(0, self.BUFF_SIZE, 1)
-        self.bb_mixers = np.exp(-1j * 2 * np.pi * self.bb_freqs[:, None] * self.buffer_vector / self.Fs)
+        self.bb_mixers = np.exp(-1j * 2 * np.pi * self.bb_freqs[:, None] * self.buffer_vector / self.Fs -1j * self.schroeder_phase_array[:, None])
         self.loopback_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
-        self.rx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
+        self.rx_buff = np.zeros_like(np.arange(0, self.BUFF_SIZE+self.BUFF_SIZE//self.CAPTURE_AVERAGES, 1), dtype=np.complex128)
 
-        self.range_profile_ring_buf = deque(maxlen=self.CAPTURE_AVERAGES)
+        # self.range_profile_ring_buf = deque(maxlen=self.CAPTURE_AVERAGES)
         self.fastlock_load_times = []
         self.rx_destroy_buffer_times = []
         self.fastlock_recall_times = []
@@ -72,19 +76,22 @@ class SFCWRadar:
 
         # STARTUP Process:
         if self.verbose:
-            print(f"[+] Bandwidth: {round(self.BW/1e6, 0)} MHz ({round(self.Fmin/1e6, 0)} MHz - {round(self.Fmax/1e6, 0)} MHz)")
+            print(f"[+] Bandwidth: {round(self.BW/1e6, 0)} MHz ({round((self.Fmin)/1e6, 0)} MHz - {round((self.Fmax)/1e6, 0)} MHz)")
+            print(f"[+] Number of frequencies: {len(self.FREQS)}")
         if costas_mode:
             self.generate_costas_array()
             self.BW = self.Fs * len(self.step_order)
             self.FREQS.extend([max(self.FREQS)+(i+1)*self.Fs for i in range(len(self.step_order) - self.num_retunes)])
             self.FREQS = np.asarray(self.FREQS, dtype=np.int64)
             self.FREQS = self.FREQS[self.step_order]
-            print(self.FREQS)
+            self.Fmax = max(self.FREQS)
+            self.Fmin = min(self.FREQS)
+            print(f"[+] Optimized Number of frequencies: {len(self.FREQS)}")
             self.num_retunes = len(self.step_order)
             self.num_steps = self.num_freqs * self.num_retunes
             print(len(self.FREQS), self.num_retunes)
             if self.verbose:
-                print(f"[+] Optimized Bandwidth: {round(self.BW/1e6, 0)} MHz ({round(self.Fmin/1e6, 0)} MHz - {round(self.Fmax/1e6, 0)} MHz)")
+                print(f"[+] Optimized Bandwidth: {round(self.BW/1e6, 0)} MHz ({round((self.Fmin-self.Fs/2)/1e6, 0)} MHz - {round((self.Fmax+self.Fs/2)/1e6, 0)} MHz)")
                 print("[+] Step Order (w/ Costas Array):", self.step_order)
         else:
             self.step_order = np.arange(0, self.num_retunes)
@@ -100,7 +107,7 @@ class SFCWRadar:
         self.sdr.sample_rate = self.Fs
         self.sdr.rx_rf_bandwidth = self.Fs
         self.sdr.tx_rf_bandwidth = self.Fs
-        self.sdr.rx_buffer_size = self.BUFF_SIZE
+        self.sdr.rx_buffer_size = self.BUFF_SIZE + self.BUFF_SIZE // self.CAPTURE_AVERAGES
 
         self.sdr.gain_control_mode_chan0 = "manual"
         self.sdr.gain_control_mode_chan1 = "manual"
@@ -130,16 +137,16 @@ class SFCWRadar:
             self.fastlock_profiles = np.append(self.fastlock_profiles, self.lo.attrs["fastlock_save"].value.split(" ", 1)[1])
             self.tx_fastlock_profiles = np.append(self.tx_fastlock_profiles, self.tx_lo.attrs["fastlock_save"].value.split(" ", 1)[1])
             if self.verbose:
-                print(f"[-] Storing Fastlock profiles: {count + 1}/{len(self.FREQS)} ({(count+1)/len(self.FREQS)*100:.1f}%)", end="\r")
+                print(f"[+] Storing Fastlock profiles: {count + 1}/{len(self.FREQS)} ({(count+1)/len(self.FREQS)*100:.1f}%)", end="\r")
         if self.verbose:
-            print(f"\n[-] Stored {len(self.fastlock_profiles)} Fastlock profiles.")
+            print(f"\n[+] Stored {len(self.fastlock_profiles)} Fastlock profiles.")
         return
 
     def generate_baseband_tx(self, phase_offset=0, mag=1, verbose=False):
         self.tx_buff = np.zeros_like(self.buffer_vector, dtype=np.complex128)
         for n, f in enumerate(self.bb_freqs):
             if self.schroeder_phase:
-                phi = -np.pi*n*(n-1)/len(self.bb_freqs) + phase_offset
+                phi = self.schroeder_phase_array[n] + phase_offset
             else:
                 phi = phase_offset
             self.tx_buff += np.exp(
@@ -269,38 +276,31 @@ class SFCWRadar:
         return calibration_profiles
 
     def extract_bb_phasors(self):
+        mini_buff = self.BUFF_SIZE // self.CAPTURE_AVERAGES
         numerator = np.zeros(self.num_freqs, dtype=complex)
         denominator = np.zeros(self.num_freqs)
-        for _ in range(self.CAPTURE_AVERAGES):
-            t0 = time.perf_counter()
-            loop_raw, rx_raw = self.sdr.rx()
-            dt = time.perf_counter() - t0
-            self.rx_times.append(dt)
-            loop_phasors = self.bb_mixers @ loop_raw / self.BUFF_SIZE
-            rx_phasors = self.bb_mixers @ rx_raw / self.BUFF_SIZE
+        t0 = time.perf_counter()
+        loop_raw, rx_raw = self.sdr.rx()
+        dt = time.perf_counter() - t0
+        self.rx_times.append(dt)
+        loop_raw = loop_raw[mini_buff:]
+        rx_raw = rx_raw[mini_buff:]
+
+        for i in range(self.CAPTURE_AVERAGES):
+            a = i * mini_buff
+            b = a + mini_buff
+            mixers = self.bb_mixers[:, a:b]
+            loop_phasors = mixers @ loop_raw[a:b] / mini_buff
+            rx_phasors = mixers @ rx_raw[a:b] / mini_buff
+
             numerator += rx_phasors * np.conj(loop_phasors)
             denominator += np.abs(loop_phasors) ** 2
-        return numerator / (denominator + 1e-12)
 
-    # def extract_bb_phasors(self):
-    #     loop_phasors = np.zeros(self.num_freqs, dtype=complex)
-    #     rx_phasors = np.zeros(self.num_freqs, dtype=complex)
-    #     for _ in range(self.CAPTURE_AVERAGES):
-    #         try:
-    #             loop_raw, rx_raw = self.sdr.rx()
-    #             for i, f in enumerate(self.bb_freqs):
-    #                 mixer = np.exp(-1j * 2 * np.pi * f * self.buffer_vector / self.Fs)
-    #                 loop_phasors[i] += np.mean(loop_raw * mixer)
-    #                 rx_phasors[i] += np.mean(rx_raw * mixer)
-    #         except:
-    #             pass
-    #     loop_phasors /= self.CAPTURE_AVERAGES
-    #     rx_phasors /= self.CAPTURE_AVERAGES
-    #     return rx_phasors / (loop_phasors + 1e-12)
+        return numerator / (denominator + 1e-12)
 
     def load_fastlock(self, start_idx):
         t0 = time.perf_counter()
-        self.sdr.rx_destroy_buffer()
+        # self.sdr.rx_destroy_buffer()
         dt = time.perf_counter() - t0
         self.rx_destroy_buffer_times.append(dt)
 
@@ -313,18 +313,12 @@ class SFCWRadar:
         dt = time.perf_counter() - t0
         self.fastlock_load_times.append(dt)
 
-    # def retune(self, register_num):
-    #     register_num = int(register_num)
-    #     if not 0 <= register_num <= 7:
-    #         raise ValueError(f"Invalid fastlock slot: {register_num}")
-    #     self.lo.attrs["fastlock_recall"].value = str(register_num)
     def retune(self, freq, register_num):
         t0 = time.perf_counter()
         self.lo.attrs["fastlock_recall"].value = str(register_num)
         self.tx_lo.attrs["fastlock_recall"].value = str(register_num)
         dt = time.perf_counter() - t0
         self.fastlock_recall_times.append(dt)
-
 
     def sweep(self):
         self.fastlock_load_times.clear()
@@ -418,5 +412,5 @@ class SFCWRadar:
         self.S = (S_sum / averages).astype(np.complex64)
 
 
-if __name__ == "__main__":
-    sfcw = SFCWRadar()
+# if __name__ == "__main__":
+#     sfcw = SFCWRadar()

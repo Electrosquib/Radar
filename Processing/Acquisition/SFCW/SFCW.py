@@ -1,9 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt # type: ignore
+import argparse
 from datetime import datetime
 import time
 from collections import deque
 import hashlib
+import json
 import os
 from pathlib import Path
 import shutil
@@ -280,7 +282,9 @@ class _PSController:
         return records, offset
 
     def configure(self, radar, rx_port, rx_loopback_port, tx_port, tx_loopback_port):
-        flags = int(radar.schroeder_phase) | (int(radar.verbose) << 1)
+        flags = int(radar.schroeder_phase) | (
+            int(radar.collect_controller_timings) << 1
+        )
         payload = self.CONFIG.pack(
             flags,
             radar.Fs,
@@ -371,6 +375,7 @@ class SFCWRadar:
             tx_phase_offset=0.0,
             tx_magnitude=1.0,
             use_ps_controller=True,
+            collect_controller_timings=False,
             ps_host="192.168.2.1",
             ps_port=22,
             ps_user="root",
@@ -404,6 +409,7 @@ class SFCWRadar:
         if not np.isfinite(self.tx_magnitude) or self.tx_magnitude < 0:
             raise ValueError("tx_magnitude must be finite and nonnegative")
         self.use_ps_controller = bool(use_ps_controller)
+        self.collect_controller_timings = bool(collect_controller_timings)
         self._controller = None
         self._closed = False
         self._ps_ports = (rx_port, rx_loopback_port, tx_port, tx_loopback_port)
@@ -831,7 +837,7 @@ class SFCWRadar:
             self.LOOPBACK_GAIN,
             self.TX_GAIN,
             self.schroeder_phase,
-            self.verbose,
+            self.collect_controller_timings,
             tuple(map(int, self.FREQS)),
             self._ps_ports,
         )
@@ -888,6 +894,108 @@ class SFCWRadar:
             print(f"{'SSH transfer/overhead':<24} {transfer_seconds * 1e3:>12.3f} ms")
             print(f"{'Host phasor processing':<24} {processing_seconds * 1e3:>12.3f} ms")
         return self.S
+
+    @staticmethod
+    def _duration_stats(seconds):
+        values = np.asarray(seconds, dtype=float)
+        if values.size == 0:
+            return None
+        milliseconds = values * 1e3
+        return {
+            "count": int(values.size),
+            "mean_ms": float(np.mean(milliseconds)),
+            "median_ms": float(np.median(milliseconds)),
+            "p95_ms": float(np.percentile(milliseconds, 95)),
+            "p99_ms": float(np.percentile(milliseconds, 99)),
+            "max_ms": float(np.max(milliseconds)),
+        }
+
+    def benchmark(self, frames=600, warmup_frames=10, deadline_s=0.1, frame_callback=None):
+        """Benchmark complete PS-controlled range-profile frames."""
+        if not self.use_ps_controller:
+            raise RuntimeError("benchmark() requires use_ps_controller=True")
+        if not isinstance(frames, int) or frames <= 0:
+            raise ValueError("frames must be a positive integer")
+        if not isinstance(warmup_frames, int) or warmup_frames < 0:
+            raise ValueError("warmup_frames must be a nonnegative integer")
+        if not np.isfinite(deadline_s) or deadline_s <= 0:
+            raise ValueError("deadline_s must be positive and finite")
+
+        previous_timing_setting = self.collect_controller_timings
+        self.collect_controller_timings = True
+        end_to_end = []
+        acquisitions = []
+        transfers = []
+        phasor_processing = []
+        range_processing = []
+        display = []
+        operation_frame_totals = {}
+        operation_calls = {}
+
+        try:
+            for _ in range(warmup_frames):
+                self.sweep()
+                self.get_range_profile(plot=False, cal=False)
+
+            for _ in range(frames):
+                frame_started = time.perf_counter()
+                self.sweep()
+                profile_started = time.perf_counter()
+                range_axis, profile = self.get_range_profile(plot=False, cal=False)
+                range_processing.append(time.perf_counter() - profile_started)
+
+                if frame_callback is not None:
+                    display_started = time.perf_counter()
+                    frame_callback(range_axis, profile)
+                    display.append(time.perf_counter() - display_started)
+
+                end_to_end.append(time.perf_counter() - frame_started)
+                acquisitions.append(self.controller_acquisition_times[-1])
+                transfers.append(self.controller_transfer_times[-1])
+                phasor_processing.append(self.host_processing_times[-1])
+
+                per_frame = {}
+                for record in self.controller_timings:
+                    operation = " ".join(
+                        part
+                        for part in (record["side"], record["operation"])
+                        if part
+                    )
+                    duration = record["duration_s"]
+                    per_frame[operation] = per_frame.get(operation, 0.0) + duration
+                    operation_calls.setdefault(operation, []).append(duration)
+                for operation, duration in per_frame.items():
+                    operation_frame_totals.setdefault(operation, []).append(duration)
+        finally:
+            self.collect_controller_timings = previous_timing_setting
+
+        total_seconds = float(np.sum(end_to_end))
+        return {
+            "frames": frames,
+            "warmup_frames": warmup_frames,
+            "deadline_ms": deadline_s * 1e3,
+            "effective_fps": frames / total_seconds,
+            "missed_deadlines": int(np.count_nonzero(np.asarray(end_to_end) > deadline_s)),
+            "configured_settling_per_frame_ms": (
+                self.retune_delay * self.num_retunes * 1e3
+            ),
+            "metrics": {
+                "end_to_end": self._duration_stats(end_to_end),
+                "ps_acquisition": self._duration_stats(acquisitions),
+                "transfer_overhead": self._duration_stats(transfers),
+                "host_phasor_processing": self._duration_stats(phasor_processing),
+                "range_profile_processing": self._duration_stats(range_processing),
+                "display_callback": self._duration_stats(display),
+            },
+            "controller_operation_per_frame": {
+                operation: self._duration_stats(durations)
+                for operation, durations in operation_frame_totals.items()
+            },
+            "controller_operation_per_call": {
+                operation: self._duration_stats(durations)
+                for operation, durations in operation_calls.items()
+            },
+        }
 
     def get_range_profile(self, plot=False, cal=False):
         if np.mean(self.S) == 0: self.sweep()
@@ -975,5 +1083,36 @@ class SFCWRadar:
 
 
 if __name__ == "__main__":
-    with SFCWRadar() as sfcw:
-        pass
+    parser = argparse.ArgumentParser(description="SFCW radar controller")
+    parser.add_argument("--benchmark", action="store_true", help="benchmark PS range-profile acquisition")
+    parser.add_argument("--frames", type=int, default=600)
+    parser.add_argument("--warmup-frames", type=int, default=10)
+    parser.add_argument("--deadline-ms", type=float, default=100.0)
+    parser.add_argument("--fmin", type=float, default=1_000_000_000)
+    parser.add_argument("--fmax", type=float, default=1_300_000_000)
+    parser.add_argument("--sample-rate", type=float, default=20_000_000)
+    parser.add_argument("--linear", action="store_true", help="disable Costas block ordering")
+    parser.add_argument("--ps-host", default="192.168.2.1")
+    parser.add_argument("--ps-cross-compiler")
+    parser.add_argument("--json", type=Path, help="also write the report as JSON")
+    args = parser.parse_args()
+
+    with SFCWRadar(
+        Fmin=args.fmin,
+        Fmax=args.fmax,
+        Fs=args.sample_rate,
+        costas_mode=not args.linear,
+        ps_host=args.ps_host,
+        ps_cross_compiler=args.ps_cross_compiler,
+        verbose=not args.benchmark,
+    ) as sfcw:
+        if args.benchmark:
+            report = sfcw.benchmark(
+                frames=args.frames,
+                warmup_frames=args.warmup_frames,
+                deadline_s=args.deadline_ms / 1e3,
+            )
+            output = json.dumps(report, indent=2)
+            print(output)
+            if args.json:
+                args.json.write_text(output + "\n", encoding="utf-8")

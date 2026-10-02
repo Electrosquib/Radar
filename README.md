@@ -39,14 +39,14 @@ On macOS/Linux:
 
 ```sh
 source .venv/bin/activate
-python -m pip install numpy scipy matplotlib pillow numba pyadi-iio pyserial soundfile
+python -m pip install numpy scipy matplotlib pillow numba pyadi-iio pyserial soundfile paramiko
 ```
 
 On Windows PowerShell:
 
 ```powershell
 .venv\Scripts\Activate.ps1
-python -m pip install numpy scipy matplotlib pillow numba pyadi-iio pyserial soundfile
+python -m pip install numpy scipy matplotlib pillow numba pyadi-iio pyserial soundfile paramiko
 ```
 
 The SDR also requires the platform-specific libiio drivers and USB permissions supplied by Analog Devices. Verify that the SDR is visible to libiio before starting an acquisition.
@@ -168,4 +168,4 @@ Use `python Processing/Acquisition/ProcessingFMCW/process_fmcw.py --help` and th
 
 Although the important code was human-generated for learning purposes, much of the non-critical boilerplate and tooling was made with ChatGPT. The core algorithms—including MEA, PGA, backprojection, and SFCW processing—are considered important and were hand-coded. Visualization, documentation, rail-control and integration code, and some ports of the MATLAB FMCW radar were created with AI assistance.
 
-This is a long-standing project, so every AI-assisted file may not be identified. The general rule followed in this repository is: code with educational value is written manually; convenience and integration work may use AI assistance. For example, this README.md file was proofread and expounded on with AI. 
+This is a long-standing project, so every AI-assisted file may not be identified. The general rule followed in this repository is: code with educational value is written manually; convenience and integration work may use AI assistance. For example, this README.md file was proofread and expounded on with AI.

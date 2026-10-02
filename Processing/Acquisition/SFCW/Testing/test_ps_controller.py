@@ -37,6 +37,46 @@ class FakeController:
 
 
 class PSControllerTests(unittest.TestCase):
+    def test_controller_timings_are_independent_of_console_verbosity(self):
+        radar = mock.Mock()
+        radar.schroeder_phase = True
+        radar.verbose = True
+        radar.collect_controller_timings = False
+        radar.Fs = 20_000_000
+        radar.BUFF_SIZE = 400
+        radar.CAPTURE_AVERAGES = 4
+        radar.retune_delay = 0.0001
+        radar.num_retunes = 1
+        radar.RX_GAIN = 60
+        radar.LOOPBACK_GAIN = 0
+        radar.TX_GAIN = 0
+        radar.BB_SPACING = 2_000_000
+        radar.BB_GAIN = 1
+        radar.tx_magnitude = 1
+        radar.TX_BB_SCALE = 2**14
+        radar.tx_phase_offset = 0
+        radar.FREQS = [1_000_000_000]
+        controller = SFCW._PSController.__new__(SFCW._PSController)
+        payloads = []
+        controller._request = lambda message_type, payload=b"": (
+            payloads.append(payload) or struct.pack("<I", 0)
+        )
+
+        controller.configure(radar, 1, 0, 0, 1)
+        flags = SFCW._PSController.CONFIG.unpack_from(payloads[-1])[0]
+        self.assertEqual(flags, 1)
+
+        radar.collect_controller_timings = True
+        controller.configure(radar, 1, 0, 0, 1)
+        flags = SFCW._PSController.CONFIG.unpack_from(payloads[-1])[0]
+        self.assertEqual(flags, 3)
+
+    def test_duration_stats_reports_percentiles_in_milliseconds(self):
+        stats = SFCW.SFCWRadar._duration_stats([0.001, 0.002, 0.003, 0.004])
+        self.assertEqual(stats["count"], 4)
+        self.assertEqual(stats["median_ms"], 2.5)
+        self.assertAlmostEqual(stats["p95_ms"], 3.85)
+
     def test_read_exact_accepts_partial_reads(self):
         stream = ChunkedReader(b"abcdefgh", 2)
         self.assertEqual(SFCW._PSController._read_exact(stream, 8), b"abcdefgh")
@@ -133,6 +173,41 @@ class PSControllerTests(unittest.TestCase):
         np.testing.assert_allclose(result, np.full(retunes, 2 + 0j), rtol=1e-6)
         self.assertEqual(len(radar.controller_acquisition_times), 1)
         self.assertEqual(len(radar.host_processing_times), 1)
+
+    def test_benchmark_counts_deadline_misses_and_restores_timing_setting(self):
+        radar = SFCW.SFCWRadar.__new__(SFCW.SFCWRadar)
+        radar.use_ps_controller = True
+        radar.collect_controller_timings = False
+        radar.retune_delay = 0.0001
+        radar.num_retunes = 2
+        radar.controller_acquisition_times = []
+        radar.controller_transfer_times = []
+        radar.host_processing_times = []
+        radar.controller_timings = []
+
+        def sweep():
+            radar.controller_acquisition_times.append(0.003)
+            radar.controller_transfer_times.append(0.002)
+            radar.host_processing_times.append(0.001)
+            radar.controller_timings = [
+                {"side": "RX", "operation": "Buffer refill", "duration_s": 0.002}
+            ]
+
+        radar.sweep = sweep
+        radar.get_range_profile = lambda **kwargs: (
+            np.arange(2, dtype=float),
+            np.ones(2, dtype=complex),
+        )
+
+        report = radar.benchmark(frames=3, warmup_frames=1, deadline_s=1e-9)
+
+        self.assertEqual(report["frames"], 3)
+        self.assertEqual(report["missed_deadlines"], 3)
+        self.assertEqual(
+            report["controller_operation_per_frame"]["RX Buffer refill"]["median_ms"],
+            2.0,
+        )
+        self.assertFalse(radar.collect_controller_timings)
 
 
 if __name__ == "__main__":

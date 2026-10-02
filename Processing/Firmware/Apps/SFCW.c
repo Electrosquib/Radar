@@ -19,7 +19,7 @@
 #define PROFILE_SIZE 128u
 #define PI 3.14159265358979323846
 #define FLAG_SCHROEDER 0x1u
-#define FLAG_VERBOSE 0x2u
+#define FLAG_TIMINGS 0x2u
 #define MAX_RETUNES 4096u
 #define MAX_BUFFER_SAMPLES (1u << 20)
 #define MAX_CAPTURE_BYTES (512u * 1024u * 1024u)
@@ -272,36 +272,36 @@ static int create_tx_buffer(struct controller *c, char *error, size_t size) {
     return 0;
 }
 static int timed_frequency_write(struct iio_channel *lo, uint64_t frequency,
-                                 struct timing_vector *timings, bool verbose,
-                                 uint8_t side, uint32_t index) {
+                                  struct timing_vector *timings, bool timings_enabled,
+                                  uint8_t side, uint32_t index) {
     uint64_t started = monotonic_ns();
     int status = write_attr_ll(lo, "frequency", (long long)frequency);
-    if (timing_append(timings, verbose, TIMING_FULL_RETUNE, side, 255u, index, 0u, status, started) < 0) return -2;
+    if (timing_append(timings, timings_enabled, TIMING_FULL_RETUNE, side, 255u, index, 0u, status, started) < 0) return -2;
     return status;
 }
 static int save_profile(struct iio_channel *lo, char *profile, struct timing_vector *timings,
-                        bool verbose, uint8_t side, uint32_t index) {
+                         bool timings_enabled, uint8_t side, uint32_t index) {
     uint64_t started = monotonic_ns();
     int status = write_attr(lo, "fastlock_store", "0");
     ssize_t length;
-    if (timing_append(timings, verbose, TIMING_FASTLOCK_STORE, side, 0u, index, 0u, status, started) < 0) return -2;
+    if (timing_append(timings, timings_enabled, TIMING_FASTLOCK_STORE, side, 0u, index, 0u, status, started) < 0) return -2;
     if (status < 0) return -1;
     started = monotonic_ns();
     length = iio_channel_attr_read(lo, "fastlock_save", profile, PROFILE_SIZE - 1u);
     status = length < 0 ? -1 : 0;
-    if (timing_append(timings, verbose, TIMING_FASTLOCK_SAVE, side, 0u, index, 0u, status, started) < 0) return -2;
+    if (timing_append(timings, timings_enabled, TIMING_FASTLOCK_SAVE, side, 0u, index, 0u, status, started) < 0) return -2;
     if (length < 0) return -1;
     profile[length] = '\0';
     return strchr(profile, ' ') ? 0 : -1;
 }
 static int create_profiles(struct controller *c, struct timing_vector *timings, char *error, size_t size) {
     uint32_t index;
-    bool verbose = (c->cfg.flags & FLAG_VERBOSE) != 0;
+    bool timings_enabled = (c->cfg.flags & FLAG_TIMINGS) != 0;
     for (index = 0; index < c->cfg.num_retunes; ++index) {
-        if (timed_frequency_write(c->rx_lo, c->frequencies[index], timings, verbose, SIDE_RX, index) ||
-            timed_frequency_write(c->tx_lo, c->frequencies[index], timings, verbose, SIDE_TX, index) ||
-            save_profile(c->rx_lo, c->rx_profiles[index], timings, verbose, SIDE_RX, index) ||
-            save_profile(c->tx_lo, c->tx_profiles[index], timings, verbose, SIDE_TX, index)) {
+        if (timed_frequency_write(c->rx_lo, c->frequencies[index], timings, timings_enabled, SIDE_RX, index) ||
+            timed_frequency_write(c->tx_lo, c->frequencies[index], timings, timings_enabled, SIDE_TX, index) ||
+            save_profile(c->rx_lo, c->rx_profiles[index], timings, timings_enabled, SIDE_RX, index) ||
+            save_profile(c->tx_lo, c->tx_profiles[index], timings, timings_enabled, SIDE_TX, index)) {
             snprintf(error, size, "failed generating fastlock profile %u", index); return -1;
         }
     }
@@ -336,7 +336,7 @@ fail:
     controller_cleanup(c); return -1;
 }
 static int load_profile(struct iio_channel *lo, const char *profile, uint32_t slot,
-                        struct timing_vector *timings, bool verbose, uint8_t side, uint32_t index) {
+                         struct timing_vector *timings, bool timings_enabled, uint8_t side, uint32_t index) {
     char value[PROFILE_SIZE];
     const char *data = strchr(profile, ' ');
     uint64_t started;
@@ -344,21 +344,21 @@ static int load_profile(struct iio_channel *lo, const char *profile, uint32_t sl
     if (!data) return -1;
     snprintf(value, sizeof(value), "%u%s", slot, data);
     started = monotonic_ns(); status = write_attr(lo, "fastlock_load", value);
-    if (timing_append(timings, verbose, TIMING_FASTLOCK_LOAD, side, (uint8_t)slot, index, 0u, status, started) < 0) return -2;
+    if (timing_append(timings, timings_enabled, TIMING_FASTLOCK_LOAD, side, (uint8_t)slot, index, 0u, status, started) < 0) return -2;
     return status;
 }
 static int recall_profile(struct iio_channel *lo, uint32_t slot, struct timing_vector *timings,
-                          bool verbose, uint8_t side, uint32_t index) {
+                           bool timings_enabled, uint8_t side, uint32_t index) {
     char value[4]; uint64_t started; int status;
     snprintf(value, sizeof(value), "%u", slot);
     started = monotonic_ns(); status = write_attr(lo, "fastlock_recall", value);
-    if (timing_append(timings, verbose, TIMING_FASTLOCK_RECALL, side, (uint8_t)slot, index, 0u, status, started) < 0) return -2;
+    if (timing_append(timings, timings_enabled, TIMING_FASTLOCK_RECALL, side, (uint8_t)slot, index, 0u, status, started) < 0) return -2;
     return status;
 }
 static int capture_sweep(struct controller *c, int16_t *raw, struct timing_vector *timings,
                          uint64_t *acquisition_ns, char *error, size_t size) {
     uint32_t group, index, slot, average, sample, port;
-    bool verbose = (c->cfg.flags & FLAG_VERBOSE) != 0;
+    bool timings_enabled = (c->cfg.flags & FLAG_TIMINGS) != 0;
     ptrdiff_t step = iio_buffer_step(c->rx_buffer);
     uint64_t sweep_started = monotonic_ns();
     for (group = 0; group < c->cfg.num_retunes; group += FASTLOCK_SLOTS) {
@@ -366,15 +366,15 @@ static int capture_sweep(struct controller *c, int16_t *raw, struct timing_vecto
         if (count > FASTLOCK_SLOTS) count = FASTLOCK_SLOTS;
         for (slot = 0; slot < count; ++slot) {
             index = group + slot;
-            if (load_profile(c->rx_lo, c->rx_profiles[index], slot, timings, verbose, SIDE_RX, index) ||
-                load_profile(c->tx_lo, c->tx_profiles[index], slot, timings, verbose, SIDE_TX, index)) {
+            if (load_profile(c->rx_lo, c->rx_profiles[index], slot, timings, timings_enabled, SIDE_RX, index) ||
+                load_profile(c->tx_lo, c->tx_profiles[index], slot, timings, timings_enabled, SIDE_TX, index)) {
                 snprintf(error, size, "failed loading fastlock profile %u", index); return -1;
             }
         }
         for (slot = 0; slot < count; ++slot) {
             index = group + slot;
-            if (recall_profile(c->rx_lo, slot, timings, verbose, SIDE_RX, index) ||
-                recall_profile(c->tx_lo, slot, timings, verbose, SIDE_TX, index)) {
+            if (recall_profile(c->rx_lo, slot, timings, timings_enabled, SIDE_RX, index) ||
+                recall_profile(c->tx_lo, slot, timings, timings_enabled, SIDE_TX, index)) {
                 snprintf(error, size, "failed recalling fastlock profile %u", index); return -1;
             }
             if (sleep_us(c->cfg.retune_delay_us) < 0) { snprintf(error, size, "retune settling sleep failed"); return -1; }
@@ -383,7 +383,7 @@ static int capture_sweep(struct controller *c, int16_t *raw, struct timing_vecto
                 uint64_t started = monotonic_ns();
                 ssize_t refill = iio_buffer_refill(c->rx_buffer);
                 int status = refill < 0 ? (int)refill : 0;
-                if (timing_append(timings, verbose, TIMING_BUFFER_REFILL, SIDE_RX,
+                if (timing_append(timings, timings_enabled, TIMING_BUFFER_REFILL, SIDE_RX,
                                   (uint8_t)slot, index, average, status, started) < 0) {
                     snprintf(error, size, "out of memory recording timings"); return -1;
                 }

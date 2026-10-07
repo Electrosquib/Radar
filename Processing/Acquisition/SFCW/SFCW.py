@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt # type: ignore
 from datetime import datetime
 import time
 from collections import deque
+import socket
+import struct
 
 class SFCWRadar:
     def __init__(self, 
@@ -24,7 +26,7 @@ class SFCWRadar:
         self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
         self.CAPTURE_AVERAGES = 50
-        self.BUFF_SIZE = int(400 * self.CAPTURE_AVERAGES) # 20e6 / 1e6 = 20 samps. 8192 / 20 = 409.6. Must be an integer multiple to prevent spectral leakage
+        self.BUFF_SIZE = int(400 * self.CAPTURE_AVERAGES) # 20e6 / 1e6 = 20 samps. 8192 / 20 = 409.6. Must be an integer to prevent spectral leakage
         self.BB_GAIN = 1
         self.SDR_BITS = 12
         self.C = 3e8
@@ -412,5 +414,126 @@ class SFCWRadar:
         self.S = (S_sum / averages).astype(np.complex64)
 
 
-# if __name__ == "__main__":
-#     sfcw = SFCWRadar()
+class StreamRangeProfiles:
+    MAGIC = 0x49515048
+    HEADER = struct.Struct("!IIIHH")
+
+    def __init__(
+        self,
+        host="0.0.0.0",
+        port=5000,
+        fmin=70e6,
+        fmax=6e9,
+        spacing=2e6
+    ):
+        self.fmin = fmin
+        self.fmax = fmax
+        self.spacing = spacing
+        self.c = 3e8
+        self.num_bins = int(round((fmax - fmin) / spacing)) + 1
+
+        self.freq_axis = fmin + np.arange(self.num_bins) * spacing
+        self.range_axis = np.arange(self.num_bins) * self.c / (
+            2 * self.num_bins * spacing
+        )
+        self.window = np.hanning(self.num_bins)
+
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 8 * 1024 * 1024)
+        self.sock.bind((host, port))
+
+        self.S = np.zeros(self.num_bins, dtype=np.complex64)
+        self.received = np.zeros(self.num_bins, dtype=bool)
+
+        self.current_sweep = None
+        self.last_seq = None
+        self.dropped_packets = 0
+        self.incomplete_sweeps = 0
+
+        print(f"[+] Listening on UDP {host}:{port}")
+        print(f"[+] {self.num_bins} bins from {fmin / 1e6:.0f} MHz to {fmax / 1e6:.0f} MHz")
+
+    def _start_sweep(self, sweep):
+        self.S.fill(0)
+        self.received.fill(False)
+        self.current_sweep = sweep
+
+    def receive_sweep(self):
+        while True:
+            data, _ = self.sock.recvfrom(2048)
+
+            if len(data) < self.HEADER.size:
+                continue
+
+            magic, seq, sweep, start, count = self.HEADER.unpack_from(data)
+
+            if magic != self.MAGIC:
+                continue
+
+            if self.last_seq is not None:
+                expected = (self.last_seq + 1) & 0xffffffff
+                if seq != expected:
+                    self.dropped_packets += (seq - expected) & 0xffffffff
+
+            self.last_seq = seq
+
+            if self.current_sweep is None:
+                self._start_sweep(sweep)
+
+            elif sweep != self.current_sweep:
+                if not np.all(self.received):
+                    self.incomplete_sweeps += 1
+                self._start_sweep(sweep)
+
+            if start + count > self.num_bins:
+                continue
+
+            expected_bytes = self.HEADER.size + count * 8
+
+            if len(data) != expected_bytes:
+                continue
+
+            raw = np.frombuffer(
+                data,
+                dtype="<f4",
+                offset=self.HEADER.size,
+                count=count * 2
+            )
+
+            phasors = raw[0::2] + 1j * raw[1::2]
+
+            self.S[start:start + count] = phasors
+            self.received[start:start + count] = True
+
+            if np.all(self.received):
+                S = self.S.copy()
+                sweep_id = self.current_sweep
+                self.current_sweep = None
+                return S, sweep_id
+
+    def get_range_profile(self):
+        S, sweep = self.receive_sweep()
+
+        S -= np.mean(S)
+        S *= self.window
+
+        rp = np.fft.ifft(S)
+
+        return self.range_axis, rp, sweep
+
+    def stream(self):
+        while True:
+            yield self.get_range_profile()
+
+    def close(self):
+        self.sock.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+
+if __name__ == "__main__":
+    sfcw = SFCWRadar()
+    sfcw.sweep()

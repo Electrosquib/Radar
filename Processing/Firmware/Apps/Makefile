@@ -4,15 +4,15 @@ PLINK = "C:/Program Files/PuTTY/plink.exe"
 
 SYSROOT = ./pluto-0.38.sysroot
 
-TARGET = SFCW
-SRC = SFCW.c
+TARGET = radar
+SRC = radar.c
 
 PLUTO_IP = 192.168.2.1
 USER = root
 PASSWORD = analog
 
 build:
-	$(CC) --sysroot="$(SYSROOT)" -mfloat-abi=hard -std=gnu99 -g -Wall -Wextra $(SRC) -o $(TARGET) -lpthread -liio -lm
+	$(CC) --sysroot="$(SYSROOT)" -O3 -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -std=gnu11 -g -Wall -Wextra $(SRC) -o $(TARGET) -lpthread -liio -lm
 
 deploy: build
 	$(PSCP) -scp -pw $(PASSWORD) $(TARGET) $(USER)@$(PLUTO_IP):/root/$(TARGET)

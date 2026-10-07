@@ -75,11 +75,11 @@ def update(*_):
     mean_rp = profiles.mean(axis=0)
 
     if len(complex_rp_hist) > 1:
+        
         stability_error = np.sqrt(
             np.mean(np.abs(profiles - mean_rp) ** 2) /
             (np.mean(np.abs(mean_rp) ** 2) + 1e-12)
         )
-
         stability_db = -20 * np.log10(stability_error + 1e-12)
 
         print(

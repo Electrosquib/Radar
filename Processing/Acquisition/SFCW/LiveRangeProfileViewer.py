@@ -1,18 +1,21 @@
 from SFCW import SFCWRadar
 from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
+from scipy.ndimage import uniform_filter
 import numpy as np
 
 CALIBRATE = False
 SWEEP_AVERAGES = 1
 HISTORY_LENGTH = 10
 SLOW_TIME_HISTORY = 100
-RANGE_GATE_BINS = 2
+RANGE_GATE_BINS = 3
+HORIZONTAL_AVG = 3
+VERTICAL_AVG = 5
 
 radar = SFCWRadar(
-    verbose=False,
+    verbose=True,
     Fmin=2500e6,
-    Fmax=3000e6,
+    Fmax=2800e6,
     Fs=20e6
 )
 
@@ -127,6 +130,24 @@ def update(*_):
         slow_time_history.pop(0)
 
     slow_data = np.stack(slow_time_history)
+
+    linear_data = 10 ** (slow_data / 20)
+    valid = np.isfinite(slow_data)
+
+    smoothed = uniform_filter(
+        np.where(valid, linear_data, 0),
+        size=(VERTICAL_AVG, HORIZONTAL_AVG),
+        mode="nearest"
+    )
+
+    weights = uniform_filter(
+        valid.astype(float),
+        size=(VERTICAL_AVG, HORIZONTAL_AVG),
+        mode="nearest"
+    )
+
+    slow_data = 20 * np.log10(smoothed / np.maximum(weights, 1e-12) + 1e-12)
+    slow_data[:, :RANGE_GATE_BINS] = np.nan
 
     first_scan = scan_count - len(slow_time_history) + 1
     last_scan = scan_count

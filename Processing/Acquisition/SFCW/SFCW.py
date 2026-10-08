@@ -6,6 +6,8 @@ import time
 from collections import deque
 import socket
 import struct
+import warnings
+import threading
 
 class SFCWRadar:
     def __init__(self, 
@@ -22,7 +24,7 @@ class SFCWRadar:
             costas_mode=False,
             schroeder_phase=True
         ):
-        self.RX_GAIN = 54
+        self.RX_GAIN = 30
         self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
         self.CAPTURE_AVERAGES = 50
@@ -344,6 +346,7 @@ class SFCWRadar:
 
         self.range_profile_times.append(time.perf_counter() - range_profile_t0)
         if self.verbose:
+            print(f"[+] Range profile capture: {self.range_profile_times[-1] * 1e3:.3f} ms | {1 / self.range_profile_times[-1]:.2f} Hz")
             print(f"{'Operation':<24} {'Average (ms)':>12} {'Max (ms)':>12} {'Measures':>10}")
             print("-" * 61)
             for label, measurements in (
@@ -417,116 +420,231 @@ class SFCWRadar:
 class StreamRangeProfiles:
     MAGIC = 0x49515048
     HEADER = struct.Struct("!IIIHH")
+    TIMED_MAGIC = 0x49515049
+    TIMED_HEADER = struct.Struct("!IIQHHQQ")
 
-    def __init__(
-        self,
-        host="0.0.0.0",
-        port=5000,
-        fmin=70e6,
-        fmax=6e9,
-        spacing=2e6
-    ):
-        self.fmin = fmin
-        self.fmax = fmax
-        self.spacing = spacing
+    def __init__(self, host="0.0.0.0", port=5000, fmin=70e6, fmax=6e9,
+                 spacing=2e6, verbose=True, queue_size=3,
+                 receive_buffer_bytes=4 * 1024 * 1024):
+        if queue_size < 1:
+            raise ValueError("queue_size must be positive")
+        self.verbose = bool(verbose)
+        self.fmin, self.fmax, self.spacing = fmin, fmax, spacing
         self.c = 3e8
         self.num_bins = int(round((fmax - fmin) / spacing)) + 1
-
         self.freq_axis = fmin + np.arange(self.num_bins) * spacing
-        self.range_axis = np.arange(self.num_bins) * self.c / (
-            2 * self.num_bins * spacing
-        )
+        self.range_axis = np.arange(self.num_bins) * self.c / (2 * self.num_bins * spacing)
         self.window = np.hanning(self.num_bins)
-
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 8 * 1024 * 1024)
-        self.sock.bind((host, port))
-
+        try:
+            self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, receive_buffer_bytes)
+            self.actual_receive_buffer_bytes = self.sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
+            self.sock.bind((host, port))
+            self.sock.settimeout(0.2)
+        except BaseException:
+            self.sock.close()
+            raise
         self.S = np.zeros(self.num_bins, dtype=np.complex64)
         self.received = np.zeros(self.num_bins, dtype=bool)
-
         self.current_sweep = None
+        self.current_acquisition = None
+        self.last_completed_sweep = None
+        self.last_completion_ns = None
+        self.last_returned_sweep = None
+        self.last_capture_metadata = None
         self.last_seq = None
         self.dropped_packets = 0
         self.incomplete_sweeps = 0
+        self.stale_packets = 0
+        self.discarded_sweeps = 0
+        self.completed_sweeps = 0
+        self._queue_size = queue_size
+        self._completed = deque()
+        self._condition = threading.Condition()
+        self._stop = threading.Event()
+        self._receiver_error = None
+        if self.verbose:
+            print(f"[+] Listening on UDP {host}:{port} | SO_RCVBUF requested={receive_buffer_bytes} "
+                  f"actual={self.actual_receive_buffer_bytes} bytes | queue={queue_size}")
+            print(f"[+] {self.num_bins} bins from {fmin / 1e6:.0f} MHz to {fmax / 1e6:.0f} MHz")
+        self._receiver = threading.Thread(target=self._receive_loop, name="sfcw-udp", daemon=True)
+        self._receiver.start()
 
-        print(f"[+] Listening on UDP {host}:{port}")
-        print(f"[+] {self.num_bins} bins from {fmin / 1e6:.0f} MHz to {fmax / 1e6:.0f} MHz")
+    def _receive_loop(self):
+        # This thread only receives/assembles packets; no FFT, printing, or plotting.
+        buffer = bytearray(65535)
+        view = memoryview(buffer)
+        try:
+            while not self._stop.is_set():
+                wait_start_ns = time.perf_counter_ns()
+                try:
+                    size, _ = self.sock.recvfrom_into(buffer)
+                except socket.timeout:
+                    continue
+                arrival_ns = time.perf_counter_ns()
+                self._accept_packet(view[:size], wait_start_ns, arrival_ns)
+        except BaseException as exc:
+            if not self._stop.is_set():
+                with self._condition:
+                    self._receiver_error = exc
+                    self._condition.notify_all()
 
-    def _start_sweep(self, sweep):
-        self.S.fill(0)
-        self.received.fill(False)
-        self.current_sweep = sweep
+    def _accept_packet(self, data, wait_start_ns, arrival_ns):
+        if len(data) < self.HEADER.size:
+            return
+        magic = struct.unpack_from("!I", data)[0]
+        acquisition = None
+        if magic == self.TIMED_MAGIC:
+            header = self.TIMED_HEADER
+            if len(data) < header.size:
+                return
+            _, seq, sweep, start, count, acq_start, acq_end = header.unpack_from(data)
+            if acq_end <= acq_start:
+                return
+            acquisition = (acq_start, acq_end)
+        elif magic == self.MAGIC:
+            header = self.HEADER
+            _, seq, sweep, start, count = header.unpack_from(data)
+        else:
+            return
+        if count == 0 or start + count > self.num_bins or len(data) != header.size + count * 8:
+            return
+        if self.last_seq is not None:
+            gap = (seq - ((self.last_seq + 1) & 0xffffffff)) & 0xffffffff
+            if gap >= 0x80000000:
+                self.stale_packets += 1
+                return
+            self.dropped_packets += gap
+        self.last_seq = seq
+        # IDs are monotonic for a Zynq process lifetime. Restart this receiver after
+        # restarting the producer; never silently treat an older ID as fresh data.
+        if ((self.last_completed_sweep is not None and sweep <= self.last_completed_sweep) or
+                (self.current_sweep is not None and sweep < self.current_sweep)):
+            self.stale_packets += 1
+            return
+        if self.current_sweep != sweep:
+            if self.current_sweep is not None:
+                self.incomplete_sweeps += 1
+            self.S.fill(0)
+            self.received.fill(False)
+            self.current_sweep = sweep
+            self.current_acquisition = acquisition
+            self._receive_start_ns = wait_start_ns
+            self._first_packet_ns = arrival_ns
+        elif acquisition != self.current_acquisition:
+            return
+        # Copy directly into the assembly array before reusing the receive buffer.
+        raw = np.frombuffer(data, dtype='<c8', offset=header.size, count=count)
+        self.S[start:start + count] = raw
+        self.received[start:start + count] = True
+        if not np.all(self.received):
+            return
+        end_ns = time.perf_counter_ns()
+        metadata = {
+            "sweep_id": sweep,
+            "zynq_acquisition_start_ns": acquisition[0] if acquisition else None,
+            "zynq_acquisition_end_ns": acquisition[1] if acquisition else None,
+            "zynq_acquisition_duration_ns": acquisition[1] - acquisition[0] if acquisition else None,
+            "python_receive_start_ns": self._receive_start_ns,
+            "python_first_packet_ns": self._first_packet_ns,
+            "python_receive_end_ns": end_ns,
+            "python_receive_duration_ns": end_ns - self._receive_start_ns,
+            "python_packet_span_ns": end_ns - self._first_packet_ns,
+            "python_completion_interval_ns": end_ns - self.last_completion_ns if self.last_completion_ns else None,
+            "stale": False,
+        }
+        with self._condition:
+            if len(self._completed) == self._queue_size:
+                self._completed.popleft()
+                self.discarded_sweeps += 1
+            self._completed.append((self.S.copy(), metadata))
+            self.completed_sweeps += 1
+            self._condition.notify()
+        self.last_completed_sweep = sweep
+        self.last_completion_ns = end_ns
+        self.current_sweep = None
 
-    def receive_sweep(self):
-        while True:
-            data, _ = self.sock.recvfrom(2048)
+    def _take_sweep(self, timeout=None, latest=True):
+        deadline = None if timeout is None else time.perf_counter() + timeout
+        with self._condition:
+            while not self._completed:
+                if self._receiver_error is not None:
+                    raise RuntimeError("UDP receiver failed") from self._receiver_error
+                if self._stop.is_set():
+                    raise RuntimeError("UDP receiver is closed")
+                remaining = None if deadline is None else deadline - time.perf_counter()
+                if remaining is not None and remaining <= 0:
+                    raise TimeoutError("No completed UDP sweep available")
+                self._condition.wait(remaining)
+            if latest:
+                data, metadata = self._completed.pop()
+                self.discarded_sweeps += len(self._completed)
+                self._completed.clear()
+            else:
+                data, metadata = self._completed.popleft()
+        if self.last_returned_sweep is not None and metadata['sweep_id'] <= self.last_returned_sweep:
+            raise RuntimeError("STALE DATA: non-increasing sweep ID escaped the receiver")
+        self.last_returned_sweep = metadata['sweep_id']
+        metadata['python_dequeue_ns'] = time.perf_counter_ns()
+        metadata['python_queue_age_ns'] = metadata['python_dequeue_ns'] - metadata['python_receive_end_ns']
+        self.last_capture_metadata = metadata
+        return data, metadata
 
-            if len(data) < self.HEADER.size:
-                continue
+    def log_timing(self, metadata):
+        duration = metadata['zynq_acquisition_duration_ns']
+        zynq = (f"Zynq start_ns={metadata['zynq_acquisition_start_ns']} "
+                f"end_ns={metadata['zynq_acquisition_end_ns']} | "
+                f"acquisition={duration / 1e6:.3f} ms ({1e9 / duration:.2f} Hz)" if duration else
+                "Zynq acquisition unavailable (legacy binary; rebuild radar.c)")
+        interval = metadata['python_completion_interval_ns']
+        profile_rate = f"{1e9 / interval:.2f} Hz" if interval and interval > 0 else "n/a"
+        processing = metadata.get('python_processing_duration_ns', 0)
+        total = metadata.get('python_total_duration_ns',
+                             metadata['python_dequeue_ns'] - metadata['python_receive_start_ns'])
+        print(f"[+] Sweep ID received={metadata['sweep_id']} | {zynq} | "
+              f"Python receive start_ns={metadata['python_receive_start_ns']} "
+              f"end_ns={metadata['python_receive_end_ns']} | "
+              f"receive={metadata['python_receive_duration_ns'] / 1e6:.3f} ms "
+              f"packet_span={metadata['python_packet_span_ns'] / 1e6:.3f} ms "
+              f"completion_interval_ms={interval / 1e6 if interval is not None else 'n/a'} | "
+              f"Range profile rate={profile_rate} | "
+              f"queue_age={metadata['python_queue_age_ns'] / 1e6:.3f} ms "
+              f"processing={processing / 1e6:.3f} ms host_total={total / 1e6:.3f} ms | "
+              f"dropped_packets={self.dropped_packets} incomplete_sweeps={self.incomplete_sweeps} "
+              f"stale_packets={self.stale_packets} discarded_sweeps={self.discarded_sweeps}")
 
-            magic, seq, sweep, start, count = self.HEADER.unpack_from(data)
+    def receive_sweep(self, timeout=None, latest=True):
+        """Consume a fresh assembled sweep without DSP; reception remains continuous."""
+        data, metadata = self._take_sweep(timeout, latest)
+        if self.verbose:
+            self.log_timing(metadata)
+        return data, metadata['sweep_id']
 
-            if magic != self.MAGIC:
-                continue
-
-            if self.last_seq is not None:
-                expected = (self.last_seq + 1) & 0xffffffff
-                if seq != expected:
-                    self.dropped_packets += (seq - expected) & 0xffffffff
-
-            self.last_seq = seq
-
-            if self.current_sweep is None:
-                self._start_sweep(sweep)
-
-            elif sweep != self.current_sweep:
-                if not np.all(self.received):
-                    self.incomplete_sweeps += 1
-                self._start_sweep(sweep)
-
-            if start + count > self.num_bins:
-                continue
-
-            expected_bytes = self.HEADER.size + count * 8
-
-            if len(data) != expected_bytes:
-                continue
-
-            raw = np.frombuffer(
-                data,
-                dtype="<f4",
-                offset=self.HEADER.size,
-                count=count * 2
-            )
-
-            phasors = raw[0::2] + 1j * raw[1::2]
-
-            self.S[start:start + count] = phasors
-            self.received[start:start + count] = True
-
-            if np.all(self.received):
-                S = self.S.copy()
-                sweep_id = self.current_sweep
-                self.current_sweep = None
-                return S, sweep_id
-
-    def get_range_profile(self):
-        S, sweep = self.receive_sweep()
-
-        S -= np.mean(S)
-        S *= self.window
-
-        rp = np.fft.ifft(S)
-
-        return self.range_axis, rp, sweep
+    def get_range_profile(self, timeout=None, latest=True):
+        data, metadata = self._take_sweep(timeout, latest)
+        start_ns = time.perf_counter_ns()
+        data -= np.mean(data)
+        data *= self.window
+        rp = np.fft.ifft(data)
+        end_ns = time.perf_counter_ns()
+        metadata.update(python_processing_start_ns=start_ns, python_processing_end_ns=end_ns,
+                        python_processing_duration_ns=end_ns - start_ns,
+                        python_total_duration_ns=end_ns - metadata['python_receive_start_ns'])
+        if self.verbose:
+            self.log_timing(metadata)
+        return self.range_axis, rp, metadata['sweep_id']
 
     def stream(self):
-        while True:
+        while not self._stop.is_set():
             yield self.get_range_profile()
 
     def close(self):
+        self._stop.set()
+        with self._condition:
+            self._condition.notify_all()
         self.sock.close()
+        if threading.current_thread() is not self._receiver:
+            self._receiver.join(timeout=1)
 
     def __enter__(self):
         return self

@@ -4,6 +4,8 @@
 #include <iio.h>
 #include <math.h>
 #include <stdint.h>
+#include <inttypes.h>
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,7 +16,7 @@
 
 #define DEST_IP "192.168.2.10"
 #define PORT 5000
-#define MAGIC 0x49515048
+#define MAGIC 0x49515049 /* Timestamped protocol v2 */
 
 #define FS_HZ 20000000LL
 #define BB_SPACING_HZ 2000000LL
@@ -42,15 +44,28 @@
 #define FASTLOCK_SLOTS 8
 #define PROFILE_LEN 128
 
-#define PHASORS_PER_PACKET 182
+#define PHASORS_PER_PACKET 179
 
 typedef struct __attribute__((packed)) {
     uint32_t magic;
     uint32_t seq;
-    uint32_t sweep;
+    uint32_t sweep_hi, sweep_lo;
     uint16_t start_bin;
     uint16_t count;
+    uint32_t acquisition_start_hi, acquisition_start_lo;
+    uint32_t acquisition_end_hi, acquisition_end_lo;
 } packet_header_t;
+_Static_assert(sizeof(packet_header_t) == 36, "Python v2 header must be 36 bytes");
+
+/* Nanoseconds since boot; independent of wall-clock/NTP changes. */
+static uint64_t monotonic_ns(void) {
+    struct timespec ts;
+    if (clock_gettime(CLOCK_MONOTONIC, &ts) != 0) {
+        perror("clock_gettime");
+        exit(EXIT_FAILURE);
+    }
+    return (uint64_t)ts.tv_sec * 1000000000ULL + (uint64_t)ts.tv_nsec;
+}
 
 static void print_iio_error(const char *message) {
     char err[256];
@@ -469,17 +484,19 @@ static int recall_fastlock(
  * real = 4 bytes
  * imag = 4 bytes
  *
- * 182 complex samples = 1456 bytes
- * header = 16 bytes
+ * 179 complex samples = 1432 bytes
+ * v2 header = 36 bytes (network byte order; payload remains little-endian)
  *
- * total UDP payload = 1472 bytes
+ * total UDP payload = 1468 bytes (below the 1472-byte IPv4 MTU budget)
  */
 static int send_sweep(
     int sock,
     struct sockaddr_in *dst,
     const float *sweep_data,
     int num_bins,
-    uint32_t sweep_id,
+    uint64_t sweep_id,
+    uint64_t acquisition_start_ns,
+    uint64_t acquisition_end_ns,
     uint32_t *seq
 ) {
     uint8_t packet[
@@ -500,9 +517,14 @@ static int send_sweep(
         packet_header_t header = {
             .magic = htonl(MAGIC),
             .seq = htonl((*seq)++),
-            .sweep = htonl(sweep_id),
+            .sweep_hi = htonl((uint32_t)(sweep_id >> 32)),
+            .sweep_lo = htonl((uint32_t)sweep_id),
             .start_bin = htons((uint16_t)start),
-            .count = htons((uint16_t)count)
+            .count = htons((uint16_t)count),
+            .acquisition_start_hi = htonl((uint32_t)(acquisition_start_ns >> 32)),
+            .acquisition_start_lo = htonl((uint32_t)acquisition_start_ns),
+            .acquisition_end_hi = htonl((uint32_t)(acquisition_end_ns >> 32)),
+            .acquisition_end_lo = htonl((uint32_t)acquisition_end_ns)
         };
 
         memcpy(
@@ -1133,7 +1155,7 @@ int main(void) {
     printf("\n[+] Fastlock profiles ready\n");
 
     uint32_t seq = 0;
-    uint32_t sweep_id = 0;
+    uint64_t sweep_id = 0; /* Strictly increasing for this process lifetime. */
 
     float phasors[
         NUM_BB_FREQS * 2
@@ -1143,6 +1165,7 @@ int main(void) {
      * Continuous radar acquisition.
      */
     while (1) {
+        uint64_t acquisition_start_ns = monotonic_ns();
         /*
          * Everything starts at zero.
          *
@@ -1318,6 +1341,14 @@ int main(void) {
             }
         }
 
+        uint64_t acquisition_end_ns = monotonic_ns();
+        printf("[+] Sweep %" PRIu64 " | Zynq acquisition start_ns=%" PRIu64
+               " end_ns=%" PRIu64 " | duration=%.3f ms (%.2f Hz)\n",
+               sweep_id, acquisition_start_ns, acquisition_end_ns,
+               (acquisition_end_ns - acquisition_start_ns) / 1e6,
+               1e9 / (acquisition_end_ns - acquisition_start_ns));
+        fflush(stdout);
+
         if (
             send_sweep(
                 sock,
@@ -1325,6 +1356,8 @@ int main(void) {
                 sweep_data,
                 num_output_bins,
                 sweep_id,
+                acquisition_start_ns,
+                acquisition_end_ns,
                 &seq
             ) < 0
         ) {
@@ -1333,7 +1366,7 @@ int main(void) {
             );
         } else {
             printf(
-                "[+] Sweep %u sent\n",
+                "[+] Sweep %" PRIu64 " sent\n",
                 sweep_id
             );
         }

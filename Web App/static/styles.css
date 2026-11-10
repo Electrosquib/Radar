@@ -1,0 +1,115 @@
+:root {
+  --green: #024731;
+  --white: #C8C8C8;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p, h6, h5, h4, h3, h2, h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 34px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+}
+
+.left-panel {
+    width: 20%;
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.panel-item {
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.panel-item:not(.active) .panel-text:hover {
+    /* background-color: var(--white); */
+    background-color: #1a664e;
+}
+
+.arrow {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: var(--white);
+}
+
+.panel-item .panel-num {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 5px 0 0 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--green);
+    font-weight: 500;
+}
+
+.panel-item .panel-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+}
+
+.panel-item.active {
+    border-radius: 10px 0 0 10px;
+    margin-right: 0;
+    border-right: none;
+    background-color: var(--white);
+}
+
+.panel-item.active .panel-text {
+    color: var(--green);
+}
+
+.right-panel {
+    width: 80%;
+    background-color: var(--white);
+}
+
+.top-bar {
+    display: flex;
+    padding: 10px;
+}
+
+.panel-item a {
+    text-decoration: none;
+}

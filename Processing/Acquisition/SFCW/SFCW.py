@@ -22,7 +22,7 @@ class SFCWRadar:
             costas_mode=False,
             schroeder_phase=True
         ):
-        self.RX_GAIN = 54
+        self.RX_GAIN = 30
         self.LOOPBACK_GAIN = 0
         self.TX_GAIN = 0
         self.CAPTURE_AVERAGES = 50
@@ -34,7 +34,7 @@ class SFCWRadar:
         self.BB_SPACING = 2e6
         self.Fs = int(Fs)
         self.max_range = self.C / (2 * self.BB_SPACING)
-        self.retune_delay = 100e-6
+        self.retune_delay = 10e-6
 
     
         self.verbose = True if verbose else False
@@ -344,6 +344,7 @@ class SFCWRadar:
 
         self.range_profile_times.append(time.perf_counter() - range_profile_t0)
         if self.verbose:
+            print(f"Range profile capture: {1 / max(self.range_profile_times[-1], 1e-12):.2f} Hz")
             print(f"{'Operation':<24} {'Average (ms)':>12} {'Max (ms)':>12} {'Measures':>10}")
             print("-" * 61)
             for label, measurements in (
@@ -424,7 +425,8 @@ class StreamRangeProfiles:
         port=5000,
         fmin=70e6,
         fmax=6e9,
-        spacing=2e6
+        spacing=2e6,
+        packet_source=None
     ):
         self.fmin = fmin
         self.fmax = fmax
@@ -438,9 +440,11 @@ class StreamRangeProfiles:
         )
         self.window = np.hanning(self.num_bins)
 
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 8 * 1024 * 1024)
-        self.sock.bind((host, port))
+        self.sock = packet_source
+        if self.sock is None:
+            self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 8 * 1024 * 1024)
+            self.sock.bind((host, port))
 
         self.S = np.zeros(self.num_bins, dtype=np.complex64)
         self.received = np.zeros(self.num_bins, dtype=bool)
@@ -450,7 +454,8 @@ class StreamRangeProfiles:
         self.dropped_packets = 0
         self.incomplete_sweeps = 0
 
-        print(f"[+] Listening on UDP {host}:{port}")
+        print(f"[+] Receiving USB sweeps" if packet_source is not None
+              else f"[+] Listening on UDP {host}:{port}")
         print(f"[+] {self.num_bins} bins from {fmin / 1e6:.0f} MHz to {fmax / 1e6:.0f} MHz")
 
     def _start_sweep(self, sweep):

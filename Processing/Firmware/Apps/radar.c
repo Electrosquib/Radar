@@ -19,21 +19,31 @@
 #define FS_HZ 20000000LL
 #define BB_SPACING_HZ 2000000LL
 
-#define FMIN_HZ 1700000000LL
-#define FMAX_HZ 2000000000LL
+#define FMIN_HZ 4000000000LL
+#define FMAX_HZ 4600000000LL
 
 #define NUM_BB_FREQS 10
 #define MINI_BUF 400
-#define CAPTURE_AVERAGES 50
+#define CAPTURE_AVERAGES 10
 #define PROCESS_SAMPLES (MINI_BUF * CAPTURE_AVERAGES)
 #define RX_BUFFER_SAMPLES (PROCESS_SAMPLES + MINI_BUF)
 #define TX_BUFFER_SAMPLES PROCESS_SAMPLES
 
 #define RF_BW_HZ FS_HZ
-#define RETUNE_DELAY_US 100
+#define RETUNE_DELAY_US 20
 
-#define LOOPBACK_GAIN_DB 0.0
-#define RX_GAIN_DB 54.0
+// Physical RX connector numbers: 1 or 2. Gains follow the selected ports.
+#define LOOPBACK_RX_PORT 2
+#define RADAR_RX_PORT 1
+
+#if (LOOPBACK_RX_PORT != 1 && LOOPBACK_RX_PORT != 2) || \
+    (RADAR_RX_PORT != 1 && RADAR_RX_PORT != 2) || \
+    LOOPBACK_RX_PORT == RADAR_RX_PORT
+#error "Loopback and radar RX must use distinct ports 1 and 2"
+#endif
+
+#define LOOPBACK_GAIN_DB 10
+#define RX_GAIN_DB 30.0
 #define TX1_GAIN_DB 0.0
 #define TX2_GAIN_DB -37.5
 
@@ -517,6 +527,16 @@ static int send_sweep(
             count * 2 * sizeof(float)
         );
 
+        if (sock < 0) {
+            printf("IQPH ");
+            for (size_t i = 0; i < sizeof(header) + count * 2 * sizeof(float); i++)
+                printf("%02x", packet[i]);
+            putchar('\n');
+            if (fflush(stdout) != 0 || ferror(stdout))
+                return -1;
+            continue;
+        }
+
         ssize_t sent = sendto(
             sock,
             packet,
@@ -536,7 +556,12 @@ static int send_sweep(
     return 0;
 }
 
-int main(void) {
+int main(int argc, char **argv) {
+    int serial_output = argc == 2 && strcmp(argv[1], "--serial") == 0;
+    if (argc > 1 && !serial_output) {
+        fprintf(stderr, "Usage: %s [--serial]\n", argv[0]);
+        return 1;
+    }
     /*
      * Full requested RF grid:
      *
@@ -624,7 +649,7 @@ int main(void) {
     int sock =
         socket(AF_INET, SOCK_DGRAM, 0);
 
-    if (sock < 0) {
+    if (sock < 0 && !serial_output) {
         perror("socket");
         return 1;
     }
@@ -654,6 +679,12 @@ int main(void) {
     ) {
         printf("[-] Invalid destination IP\n");
         return 1;
+    }
+
+    if (serial_output) {
+        if (sock >= 0)
+            close(sock);
+        sock = -1;
     }
 
     /*
@@ -709,51 +740,55 @@ int main(void) {
             true
         );
 
+    const char *rx_channel_names[] = {
+        "voltage0", "voltage1", "voltage2", "voltage3"
+    };
+
     /*
-     * RX1 = loopback
+     * Loopback RX
      */
     struct iio_channel *lb_phy =
         iio_device_find_channel(
             sdr,
-            "voltage0",
+            rx_channel_names[LOOPBACK_RX_PORT - 1],
             false
         );
 
     struct iio_channel *lb_i =
         iio_device_find_channel(
             rx,
-            "voltage0",
+            rx_channel_names[2 * (LOOPBACK_RX_PORT - 1)],
             false
         );
 
     struct iio_channel *lb_q =
         iio_device_find_channel(
             rx,
-            "voltage1",
+            rx_channel_names[2 * (LOOPBACK_RX_PORT - 1) + 1],
             false
         );
 
     /*
-     * RX2 = radar receive
+     * Radar RX
      */
     struct iio_channel *rc_phy =
         iio_device_find_channel(
             sdr,
-            "voltage1",
+            rx_channel_names[RADAR_RX_PORT - 1],
             false
         );
 
     struct iio_channel *rc_i =
         iio_device_find_channel(
             rx,
-            "voltage2",
+            rx_channel_names[2 * (RADAR_RX_PORT - 1)],
             false
         );
 
     struct iio_channel *rc_q =
         iio_device_find_channel(
             rx,
-            "voltage3",
+            rx_channel_names[2 * (RADAR_RX_PORT - 1) + 1],
             false
         );
 
@@ -837,7 +872,7 @@ int main(void) {
     iio_channel_attr_write(
         rc_phy,
         "rf_port_select",
-        "B_BALANCED"
+        "A_BALANCED"
     );
 
     iio_channel_attr_write_longlong(
@@ -905,7 +940,7 @@ int main(void) {
     iio_channel_attr_write(
         tx2_phy,
         "rf_port_select",
-        "B"
+        "A"
     );
 
     iio_channel_attr_write_longlong(

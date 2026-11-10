@@ -51,6 +51,21 @@ python -m pip install numpy scipy matplotlib pillow numba pyadi-iio pyserial sou
 
 The SDR also requires the platform-specific libiio drivers and USB permissions supplied by Analog Devices. Verify that the SDR is visible to libiio before starting an acquisition.
 
+## Start the streaming range-profile viewer
+
+From the repository root on Windows:
+
+```powershell
+.\.venv\Scripts\python.exe start_radar.py --rebuild
+.\.venv\Scripts\python.exe start_radar.py
+```
+
+Use `--rebuild` once to compile and upload `Processing/Firmware/Apps/radar.c` over the USB serial console. Later launches reuse the installed PS binary. The launcher automatically finds the Pluto console (currently COM3), logs in, starts PS acquisition, receives its sweeps over USB, and opens the existing range-profile viewer in your browser. Uploads are checked with SHA-256 before replacing the PS binary.
+
+The streaming firmware uses TX1/RX1 for the antennas and a TX2 → RX2 cable for the reference. TX2 attenuation is 10 dB; reference RX gain is 25 dB and antenna RX gain is 30 dB. The viewer prints completed sweeps per second (Hz), and its amplitude slider holds the trace and waterfall scales fixed.
+
+Close any other program using the Pluto serial console before launching. Press Ctrl+C in the launcher terminal to stop capture and the viewer; closing only the browser tab does not stop capture. USB Ethernet, SSH, and an IP address are not required. The existing `.venv`, ARM compiler, Makefile, and pyserial package are used.
+
 ## Run the SFCW SAR workflow
 
 First edit the configuration constants near the top of `Processing/Acquisition/SFCW/SAR.py` to match the equipment and desired image:

@@ -10,9 +10,9 @@ SLOW_TIME_HISTORY = 100
 RANGE_GATE_BINS = 2
 
 radar = SFCWRadar(
-    verbose=False,
-    Fmin=2500e6,
-    Fmax=3000e6,
+    verbose=True,
+    Fmin=4000e6,
+    Fmax=4300e6,
     Fs=20e6
 )
 

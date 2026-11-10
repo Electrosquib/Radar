@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <!-- <img src="{{ url_for('static', filename='logo.png') }}"> -->
+    <title>Radar Dashboard</title>
+</head>
+<body>
+    <div id="main">
+        <div class="left-panel">
+            <h2>Pipeline</h2>
+            <div class="panel-item active">
+                <div class="panel-num">1</div>
+                <a href="/data-collection" class="panel-text">Data Collection</a>
+            </div>
+            <!-- <div class="arrow">⬇</div> -->
+            <div class="panel-item">
+                <div class="panel-num">2</div>
+                <a href="/data-review" class="panel-text">Data Review</a>
+            </div>
+            <!-- <div class="arrow">⬇</div> -->
+        </div>
+        <div class="right-panel">
+            <div class="top-bar">
+                <div class="title">
+                    API Disconnected
+                </div>
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="UH Manoa logo" width="60" height="60">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-if __name__ == "__main__" and globals().get("packet_source") is None:
-    import argparse
-
-    argparse.ArgumentParser(
-        description="Display live SFCW range profiles and range-slow-time history.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""Commands (from the repository root):
-  python start_radar.py             Start USB capture and the browser viewer.
-  python start_radar.py --rebuild   Compile and upload radar.c, then start USB capture.
-  python start_radar.py --help      Show launcher options.
-
-Running this viewer directly listens for UDP sweeps on 0.0.0.0:5000
-(4.0-4.6 GHz, 2 MHz spacing); it does not start the radar sender.
-
-Controls and status:
-  Amplitude slider: adjust the trace and waterfall dB limits.
-  Terminal output: sweep rate, stability, dropped packets, incomplete sweeps.
-  Stop USB capture: Ctrl+C in the launcher terminal; closing the browser tab
-  does not stop capture. Close the plot window to stop the standalone viewer.
-
-USB setup: connect one PlutoSDR and close other programs using its serial console.
-Rebuild/upload requires make and the ARM compiler configured by the Makefile."""
-    ).parse_args()
-
-from SFCW import StreamRangeProfiles
-from matplotlib.animation import FuncAnimation
-from matplotlib.widgets import RangeSlider
-from collections import deque
-from time import perf_counter
-import matplotlib.pyplot as plt
-=======
 import argparse
 from pathlib import Path
 import shlex
@@ -207,39 +175,24 @@ if __name__ == "__main__":
         raise SystemExit(0)
 
 from SFCW import StreamRangeProfiles
->>>>>>> eabd28fe9e2d8d9a95793bc8cbc0aa712df77da0
 import numpy as np
 
 SWEEP_AVERAGES = 1
 HISTORY_LENGTH = 10
 SLOW_TIME_HISTORY = 100
 RANGE_GATE_BINS = 2
-<<<<<<< HEAD
-WAITING_TITLE = ("Waiting for USB sweeps" if globals().get("packet_source") is not None
-                 else "Waiting for UDP sweeps on port 5000")
-=======
 COLOR_MIN_DB = -100.0
 COLOR_MAX_DB = 0.0
 COLOR_MAX_SLIDER_UPPER_DB = 100.0
->>>>>>> eabd28fe9e2d8d9a95793bc8cbc0aa712df77da0
 
 radar = StreamRangeProfiles(
     host="0.0.0.0",
     port=5000,
-<<<<<<< HEAD
-    fmin=4.0e9,
-    fmax=4.6e9,
-    spacing=2e6,
-    packet_source=globals().get("packet_source")
-=======
     fmin=2.5e9,
     fmax=2.8e9,
     spacing=2e6,
     verbose=False
->>>>>>> eabd28fe9e2d8d9a95793bc8cbc0aa712df77da0
 )
-# Keep missing sweep data from blocking the GUI event loop.
-radar.sock.settimeout(0.01)
 
 print(f"[+] SO_RCVBUF actual={radar.actual_receive_buffer_bytes} bytes | mode={args.mode}")
 
@@ -353,25 +306,6 @@ ax_slow.set_xlim(0, 10)
 colorbar = fig.colorbar(slow_image, ax=ax_slow)
 colorbar.set_label("Magnitude (dB)")
 
-<<<<<<< HEAD
-plt.tight_layout(rect=(0, 0.12, 1, 1))
-
-amplitude_slider = RangeSlider(
-    fig.add_axes([0.18, 0.045, 0.65, 0.03]),
-    "Amplitude (dB)", -120, 80, valinit=(-60, 0), valstep=1, valfmt="%0.0f dB"
-)
-
-def set_amplitude(limits):
-    low, high = limits
-    if high <= low:
-        high = low + 1
-    ax.set_ylim(low, high)
-    slow_image.set_clim(low, high)
-    fig.canvas.draw_idle()
-
-amplitude_slider.on_changed(set_amplitude)
-set_amplitude(amplitude_slider.val)
-=======
 plt.tight_layout()
 fig.subplots_adjust(bottom=0.14)
 color_max_ax = fig.add_axes([0.23, 0.04, 0.55, 0.025])
@@ -384,7 +318,6 @@ color_max_slider = Slider(
     valstep=1.0,
     valfmt="%0.0f dB"
 )
->>>>>>> eabd28fe9e2d8d9a95793bc8cbc0aa712df77da0
 
 
 def set_color_max(value):
@@ -398,20 +331,6 @@ color_max_slider.on_changed(set_color_max)
 def update(*_):
     global scan_count
 
-<<<<<<< HEAD
-    try:
-        range_axis, rp, sweep_id = get_averaged_profile()
-    except TimeoutError:
-        if scan_count == 0:
-            ax.set_title(WAITING_TITLE)
-        return line, *history_lines, slow_image
-
-    arrival_times.append(perf_counter())
-    elapsed = arrival_times[-1] - arrival_times[0]
-    hz = (len(arrival_times) - 1) / elapsed if elapsed > 0 else 0.0
-    ax.set_title(f"Live Streamed SFCW Range Profile | {hz:.1f} Hz")
-    status = f"Sweep {sweep_id} | {hz:.1f} Hz"
-=======
     if processing_errors:
         print(f"[-] Processing failed: {processing_errors[0]}")
         plt.close(fig)
@@ -422,7 +341,6 @@ def update(*_):
         range_axis, rp, sweep_id, metadata = plot_profiles.pop()
         plot_profiles.clear()
     plot_start_ns = time.perf_counter_ns()
->>>>>>> eabd28fe9e2d8d9a95793bc8cbc0aa712df77da0
 
     scan_count += 1
     complex_rp_hist.append(rp.copy())
@@ -508,10 +426,6 @@ try:
     processing_thread.start()
     plt.show()
 finally:
-<<<<<<< HEAD
-    radar.close()
-=======
     processing_stop.set()
     radar.close()
     processing_thread.join(timeout=1)
->>>>>>> eabd28fe9e2d8d9a95793bc8cbc0aa712df77da0

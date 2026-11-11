@@ -1,5 +1,14 @@
 # Radar
 
+How to use:
+1) git clone https://github.com/Electrosquib/Radar.git
+2) cd Radar
+3) python -m venv .venv (in WSL or a linux terminal)
+4) source .venv/bin/activate
+5) pip install -r requirements.txt
+6) python Web\ App/api.py
+7) Access it at http://127.0.0.1:5000/ on a web browser
+
 Vivado project path: Processing\Vivado\AD936X_PL\projects\fmcomms2\zc702\zc702.xpr
 Hardware Github: https://github.com/OpenSourceSDRLab/PlutoSky_7020_AD936X_SDR
 
